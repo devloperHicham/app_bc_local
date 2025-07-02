@@ -1,0 +1,298 @@
+services:
+  # ===================== Postgres DBs ==========================
+  postgres-user:
+    image: postgres:16
+    container_name: postgres-user
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: user_password12345@@
+    volumes:
+      - user-data:/var/lib/postgresql/data
+      - ./init-scripts/user.sql:/docker-entrypoint-initdb.d/user.sql
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U user_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-setting:
+    image: postgres:16
+    container_name: postgres-setting
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: setting_db
+      POSTGRES_USER: setting_db
+      POSTGRES_PASSWORD: setting_password12345@@
+    volumes:
+      - setting-data:/var/lib/postgresql/data
+      - ./init-scripts/setting.sql:/docker-entrypoint-initdb.d/setting.sql
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U setting_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-comparison:
+    image: postgres:16
+    container_name: postgres-comparison
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: comparison_db
+      POSTGRES_USER: comparison_db
+      POSTGRES_PASSWORD: comparison_password12345@@
+    volumes:
+      - comparison-data:/var/lib/postgresql/data
+      - ./init-scripts/comparison.sql:/docker-entrypoint-initdb.d/comparison.sql
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U comparison_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-schedule:
+    image: postgres:16
+    container_name: postgres-schedule
+    ports:
+      - "5436:5432"
+    environment:
+      POSTGRES_DB: schedule_db
+      POSTGRES_USER: schedule_db
+      POSTGRES_PASSWORD: schedule_password12345@@
+    volumes:
+      - schedule-data:/var/lib/postgresql/data
+      - ./init-scripts/schedule.sql:/docker-entrypoint-initdb.d/schedule.sql
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U schedule_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===================== Spring Boot Services ==========================
+  config-service:
+    build:
+      context: ./backend/config-service
+    container_name: config-service
+    ports:
+      - "8888:8888"
+    networks:
+      - backend
+    volumes:
+      - ./config-data/config-service.yml:/config/config-service.yml
+    environment:
+      - SPRING_CONFIG_LOCATION=file:/config/config-service.yml
+
+  discovery-service:
+    build:
+      context: ./backend/discovery-service
+    container_name: discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+    environment:
+      SPRING_APPLICATION_NAME: discovery-service
+
+  auth-service:
+    build:
+      context: ./backend/auth-service
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres-user:
+        condition: service_healthy
+      config-service:
+        condition: service_started
+    environment:
+      SPRING_APPLICATION_NAME: auth-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-user:5432/user_db
+      SPRING_DATASOURCE_USERNAME: user_db
+      SPRING_DATASOURCE_PASSWORD: user_password12345@@
+    networks:
+      - backend
+
+  user-service:
+    build:
+      context: ./backend/user-service
+    container_name: user-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      postgres-user:
+        condition: service_healthy
+      config-service:
+        condition: service_started
+    environment:
+      SPRING_APPLICATION_NAME: user-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-user:5432/user_db
+      SPRING_DATASOURCE_USERNAME: user_db
+      SPRING_DATASOURCE_PASSWORD: user_password12345@@
+    networks:
+      - backend
+
+  setting-service:
+    build:
+      context: ./backend/setting-service
+    container_name: setting-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      postgres-setting:
+        condition: service_healthy
+      config-service:
+        condition: service_started
+    environment:
+      SPRING_APPLICATION_NAME: setting-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-setting:5432/setting_db
+      SPRING_DATASOURCE_USERNAME: setting_db
+      SPRING_DATASOURCE_PASSWORD: setting_password12345@@
+      STORAGE_LOCATION: /app/storage-images
+    volumes:
+      - ./storage-images:/app/storage-images
+    networks:
+      - backend
+
+  comparison-service:
+    build:
+      context: ./backend/comparison-service
+    container_name: comparison-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      postgres-comparison:
+        condition: service_healthy
+      config-service:
+        condition: service_started
+    environment:
+      SPRING_APPLICATION_NAME: comparison-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-comparison:5432/comparison_db
+      SPRING_DATASOURCE_USERNAME: comparison_db
+      SPRING_DATASOURCE_PASSWORD: comparison_password12345@@
+    networks:
+      - backend
+
+  # schedule-service
+  schedule-service:
+    build:
+      context: ./backend/schedule-service
+    container_name: schedule-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      postgres-schedule:
+        condition: service_healthy
+      config-service:
+        condition: service_started
+    environment:
+      SPRING_APPLICATION_NAME: schedule-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-schedule:5432/schedule_db
+      SPRING_DATASOURCE_USERNAME: schedule_db
+      SPRING_DATASOURCE_PASSWORD: schedule_password12345@@
+    networks:
+      - backend
+
+  # API Gateway
+  api-gateway-service:
+    build:
+      context: ./backend/api-gateway-service
+    container_name: api-gateway-service
+    ports:
+      - "8881:8881"
+    volumes:
+      - ./ssl:/ssl
+    depends_on:
+      - discovery-service
+      - config-service
+    environment:
+      SPRING_APPLICATION_NAME: api-gateway-service
+      SPRING_CONFIG_IMPORT: configserver:http://config-service:8888/
+      EUREKA_SERVICE_URL: http://discovery-service:8761/eureka/
+    networks:
+      - backend
+
+  # ===================== PGADMIN FOR POSTGRESQL    ==========================
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    networks:
+      - backend
+
+  # ===================== jenkins  ==========================
+  # jenkins CI/CD
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./jenkins/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+  # ===================== Frontend  ==========================
+  # Frontend Angular
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: angular-frontend
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./ssl/192.168.1.50.pem:/etc/ssl/certs/cert.pem
+      - ./ssl/192.168.1.50-key.pem:/etc/ssl/private/key.pem
+    depends_on:
+      - api-gateway-service
+    networks:
+      - backend
+    # ===================== Backup database  ==========================
+    # db-backup:
+    #   build:
+    #     context: ./backup-scripts
+    #  container_name: db-backup
+    #  volumes:
+    #    - ./db-backups:/backups
+    #   environment:
+    #   PGPASSWORD: backup_password12345@@
+    #  depends_on:
+    #    - postgres-user
+    #    - postgres-setting
+    #    - postgres-comparison
+    #    - postgres-schedule
+    #  networks:
+    #    - backend 
+    # ===================== Networks & Volumes ==========================
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  user-data:
+  setting-data:
+  comparison-data:
+  schedule-data:

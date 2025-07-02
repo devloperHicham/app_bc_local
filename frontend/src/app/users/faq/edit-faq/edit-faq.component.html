@@ -1,0 +1,136 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">MODIFIER FAQ</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="p-4 border rounded">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <div class="col-md-6">
+                  @if (isAdmin()) {
+                  <label for="userId" class="form-label">Opérateurs</label>
+                  <ng-select
+                      id="userId"
+                      name="userId"
+                      [items]="users"
+                      bindLabel="fullName"
+                      bindValue="email"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="userId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  } @else{
+                  <label for="fullName" class="form-label"
+                    >Nom et Prénom<span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="fullName"
+                    placeholder="Entrez votre Nom"
+                    name="fullName"
+                    required
+                    formControlName="fullName"
+                  />
+                  }
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['fullName'].errors?.['required']"
+                  >
+                    Nom est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['fullName'].invalid && f['fullName'].errors?.['pattern']"
+                  >
+                    Nom non valide Example(David).
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                  <label for="typeFaq" class="form-label"
+                    >Type FAQ <span style="color: red">*</span></label
+                  >
+                  <div class="input-group">
+                    <select
+                      class="single-select form-select"
+                      id="typeFaq"
+                      name="typeFaq"
+                      formControlName="typeFaq"
+                      required
+                    >
+                      <option value="">--- Sélectionner ---</option>
+                      <option value="questions">Questions fréquentes</option>
+                      <option value="suggestions">Suggestions</option>
+                      <option value="reclamation">Réclamations</option>
+                    </select>
+                  </div>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['typeFaq'].errors?.['required']"
+                  >
+                    Type FAQ est obligatoire!
+                  </div>
+                  <!-- fin error -->
+                </div>
+
+                <div class="col-md-6">
+                  <label for="obs" class="form-label"
+                    >Observation <span style="color: red">*</span></label
+                  >
+                  <textarea
+                    class="form-control form-control-rounded"
+                    id="obs"
+                    placeholder="Entrez votre Observation"
+                    name="obs"
+                    formControlName="obs"
+                  ></textarea>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="f['obs'].invalid && f['obs'].errors?.['pattern']"
+                  >
+                    Observation non valide.
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-12" style="text-align: center">
+                  <br /><button class="btn btn-info" [disabled]="form.invalid">
+                    ENREGISTRER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--********************************** this for loading show ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

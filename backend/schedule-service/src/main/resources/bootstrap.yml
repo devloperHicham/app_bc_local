@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: schedule-service
+
+  config:
+    import: optional:configserver:http://config-service:8888
+
+  messages:
+    basename: messages
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+
+server:
+  port: 8085 # Fixed port
+  address: 0.0.0.0
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.web.access.ExceptionTranslationFilter: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.web.authentication: DEBUG
+    org.springframework.security.web.access.intercept.FilterSecurityInterceptor: DEBUG
+    org.springframework.security.access.intercept.AbstractSecurityInterceptor: DEBUG

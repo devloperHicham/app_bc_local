@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Booking-Contianer</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent p-3">
+        <div class="container-fluid">
+          <a href="javascript:;"
+            ><img src="assets/images/logo.svg" width="190" alt=""
+          /></a>
+        </div>
+      </nav>
+    </header>
+    <!--start wrapper-->
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-7 mx-auto mt-5">
+            <div class="card radius-10">
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <div class="text-center">
+                    <h3 class="mb-2 card-title">CONNEXION</h3>
+                    <p>
+                      Bienvenue à nouveau, veuillez vous connecter à votre
+                      compte.
+                    </p>
+                  </div>
+                </div>
+                <form
+                  class="form-body row g-3"
+                  [formGroup]="form"
+                  (ngSubmit)="submit()"
+                >
+                  <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      autocomplete="off"
+                      id="email"
+                      type="text"
+                      name="email"
+                      class="form-control"
+                      formControlName="email"
+                      placeholder="Saisissez votre email..."
+                      required
+                    />
+                    <div
+                      *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched"
+                      class="error"
+                    >
+                      e-mail est obligatoire
+                    </div>
+                    <div
+                      *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched"
+                      class="error"
+                    >
+                      Veuillez entrer un e-mail valide
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >Mot de Passe</label
+                    >
+                    <input
+                      autocomplete="off"
+                      id="password"
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      formControlName="password"
+                      placeholder="Saisissez votre mot de passe..."
+                      required
+                    />
+                    <div
+                      *ngIf="
+                        form.get('password')?.invalid &&
+                        form.get('password')?.touched
+                      "
+                      class="error"
+                    >
+                      Le mot de passe est obligatoire
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="form-check form-switch">
+                      <input
+                        id="customControlInline"
+                        type="checkbox"
+                        class="form-check-input"
+                        value="remember-me"
+                        name="remember-me"
+                        checked
+                      />
+                      <label class="form-check-label" for="customControlInline">
+                        Se souvenir de moi
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-12">
+                    <div class="d-grid">
+                      <button
+                        class="btn btn-primary"
+                        type="submit"
+                        [disabled]="form.invalid || isLoading"
+                      >
+                        {{
+                          isLoading ? "Connexion en cours..." : "Se connecter"
+                        }}
+                      </button>
+
+                      <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-12">
+                    <div class="position-relative border-bottom my-3">
+                      <div
+                        class="position-absolute seperator translate-middle-y"
+                      ></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

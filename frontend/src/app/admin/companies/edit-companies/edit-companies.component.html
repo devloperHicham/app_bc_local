@@ -1,0 +1,108 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">Modifier COMPANIES</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="p-4 border rounded">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <div class="col-md-8">
+                  <label for="validationCustom01" class="form-label"
+                    >Company name <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="companyName"
+                    placeholder="Entrez votre Company name"
+                    name="companyName"
+                    required
+                    formControlName="companyName"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['companyName'].errors?.['required']"
+                  >
+                    Company name est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['companyName'].invalid && f['companyName'].errors?.['pattern']"
+                  >
+                    Company name non valide Example(Mearsk).
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-8">
+                  <label for="imageUpload" class="form-label"
+                    >Logo <span style="color: red">*</span></label
+                  >
+                  <input
+                    (change)="onFileChange($event)"
+                    formControlName="companyLogo"
+                    type="file"
+                    class="form-control form-control-rounded"
+                    id="imageUpload"
+                    accept="image/*"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['companyLogo'].errors?.['required']"
+                  >
+                    logo est obligatoire!
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-8">
+                  <label for="obs" class="form-label">Observation</label>
+                  <textarea
+                    class="form-control form-control-rounded"
+                    id="obs"
+                    placeholder="Entrez votre Observation"
+                    name="obs"
+                    formControlName="obs"
+                  ></textarea>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="f['obs'].invalid && f['obs'].errors?.['pattern']"
+                  >
+                    Observation non valide.
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-12" style="text-align: center">
+                  <br /><button class="btn btn-info" [disabled]="form.invalid">
+                    ENREGISTRER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--********************************** this for loading show ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: setting-service
+  config:
+    import: configserver:http://config-service:8888
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+      enabled: true
+      location: /app/storage-images # Moved under multipart
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+
+server:
+  port: 8083
+  address: 0.0.0.0
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.web.access.ExceptionTranslationFilter: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.web.authentication: DEBUG
+    org.springframework.security.web.access.intercept.FilterSecurityInterceptor: DEBUG
+    org.springframework.security.access.intercept.AbstractSecurityInterceptor: DEBUG

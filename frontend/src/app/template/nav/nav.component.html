@@ -1,0 +1,118 @@
+<!--start sidebar -->
+<aside class="sidebar-wrapper" data-simplebar="true">
+  <div class="sidebar-header">
+    <div></div>
+    <div>
+      <img src="assets/images/logo.svg" width="180px;" alt="logo icon" />
+    </div>
+    <div class="toggle-icon ms-auto">
+      <ion-icon name="menu-sharp"></ion-icon>
+    </div>
+  </div>
+  <!--navigation-->
+  <ul class="metismenu" id="menu">
+    @if (isAdmin()) {
+    <li>
+      <a routerLink="/home-admin" routerLinkActive="active">
+        <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon></div>
+        <div class="menu-title">Accueil</div>
+      </a>
+    </li>
+    } @else {
+    <li>
+      <a routerLink="/home-users" routerLinkActive="active">
+        <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon></div>
+        <div class="menu-title">Accueil</div>
+      </a>
+    </li>
+    }
+
+    <li class="menu-label">MENU ELEMENTS</li>
+    <li>
+      <a class="has-arrow" href="javascript:;">
+        <div class="parent-icon">
+          <ion-icon name="newspaper-sharp"></ion-icon>
+        </div>
+        <div class="menu-title">Lines</div>
+      </a>
+      <ul>
+        <li>
+          <a routerLink="/comparisons" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Comparison</a
+          >
+        </li>
+        <li>
+          <a routerLink="/schedules" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Schedules</a
+          >
+        </li>
+      </ul>
+    </li>
+
+    @if (isAdmin()) {
+    <li>
+      <a class="has-arrow" href="javascript:;">
+        <div class="parent-icon">
+          <ion-icon name="book-outline"></ion-icon>
+        </div>
+        <div class="menu-title">Historique Lines</div>
+      </a>
+      <ul>
+        <li>
+          <a routerLink="/historique-comparisons" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Comparison</a
+          >
+        </li>
+        <li>
+          <a routerLink="/historique-schedules" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Schedules</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a class="has-arrow" href="javascript:;">
+        <div class="parent-icon">
+          <ion-icon name="settings-outline"></ion-icon>
+        </div>
+        <div class="menu-title">Parametrage</div>
+      </a>
+      <ul>
+        <li>
+          <a routerLink="/containers" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Container</a
+          >
+        </li>
+        <li>
+          <a routerLink="/companies" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Companies</a
+          >
+        </li>
+        <li>
+          <a routerLink="/transportations" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Transportation</a
+          >
+        </li>
+        <li>
+          <a routerLink="/gargos" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Cargo</a
+          >
+        </li>
+        <li>
+          <a routerLink="/ports" routerLinkActive="active"
+            ><ion-icon name="ellipse-outline"></ion-icon>Ports</a
+          >
+        </li>
+      </ul>
+    </li>
+    }
+
+    <li>
+      <a routerLink="/faqs" routerLinkActive="active">
+        <div class="parent-icon"><ion-icon name="link-sharp"></ion-icon></div>
+        <div class="menu-title">FAQ</div>
+      </a>
+    </li>
+  </ul>
+  <!--end navigation-->
+</aside>

@@ -1,0 +1,10 @@
+*.jar
+*.zip
+/node_modules
+/dist
+/target
+/.idea
+/jenkins
+/storage-images
+/.vscode
+/.gradle

@@ -1,0 +1,185 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">AJOUTER SCHEDULES</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="p-4 border rounded">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <div class="col-12 col-lg-6">
+                  <label for="portFromId" class="form-label"
+                    >Port départ <span style="color: red">*</span></label
+                  >
+                    <ng-select
+                      id="portFromId"
+                      name="portFromId"
+                      [items]="ports"
+                      bindLabel="portName"
+                      bindValue="id"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="portFromId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['portFromId'].errors?.['required']"
+                  >
+                    Port départ est obligatoire!
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-12 col-lg-6">
+                  <label for="portToId" class="form-label"
+                    >Port arrive <span style="color: red">*</span></label
+                  >
+                    <ng-select
+                      id="portToId"
+                      name="portToId"
+                      [items]="ports"
+                      bindLabel="portName"
+                      bindValue="id"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="portToId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['portToId'].errors?.['required']"
+                  >
+                    Port arrive est obligatoire!
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-12 col-lg-6">
+                  <label for="companyId" class="form-label"
+                    >Company name <span style="color: red">*</span></label
+                  >
+                    <ng-select
+                      id="companyId"
+                      name="companyId"
+                      [items]="companies"
+                      bindLabel="companyName"
+                      bindValue="id"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="companyId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['companyId'].errors?.['required']"
+                  >
+                    Company name est obligatoire!
+                  </div>
+                  <!-- fin error -->
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row align-items-center g-2">
+                      <div class="col-12">
+                        <!--column-->
+                        <div class="table-responsive">
+                          <table class="table align-middle">
+                            <thead
+                              style="background-color: #2471a3; color: white"
+                            >
+                              <tr>
+                                <th>Date départ</th>
+                                <th>Date arrive</th>
+                                <th>Transit time</th>
+                                <th>Vessel</th>
+                                <th>Réf.voyage</th>
+                                <th>Service</th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tbody>
+                              <tr *ngFor="let row of results">
+                                <td>{{ row.dateDepart }}</td>
+                                <td>{{ row.dateArrive }}</td>
+                                <td>{{ row.transit }}</td>
+                                <td>{{ row.vessel }}</td>
+                                <td>{{ row.refVoyage }}</td>
+                                <td>{{ row.serviceName }}</td>
+                              </tr>
+                              <tr *ngIf="results.length === 0">
+                                <td colspan="2" class="text-center">
+                                  Aucune donnée disponible
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="">
+                          <br />
+                          <button
+                            type="button"
+                            (click)="pasteFromClipboard()"
+                            class="btn btn-primary btn-sm mt-2"
+                            title="Coller"
+                          >
+                            <i class="lni lni-magnet"></i> Coller
+                          </button>
+                          &nbsp;
+                          <button
+                            type="button"
+                            (click)="clearTable()"
+                            class="btn btn-dark btn-sm mt-2"
+                            title="Vider"
+                          >
+                            <i class="lni lni-eraser"></i> Vider
+                          </button>
+                        </div>
+                        <!--/column-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12" style="text-align: center">
+                  <br /><button class="btn btn-info" [disabled]="form.invalid">
+                    ENREGISTRER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--********************************** this for loading show ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

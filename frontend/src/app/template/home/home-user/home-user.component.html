@@ -1,0 +1,143 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <br />
+
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Total Schedules Aujourd'hui</p>
+                <h4 class="mb-0 text-primary">{{ totalScheduleTodays }}</h4>
+              </div>
+              <div class="ms-auto text-primary fs-2">
+                <ion-icon name="bag-handle-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Total Schedules Hier</p>
+                <h4 class="mb-0 text-danger">{{ totalScheduleYesterdays }}</h4>
+              </div>
+              <div class="ms-auto text-danger fs-2">
+                <ion-icon name="pie-chart-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Score Schedules</p>
+                <h4 class="mb-0 text-success">{{ scoreSchedules }}%</h4>
+              </div>
+              <div class="ms-auto text-success fs-2">
+                <ion-icon name="wallet-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Total Comparison Aujourd'hui</p>
+                <h4 class="mb-0 text-primary">{{ totalComparisonTodays }}</h4>
+              </div>
+              <div class="ms-auto widget-icon bg-light-primary text-primary">
+                <ion-icon name="notifications-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Total Comparison Hier</p>
+                <h4 class="mb-0 text-pink">{{ totalComparisonYesterdays }}</h4>
+              </div>
+              <div class="ms-auto widget-icon bg-light-pink text-pink">
+                <ion-icon name="paper-plane-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="mb-1">Score Comparison</p>
+                <h4 class="mb-0 text-orange">{{ scoreComparison }}%</h4>
+              </div>
+              <div class="ms-auto widget-icon bg-light-orange text-orange">
+                <ion-icon name="newspaper-sharp"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Weekly Schedule Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Schedules Hebdomadaires</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart
+              [options]="chartOptionsWeeklySchedule"
+              height="250"
+              width="400"
+            ></canvasjs-chart>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Comparison Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Comparaisons Hebdomadaires</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart
+              [options]="chartOptionsWeeklyComparison"
+              height="250"
+              width="400"
+            ></canvasjs-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--end page content wrapper-->

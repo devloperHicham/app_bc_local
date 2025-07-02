@@ -1,0 +1,193 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">AJOUTER UTILISATEUR</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="p-4 border rounded">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <div class="col-md-6">
+                  <label for="firstName" class="form-label"
+                    >Nom <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="firstName"
+                    placeholder="Entrez votre Nom"
+                    name="firstName"
+                    required
+                    formControlName="firstName"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['firstName'].errors?.['required']"
+                  >
+                    Nom est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['firstName'].invalid && f['firstName'].errors?.['pattern']"
+                  >
+                    Nom non valide Example(David).
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                  <label for="lastName" class="form-label"
+                    >Prénom <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="lastName"
+                    placeholder="Entrez votre Prénom"
+                    name="lastName"
+                    required
+                    formControlName="lastName"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['lastName'].errors?.['required']"
+                  >
+                    Prénom est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['lastName'].invalid && f['lastName'].errors?.['pattern']"
+                  >
+                    Prénom non valide Example(Davis).
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label"
+                    >Téléphone <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="phoneNumber"
+                    placeholder="Entrez votre Téléphone"
+                    name="phoneNumber"
+                    required
+                    formControlName="phoneNumber"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['phoneNumber'].errors?.['required']"
+                  >
+                    Téléphone est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['phoneNumber'].invalid && f['phoneNumber'].errors?.['pattern']"
+                  >
+                    Téléphone non valide Example(0660000001).
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label"
+                    >E-mail <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-rounded"
+                    id="email"
+                    placeholder="Entrez votre E-mail"
+                    name="email"
+                    required
+                    formControlName="email"
+                  /><!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['email'].errors?.['required']"
+                  >
+                    Email est obligatoire!
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="f['email'].invalid && f['email'].errors?.['pattern']"
+                  >
+                    Email non valide Example("example&#64;gmail.com").
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                  <label for="obs" class="form-label">Observation</label>
+                  <textarea
+                    class="form-control form-control-rounded"
+                    id="obs"
+                    placeholder="Entrez votre Observation"
+                    name="obs"
+                    formControlName="obs"
+                  ></textarea>
+                  <!-- error -->
+                  <div
+                    class="text-danger"
+                    *ngIf="f['obs'].invalid && f['obs'].errors?.['pattern']"
+                  >
+                    Observation non valide.
+                  </div>
+                  <!-- fin error -->
+                </div>
+                <div class="col-md-6">
+                    <label for="role" class="form-label"
+                      >Role <span style="color: red">*</span></label
+                    ><div class="input-group">
+                    <select
+                      class="single-select form-select"
+                      id="role"
+                      name="role"
+                      formControlName="role"
+                      required
+                    >
+                      <option value="">--- Sélectionner ---</option>
+                      <option value="ADMIN">Admin</option>
+                      <option value="USER">Utilisateur</option>
+                    </select></div>
+                    <!-- error -->
+                    <div
+                      class="text-danger"
+                      *ngIf="submitted && f['role'].errors?.['required']"
+                    >
+                      Role est obligatoire!
+                    </div>
+                    <!-- fin error -->
+                  </div>
+                <div class="col-12" style="text-align: center">
+                  <br /><button class="btn btn-info" [disabled]="form.invalid">
+                    ENREGISTRER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--********************************** this for loading show ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

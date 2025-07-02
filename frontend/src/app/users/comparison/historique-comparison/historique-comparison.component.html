@@ -1,0 +1,141 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">LISTE DES COMPARISONS</div>
+      <div class="ms-auto">
+      </div>
+    </div>
+    <hr />
+
+    <div class="card">
+      <div class="card-body">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="filterForm">
+                <div class="row g-3">
+                  <div class="col-12 col-lg">
+                    <label for="portFromId" class="form-label"
+                      >Port depart</label
+                    >
+                    <ng-select
+                      id="portFromId"
+                      name="portFromId"
+                      [items]="ports"
+                      bindLabel="portName"
+                      bindValue="id"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="portFromId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  </div>
+                  <div class="col-12 col-lg">
+                    <label for="portToId" class="form-label">Port arrive</label>
+                    <ng-select
+                      id="portToId"
+                      name="portToId"
+                      [items]="ports"
+                      bindLabel="portName"
+                      bindValue="id"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="portToId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  </div>
+                  <div class="col-12 col-lg">
+                    <label for="dateDebut" class="form-label"
+                      >Date début</label
+                    >
+                    <input
+                      class="result form-control"
+                      type="date"
+                      id="dateDebut"
+                      name="dateDebut"
+                      formControlName="dateDebut"
+                    />
+                  </div>
+                  <div class="col-12 col-lg">
+                    <label for="dateFin" class="form-label"
+                      >Date Fin</label
+                    >
+                    <input
+                      class="result form-control"
+                      type="date"
+                      id="dateFin"
+                      name="dateFin"
+                      formControlName="dateFin"
+                    />
+                  </div>
+                  <div class="col-12 col-lg">
+                    <label for="userId" class="form-label">Opérateurs</label>
+                    <ng-select
+                      id="userId"
+                      name="userId"
+                      [items]="users"
+                      bindLabel="fullName"
+                      bindValue="email"
+                      placeholder="--- Sélectionner ---"
+                      formControlName="userId"
+                      [clearable]="false"
+                      [searchable]="true"
+                      required
+                    >
+                    </ng-select>
+                  </div>
+                  <div class="col-12 col-lg" style="margin-top: 44px">
+                    <button
+                      id="search"
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="onSearch()"
+                    >
+                      Chercher</button
+                    >&nbsp;
+                    <button
+                      type="button"
+                      class="btn btn-dark"
+                      (click)="onReset()"
+                    >
+                      Vider
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <!--end row-->
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive mt-3">
+          <table datatable [dtOptions]="dtOptions" class="table align-middle">
+            <thead style="background-color: #2471a3; color: white">
+              <tr>
+                <th>Port From</th>
+                <th>Port To</th>
+                <th>Date départ</th>
+                <th>Date arrive</th>
+                <th>Company</th>
+                <th>Transport by</th>
+                <th>Gargo type</th>
+                <th>Contenaire</th>
+                <th>Prix</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>

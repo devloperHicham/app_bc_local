@@ -1,0 +1,15 @@
+table thead th:last-child {
+  width: 10%;
+}
+/* Center all headers */
+table thead th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Center all table body cells */
+table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap; /* Prevents wrapping */
+}

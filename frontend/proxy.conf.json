@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "http://api-gateway-service:8881",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

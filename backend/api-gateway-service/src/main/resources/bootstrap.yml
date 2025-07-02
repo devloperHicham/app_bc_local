@@ -1,0 +1,38 @@
+server:
+  port: 8881
+  address: 0.0.0.0
+  ssl:
+    enabled: true
+    certificate: /ssl/192.168.1.50.pem
+    certificate-private-key: /ssl/192.168.1.50-key.pem
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: configserver:http://config-service:8888
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials Vary
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      httpclient:
+        connect-timeout: 60000
+        response-timeout: 60s
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:https://192.168.1.50:8761/eureka/}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.web.access.ExceptionTranslationFilter: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.web.authentication: DEBUG
+    org.springframework.security.web.access.intercept.FilterSecurityInterceptor: DEBUG
+    org.springframework.security.access.intercept.AbstractSecurityInterceptor: DEBUG

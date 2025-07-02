@@ -1,0 +1,346 @@
+<!-- start page content wrapper-->
+<div class="page-content-wrapper">
+  <!-- start page content-->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">AJOUTER COMPARISON</div>
+    </div>
+    <hr />
+
+    <!--start shop cart-->
+    <section class="shop-page">
+      <div class="shop-container">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <div class="shop-cart">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <div class="row">
+                  <div class="col-12 col-xl-8">
+                    <div class="shop-cart-list">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row align-items-center g-2">
+                            <div class="col-12 col-lg-6">
+                              <label for="portFromId" class="form-label"
+                                >Port départ
+                                <span style="color: red">*</span></label
+                              >
+                                <ng-select
+                                  id="portFromId"
+                                  name="portFromId"
+                                  [items]="ports"
+                                  bindLabel="portName"
+                                  bindValue="id"
+                                  placeholder="--- Sélectionner ---"
+                                  formControlName="portFromId"
+                                  [clearable]="false"
+                                  [searchable]="true"
+                                  required
+                                >
+                                </ng-select>
+                              <!-- error -->
+                              <div
+                                class="text-danger"
+                                *ngIf="submitted && f['portFromId'].errors?.['required']"
+                              >
+                                Port départ est obligatoire!
+                              </div>
+                              <!-- fin error -->
+                            </div>
+                            <div class="col-12 col-lg-6">
+                              <label for="portToId" class="form-label"
+                                >Port arrive
+                                <span style="color: red">*</span></label
+                              >
+                                <ng-select
+                                  id="portToId"
+                                  name="portToId"
+                                  [items]="ports"
+                                  bindLabel="portName"
+                                  bindValue="id"
+                                  placeholder="--- Sélectionner ---"
+                                  formControlName="portToId"
+                                  [clearable]="false"
+                                  [searchable]="true"
+                                  required
+                                >
+                                </ng-select>
+                              <!-- error -->
+                              <div
+                                class="text-danger"
+                                *ngIf="submitted && f['portToId'].errors?.['required']"
+                              >
+                                Port arrive est obligatoire!
+                              </div>
+                              <!-- fin error -->
+                            </div>
+                            <div class="col-12 col-lg-6">
+                              <label for="gargoId" class="form-label"
+                                >Gargo <span style="color: red">*</span></label
+                              >
+                                <ng-select
+                                  id="gargoId"
+                                  name="gargoId"
+                                  [items]="gargos"
+                                  bindLabel="gargoName"
+                                  bindValue="id"
+                                  placeholder="--- Sélectionner ---"
+                                  formControlName="gargoId"
+                                  [clearable]="false"
+                                  [searchable]="true"
+                                  required
+                                >
+                                </ng-select>
+                              <!-- error -->
+                              <div
+                                class="text-danger"
+                                *ngIf="submitted && f['gargoId'].errors?.['required']"
+                              >
+                                Gargo name est obligatoire!
+                              </div>
+                              <!-- fin error -->
+                            </div>
+                            <div class="col-12 col-lg-6">
+                              <label for="companyId" class="form-label"
+                                >Company name
+                                <span style="color: red">*</span></label
+                              >
+                                <ng-select
+                                  id="companyId"
+                                  name="companyId"
+                                  [items]="companies"
+                                  bindLabel="companyName"
+                                  bindValue="id"
+                                  placeholder="--- Sélectionner ---"
+                                  formControlName="companyId"
+                                  [clearable]="false"
+                                  [searchable]="true"
+                                  required
+                                >
+                                </ng-select>
+                              <!-- error -->
+                              <div
+                                class="text-danger"
+                                *ngIf="submitted && f['companyId'].errors?.['required']"
+                              >
+                                Company name est obligatoire!
+                              </div>
+                              <!-- fin error -->
+                            </div>
+                            <div class="col-12 col-lg-6">
+                              <label for="transportationId" class="form-label"
+                                >Transport by
+                                <span style="color: red">*</span></label
+                              >
+                                <ng-select
+                                  id="transportationId"
+                                  name="transportationId"
+                                  [items]="transportations"
+                                  bindLabel="transportationName"
+                                  bindValue="id"
+                                  placeholder="--- Sélectionner ---"
+                                  formControlName="transportationId"
+                                  [clearable]="false"
+                                  [searchable]="true"
+                                  required
+                                >
+                                </ng-select>
+                              <!-- error -->
+                              <div
+                                class="text-danger"
+                                *ngIf="submitted && f['transportationId'].errors?.['required']"
+                              >
+                                Transport by est obligatoire!
+                              </div>
+                              <!-- fin error -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row align-items-center g-2">
+                            <div class="col-12">
+                              <!--column-->
+                              <div class="table-responsive">
+                                <table class="table align-middle">
+                                  <thead
+                                    style="
+                                      background-color: #2471a3;
+                                      color: white;
+                                    "
+                                  >
+                                    <tr>
+                                      <th>Container</th>
+                                      <th>Prix</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr
+                                      *ngFor="
+                                        let row of subjectData;
+                                        let i = index
+                                      "
+                                    >
+                                      <td>
+                                        <select
+                                          data-live-search="true"
+                                          (change)="
+                                            getDataContainers($event, i)
+                                          "
+                                          name="containerId"
+                                          id="containerId{{ i }}"
+                                          class="form-control form-control-sm"
+                                          required
+                                        >
+                                          <option value="">
+                                            --- Sélectionner ---
+                                          </option>
+                                          <option
+                                            *ngFor="let container of containers"
+                                            [value]="container.id"
+                                          >
+                                            {{ container.containerName }}
+                                          </option>
+                                        </select>
+                                      </td>
+
+                                      <td>
+                                        <input
+                                          (change)="getDataPrices($event, i)"
+                                          type="number"
+                                          min="2"
+                                          max="3"
+                                          class="form-control form-control-sm"
+                                          id="price{{ i }}"
+                                          placeholder="Entrez le Montant"
+                                          name="price"
+                                          required
+                                        />
+                                      </td>
+                                      <td>
+                                        <a
+                                          class="btn btn-danger btn-sm"
+                                          (click)="removeRow(i)"
+                                          (keydown.enter)="removeRow(i)"
+                                        >
+                                          <ion-icon
+                                            name="trash-sharp"
+                                          ></ion-icon>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="">
+                                <br />
+                                <button
+                                  type="button"
+                                  (click)="addRow()"
+                                  (keydown.enter)="addRow()"
+                                  (keydown.space)="addRow()"
+                                  aria-label="Nouveau"
+                                  class="btn btn-primary btn-sm"
+                                  title="Nouveau"
+                                >
+                                  + Nouveau
+                                </button>
+                              </div>
+                              <!--/column-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- paste-table.component.html -->
+                  <div class="col-12 col-xl-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <div
+                          class="table-responsive"
+                          style="max-height: 400px; overflow-y: auto"
+                        >
+                          <table
+                            class="table align-middle table-striped table-hover"
+                          >
+                            <thead>
+                              <tr>
+                                <th>Date départ</th>
+                                <th>Date arrive</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let row of results">
+                                <td>{{ row.dateDepart }}</td>
+                                <td>{{ row.dateArrive }}</td>
+                              </tr>
+                              <tr *ngIf="results.length === 0">
+                                <td colspan="2" class="text-center">
+                                  Aucune donnée disponible
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <button
+                          type="button"
+                          (click)="pasteFromClipboard()"
+                          class="btn btn-primary btn-sm mt-2"
+                          title="Coller"
+                        >
+                          <i class="lni lni-magnet"></i> Coller
+                        </button>
+                        &nbsp;
+                        <button
+                          type="button"
+                          (click)="clearTable()"
+                          class="btn btn-dark btn-sm mt-2"
+                          title="Vider"
+                        >
+                          <i class="lni lni-eraser"></i> Vider
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12" style="text-align: center">
+                    <br /><button
+                      class="btn btn-info"
+                      [disabled]="form.invalid"
+                    >
+                      ENREGISTRER
+                    </button>
+                  </div>
+                </div>
+                <!--end row-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end shop cart-->
+
+    <!--end row-->
+  </div>
+  <!-- end page content-->
+</div>
+<!--********************************** this for loading show ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
