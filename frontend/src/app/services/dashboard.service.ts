@@ -4,8 +4,12 @@ import { Observable, of } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { ConfigService } from "./config/config.service";
 import {
+  DailyComparisonByUsersData,
+  DailyScheduleByUsersData,
   DashboardStats,
+  WeeklyComparisonByCompaniesData,
   WeeklyComparisonData,
+  WeeklyScheduleByCompaniesData,
   WeeklyScheduleData,
 } from "../modules/dashboard";
 
@@ -24,11 +28,10 @@ export class DashboardService {
       .get<DashboardStats>(urls, this.configService.httpOptions)
       .pipe(
         map((data) => {
-          console.log("Schedule stats response:", data);
           return data || this.getDefaultStats();
         }),
         catchError((error) => {
-          console.error("Error fetching schedule stats:", error);
+          console.error("Error fetching schedule stats:");
           return of(this.getDefaultStats());
         })
       );
@@ -40,11 +43,10 @@ export class DashboardService {
       .get<DashboardStats>(urls, this.configService.httpOptions)
       .pipe(
         map((data) => {
-          console.log("Comparison stats response:", data);
           return data || this.getDefaultStats();
         }),
         catchError((error) => {
-          console.error("Error fetching comparison stats:", error);
+          console.error("Error fetching comparison stats:");
           return of(this.getDefaultStats());
         })
       );
@@ -56,11 +58,10 @@ export class DashboardService {
       .get<WeeklyScheduleData[]>(urls, this.configService.httpOptions)
       .pipe(
         map((data) => {
-          console.log("Graphic schedule data:", data);
           return data || this.getDefaultGraphScheduleData();
         }),
         catchError((error) => {
-          console.error("Error fetching graphic schedule data:", error);
+          console.error("Error fetching graphic schedule data:");
           return of(this.getDefaultGraphScheduleData());
         })
       );
@@ -72,16 +73,78 @@ export class DashboardService {
       .get<WeeklyComparisonData[]>(urls, this.configService.httpOptions)
       .pipe(
         map((data) => {
-          console.log("Graphic comparison data:", data);
-          return data || this.getDefaultGraphComparisonData();
+          return data || this.getDefaultGraphComparisonByCompaniesData();
         }),
         catchError((error) => {
-          console.error("Error fetching graphic comparison data:", error);
+          console.error("Error fetching graphic comparison data:");
           return of(this.getDefaultGraphComparisonData());
         })
       );
   }
 
+  getGraphicScheduleByCompaniesStats(): Observable<WeeklyScheduleByCompaniesData[]> {
+    const urls = `${this.configService.URL_API}${this.configService.ENDPOINTS.schedules}/graphic-companies`;
+    return this.http
+      .get<WeeklyScheduleByCompaniesData[]>(urls, this.configService.httpOptions)
+      .pipe(
+        map((data) => {
+          return data || this.getDefaultGraphScheduleByCompaniesData();
+        }),
+        catchError((error) => {
+          console.error("Error fetching graphic schedule data:");
+          return of(this.getDefaultGraphScheduleByCompaniesData());
+        })
+      );
+  }
+
+  getGraphicComparisonByCompaniesStats(): Observable<WeeklyComparisonByCompaniesData[]> {
+    const urls = `${this.configService.URL_API}${this.configService.ENDPOINTS.comparisons}/graphic-companies`;
+    return this.http
+      .get<WeeklyComparisonByCompaniesData[]>(urls, this.configService.httpOptions)
+      .pipe(
+        map((data) => {
+          return data || this.getDefaultGraphComparisonByCompaniesData();
+        }),
+        catchError((error) => {
+          console.error("Error fetching graphic comparison data:");
+          return of(this.getDefaultGraphComparisonByCompaniesData());
+        })
+      );
+  }
+
+  getGraphicComparisonByUsersStats(): Observable<DailyComparisonByUsersData[]> {
+    const urls = `${this.configService.URL_API}${this.configService.ENDPOINTS.comparisons}/graphic-users`;
+    return this.http
+      .get<DailyComparisonByUsersData[]>(urls, this.configService.httpOptions)
+      .pipe(
+        map((data) => {
+          console.log("Data fetched:", data);
+          return data || [];
+        }),
+        catchError((error) => {
+          console.log("Data fetched:", error);
+          console.error("Error fetching graphic comparison data:");
+          return of([]);
+        })
+      );
+  }
+
+    getGraphicScheduleByUsersStats(): Observable<DailyScheduleByUsersData[]> {
+    const urls = `${this.configService.URL_API}${this.configService.ENDPOINTS.schedules}/graphic-users`;
+    return this.http
+      .get<DailyScheduleByUsersData[]>(urls, this.configService.httpOptions)
+      .pipe(
+        map((data) => {
+          console.log("Data fetched:", data);
+          return data || [];
+        }),
+        catchError((error) => {
+          console.log("Data fetched:", error);
+          console.error("Error fetching graphic schedule data:");
+          return of([]);
+        })
+      );
+  }
   // Helper method for default stats
   private getDefaultStats(): DashboardStats {
     return {
@@ -111,6 +174,24 @@ export class DashboardService {
     return [
       {
         week: "Current Week Comparison",
+        comparisons: [0, 0, 0, 0, 0, 0, 0],
+      },
+    ];
+  }
+
+    private getDefaultGraphScheduleByCompaniesData(): WeeklyScheduleByCompaniesData[] {
+    return [
+      {
+        companyName: "Current company Schedule",
+        schedules: [0, 0, 0, 0, 0, 0, 0],
+      },
+    ];
+  }
+
+  private getDefaultGraphComparisonByCompaniesData(): WeeklyComparisonByCompaniesData[] {
+    return [
+      {
+        companyName: "Current Company Comparison",
         comparisons: [0, 0, 0, 0, 0, 0, 0],
       },
     ];

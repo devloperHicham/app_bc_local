@@ -5,6 +5,7 @@ import com.schedulerates.user.model.common.dto.response.CustomPagingResponse;
 import com.schedulerates.user.model.common.dto.response.CustomResponse;
 import com.schedulerates.user.model.user.User;
 import com.schedulerates.user.model.user.dto.request.UserPagingRequest;
+import com.schedulerates.user.model.user.dto.request.UserResetPasswordRequest;
 import com.schedulerates.user.model.user.dto.request.UserUpdatePasswordRequest;
 import com.schedulerates.user.model.user.dto.request.UserUpdateRequest;
 import com.schedulerates.user.model.user.mapper.CustomPageToCustomPagingResponseMapper;
@@ -258,4 +259,27 @@ public class UserController {
         return ResponseEntity.ok(authentication);
     }
 
+    /**
+     * Resets the password of a user by its ID.
+     *
+     * <p>
+     * This method is only accessible by the admin user.
+     * </p>
+     *
+     * @param userId  the ID of the user to reset the password for
+     * @param request the request containing the new password
+     * @return a {@link CustomResponse} containing the updated user details
+     */
+    @PutMapping("/reset-password/{userId}")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+    public CustomResponse<UserResponse> resetUserPassword(
+            @RequestBody @Valid final UserResetPasswordRequest userResetPasswordRequest,
+            @PathVariable @UUID final String userId) {
+
+        final User updatedUser = userUpdatePasswordService.resetUserPassword(userId, userResetPasswordRequest);
+
+        final UserResponse userResponse = userToUserResponseMapper.map(updatedUser);
+
+        return CustomResponse.successOf(userResponse);
+    }
 }

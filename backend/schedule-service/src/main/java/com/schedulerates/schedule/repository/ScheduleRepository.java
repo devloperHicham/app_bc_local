@@ -218,4 +218,28 @@ public interface ScheduleRepository extends JpaRepository<ScheduleEntity, String
         List<Object[]> findWeeklyScheduleCountsByUser(@Param("startDate") LocalDate startDate,
                         @Param("endDate") LocalDate endDate,
                         @Param("email") String userEmail);
+
+        // Get weekly schedule counts by company
+       @Query("""
+            SELECT CAST(s.createdAt AS DATE) AS day, s.companyName, COUNT(s) 
+            FROM ScheduleEntity s
+            WHERE CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate
+            GROUP BY CAST(s.createdAt AS DATE), s.companyName
+            ORDER BY day, s.companyName
+        """)
+        List<Object[]> findWeeklyCompanyScheduleCounts(
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate);
+
+            
+        // count schedules created today by users
+        @Query("""
+            SELECT s.createdBy, COUNT(s)
+            FROM ScheduleEntity s
+            WHERE CAST(s.createdAt AS DATE) = :today
+            AND s.active = '1'
+            GROUP BY s.createdBy
+            ORDER BY s.createdBy
+        """)
+        List<Object[]> findDailyUsersScheduleCounts(@Param("today") LocalDate today);
 }

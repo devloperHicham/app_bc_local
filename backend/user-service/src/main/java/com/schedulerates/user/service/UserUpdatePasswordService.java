@@ -1,6 +1,7 @@
 package com.schedulerates.user.service;
 
 import com.schedulerates.user.model.user.User;
+import com.schedulerates.user.model.user.dto.request.UserResetPasswordRequest;
 import com.schedulerates.user.model.user.dto.request.UserUpdatePasswordRequest;
 
 /**
@@ -16,5 +17,7 @@ public interface UserUpdatePasswordService {
      * @return The updated User object.
      */
     User updatePasswordById(final String userId, final UserUpdatePasswordRequest userUpdatePasswordRequest);
+
+    User resetUserPassword(final String userId, final UserResetPasswordRequest userResetPasswordRequest);
 
 }

@@ -29,6 +29,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service implementation named {@link ScheduleCreateServiceImpl} for creating
@@ -39,13 +40,10 @@ import org.springframework.stereotype.Service;
 public class ComparisonCreateServiceImpl implements ComparisonCreateService {
 
         private final ComparisonRepository comparisonRepository;
-
         private final SettingServiceClient settingServiceClient;
-
         private final ComparisonEntityToComparisonMapper comparisonEntityToComparisonMapper = ComparisonEntityToComparisonMapper
                         .initialize();
-
-        private final HttpServletRequest httpServletRequest; // Inject the current request
+        private final HttpServletRequest httpServletRequest;
 
         /**
          * Creates a new Comparison based on the provided Comparison creation request.
@@ -53,10 +51,9 @@ public class ComparisonCreateServiceImpl implements ComparisonCreateService {
          * @param comparisonCreateRequest The request containing data to create the
          *                                comparison.
          * @return The created Comparison object.
-         * @throws ScheduleAlreadyExistException If a Comparison with the same name
-         *                                       already exists.
          */
         @Override
+        @Transactional
         public List<Comparison> createComparison(ComparisonCreateRequest comparisonCreateRequest) {
                 List<Comparison> createdComparisons = new ArrayList<>();
                 String authHeader = httpServletRequest.getHeader("Authorization");
@@ -64,6 +61,7 @@ public class ComparisonCreateServiceImpl implements ComparisonCreateService {
                 // Formatteur pour parser les dates en format "dd/MM/yyyy"
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
                                 .withLocale(Locale.ENGLISH);
+
                 // Fetch reference data once since these are the same for all records
                 PortDto portFrom = settingServiceClient
                                 .getPortById(comparisonCreateRequest.getPortFromId(), authHeader)
@@ -98,42 +96,50 @@ public class ComparisonCreateServiceImpl implements ComparisonCreateService {
 
                                 LocalDate departDate = LocalDate.parse(dateDepartStr, formatter);
                                 LocalDate arriveDate = LocalDate.parse(dateArriveStr, formatter);
-                                // Check if an active record already exists with these values
-                                boolean exists = comparisonRepository
-                                                .existsByPortFromIdAndPortToIdAndCompanyIdAndContainerIdAndDateDepartAndDateArriveAndActive(
-                                                                comparisonCreateRequest.getPortFromId(),
-                                                                comparisonCreateRequest.getPortToId(),
-                                                                comparisonCreateRequest.getCompanyId(),
-                                                                containerId,
-                                                                dateDepartStr,
-                                                                dateArriveStr,
-                                                                "1"); // active = 1
 
-                                if (!exists && (departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate))
-                                                && !comparisonCreateRequest.getPortFromId()
-                                                                .equals(comparisonCreateRequest.getPortToId())) {
-                                        ComparisonEntity comparisonEntity = ComparisonEntity.builder()
-                                                        .portFromId(comparisonCreateRequest.getPortFromId())
-                                                        .portToId(comparisonCreateRequest.getPortToId())
-                                                        .companyId(comparisonCreateRequest.getCompanyId())
-                                                        .transportationId(comparisonCreateRequest.getTransportationId())
-                                                        .gargoId(comparisonCreateRequest.getGargoId())
-                                                        .containerId(containerId)
-                                                        .dateDepart(dateDepartStr)
-                                                        .dateArrive(dateArriveStr)
-                                                        .price(price)
-                                                        .portFromName(portFrom.getPortName())
-                                                        .portToName(portTo.getPortName())
-                                                        .companyName(company.getCompanyName())
-                                                        .containerName(container.getContainerName())
-                                                        .gargoName(gargo.getGargoName())
-                                                        .transportationName(transportation.getTransportationName())
-                                                        .createdBy(getCurrentUserEmail())
-                                                        .createdAt(LocalDateTime.now())
-                                                        .build();
+                                // Validate dates and ports
+                                if ((departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate))) {
 
-                                        ComparisonEntity savedEntity = comparisonRepository.save(comparisonEntity);
-                                        createdComparisons.add(comparisonEntityToComparisonMapper.map(savedEntity));
+                                        // Check if an active record already exists with these values
+                                        boolean exists = comparisonRepository
+                                                        .existsByPortFromIdAndPortToIdAndCompanyIdAndContainerIdAndDateDepartAndDateArriveAndActive(
+                                                                        comparisonCreateRequest.getPortFromId(),
+                                                                        comparisonCreateRequest.getPortToId(),
+                                                                        comparisonCreateRequest.getCompanyId(),
+                                                                        containerId,
+                                                                        dateDepartStr,
+                                                                        dateArriveStr,
+                                                                        "1"); // active = 1
+
+                                        if (!exists && !comparisonCreateRequest.getPortFromId().equals(comparisonCreateRequest.getPortToId())) {
+                                                ComparisonEntity comparisonEntity = ComparisonEntity.builder()
+                                                                .portFromId(comparisonCreateRequest.getPortFromId())
+                                                                .portToId(comparisonCreateRequest.getPortToId())
+                                                                .companyId(comparisonCreateRequest.getCompanyId())
+                                                                .transportationId(comparisonCreateRequest
+                                                                                .getTransportationId())
+                                                                .gargoId(comparisonCreateRequest.getGargoId())
+                                                                .containerId(containerId)
+                                                                .dateDepart(dateDepartStr)
+                                                                .dateArrive(dateArriveStr)
+                                                                .price(price)
+                                                                .portFromName(portFrom.getPortName())
+                                                                .portToName(portTo.getPortName())
+                                                                .companyName(company.getCompanyName())
+                                                                .containerName(container.getContainerName())
+                                                                .gargoName(gargo.getGargoName())
+                                                                .transportationName(
+                                                                                transportation.getTransportationName())
+                                                                .createdBy(getCurrentUserEmail())
+                                                                .createdAt(LocalDateTime.now())
+                                                                .active("1")
+                                                                .build();
+
+                                                ComparisonEntity savedEntity = comparisonRepository
+                                                                .save(comparisonEntity);
+                                                createdComparisons.add(
+                                                                comparisonEntityToComparisonMapper.map(savedEntity));
+                                        }
                                 }
                         }
                 }
@@ -151,5 +157,4 @@ public class ComparisonCreateServiceImpl implements ComparisonCreateService {
                                 .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
                                 .orElse(ANONYMOUS_USER);
         }
-
 }

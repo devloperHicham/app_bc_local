@@ -8,8 +8,10 @@ import com.schedulerates.schedule.model.schedule.dto.request.ScheduleCreateReque
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingHistoriqueRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.ScheduleUpdateRequest;
+import com.schedulerates.schedule.model.schedule.dto.response.DailyScheduleByUsersData;
 import com.schedulerates.schedule.model.schedule.dto.response.DashboardResponse;
 import com.schedulerates.schedule.model.schedule.dto.response.ScheduleResponse;
+import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleByCompaniesData;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
 import com.schedulerates.schedule.model.schedule.mapper.CustomPageToCustomPagingResponseMapper;
 import com.schedulerates.schedule.model.schedule.mapper.ScheduleToScheduleResponseMapper;
@@ -174,7 +176,13 @@ public class ScheduleController {
                 scheduleDeleteService.deleteScheduleById(scheduleId);
                 return CustomResponse.SUCCESS;
         }
-
+ 
+        @DeleteMapping("/all")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public CustomResponse<Void> deleteSchedulesByIds(@RequestBody List<@UUID String> scheduleIds) {
+                scheduleDeleteService.deleteSchedulesByIds(scheduleIds);
+                return CustomResponse.SUCCESS;
+        }
         /**
          * Checks if a Schedule exists with either portFromId or portToId matching
          * the given ID and active is set to '1'.
@@ -215,5 +223,18 @@ public class ScheduleController {
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
         public List<WeeklyScheduleData> getWeeklyScheduleStats() {
                 return scheduleDashboardService.getGraphicSchedules();
+        }
+
+        @GetMapping("/graphic-companies")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public List<WeeklyScheduleByCompaniesData> getWeeklyScheduleByCompaniesStats() {
+                return scheduleDashboardService.getGraphicScheduleByCompanies();
+        }
+
+        
+        @GetMapping("/graphic-users")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public List<DailyScheduleByUsersData> getDaillyScheduleByUsersStats() {
+                return scheduleDashboardService.getDaillyScheduleByUsers();
         }
 }

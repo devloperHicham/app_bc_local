@@ -184,43 +184,55 @@ public interface ComparisonRepository extends JpaRepository<ComparisonEntity, St
 
         // Count today's schedules for a specific user
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE s.createdBy = :email AND CAST(s.createdAt AS DATE) = CURRENT_DATE")
-        Long countTodaySchedulesByUser(@Param("email") String userEmail);
+        Long countTodayComparisonsByUser(@Param("email") String userEmail);
 
-        // Count yesterday's schedules for a specific user
+        // Count yesterday's Comparisons for a specific user
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE s.createdBy = :email AND CAST(s.createdAt AS DATE) = :yesterday")
-        Long countYesterdaySchedulesByUser(@Param("email") String userEmail,
+        Long countYesterdayComparisonsByUser(@Param("email") String userEmail,
                         @Param("yesterday") LocalDate yesterday);
 
-        // Count today's schedules for all users (admin view)
+        // Count today's Comparisons for all users (admin view)
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE CAST(s.createdAt AS DATE) = CURRENT_DATE")
-        Long countTodaySchedulesForAdmin();
+        Long countTodayComparisonsForAdmin();
 
-        // Count yesterday's schedules for all users (admin view)
+        // Count yesterday's Comparisons for all users (admin view)
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE CAST(s.createdAt AS DATE) = :yesterday")
-        Long countYesterdaySchedulesForAdmin(@Param("yesterday") LocalDate yesterday);
+        Long countYesterdayComparisonsForAdmin(@Param("yesterday") LocalDate yesterday);
 
-        // Count schedules for a specific date (admin view)
+        // Count Comparisons for a specific date (admin view)
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE CAST(s.createdAt AS DATE) = :date")
         Long countByDate(@Param("date") LocalDate date);
 
-        // Count schedules for a specific date and user
+        // Count Comparisons for a specific date and user
         @Query("SELECT COUNT(s) FROM ComparisonEntity s WHERE s.createdBy = :email AND CAST(s.createdAt AS DATE) = :date")
         Long countByDateAndUser(@Param("date") LocalDate date, @Param("email") String userEmail);
 
-        // Get weekly schedule counts for admin
+        // Get weekly Comparison counts for admin
         @Query("SELECT CAST(s.createdAt AS DATE) as day, COUNT(s) as count FROM ComparisonEntity s " +
                         "WHERE CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate " +
                         "GROUP BY CAST(s.createdAt AS DATE) " +
                         "ORDER BY day")
-        List<Object[]> findWeeklyScheduleCounts(@Param("startDate") LocalDate startDate,
+        List<Object[]> findWeeklyComparisonCounts(@Param("startDate") LocalDate startDate,
                         @Param("endDate") LocalDate endDate);
 
-        // Get weekly schedule counts for a specific user
+        // Get weekly Comparison counts for a specific user
         @Query("SELECT CAST(s.createdAt AS DATE) as day, COUNT(s) as count FROM ComparisonEntity s " +
                         "WHERE s.createdBy = :email AND CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate " +
                         "GROUP BY CAST(s.createdAt AS DATE) " +
                         "ORDER BY day")
-        List<Object[]> findWeeklyScheduleCountsByUser(@Param("startDate") LocalDate startDate,
+        List<Object[]> findWeeklyComparisonCountsByUser(@Param("startDate") LocalDate startDate,
                         @Param("endDate") LocalDate endDate,
                         @Param("email") String userEmail);
+
+    // Get weekly Comparison counts by company
+       @Query("""
+            SELECT CAST(s.createdAt AS DATE) AS day, s.companyName, COUNT(s) 
+            FROM ComparisonEntity s
+            WHERE CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate
+            GROUP BY CAST(s.createdAt AS DATE), s.companyName
+            ORDER BY day, s.companyName
+        """)
+        List<Object[]> findWeeklyCompanyComparisonCounts(
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate);
 }

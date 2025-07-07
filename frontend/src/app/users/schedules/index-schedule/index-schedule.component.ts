@@ -30,6 +30,8 @@ export class IndexScheduleComponent implements OnInit {
   schedules: Schedule[] = [];
   ports: Port[] = [];
   companies: Company[] = [];
+  selectedScheduleIds: string[] = [];
+
   // Add filter properties
   filterForm!: FormGroup;
   currentFilters: any = {};
@@ -118,7 +120,9 @@ export class IndexScheduleComponent implements OnInit {
   private getTableColumns(): any[] {
     return [
       {
-        title: "#",
+        title: `<div class="form-check">
+                  <input type="checkbox" id="select-all-checkbox" class="form-check-input" />
+                </div>`,
         data: null,
         orderable: false,
         searchable: false,
@@ -154,14 +158,71 @@ export class IndexScheduleComponent implements OnInit {
   }
 
   private renderActionCheckBoxs(data: any, type: any, row: any): string {
-    return `<div class="form-check">
-              <input class="form-check-input" type="checkbox" value="${row.id}" id="${row.id}">
-            </div>`;
+    return `
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input comparison-checkbox" value="${row.id}">
+    </div>
+  `;
   }
 
   private handleRowCallback(row: Node, data: any): Node {
-    setTimeout(() => this.setupRowEventListeners(row, data));
+    setTimeout(() => {
+      this.setupRowEventListeners(row, data);
+      this.setupCheckboxListener(row, data);
+      this.setupSelectAllListener();
+    });
     return row;
+  }
+
+  private setupSelectAllListener(): void {
+    const selectAllCheckbox = document.getElementById(
+      "select-all-checkbox"
+    ) as HTMLInputElement;
+
+    if (selectAllCheckbox) {
+      this.renderer.listen(selectAllCheckbox, "change", (event) => {
+        const isChecked = (event.target as HTMLInputElement).checked;
+
+        const checkboxes = document.querySelectorAll<HTMLInputElement>(
+          ".comparison-checkbox"
+        );
+
+        checkboxes.forEach((checkbox) => {
+          if (checkbox !== selectAllCheckbox) {
+            checkbox.checked = isChecked;
+
+            const id = checkbox.value;
+
+            if (isChecked && !this.selectedScheduleIds.includes(id)) {
+              this.selectedScheduleIds.push(id);
+            } else if (!isChecked) {
+              this.selectedScheduleIds = [];
+            }
+          }
+        });
+      });
+    }
+  }
+
+  private setupCheckboxListener(row: Node, data: any): void {
+    const checkbox = (row as HTMLElement).querySelector(
+      ".comparison-checkbox"
+    ) as HTMLInputElement;
+
+    if (checkbox) {
+      this.renderer.listen(checkbox, "change", (event) => {
+        const isChecked = event.target.checked;
+        const id = event.target.value;
+
+        if (isChecked) {
+          this.selectedScheduleIds.push(id);
+        } else {
+          this.selectedScheduleIds = this.selectedScheduleIds.filter(
+            (selectedId) => selectedId !== id
+          );
+        }
+      });
+    }
   }
 
   private setupRowEventListeners(row: Node, data: any): void {
@@ -260,6 +321,35 @@ export class IndexScheduleComponent implements OnInit {
         this.configService.showErrorAlert(
           "Une erreur est survenue lors de la récupération des data."
         );
+      },
+    });
+  }
+
+  confirmBulkDelete(): void {
+    Swal.fire({
+      title: `Supprimer tous les éléments ?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Oui, supprimer",
+      cancelButtonText: "Annuler",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.allDelete();
+      }
+    });
+  }
+
+  allDelete(): void {
+    this.scheduleService.allDelete(this.selectedScheduleIds).subscribe({
+      next: () => {
+        this.configService.showSuccessAlert(
+          "Schedules supprimées avec succès."
+        );
+        this.selectedScheduleIds = [];
+        this.refreshDataTable();
+      },
+      error: () => {
+        this.configService.showErrorAlert("Erreur lors de la suppression.");
       },
     });
   }

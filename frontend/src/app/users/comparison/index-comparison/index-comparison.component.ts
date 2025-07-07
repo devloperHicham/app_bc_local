@@ -120,7 +120,9 @@ export class IndexComparisonComponent implements OnInit {
   private getTableColumns(): any[] {
     return [
       {
-        title: "#",
+        title: `<div class="form-check">
+                  <input type="checkbox" id="select-all-checkbox" class="form-check-input" />
+                </div>`,
         data: null,
         orderable: false,
         searchable: false,
@@ -167,8 +169,39 @@ export class IndexComparisonComponent implements OnInit {
     setTimeout(() => {
       this.setupRowEventListeners(row, data);
       this.setupCheckboxListener(row, data);
+      this.setupSelectAllListener();
     });
     return row;
+  }
+
+  private setupSelectAllListener(): void {
+    const selectAllCheckbox = document.getElementById(
+      "select-all-checkbox"
+    ) as HTMLInputElement;
+
+    if (selectAllCheckbox) {
+      this.renderer.listen(selectAllCheckbox, "change", (event) => {
+        const isChecked = (event.target as HTMLInputElement).checked;
+
+        const checkboxes = document.querySelectorAll<HTMLInputElement>(
+          ".comparison-checkbox"
+        );
+
+        checkboxes.forEach((checkbox) => {
+          if (checkbox !== selectAllCheckbox) {
+            checkbox.checked = isChecked;
+
+            const id = checkbox.value;
+
+            if (isChecked && !this.selectedComparisonIds.includes(id)) {
+              this.selectedComparisonIds.push(id);
+            } else if (!isChecked) {
+              this.selectedComparisonIds = [];
+            }
+          }
+        });
+      });
+    }
   }
 
   private setupCheckboxListener(row: Node, data: any): void {
@@ -191,6 +224,7 @@ export class IndexComparisonComponent implements OnInit {
       });
     }
   }
+
   private setupRowEventListeners(row: Node, data: any): void {
     this.setupEditButtonListener(row, data);
     this.setupDeleteButtonListener(row, data);

@@ -20,3 +20,23 @@ export interface WeeklyComparisonData {
   week: string;
   comparisons: number[];
 }
+
+export interface WeeklyScheduleByCompaniesData {
+  companyName: string;
+  schedules: number[];
+}
+
+export interface WeeklyComparisonByCompaniesData {
+  companyName: string;
+  comparisons: number[];
+}
+
+export interface DailyScheduleByUsersData {
+  userName: string;
+  schedules: number[];
+}
+
+export interface DailyComparisonByUsersData {
+  userName: string;
+  comparisons: number[];
+}

@@ -5,6 +5,9 @@ import com.schedulerates.schedule.model.schedule.entity.ScheduleEntity;
 import com.schedulerates.schedule.repository.ScheduleRepository;
 import com.schedulerates.schedule.service.schedule.ScheduleDeleteService;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -32,5 +35,20 @@ public class ScheduleDeleteServiceImpl implements ScheduleDeleteService {
         scheduleRepository.delete(scheduleEntityToBeDelete);
 
     }
+/**
+     * Deletes Schedules identified by multiple IDs.
+     *
+     * @param scheduleIds The list of IDs of the Schedules to delete.
+     * @throws NotFoundException If any of the Schedule IDs do not exist.
+     */
+    @Override
+    public void deleteSchedulesByIds(List<String> scheduleIds) {
+        List<ScheduleEntity> entities = scheduleRepository.findAllById(scheduleIds);
 
+        if (entities.size() != scheduleIds.size()) {
+            throw new NotFoundException("Some schedule IDs were not found.");
+        }
+
+        scheduleRepository.deleteAll(entities);
+    }
 }

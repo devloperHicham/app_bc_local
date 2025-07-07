@@ -1,19 +1,23 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DashboardService } from '../../../services/dashboard.service';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from "@angular/core";
+import { DashboardService } from "../../../services/dashboard.service";
 import {
   DashboardStats,
+  WeeklyComparisonByCompaniesData,
   WeeklyComparisonData,
+  WeeklyScheduleByCompaniesData,
   WeeklyScheduleData,
-} from '../../../modules/dashboard';
+} from "../../../modules/dashboard";
+import { CommonModule } from "@angular/common";
+import { CanvasJSAngularChartsModule } from "@canvasjs/angular-charts";
 
 @Component({
-  selector: 'app-home-admin',
-  imports: [],
-  templateUrl: './home-admin.component.html',
-  styleUrl: './home-admin.component.scss',
+  selector: "app-home-admin",
+  imports: [CommonModule, CanvasJSAngularChartsModule],
+  templateUrl: "./home-admin.component.html",
+  styleUrl: "./home-admin.component.scss",
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HomeAdminComponent {
+export class HomeAdminComponent implements OnInit {
   totalSchedule: number = 0;
   totalComparisons: number = 0;
   scoreSchedules: number = 0;
@@ -22,9 +26,13 @@ export class HomeAdminComponent {
   // Chart configs
   public chartOptionsWeeklySchedule: any = [];
   public chartOptionsWeeklyComparison: any = [];
+  public chartOptionsWeeklyScheduleByCompany: any = [];
+  public chartOptionsWeeklyComparisonByCompany: any = [];
+  public chartOptionsDailylyScheduleByUser: any = [];
+  public chartOptionsDailyComparisonByUser: any = [];
 
   // Static weekdays
-  public weekDays: string[] = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+  public weekDays: string[] = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 
   constructor(private readonly dashboardService: DashboardService) {}
 
@@ -34,6 +42,8 @@ export class HomeAdminComponent {
     this.loadComparisonStats();
     this.loadWeeklyScheduleChart();
     this.loadWeeklyComparisonChart();
+    this.loadWeeklySchedulByCompaniesChart();
+    this.loadWeeklyComparisonByCompaniesChart();
   }
 
   private loadScheduleStats(): void {
@@ -42,7 +52,7 @@ export class HomeAdminComponent {
         this.totalSchedule = stats.totalAdminSchedules ?? 0;
         this.scoreSchedules = stats.totalAdminScoreSchedules ?? 0;
       },
-      error: (err) => console.error('Schedule stats error:', err),
+      error: (err) => console.error("Schedule stats error:", err),
     });
   }
 
@@ -52,20 +62,20 @@ export class HomeAdminComponent {
         this.totalComparisons = stats.totalAdminComparisons ?? 0;
         this.scoreComparisons = stats.totalAdminScoreComparisons ?? 0;
       },
-      error: (err) => console.error('Comparison stats error:', err),
+      error: (err) => console.error("Comparison stats error:", err),
     });
   }
   private initializeChartOptions(): void {
     // Common chart configuration
     const commonOptions = {
       animationEnabled: true,
-      theme: 'light2',
+      theme: "light2",
       axisY: {
-        title: 'Insertion',
+        title: "Insertion",
         includeZero: true,
       },
       axisX: {
-        title: 'les jours de la semaine',
+        title: "les jours de la semaine",
         interval: 1,
         labelAngle: -45,
       },
@@ -73,9 +83,9 @@ export class HomeAdminComponent {
         shared: true,
       },
       legend: {
-        cursor: 'pointer',
-        verticalAlign: 'top',
-        horizontalAlign: 'center',
+        cursor: "pointer",
+        verticalAlign: "top",
+        horizontalAlign: "center",
       },
     };
 
@@ -97,7 +107,7 @@ export class HomeAdminComponent {
         this.updateScheduleChart(data);
       },
       error: (err) => {
-        console.error('Weekly schedule chart error:');
+        console.error("Weekly schedule chart error:");
       },
     });
   }
@@ -108,14 +118,35 @@ export class HomeAdminComponent {
         this.updateComparisonChart(data);
       },
       error: (err) => {
-        console.error('Weekly comparison chart error:', err);
+        console.error("Weekly comparison chart error:", err);
       },
     });
   }
 
+  private loadWeeklyComparisonByCompaniesChart(): void {
+    this.dashboardService.getGraphicComparisonByCompaniesStats().subscribe({
+      next: (data: WeeklyComparisonByCompaniesData[]) => {
+        this.updateComparisonByCompaniesChart(data);
+      },
+      error: (err) => {
+        console.error("Weekly comparison chart error:", err);
+      },
+    });
+  }
+
+  private loadWeeklySchedulByCompaniesChart(): void {
+    this.dashboardService.getGraphicScheduleByCompaniesStats().subscribe({
+      next: (data: WeeklyScheduleByCompaniesData[]) => {
+        this.updateScheduleByCompaniesChart(data);
+      },
+      error: (err) => {
+        console.error("Weekly comparison chart error:", err);
+      },
+    });
+  }
   private updateScheduleChart(data: WeeklyScheduleData[]): void {
     const series = data.map((weekData) => ({
-      type: 'line',
+      type: "line",
       name: weekData.week,
       showInLegend: true,
       dataPoints: this.weekDays.map((day, index) => ({
@@ -132,7 +163,7 @@ export class HomeAdminComponent {
 
   private updateComparisonChart(data: WeeklyComparisonData[]): void {
     const series = data.map((weekData) => ({
-      type: 'column',
+      type: "column",
       name: weekData.week,
       showInLegend: true,
       dataPoints: this.weekDays.map((day, index) => ({
@@ -143,6 +174,45 @@ export class HomeAdminComponent {
 
     this.chartOptionsWeeklyComparison = {
       ...this.chartOptionsWeeklyComparison,
+      data: series,
+    };
+  }
+
+  private updateComparisonByCompaniesChart(
+    data: WeeklyComparisonByCompaniesData[]
+  ): void {
+    const series = data.map((companyData) => ({
+      type: "column",
+      name: companyData.companyName,
+      showInLegend: true,
+      dataPoints: this.weekDays.map((day, i) => ({
+        label: day, // Grouped by day
+        y: companyData.comparisons[i] || 0,
+        toolTipContent: `${companyData.companyName} - ${day}: {y} insertions`,
+      })),
+    }));
+
+    this.chartOptionsWeeklyComparisonByCompany = {
+      ...this.chartOptionsWeeklyComparisonByCompany,
+      data: series,
+    };
+  }
+  private updateScheduleByCompaniesChart(
+    data: WeeklyScheduleByCompaniesData[]
+  ): void {
+    const series = data.map((companyData) => ({
+      type: "column", // or "line" for line graph
+      name: companyData.companyName,
+      showInLegend: true,
+      dataPoints: this.weekDays.map((day, index) => ({
+        label: day,
+        y: companyData.schedules[index] || 0,
+        toolTipContent: `${companyData.companyName} - ${day}: {y} insertions`,
+      })),
+    }));
+
+    this.chartOptionsWeeklyScheduleByCompany = {
+      ...this.chartOptionsWeeklyScheduleByCompany,
       data: series,
     };
   }

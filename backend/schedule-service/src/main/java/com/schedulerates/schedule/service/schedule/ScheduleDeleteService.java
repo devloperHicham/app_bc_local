@@ -1,5 +1,7 @@
 package com.schedulerates.schedule.service.schedule;
 
+import java.util.List;
+
 /**
  * Service interface named {@link ScheduleDeleteService} for deleting Schedules.
  */
@@ -12,4 +14,11 @@ public interface ScheduleDeleteService {
      */
     void deleteScheduleById(final String scheduleId);
 
+    
+    /**
+     * Deletes a schedule identified by multiple ID.
+     *
+     * @param scheduleIdS The ID of the schedule to delete.
+     */
+    void deleteSchedulesByIds(List<String> scheduleIds);
 }

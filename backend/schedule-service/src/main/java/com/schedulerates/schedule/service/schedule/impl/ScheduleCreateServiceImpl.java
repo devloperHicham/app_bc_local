@@ -12,6 +12,7 @@ import com.schedulerates.schedule.repository.ScheduleRepository;
 import com.schedulerates.schedule.service.schedule.ScheduleCreateService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
@@ -36,31 +37,34 @@ import org.springframework.stereotype.Service;
 public class ScheduleCreateServiceImpl implements ScheduleCreateService {
 
         private final ScheduleRepository scheduleRepository;
-
         private final SettingServiceClient settingServiceClient;
-
         private final ScheduleEntityToScheduleMapper scheduleEntityToScheduleMapper = ScheduleEntityToScheduleMapper
                         .initialize();
+        private final HttpServletRequest httpServletRequest;
 
-        private final HttpServletRequest httpServletRequest; // Inject the current request
-
-        /**
-         * Creates a new Schedule based on the provided Schedule creation request.
-         *
-         * @param scheduleCreateRequest The request containing data to create the
-         *                              Schedule.
-         * @return The created Schedule object.
-         * @throws ScheduleAlreadyExistException If a Schedule with the same name
-         *                                       already exists.
-         */
         @Override
+        @Transactional
         public List<Schedule> createSchedule(ScheduleCreateRequest scheduleCreateRequest) {
                 List<Schedule> createdSchedules = new ArrayList<>();
                 String authHeader = httpServletRequest.getHeader("Authorization");
 
-                // Formatteur pour parser les dates en format "dd/MM/yyyy"
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
                                 .withLocale(Locale.ENGLISH);
+
+                // Validate all lists have the same size
+                if (scheduleCreateRequest.getRefVoyage().size() != scheduleCreateRequest.getTransit().size() ||
+                                scheduleCreateRequest.getRefVoyage().size() != scheduleCreateRequest.getVessel().size()
+                                ||
+                                scheduleCreateRequest
+                                                .getRefVoyage().size() != scheduleCreateRequest.getServiceName().size()
+                                ||
+                                scheduleCreateRequest.getRefVoyage().size() != scheduleCreateRequest.getDateDepart()
+                                                .size()
+                                ||
+                                scheduleCreateRequest.getRefVoyage().size() != scheduleCreateRequest.getDateArrive()
+                                                .size()) {
+                        throw new IllegalArgumentException("All input lists must have the same size");
+                }
 
                 // Fetch reference data once since these are the same for all records
                 PortDto portFrom = settingServiceClient
@@ -73,52 +77,49 @@ public class ScheduleCreateServiceImpl implements ScheduleCreateService {
                                 .getCompanyById(scheduleCreateRequest.getCompanyId(), authHeader)
                                 .getResponse();
 
-                // For each container and price combination
+                // Single loop since dates are paired with voyages 1:1
                 for (int i = 0; i < scheduleCreateRequest.getRefVoyage().size(); i++) {
                         Integer transit = scheduleCreateRequest.getTransit().get(i);
                         String vessel = scheduleCreateRequest.getVessel().get(i);
                         String refVoyage = scheduleCreateRequest.getRefVoyage().get(i);
                         String serviceName = scheduleCreateRequest.getServiceName().get(i);
+                        String dateDepartStr = scheduleCreateRequest.getDateDepart().get(i);
+                        String dateArriveStr = scheduleCreateRequest.getDateArrive().get(i);
 
-                        // For each date combination
-                        for (int j = 0; j < scheduleCreateRequest.getDateDepart().size(); j++) {
-                                String dateDepartStr = scheduleCreateRequest.getDateDepart().get(j);
-                                String dateArriveStr = scheduleCreateRequest.getDateArrive().get(j);
+                        LocalDate departDate = LocalDate.parse(dateDepartStr, formatter);
+                        LocalDate arriveDate = LocalDate.parse(dateArriveStr, formatter);
 
-                                LocalDate departDate = LocalDate.parse(dateDepartStr, formatter);
-                                LocalDate arriveDate = LocalDate.parse(dateArriveStr, formatter);
-                                // Check if an active record already exists with these values
-                                boolean exists = scheduleRepository
-                                                .existsByPortFromIdAndPortToIdAndRefVoyageAndDateDepartAndDateArriveAndActive(
-                                                                scheduleCreateRequest.getPortFromId(),
-                                                                scheduleCreateRequest.getPortToId(),
-                                                                scheduleCreateRequest.getRefVoyage().get(j),
-                                                                dateDepartStr,
-                                                                dateArriveStr,
-                                                                "1"); // active = 1
-                                if (!exists && (departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate))
-                                                && !scheduleCreateRequest.getPortFromId()
-                                                                .equals(scheduleCreateRequest.getPortToId())) {
-                                        ScheduleEntity scheduleEntity = ScheduleEntity.builder()
-                                                        .portFromId(scheduleCreateRequest.getPortFromId())
-                                                        .portToId(scheduleCreateRequest.getPortToId())
-                                                        .companyId(scheduleCreateRequest.getCompanyId())
-                                                        .dateDepart(dateDepartStr)
-                                                        .dateArrive(dateArriveStr)
-                                                        .transit(transit)
-                                                        .vessel(vessel)
-                                                        .refVoyage(refVoyage)
-                                                        .serviceName(serviceName)
-                                                        .portFromName(portFrom.getPortName())
-                                                        .portToName(portTo.getPortName())
-                                                        .companyName(company.getCompanyName())
-                                                        .createdBy(getCurrentUserEmail())
-                                                        .createdAt(LocalDateTime.now())
-                                                        .build();
+                        // Check if an active record already exists with these values
+                        boolean exists = scheduleRepository
+                                        .existsByPortFromIdAndPortToIdAndRefVoyageAndDateDepartAndDateArriveAndActive(
+                                                        scheduleCreateRequest.getPortFromId(),
+                                                        scheduleCreateRequest.getPortToId(),
+                                                        refVoyage,
+                                                        dateDepartStr,
+                                                        dateArriveStr,
+                                                        "1"); // active = 1
 
-                                        ScheduleEntity savedEntity = scheduleRepository.save(scheduleEntity);
-                                        createdSchedules.add(scheduleEntityToScheduleMapper.map(savedEntity));
-                                }
+                        if (!exists && (departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate)) && (!scheduleCreateRequest.getPortFromId().equals(scheduleCreateRequest.getPortToId()))) {
+                                ScheduleEntity scheduleEntity = ScheduleEntity.builder()
+                                                .portFromId(scheduleCreateRequest.getPortFromId())
+                                                .portToId(scheduleCreateRequest.getPortToId())
+                                                .companyId(scheduleCreateRequest.getCompanyId())
+                                                .dateDepart(dateDepartStr)
+                                                .dateArrive(dateArriveStr)
+                                                .transit(transit)
+                                                .vessel(vessel)
+                                                .refVoyage(refVoyage)
+                                                .serviceName(serviceName)
+                                                .portFromName(portFrom.getPortName())
+                                                .portToName(portTo.getPortName())
+                                                .companyName(company.getCompanyName())
+                                                .createdBy(getCurrentUserEmail())
+                                                .createdAt(LocalDateTime.now())
+                                                .active("1")
+                                                .build();
+
+                                ScheduleEntity savedEntity = scheduleRepository.save(scheduleEntity);
+                                createdSchedules.add(scheduleEntityToScheduleMapper.map(savedEntity));
                         }
                 }
 
@@ -135,5 +136,4 @@ public class ScheduleCreateServiceImpl implements ScheduleCreateService {
                                 .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
                                 .orElse(ANONYMOUS_USER);
         }
-
 }

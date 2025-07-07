@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ConfigService } from '../../services/config/config.service';
-import { HttpClient } from '@angular/common/http';
-import { Schedule } from '../modules/schedule';
-import { catchError, map, Observable, of } from 'rxjs';
-import { ApiResponses } from '../../modules/api-responses';
+import { Injectable } from "@angular/core";
+import { ConfigService } from "../../services/config/config.service";
+import { HttpClient } from "@angular/common/http";
+import { Schedule } from "../modules/schedule";
+import { catchError, map, Observable, of } from "rxjs";
+import { ApiResponses } from "../../modules/api-responses";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ScheduleService {
   private readonly url: string;
@@ -37,7 +37,7 @@ export class ScheduleService {
       .pipe(
         map((response) => {
           if (!response.response) {
-            throw new Error('data not found');
+            throw new Error("data not found");
           }
           return response.response;
         }),
@@ -50,14 +50,14 @@ export class ScheduleService {
   create(data: Schedule): Observable<ApiResponses<void>> {
     return this.http
       .post<ApiResponses<void>>(
-        this.url + '/create',
+        this.url + "/create",
         data,
         this.configService.httpOptions
       )
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to create data');
+            throw new Error("Failed to create data");
           }
           return response;
         }),
@@ -76,7 +76,7 @@ export class ScheduleService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to update data');
+            throw new Error("Failed to update data");
           }
           return response;
         }),
@@ -96,7 +96,7 @@ export class ScheduleService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to delete data');
+            throw new Error("Failed to delete data");
           }
           return response;
         }),
@@ -106,6 +106,28 @@ export class ScheduleService {
           } as ApiResponses<void>);
         })
       );
+  }
+
+  allDelete(ids: string[]): Observable<ApiResponses<void>> {
+    const url = `${this.url}/all`;
+    const options = {
+      headers: this.configService.httpOptions.headers,
+      body: ids,
+    };
+    console.log("Deleting IDs:", ids);
+    return this.http.delete<ApiResponses<void>>(url, options).pipe(
+      map((response) => {
+        if (!response.isSuccess) {
+          throw new Error("Failed to delete data");
+        }
+        return response;
+      }),
+      catchError((error) => {
+        return of({
+          isSuccess: false,
+        } as ApiResponses<void>);
+      })
+    );
   }
 
   // get data using pagination method for server-side processing
@@ -164,7 +186,7 @@ export class ScheduleService {
       dateFin: filters?.dateFin ?? null,
       userId: filters?.userId ?? null,
       //filters: filters ?? null // Add filters to the request
-    }; 
+    };
     return this.http
       .post<any>(urls, requestBody, this.configService.httpOptions)
       .pipe(

@@ -1,7 +1,9 @@
 package com.schedulerates.schedule.service.schedule.impl;
 
 import com.schedulerates.schedule.model.auth.enums.TokenClaims;
+import com.schedulerates.schedule.model.schedule.dto.response.DailyScheduleByUsersData;
 import com.schedulerates.schedule.model.schedule.dto.response.DashboardResponse;
+import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleByCompaniesData;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
 import com.schedulerates.schedule.repository.ScheduleRepository;
 import com.schedulerates.schedule.service.schedule.ScheduleDashboardService;
@@ -14,8 +16,11 @@ import org.springframework.stereotype.Service;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -44,6 +49,16 @@ public class ScheduleDashboardServiceImpl implements ScheduleDashboardService {
 
         return response;
     }
+    
+    @Override
+    public List<DailyScheduleByUsersData> getDaillyScheduleByUsers() {
+        LocalDate today = LocalDate.now();
+        List<Object[]> results = scheduleRepository.findDailyUsersScheduleCounts(today);
+
+        return results.stream()
+            .map(row -> new DailyScheduleByUsersData((String) row[0], ((Long) row[1]).intValue()))
+            .collect(Collectors.toList());
+    }
 
     @Override
     public List<WeeklyScheduleData> getGraphicSchedules() {
@@ -68,6 +83,40 @@ public class ScheduleDashboardServiceImpl implements ScheduleDashboardService {
 
         weeklyData.add(currentWeek);
         return weeklyData;
+    }
+
+    @Override
+    public List<WeeklyScheduleByCompaniesData> getGraphicScheduleByCompanies() {
+        if (!isAdmin()) {
+            throw new SecurityException("Access denied: Admins only");
+        }
+
+        LocalDate today = LocalDate.now();
+        LocalDate startOfWeek = today.with(DayOfWeek.MONDAY);
+        LocalDate endOfWeek = startOfWeek.plusDays(6);
+
+        List<Object[]> results = scheduleRepository.findWeeklyCompanyScheduleCounts(startOfWeek, endOfWeek);
+
+        Map<String, WeeklyScheduleByCompaniesData> companyDataMap = new HashMap<>();
+
+        for (Object[] row : results) {
+            // Convert the java.sql.Date to LocalDate safely
+            LocalDate date = ((java.sql.Date) row[0]).toLocalDate();
+            String companyName = (String) row[1];
+            Long count = (Long) row[2];
+
+            int dayIndex = date.getDayOfWeek().getValue() - 1;
+
+            WeeklyScheduleByCompaniesData data = companyDataMap.computeIfAbsent(companyName,
+                    name -> WeeklyScheduleByCompaniesData.builder()
+                            .companyName(name)
+                            .schedules(new ArrayList<>(List.of(0, 0, 0, 0, 0, 0, 0)))
+                            .build());
+
+            data.getSchedules().set(dayIndex, count.intValue());
+        }
+
+        return new ArrayList<>(companyDataMap.values());
     }
 
     private int calculateAdminScore(LocalDate yesterday) {

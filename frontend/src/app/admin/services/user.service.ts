@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ConfigService } from '../../services/config/config.service';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../modules/user';
-import { catchError, map, Observable, of } from 'rxjs';
-import { ApiResponses } from '../../modules/api-responses';
+import { Injectable } from "@angular/core";
+import { ConfigService } from "../../services/config/config.service";
+import { HttpClient } from "@angular/common/http";
+import { User } from "../modules/user";
+import { catchError, map, Observable, of } from "rxjs";
+import { ApiResponses } from "../../modules/api-responses";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class UserService {
   private readonly url: string;
@@ -38,7 +38,7 @@ export class UserService {
       .pipe(
         map((response) => {
           if (!response.response) {
-            throw new Error('data not found');
+            throw new Error("data not found");
           }
           return response.response;
         }),
@@ -50,11 +50,15 @@ export class UserService {
 
   create(data: User): Observable<ApiResponses<void>> {
     return this.http
-      .post<ApiResponses<void>>(this.url+'/register', data, this.configService.httpOptions)
+      .post<ApiResponses<void>>(
+        this.url + "/register",
+        data,
+        this.configService.httpOptions
+      )
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to create data');
+            throw new Error("Failed to create data");
           }
           return response;
         }),
@@ -73,7 +77,7 @@ export class UserService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to update data');
+            throw new Error("Failed to update data");
           }
           return response;
         }),
@@ -84,7 +88,6 @@ export class UserService {
         })
       );
   }
-
   delete(id: string): Observable<ApiResponses<void>> {
     const url = `${this.url}/${id}`;
 
@@ -93,7 +96,7 @@ export class UserService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to delete data');
+            throw new Error("Failed to delete data");
           }
           return response;
         }),
@@ -105,6 +108,27 @@ export class UserService {
       );
   }
 
+  resetPassword(
+    id: string,
+    data: { newPassword: string }
+  ): Observable<ApiResponses<void>> {
+    const url = `${this.url}/reset-password/${id}`;
+    return this.http
+      .put<ApiResponses<void>>(url, data, this.configService.httpOptions)
+      .pipe(
+        map((response) => {
+          if (!response.isSuccess) {
+            throw new Error("Failed to update data");
+          }
+          return response;
+        }),
+        catchError((error) => {
+          return of({
+            isSuccess: false,
+          } as ApiResponses<void>);
+        })
+      );
+  }
   // get data using pagination method for server-side processing
   getPaginatedData(dtParams: any): Observable<any> {
     const requestBody = {

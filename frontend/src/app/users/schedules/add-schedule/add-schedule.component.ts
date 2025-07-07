@@ -91,7 +91,6 @@ export class AddScheduleComponent implements OnInit {
       return;
     }
     this.spinner.show();
-    console.log(this.form.value);
     this.scheduleService.create(this.form.value).subscribe({
       next: (res: ApiResponses<void>) => {
         this.spinner.hide();
@@ -171,7 +170,7 @@ export class AddScheduleComponent implements OnInit {
           this.fb.control(refVoyage, Validators.required)
         );
         this.serviceNameArray.push(
-          this.fb.control(serviceName, Validators.required)
+          this.fb.control(serviceName)
         );
 
         return {

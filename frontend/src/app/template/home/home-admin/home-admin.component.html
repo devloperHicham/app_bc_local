@@ -6,100 +6,60 @@
 
     <div class="row row-cols-1 row-cols-md-4">
       <div class="col">
-        <div class="card radius-10 shadow-none bg-light-success mb-0">
+        <div class="card radius-10">
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <div class="fs-2 text-success">
-                <ion-icon name="card-sharp"></ion-icon>
-              </div>
-              <div class="fs-6 ms-auto text-success">
-                <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-              </div>
-            </div>
-            <div class="d-flex align-items-center mt-4">
               <div class="">
                 <p class="mb-1 text-success">Total Schedule</p>
                 <h4 class="mb-0 text-success">{{ totalSchedule }}</h4>
               </div>
-              <div class="ms-auto">
-                <p class="mb-0 text-success">
-                  ..<ion-icon name="arrow-up-sharp"></ion-icon>
-                </p>
+              <div class="ms-auto text-primary fs-2">
+                <ion-icon name="bag-handle-sharp"></ion-icon>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card radius-10 shadow-none bg-light-primary mb-0">
+        <div class="card radius-10">
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <div class="fs-2 text-primary">
-                <ion-icon name="bag-check-sharp"></ion-icon>
-              </div>
-              <div class="fs-6 ms-auto text-primary">
-                <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-              </div>
-            </div>
-            <div class="d-flex align-items-center mt-4">
               <div class="">
                 <p class="mb-1 text-primary">Total Comparison</p>
                 <h4 class="mb-0 text-primary">{{ totalComparisons }}</h4>
               </div>
-              <div class="ms-auto">
-                <p class="mb-0 text-primary">
-                  ..<ion-icon name="arrow-up-sharp"></ion-icon>
-                </p>
+              <div class="ms-auto text-danger fs-2">
+                <ion-icon name="pie-chart-sharp"></ion-icon>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card radius-10 shadow-none bg-light-danger mb-0">
+        <div class="card radius-10">
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <div class="fs-2 text-danger">
-                <ion-icon name="gift-sharp"></ion-icon>
-              </div>
-              <div class="fs-6 ms-auto text-danger">
-                <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-              </div>
-            </div>
-            <div class="d-flex align-items-center mt-4">
               <div class="">
                 <p class="mb-1 text-danger">Score Schedule</p>
                 <h4 class="mb-0 text-danger">{{ scoreSchedules }}%</h4>
               </div>
-              <div class="ms-auto">
-                <p class="mb-0 text-danger">
-                  ..<ion-icon name="arrow-up-sharp"></ion-icon>
-                </p>
+              <div class="ms-auto text-success fs-2">
+                <ion-icon name="wallet-sharp"></ion-icon>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card radius-10 shadow-none bg-light-warning mb-0">
+        <div class="card radius-10">
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <div class="fs-2 text-warning">
-                <ion-icon name="shield-half-sharp"></ion-icon>
-              </div>
-              <div class="fs-6 ms-auto text-warning">
-                <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-              </div>
-            </div>
-            <div class="d-flex align-items-center mt-4">
               <div class="">
                 <p class="mb-1 text-warning">Score Comparison</p>
                 <h4 class="mb-0 text-warning">{{ scoreComparisons }}%</h4>
               </div>
-              <div class="ms-auto">
-                <p class="mb-0 text-warning">
-                  ..<ion-icon name="arrow-up-sharp"></ion-icon>
-                </p>
+              <div class="ms-auto widget-icon bg-light-primary text-primary">
+                <ion-icon name="notifications-sharp"></ion-icon>
               </div>
             </div>
           </div>
@@ -116,11 +76,7 @@
               <h6 class="mb-0">Schedules Hebdomadaires</h6>
               <div class="ms-auto"></div>
             </div>
-            <canvasjs-chart
-              [options]="chartOptionsWeeklySchedule"
-              height="250"
-              width="400"
-            ></canvasjs-chart>
+            <canvasjs-chart [options]="chartOptionsWeeklySchedule" height="250" width="400"></canvasjs-chart>
           </div>
         </div>
       </div>
@@ -133,16 +89,67 @@
               <h6 class="mb-0">Comparaisons Hebdomadaires</h6>
               <div class="ms-auto"></div>
             </div>
-            <canvasjs-chart
-              [options]="chartOptionsWeeklyComparison"
-              height="250"
-              width="400"
-            ></canvasjs-chart>
+            <canvasjs-chart [options]="chartOptionsWeeklyComparison" height="250" width="400"></canvasjs-chart>
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <!-- Weekly Schedule Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Schedules Hebdomadaires par Companies</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart [options]="chartOptionsWeeklyScheduleByCompany" height="250" width="400"></canvasjs-chart>
+          </div>
+        </div>
+      </div>
 
+      <!-- Weekly Comparison Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Comparaisons Hebdomadaires par Companies</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart [options]="chartOptionsWeeklyComparisonByCompany" height="250" width="400"></canvasjs-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+
+    <div class="row">
+      <!-- Weekly Schedule Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Schedules Journalier par Utilisateur</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart [options]="chartOptionsDailylyScheduleByUser" height="250" width="400"></canvasjs-chart>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Comparison Chart -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Comparaisons Journalier par Utilisateur</h6>
+              <div class="ms-auto"></div>
+            </div>
+            <canvasjs-chart [options]="chartOptionsDailyComparisonByUser" height="250" width="400"></canvasjs-chart>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--end row-->
   </div>
   <!-- end page content-->

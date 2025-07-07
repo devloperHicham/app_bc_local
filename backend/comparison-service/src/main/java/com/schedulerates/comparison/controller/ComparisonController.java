@@ -10,6 +10,7 @@ import com.schedulerates.comparison.model.comparison.dto.request.ComparisonPagin
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonUpdateRequest;
 import com.schedulerates.comparison.model.comparison.dto.response.ComparisonResponse;
 import com.schedulerates.comparison.model.comparison.dto.response.DashboardResponse;
+import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonByCompaniesData;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonData;
 import com.schedulerates.comparison.model.comparison.mapper.CustomPageToCustomPagingResponseMapper;
 import com.schedulerates.comparison.repository.ComparisonRepository;
@@ -242,5 +243,11 @@ public class ComparisonController {
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
         public List<WeeklyComparisonData> getWeeklyComparisonStats() {
                 return comparisonDashboardService.getGraphicComparisons();
+        }
+
+        @GetMapping("/graphic-companies")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public List<WeeklyComparisonByCompaniesData> getWeeklyComparisonByCompaniesStats() {
+                return comparisonDashboardService.getGraphicComparisonByCompanies();
         }
 }
