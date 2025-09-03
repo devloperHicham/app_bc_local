@@ -1,0 +1,182 @@
+<div class="hero">
+  <div class="content">
+    <div class="pricing">
+      <div class="content1">
+        <div class="heading">
+          <b class="transparent-flexible">{{ "PRICING_PLAN.TITLE" | translate }}</b>
+          <div class="whether-youre-shipping-container">
+            <p class="find-a-booking">{{ "PRICING_PLAN.DESCRIPTION1" | translate }}</p>
+            <p class="find-a-booking">{{ "PRICING_PLAN.DESCRIPTION2" | translate }}</p>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <a class="tab-item1" [class.active]="activeTab === 'free'" (click)="selectTab('free')" [ngClass]="{ 'active-blue': activeTab === 'free' }">
+            <div class="icon">
+              <img class="vector-icon" alt="" [src]="activeTab === 'free' ? 'assets/images/container-white.png' : 'assets/images/container-blue.png'" />
+            </div>
+            <div class="for-shippers">{{ "PRICING_PLAN.TABS.FREE" | translate }}</div>
+          </a>
+          <a class="tab-item1" [class.active]="activeTab === 'business'" (click)="selectTab('business')" [ngClass]="{ 'active-orange': activeTab === 'business' }">
+            <div class="icon">
+              <img class="vector-icon1" alt="" [src]="'assets/images/backpack.png'" />
+            </div>
+            <div class="for-brokers">{{ "PRICING_PLAN.TABS.BUSINESS" | translate }}</div>
+          </a>
+        </div>
+
+        <!-- Free Tab Plans -->
+        <div class="content2" *ngIf="activeTab === 'free'">
+          
+          <!-- Free Access Plan -->
+          <div class="pricing-card">
+            <div class="frame-parent" style="background-color: #e0e0e0">
+              <div class="free-plan-parent">
+                <b class="free-plan">{{ "PRICING_PLAN.PLANS.FREE.TITLE" | translate }}</b>
+                <div class="perfect-for-individuals">{{ "PRICING_PLAN.PLANS.FREE.DESC" | translate }}</div>
+              </div>
+              <b class="month">{{ "PRICING_PLAN.PLANS.FREE.PRICE" | translate }}</b>
+            </div>
+            <div class="frame-group">
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.USERS" | translate }}</div>
+              </div>
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.SCHEDULES" | translate }}</div>
+              </div>
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.RATE_COMPARISONS" | translate }}</div>
+              </div>
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.QUOTE_REQUESTS" | translate }}</div>
+              </div>
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.ROUTE_DETAILS" | translate }}</div>
+              </div>
+              <div class="vector-parent">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.FREE.FEATURES.LIVE_CHAT" | translate }}</div>
+              </div>
+            </div>
+            <div class="button">
+              <a routerLink="/inscription-users" class="get-started-for" style="color:white;text-decoration:none;">
+                {{ "PRICING_PLAN.PLANS.FREE.BUTTON" | translate }}
+              </a>
+              <div class="icon">
+                <img class="vector-icon5" alt="" src="assets/images/arrow-up-right-white.png" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Basic Access Plan -->
+          <div class="pricing-card">
+            <div class="frame-parent" style="background-color: #4a90e2">
+              <div class="free-plan-parent">
+                <b class="free-plan">{{ "PRICING_PLAN.PLANS.BASIC.TITLE" | translate }}</b>
+                <div class="perfect-for-individuals">{{ "PRICING_PLAN.PLANS.BASIC.DESC" | translate }}</div>
+              </div>
+              <b class="month">{{ "PRICING_PLAN.PLANS.BASIC.PRICE" | translate }}</b>
+            </div>
+            <div class="frame-group">
+              <div class="vector-parent" *ngFor="let feature of ['USERS','SCHEDULES','RATE_COMPARISONS','CARRIER_COMPARISON','QUOTE_REQUESTS','PRIORITY','ROUTE_DETAILS']">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.BASIC.FEATURES." + feature | translate }}</div>
+              </div>
+            </div>
+            <div class="button">
+              <a routerLink="/payment-orders" class="get-started-for" style="color:white;text-decoration:none;">
+                {{ "PRICING_PLAN.PLANS.BASIC.BUTTON" | translate }}
+              </a>
+              <div class="icon">
+                <img class="vector-icon10" alt="" src="assets/images/lettre.png" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium Access Plan -->
+          <div class="pricing-card">
+            <div class="frame-parent" style="background-color: #27ae60">
+              <div class="free-plan-parent">
+                <b class="free-plan">{{ "PRICING_PLAN.PLANS.PREMIUM.TITLE" | translate }}</b>
+                <div class="perfect-for-individuals">{{ "PRICING_PLAN.PLANS.PREMIUM.DESC" | translate }}</div>
+              </div>
+              <b class="month">{{ "PRICING_PLAN.PLANS.PREMIUM.PRICE" | translate }}</b>
+            </div>
+            <div class="frame-group">
+              <div class="vector-parent" *ngFor="let feature of ['USERS','SCHEDULES','RATE_PRICING','CARRIER_COMPARISON','QUOTE_REQUESTS','PRIORITY','ROUTE_DETAILS','DISCOUNT']">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.PREMIUM.FEATURES." + feature | translate }}</div>
+              </div>
+            </div>
+            <div class="button">
+              <a routerLink="/payment-orders" class="get-started-for" style="color:white;text-decoration:none;">
+                {{ "PRICING_PLAN.PLANS.PREMIUM.BUTTON" | translate }}
+              </a>
+              <div class="icon">
+                <img class="vector-icon10" alt="" src="assets/images/lettre.png" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Exclusive Deal Plan -->
+          <div class="pricing-card">
+            <div class="frame-parent" style="background-color: #cfae58">
+              <div class="free-plan-parent">
+                <b class="free-plan">{{ "PRICING_PLAN.PLANS.EXCLUSIVE.TITLE" | translate }}</b>
+                <div class="perfect-for-individuals">{{ "PRICING_PLAN.PLANS.EXCLUSIVE.DESC" | translate }}</div>
+              </div>
+              <b class="month">{{ "PRICING_PLAN.PLANS.EXCLUSIVE.PRICE" | translate }}</b>
+            </div>
+            <div class="frame-group">
+              <div class="vector-parent" *ngFor="let feature of ['USERS','SCHEDULES','ANALYTICS','QUOTE_REQUESTS','CARRIER_COMPARISON','PRIORITY','ROUTE_DETAILS','DISCOUNT','SUPPORT']">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "PRICING_PLAN.PLANS.EXCLUSIVE.FEATURES." + feature | translate }}</div>
+              </div>
+            </div>
+            <div class="button">
+              <a routerLink="/payment-orders" class="get-started-for" style="color:white;text-decoration:none;">
+                {{ "PRICING_PLAN.PLANS.EXCLUSIVE.BUTTON" | translate }}
+              </a>
+              <div class="icon">
+                <img class="vector-icon10" alt="" src="assets/images/lettre.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Tab -->
+        <div class="content2" *ngIf="activeTab === 'business'">
+          <div class="pricing-card">
+            <div class="frame-parent">
+              <div class="free-plan-parent">
+                <b class="free-plan">{{ "BROKER.TITLE" | translate }}</b>
+                <div class="perfect-for-individuals">{{ "BROKER.DESC" | translate }}</div>
+              </div>
+              <b class="month" style="color: #0739a4">{{ "BROKER.PRICE" | translate }}</b>
+            </div>
+            <div class="frame-group">
+              <div class="vector-parent" *ngFor="let feature of ['INVENTORY','CLIENTS','CRM']">
+                <img class="vector-icon2" alt="" src="assets/images/container-price.png" />
+                <div class="browse-the-global">{{ "BROKER.FEATURES." + feature | translate }}</div>
+              </div>
+            </div>
+            <div class="button" style="background-color: #ff6701; color: white; text-decoration: none;">
+              <div class="text-placeholder">{{ "BROKER.BUTTON" | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-no-price></app-no-price>
+<app-detail-price-free *ngIf="activeTab === 'free'"></app-detail-price-free>
+<app-detail-price-busniss *ngIf="activeTab === 'business'"></app-detail-price-busniss>
+<app-price-faq></app-price-faq>

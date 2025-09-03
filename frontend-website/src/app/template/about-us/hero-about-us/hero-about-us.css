@@ -1,0 +1,136 @@
+.our-advantages {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+}
+.why-choose-our {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: #243458;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.vector-icon {
+  position: absolute;
+  height: 75%;
+  width: 75%;
+  top: 12.5%;
+  right: 12.5%;
+  bottom: 12.5%;
+  left: 12.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 48px;
+  position: relative;
+  height: 48px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.effortless {
+  margin: 0;
+}
+.effortless-booking-process-container {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 125%;
+}
+.a-streamlined-booking-container {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.question-card {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.content1 {
+  flex: 1;
+  background-color: #fafbfd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  max-width: 1440px;
+}
+.vector-icon1 {
+  position: absolute;
+  height: 75.42%;
+  width: 83.33%;
+  top: 12.5%;
+  right: 8.33%;
+  bottom: 12.09%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon2 {
+  position: absolute;
+  height: 41.67%;
+  width: 83.33%;
+  top: 29.17%;
+  right: 8.33%;
+  bottom: 29.17%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.content3 {
+  flex: 1;
+  background-color: #fafbfd;
+  height: 356px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  max-width: 1440px;
+}
+.content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: left;
+  font-size: 24px;
+  color: #243458;
+}
+.why-us {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  gap: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #0739a4;
+  font-family: "Helvetica Neue", sans-serif;
+}

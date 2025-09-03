@@ -1,0 +1,178 @@
+.blog {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+}
+.recent-news-in {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: #243458;
+}
+.heading {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+  font-size: 14px;
+}
+.image-icon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 160px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.industry-insights {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  font-weight: 500;
+}
+.separator {
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #0739a4;
+  height: 4px;
+}
+.minutes-ago {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  font-weight: 500;
+  color: #909090;
+}
+.eyebrow {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.global-shipping-trends {
+  align-self: stretch;
+  position: relative;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  line-height: 125%;
+  color: #243458;
+}
+.stay-ahead-with {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  color: #243458;
+}
+.read-full-article {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+  font-weight: 500;
+}
+.vector-icon {
+  position: absolute;
+  height: 58.13%;
+  width: 58.13%;
+  top: 20.83%;
+  right: 21.04%;
+  bottom: 21.04%;
+  left: 20.83%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ctaprimary {
+  border-radius: 4px;
+  background-color: #0739a4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 8px;
+}
+.min-read {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  font-weight: 500;
+  color: #909090;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  color: #fff;
+}
+.question-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.content1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 32px;
+  color: #ff6701;
+}
+.ctaprimary3 {
+  border-radius: 4px;
+  background-color: #ff6701;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 8px;
+  color: #fff;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+  max-width: 1440px;
+}
+.news {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  text-align: left;
+  font-size: 16px;
+  color: #0739a4;
+  font-family: "Helvetica Neue", sans-serif;
+}

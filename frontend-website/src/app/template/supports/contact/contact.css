@@ -1,0 +1,200 @@
+.get-in-touch {
+  	margin: 0;
+}
+.get-in-touch-container {
+  	position: relative;
+  	letter-spacing: -0.64px;
+  	line-height: 48px;
+}
+.have-a-question {
+  	width: 484px;
+  	position: relative;
+  	font-size: 16px;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+  	display: inline-block;
+}
+.heading {
+  	width: 592px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 12px;
+  	font-size: 40px;
+}
+.input-title {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+}
+.header {
+  	width: 300px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.eg-casablanca-portma {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+    border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.text-field {
+  	align-self: stretch;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	color: #909090;
+}
+.input-field {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.input-field-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+}
+.vector-icon {
+  	position: absolute;
+  	height: 66.88%;
+  	width: 83.13%;
+  	top: 16.67%;
+  	right: 8.54%;
+  	bottom: 16.46%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.leading-icon {
+  	width: 16px;
+  	position: relative;
+  	height: 16px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.text-field2 {
+  	align-self: stretch;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	gap: 8px;
+  	color: #909090;
+}
+.vector-icon1 {
+  	position: absolute;
+  	height: 83.13%;
+  	width: 83.13%;
+  	top: 8.33%;
+  	right: 8.08%;
+  	bottom: 8.54%;
+  	left: 8.8%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.text-field4 {
+  	align-self: stretch;
+  	flex: 1;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	color: #909090;
+}
+.input-field4 {
+  	align-self: stretch;
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.profile-information {
+  	width: 592px;
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	color: #03133d;
+}
+.text-placeholder {
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	font-weight: 700;
+}
+.button {
+  	border-radius: 4px;
+  	background-color: #0739a4;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px 12px;
+  	gap: 8px;
+  	color: #fff;
+}
+.content {
+  	height: 670px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 48px;
+}
+.hero-child {
+  	flex: 1;
+  	position: relative;
+  	border-radius: 8px;
+  	max-width: 100%;
+  	overflow: hidden;
+  	height: 670px;
+  	object-fit: cover;
+}
+.hero {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fafbfd;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 48px;
+  	box-sizing: border-box;
+  	gap: 48px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #243458;
+  	font-family: 'Helvetica Neue', sans-serif;
+}
+

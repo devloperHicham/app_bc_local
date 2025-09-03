@@ -1,0 +1,98 @@
+
+body {
+  	margin: 0;
+  	line-height: normal;
+}
+
+.popup-overlay {
+  	display: flex;
+  	flex-direction: column;
+  	position: fixed;
+  	inset: 0;
+}
+
+
+:root {
+  	
+  	/* Color */
+  	--color-gray-300: #112041;
+  	--color-gray-200: #909090;
+  	--color-white: #fff;
+  	--color-gray-400: rgba(0, 0, 0, 0.32);
+  	--color-gray-500: rgba(255, 255, 255, 0.66);
+  	--color-midnightblue-100: #0739a4;
+  	--color-midnightblue-200: #05256e;
+  	--color-gray-600: rgba(128, 128, 128, 0.55);
+  	--color-lavender-100: #e8efff;
+  	--color-midnightblue-500: rgba(7, 57, 164, 0.48);
+  	--color-midnightblue-600: rgba(7, 57, 164, 0.12);
+  	--color-lavender-200: #d6e0f8;
+  	--color-lavender-300: #d4dae8;
+  	--color-aliceblue-200: #ecf2ff;
+  	--color-aliceblue-300: #eef2fb;
+  	--color-lightsteelblue: #aec3f2;
+  	--color-peachpuff: #ffd4b3;
+  	--color-seashell: #fff8f2;
+  	--color-black: #000;
+  	--color-dimgray: #6c6c6c;
+  	--color-firebrick: #af010d;
+  	--color-crimson: #ef4444;
+  	--color-gray-100: #fafbfd;
+  	--color-tomato: #f93939;
+  	--color-antiquewhite: #ffeedf;
+  	--color-midnightblue-300: #041b53;
+  	--color-midnightblue-400: #03133d;
+  	--color-darkslategray: #243458;
+  	--color-snow: #fff9f5;
+  	--color-aliceblue-400: #e2e8f0;
+  	--color-linen: #ffece0;
+  	--color-royalblue: #1645ac;
+  	--color-cornflowerblue: #7d9fec;
+  	--color-orangered-100: #ff6701;
+  	--color-orangered-200: #ff6600;
+  	--color-ghostwhite-100: #fafbff;
+  	--color-ghostwhite-200: #f3f5f9;
+  	--color-darkgray: #999;
+  	--color-aliceblue-100: #f1f5f9;
+  	--color-midnightblue-700: rgba(7, 57, 164, 0.08);
+  	--color-lavenderblush: #fef2f2;
+  	--color-lightslategray-100: #898f99;
+  	--color-lightslategray-200: #7986a1;
+  	--color-mistyrose: #fcd9d9;
+  	
+  	/* Gap */
+  	--gap-2: 2px;
+  	--gap-4: 4px;
+  	--gap-8: 8px;
+  	--gap-10: 10px;
+  	--gap-12: 12px;
+  	--gap-16: 16px;
+  	--gap-24: 24px;
+  	--gap-32: 32px;
+  	
+  	/* Padding */
+  	--padding-2: 2px;
+  	--padding-4: 4px;
+  	--padding-8: 8px;
+  	--padding-12: 12px;
+  	--padding-16: 16px;
+  	--padding-24: 24px;
+  	--padding-32: 32px;
+  	
+  	/* BorderRadius */
+  	--br-2: 2px;
+  	--br-4: 4px;
+  	--br-6: 6px;
+  	--br-100: 100px;
+  	
+  	/* Font */
+  	--font-helvetica-neue: Helvetica Neue;
+  	--font-inherit: inherit;
+  	
+  	/* FontSize */
+  	--font-size-12: 12px;
+  	--font-size-14: 14px;
+  	--font-size-16: 16px;
+  	--font-size-20: 20px;
+  	
+}

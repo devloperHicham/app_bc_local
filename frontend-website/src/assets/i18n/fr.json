@@ -1,0 +1,1134 @@
+{
+  "HERO": {
+    "TITLE_LINE1": "Trouvez les meilleurs",
+    "TITLE_LINE2": "Tarifs d'expédition rapidement",
+    "DESCRIPTION": "Obtenez des devis de plusieurs transitaires en même temps et trouvez la meilleure offre sans tracas."
+  },
+  "TABS": {
+    "MARINE": "Maritime",
+    "SCHEDULES": "Horaires"
+  },
+  "FORM": {
+    "FROM": "De",
+    "TO": "À",
+    "SPECIFIC_DAY": "Jour précis",
+    "INTERVAL": "Intervalle",
+    "SHIPPING_TYPE": "Type d'expédition",
+    "TRANSPORT_UNIT_TYPE": "Type d'unité de transport",
+    "TRANSPORT_UNIT_INFO": "Les types d'unités de transport permettent de regrouper différentes unités selon certaines caractéristiques.",
+    "SHIPPING_LINES": "Compagnies maritimes",
+    "SEARCH_ON": "Rechercher le",
+    "DATE": "Date",
+    "WEEKS_AHEAD": "Semaines à venir"
+  },
+  "PLACEHOLDERS": {
+    "FROM": "ex. Port de Casablanca, MA",
+    "TO": "ex. Majorque, ESP",
+    "DATE_RANGE": "Sélectionner une plage de dates",
+    "SELECT_DAY": "Sélectionner un jour",
+    "FCL": "ex. Conteneur complet (FCL)",
+    "LCL": "ex. Conteneur partiel (LCL)",
+    "BULK": "ex. Vrac",
+    "STANDARD": "standard",
+    "ALL_SEALINES": "ex. Toutes les compagnies maritimes",
+    "DEPARTURE": "ex. Départ",
+    "ANOTHER_DATE": "Sélectionner une autre date",
+    "MAX_WEEKS": "ex. Max 12 semaines (3 mois)"
+  },
+  "FILTERS": {
+    "SORT_FASTEST": "Trier par trajets les plus rapides",
+    "SORT_CHEAPEST": "Trier par trajets les moins chers",
+    "SHOW_DIRECT": "Afficher uniquement les trajets directs (sans transit)"
+  },
+  "BUTTONS": {
+    "SHOW_RESULTS": "Afficher les résultats"
+  },
+  "OFFERS": {
+    "SPECIAL_OFFERS": "Offres spéciales",
+    "MARINE_SHIPPING": "Expédition maritime",
+    "VIEW_DETAILS": "Voir les détails",
+    "BOOK_NOW": "Réserver maintenant",
+    "VIEW_MORE": "Voir plus"
+  },
+  "MARKETPLACE": {
+    "VIDEO_NOT_SUPPORTED": "Votre navigateur ne prend pas en charge la vidéo",
+    "TITLE": "Marketplace",
+    "THE": "Le",
+    "GLOBAL_SHIPPING": "Expédition mondiale",
+    "MARKETPLACE": "marketplace",
+    "DESCRIPTION1": "Découvrez, comparez et connectez-vous facilement avec des prestataires maritimes vérifiés, le tout au même endroit.",
+    "DESCRIPTION2": "Notre marketplace rassemble les meilleurs transporteurs et transitaires, vous aidant à trouver les meilleures solutions pour vos besoins de fret avec une transparence et une confiance totales.",
+    "EXPLORE": "Explorer la marketplace"
+  },
+  "HOW_IT_WORKS": {
+    "TITLE": "Comment ça marche",
+    "SUBTITLE": "Votre conteneur, entièrement réservé, à 3 étapes",
+    "STEP1": {
+      "TITLE": "Saisissez vos préférences de voyage",
+      "DESCRIPTION": "Indiquez votre origine, votre destination, vos préférences d'expédition et choisissez le mode de transport et la taille de conteneur qui correspondent à vos besoins."
+    },
+    "STEP2": {
+      "TITLE": "Comparez et sélectionnez",
+      "DESCRIPTION": "Parcourez de multiples offres de transporteurs de confiance. Comparez les prix, les temps de transit et les offres spéciales, et choisissez la meilleure solution d'expédition en toute transparence."
+    },
+    "STEP3": {
+      "TITLE": "Réservez et Suivez",
+      "PART1": "Confirmez votre réservation en toute sécurité en quelques clics et recevez une confirmation instantanée avec les détails de l'expédition.",
+      "PART2": "Suivez le parcours de votre conteneur en temps réel du départ à la livraison."
+    }
+  },
+  "WHY_CHOOSE_US": {
+    "TITLE": "Pourquoi nous choisir",
+    "SUBTITLE": "Là où la transparence rencontre la fiabilité",
+    "CARD1": {
+      "TITLE": "Disponibilité des conteneurs en temps réel",
+      "DESCRIPTION": "Vérifiez instantanément la disponibilité des conteneurs dans les principaux ports et sécurisez le conteneur exact dont vous avez besoin sans délai."
+    },
+    "CARD2": {
+      "TITLE": "Tarification transparente sans frais cachés",
+      "DESCRIPTION": "Notre tarification est entièrement transparente, sans frais cachés, vous savez donc exactement ce que vous payez avant de réserver."
+    },
+    "CARD3": {
+      "TITLE": "Horaires d'expédition mondiaux à portée de main",
+      "PART1": "Trouvez et comparez les horaires d'expédition instantanément et au même endroit.",
+      "PART2": "Finis les allers-retours entre multiples plateformes.",
+      "PART3": "Planifiez vos expéditions efficacement avec des horaires de route consolidés et des temps de transit directement auprès des principaux prestataires."
+    },
+    "CARD4": {
+      "TITLE": "Réservation simple et suivi fiable",
+      "DESCRIPTION": "Réservez facilement vos expéditions en quelques étapes. Une fois réservé, notre système de suivi en temps réel vous tient informé du parcours de votre conteneur de l'origine à la destination, garantissant une visibilité totale à chaque étape."
+    }
+  },
+  "PRICING": {
+    "TITLE": "Tarification",
+    "TABS": {
+      "SHIPPER": "Pour les expéditeurs",
+      "BROKER": "Pour les courtiers"
+    },
+    "FREE": {
+      "SUBTITLE": "Tarification transparente et flexible",
+      "DESCRIPTION": "Que vous expédiiez occasionnellement ou que vous gériez des opérations régulières, choisissez un plan adapté à vos besoins logistiques.",
+      "PLAN1": {
+        "TITLE": "Accès gratuit",
+        "DESC": "Idéal pour les particuliers explorant la plateforme.",
+        "PRICE": "Commencer gratuitement",
+        "FEATURE1": "1 utilisateur",
+        "FEATURE2": "5 expéditions par mois",
+        "FEATURE3": "5 comparaisons de tarifs par mois",
+        "FEATURE4": "Demandes de devis limitées (jusqu'à 3 demandes par mois)",
+        "FEATURE5": "Détails de route de base",
+        "FEATURE6": "Accès au chat en direct pour assistance",
+        "CTA": "Commencer gratuitement"
+      },
+      "PLAN2": {
+        "TITLE": "Accès de base",
+        "DESC": "Idéal pour les petites équipes avec des besoins d'expédition réguliers.",
+        "PRICE": "15$/mois",
+        "FEATURE1": "Jusqu'à 3 utilisateurs",
+        "FEATURE2": "50 expéditions par mois",
+        "FEATURE3": "50 comparaisons de tarifs par mois",
+        "FEATURE4": "Comparaison des noms de transporteurs",
+        "FEATURE5": "Jusqu'à 70 demandes de devis par mois",
+        "FEATURE6": "Traitement prioritaire des devis",
+        "FEATURE7": "Détails de route étendus",
+        "CTA": "Demander un devis personnalisé"
+      },
+      "PLAN3": {
+        "TITLE": "Accès Premium",
+        "DESC": "Parfait pour les entreprises en croissance gérant un volume élevé d'expéditions.",
+        "PRICE": "149$/an",
+        "FEATURE1": "Jusqu'à 5 utilisateurs",
+        "FEATURE2": "Expéditions illimitées",
+        "FEATURE3": "Tarification illimitée",
+        "FEATURE4": "Comparaison des noms de transporteurs",
+        "FEATURE5": "Jusqu'à 150 demandes de devis par mois",
+        "FEATURE6": "Traitement prioritaire des devis",
+        "FEATURE7": "Détails de route étendus",
+        "FEATURE8": "Économisez 31$ avec facturation annuelle",
+        "CTA": "Demander un devis personnalisé"
+      },
+      "PLAN4": {
+        "TITLE": "Offre exclusive",
+        "DESC": "Conçu pour les entreprises et grandes opérations logistiques.",
+        "PRICE": "699$/an",
+        "FEATURE1": "Jusqu'à 20 utilisateurs",
+        "FEATURE2": "Expéditions et tarification illimitées",
+        "FEATURE3": "Analyses et rapports avancés",
+        "FEATURE4": "Demandes de devis illimitées",
+        "FEATURE5": "Comparaison des noms de transporteurs",
+        "FEATURE6": "Traitement prioritaire des devis",
+        "FEATURE7": "Détails de route étendus",
+        "FEATURE8": "Jusqu'à 15% de réduction sur 10 réservations par an (Maroc uniquement)",
+        "FEATURE9": "Support premium avec consultation experte (réponse rapide)",
+        "CTA": "Demander un devis personnalisé"
+      }
+    },
+    "BUSINESS": {
+      "SUBTITLE": "Développez et gérez votre réseau de fret",
+      "DESCRIPTION": "Listez des conteneurs, gérez des clients et augmentez vos revenus grâce à des solutions adaptées aux courtiers.",
+      "PLAN1": {
+        "TITLE": "Courtier",
+        "DESC": "Conçu pour les transitaires et professionnels de la logistique.",
+        "PRICE": "Sur demande",
+        "FEATURE1": "Lister et gérer l’inventaire des conteneurs",
+        "FEATURE2": "Gérer les portefeuilles clients et suivre les revenus",
+        "FEATURE3": "Outils avancés de CRM et rapports financiers",
+        "FEATURE4": "Gestionnaire de compte dédié",
+        "CTA": "Rejoindre en tant que courtier"
+      }
+    }
+  },
+  "NEWS": {
+    "TITLE": "Blog",
+    "SUBTITLE": "Dernières actualités du secteur",
+    "READ_FULL_ARTICLE": "Lire l'article complet",
+    "VIEW_MORE": "Voir plus"
+  },
+  "FAQ": {
+    "TITLE": "FAQ",
+    "SUBTITLE": "Nous avons répondu aux questions fréquentes",
+    "QUESTIONS": [
+      {
+        "QUESTION": "Comment réserver un conteneur sur la plateforme ?",
+        "ANSWER": "Saisissez simplement les détails de votre expédition dans le panneau de recherche, comparez les options disponibles et procédez à la réservation directement via la plateforme. Vous recevrez une confirmation instantanée et les détails de suivi."
+      },
+      {
+        "QUESTION": "Puis-je suivre mon expédition en temps réel ?",
+        "ANSWER": "Oui, avec notre plan Professionnel et supérieur, vous pouvez accéder au suivi des conteneurs en temps réel et recevoir des mises à jour tout au long du trajet de l'expédition."
+      },
+      {
+        "QUESTION": "Y a-t-il un coût pour consulter la marketplace ?",
+        "ANSWER": "Non, consulter la marketplace et rechercher des itinéraires d'expédition est entièrement gratuit dans le cadre de notre plan Basique. Vous ne payez que lorsque vous réservez une expédition."
+      },
+      {
+        "QUESTION": "Comment devenir un courtier et lister mes conteneurs ?",
+        "ANSWER": "Passez à la vue Courtier dans la section tarifs et contactez notre équipe commerciale. Nous vous guiderons tout au long du processus d'intégration et vous aiderons à lister votre inventaire."
+      },
+      {
+        "QUESTION": "Y a-t-il des frais cachés dans les tarifs ?",
+        "ANSWER": "Aucun frais caché. Tous les coûts sont clairement affichés avant la réservation, et ce que vous voyez est exactement ce que vous payez. La transparence est au cœur de notre service."
+      },
+      {
+        "QUESTION": "Quels modes de paiement acceptez-vous ?",
+        "ANSWER": "Nous acceptons les principales cartes de crédit, virements bancaires et certaines plateformes de paiement numérique. Pour les grands comptes, des conditions de paiement personnalisées peuvent être arrangées."
+      }
+    ],
+    "CHAT_TITLE": "Rejoignez notre chat d'assistance en direct",
+    "CHAT_DESC": "Si vous avez encore d'autres questions, rejoignez-nous en direct pour discuter",
+    "CONTACT_US": "Contactez-nous"
+  },
+  "NAV": {
+    "ARE_YOU": "Êtes-vous un transitaire ou un expéditeur ?",
+    "JOIN_MARKETPLACE": "Rejoignez notre marketplace",
+    "HOME": "Accueil",
+    "MARKETPLACE": "Marketplace",
+    "ABOUT_US": "À propos de nous",
+    "CONTACT": "Contact",
+    "PLANS_PRICING": "Plans & Tarifs",
+    "REQUEST_QUOTE": "Demander un devis",
+    "SIGN_UP_FREE": "Inscrivez-vous gratuitement",
+    "LOGIN": "Connexion"
+  },
+  "FOOTER": {
+    "DESCRIPTION1": "Booking-Container est une plateforme logistique leader spécialisée dans l'obtention des tarifs les plus compétitifs pour le transport de conteneurs et les solutions de fret.",
+    "DESCRIPTION2": "Nous nous engageons à optimiser votre chaîne d'approvisionnement et à fournir un service exceptionnel, garantissant que vos besoins en expédition soient satisfaits de manière efficace, fiable et rentable.",
+    "PHONE": "Numéro de téléphone",
+    "EMAIL": "Email",
+    "QUICK_LINKS": "Liens rapides",
+    "LINKS": {
+      "MARKETPLACE": "Marketplace",
+      "PRICING": "Tarifs",
+      "ABOUT_US": "À propos",
+      "FAQ": "FAQ",
+      "CONTACT_US": "Contactez-nous"
+    },
+    "SOCIAL": "Réseaux sociaux",
+    "LEGALS": "égal",
+    "LEGAL": {
+      "TERMS": "Conditions d'utilisation",
+      "PRIVACY": "Politique de confidentialité",
+      "PAYMENT": "Conditions de paiement",
+      "CANCELLATION": "Conditions d'annulation",
+      "DISPUTE": "Conditions en cas de litige"
+    },
+    "COPYRIGHT": "© 2025 Booking Container. Tous droits réservés.",
+    "SECURE": "Ce site est 3D Secure"
+  },
+  "ABOUT_US": {
+    "REDEFINING": "Redéfinir",
+    "BOOKING_CONTAINERS": "la réservation de conteneurs avec efficacité et transparence",
+    "COMMITTED_TEXT1": "Chez Booking Container, nous nous engageons à transformer la façon dont les entreprises gèrent leurs réservations de conteneurs.",
+    "COMMITTED_TEXT2": "Notre plateforme simplifie le processus de réservation en offrant des tarifs clairs, des solutions logistiques fluides et un réseau de partenaires maritimes de confiance.",
+    "OUR_ADVANTAGES": "Nos avantages",
+    "TITLE": "Pourquoi choisir nos services d'expédition",
+    "CARD1": {
+      "TITLE1": "Sans effort",
+      "TITLE2": "processus de réservation",
+      "TEXT1": "Un processus de réservation simplifié qui vous fait gagner un temps précieux tout en réduisant considérablement la complexité de la gestion logistique.",
+      "TEXT2": "Nous automatisons la planification, minimisons les tâches manuelles et fournissons des mises à jour en temps réel, tout en améliorant la précision et l'efficacité opérationnelle globale."
+    },
+    "CARD2": {
+      "TITLE1": "Transparence",
+      "TITLE2": "de confiance",
+      "TEXT1": "Une tarification transparente et un suivi en temps réel offrent une visibilité complète à chaque étape du processus d'expédition.",
+      "TEXT2": "Nous vous offrons des coûts précis, des mises à jour de localisation instantanées et un meilleur contrôle de vos opérations logistiques."
+    },
+    "CARD3": {
+      "TITLE1": "Construire",
+      "TITLE2": "pour la croissance",
+      "TEXT1": "Des solutions évolutives conçues pour se développer avec votre entreprise, permettant une expansion fluide vers de nouveaux marchés avec une infrastructure flexible.",
+      "TEXT2": "Des outils adaptables et un support fiable qui évoluent avec vos besoins."
+    },
+    "TITLE_MAPS": "Opportunités d'expédition actives",
+    "SUBTITLE": "Des milliers d'entreprises recherchent activement des services d'expédition en ce moment.",
+    "ASIA": { "NAME": "Asie", "LEADS": "80+ opportunités" },
+    "OCEANIA": { "NAME": "Océanie", "LEADS": "25+ opportunités" },
+    "SOUTH_AMERICA": { "NAME": "Amérique du Sud", "LEADS": "70+ opportunités" },
+    "AFRICA": { "NAME": "Afrique", "LEADS": "80+ opportunités" },
+    "EUROPE": { "NAME": "Europe", "LEADS": "200+ opportunités" },
+    "NORTH_AMERICA": {
+      "NAME": "Amérique du Nord",
+      "LEADS": "100+ opportunités"
+    }
+  },
+  "CONTACT": {
+    "TITLE_LINE1": "Contactez-nous.",
+    "TITLE_LINE2": "Nous sommes là pour vous aider.",
+    "SUBTITLE": "Une question ? Écrivez-nous et nous vous répondrons rapidement.",
+    "FIRST_NAME": "Prénom",
+    "FIRST_NAME_PLACEHOLDER": "ex. John",
+    "LAST_NAME": "Nom",
+    "LAST_NAME_PLACEHOLDER": "ex. Doe",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "ex. Johndoe@email.com",
+    "PHONE": "Numéro de téléphone",
+    "PHONE_PLACEHOLDER": "ex. +1234567890",
+    "MESSAGE_TYPE": "Type de message",
+    "SELECT_MESSAGE_TYPE": "Sélectionnez le type de message",
+    "RECLAMATION": "Réclamation",
+    "SUGGESTION": "Suggestion",
+    "FEEDBACK": "Retour d'expérience",
+    "OTHER": "Autre",
+    "MESSAGE": "Message",
+    "MESSAGE_PLACEHOLDER": "ex. Comment pouvons-nous vous aider",
+    "SEND_MESSAGE": "Envoyer le message"
+  },
+  "SUBSCRIPTION": {
+    "LOGO": "MARITIME CONNECT",
+    "PLAN_NAME": "Accès Premium",
+    "PLAN_PRICE": "149$",
+    "PLAN_DURATION": "an",
+    "PLAN_DESCRIPTION": "Parfait pour les entreprises en croissance gérant un volume élevé d'expéditions. Économisez 31$ avec une facturation annuelle par rapport au mensuel.",
+    "FEATURE_1": "Jusqu'à 5 utilisateurs",
+    "FEATURE_2": "Horaires illimités",
+    "FEATURE_3": "Tarification illimitée",
+    "FEATURE_4": "Comparaison des transporteurs",
+    "FEATURE_5": "Jusqu'à 150 demandes de devis par mois",
+    "FEATURE_6": "Traitement prioritaire des devis",
+    "FEATURE_7": "Détails étendus des itinéraires",
+    "AUTO_RENEW": "Renouvellement automatique annuel. Annulez à tout moment.",
+    "PAYMENT_SECURITY": "Vos informations de paiement sont cryptées en toute sécurité",
+    "COMPLETE_SUBSCRIPTION": "Complétez votre abonnement",
+    "ENTER_PAYMENT": "Saisissez vos informations de paiement pour commencer",
+    "COUPON_PLACEHOLDER": "Code promo",
+    "APPLY_COUPON": "Appliquer",
+    "CARD_NUMBER": "Numéro de carte",
+    "CARD_NUMBER_PLACEHOLDER": "1234 5678 9012 3456",
+    "CARDHOLDER_NAME": "Nom du titulaire",
+    "CARDHOLDER_PLACEHOLDER": "Jean Dupont",
+    "EXPIRY_DATE": "Date d'expiration",
+    "EXPIRY_PLACEHOLDER": "MM/AA",
+    "CVV": "CVV",
+    "CVV_PLACEHOLDER": "123",
+    "BILLING_ADDRESS": "Adresse de facturation",
+    "BILLING_PLACEHOLDER": "123 rue Principale, Ville, Pays",
+    "SUBSCRIBE_NOW": "S'abonner maintenant - 149$",
+    "PAYMENT_ENCRYPTED": "Vos informations de paiement sont cryptées en toute sécurité"
+  },
+  "PRICING_PLAN": {
+    "TITLE": "Plans & Tarifs",
+    "DESCRIPTION1": "Trouvez un plan de réservation de conteneur qui convient le mieux à vous et à votre équipe.",
+    "DESCRIPTION2": "Nous proposons 4 niveaux de plans qui évolueront avec vos besoins.",
+    "TABS": {
+      "FREE": "Pour les expéditeurs",
+      "BUSINESS": "Pour les courtiers"
+    },
+    "PLANS": {
+      "FREE": {
+        "TITLE": "Accès Gratuit",
+        "DESC": "Idéal pour les particuliers qui explorent la plateforme.",
+        "PRICE": "Commencer Gratuitement",
+        "FEATURES": {
+          "USERS": "1 utilisateur",
+          "SCHEDULES": "5 horaires par mois",
+          "RATE_COMPARISONS": "5 comparaisons de tarifs par mois",
+          "QUOTE_REQUESTS": "Demandes de devis limitées (jusqu'à 3 par mois)",
+          "ROUTE_DETAILS": "Détails de route de base",
+          "LIVE_CHAT": "Accès au chat en direct pour assistance"
+        },
+        "BUTTON": "Commencer Gratuitement"
+      },
+      "BASIC": {
+        "TITLE": "Accès Basique",
+        "DESC": "Idéal pour les petites équipes avec des besoins réguliers d'expédition.",
+        "PRICE": "15$/mois",
+        "FEATURES": {
+          "USERS": "Jusqu'à 3 utilisateurs",
+          "SCHEDULES": "50 horaires par mois",
+          "RATE_COMPARISONS": "50 comparaisons de tarifs par mois",
+          "CARRIER_COMPARISON": "Comparaison des transporteurs",
+          "QUOTE_REQUESTS": "Jusqu'à 70 demandes de devis par mois",
+          "PRIORITY": "Traitement prioritaire des devis",
+          "ROUTE_DETAILS": "Détails de route étendus"
+        },
+        "BUTTON": "Plan d'abonnement"
+      },
+      "PREMIUM": {
+        "TITLE": "Accès Premium",
+        "DESC": "Parfait pour les entreprises en croissance gérant de gros volumes d'expédition.",
+        "PRICE": "149$/an",
+        "FEATURES": {
+          "USERS": "Jusqu'à 5 utilisateurs",
+          "SCHEDULES": "Horaires illimités",
+          "RATE_PRICING": "Tarification illimitée",
+          "CARRIER_COMPARISON": "Comparaison des transporteurs",
+          "QUOTE_REQUESTS": "Jusqu'à 150 demandes de devis par mois",
+          "PRIORITY": "Traitement prioritaire des devis",
+          "ROUTE_DETAILS": "Détails de route étendus",
+          "DISCOUNT": "Économisez 31$ avec la facturation annuelle"
+        },
+        "BUTTON": "Plan d'abonnement"
+      },
+      "EXCLUSIVE": {
+        "TITLE": "Offre Exclusive",
+        "DESC": "Conçu pour les entreprises et grandes opérations logistiques.",
+        "PRICE": "699$/an",
+        "FEATURES": {
+          "USERS": "Jusqu'à 20 utilisateurs",
+          "SCHEDULES": "Horaires et tarification illimités",
+          "ANALYTICS": "Analyses et rapports avancés",
+          "QUOTE_REQUESTS": "Demandes de devis illimitées",
+          "CARRIER_COMPARISON": "Comparaison des transporteurs",
+          "PRIORITY": "Traitement prioritaire des devis",
+          "ROUTE_DETAILS": "Détails de route étendus",
+          "DISCOUNT": "Jusqu'à 15% de réduction sur 10 réservations par an (Maroc seulement)",
+          "SUPPORT": "Support premium avec consultation d'experts (réponse rapide)"
+        },
+        "BUTTON": "Plan d'abonnement"
+      }
+    }
+  },
+  "BROKER": {
+    "TITLE": "Courtier",
+    "DESC": "Conçu pour les transitaires et professionnels de la logistique.",
+    "PRICE": "Personnalisé",
+    "FEATURES": {
+      "INVENTORY": "Lister et gérer votre inventaire de conteneurs",
+      "CLIENTS": "Gérer les portefeuilles clients et suivre les revenus",
+      "CRM": "Outils avancés de CRM et rapports financiers"
+    },
+    "BUTTON": "Rejoignez en tant que courtier"
+  },
+  "CANT_FIND": {
+    "TITLE": "Vous ne trouvez pas de plan adapté ?",
+    "DESCRIPTION1": "Nous proposons des solutions personnalisées pour les entreprises offrant plus de flexibilité",
+    "DESCRIPTION2": "en fonction de vos besoins, y compris des solutions de paiement alternatives.",
+    "QUESTION": "Vous avez une question sur nos plans ? - ",
+    "CONTACT": "Contactez-nous"
+  },
+  "PRICE_COMPARE": {
+    "TITLE": "Liste complète des fonctionnalités et inclusions",
+    "DESCRIPTION": "Voir la liste complète des fonctionnalités et inclusions offertes par chaque plan.",
+    "BUSINESS_PLAN": "Plan Affaires",
+    "BUSINESS_PLAN_PRICE": "Dépend de l'utilisation / mois",
+    "FEATURES": {
+      "MARKETPLACE": "Parcourir le marché mondial",
+      "SEARCH": "Recherche",
+      "SEARCH_COUNT": "10 / mois",
+      "OFFERS": "Offres et promotions",
+      "OFFERS_COUNT": "15 / mois",
+      "TRACKING": "Disponibilité et suivi des conteneurs en temps réel",
+      "API": "Intégration API pour flux de travail automatisés",
+      "ANALYTICS": "Analyses et rapports avancés",
+      "SUPPORT": "Support client 24/7"
+    }
+  },
+  "PRICE_COMPARE_DETAIL": {
+    "TITLE": "Liste complète des fonctionnalités et inclusions",
+    "DESCRIPTION": "Voir la liste complète des fonctionnalités et inclusions offertes par chaque plan.",
+    "PLANS": {
+      "FREE": "Accès gratuit",
+      "BASIC": "Accès de base",
+      "PREMIUM": "Accès premium",
+      "EXCLUSIVE": "Offre exclusive"
+    },
+    "PRICES": {
+      "FREE": "Gratuit / mois",
+      "BASIC": "15$/mois",
+      "PREMIUM": "149$/an",
+      "EXCLUSIVE": "699$/an"
+    },
+    "FEATURES": {
+      "USERS": {
+        "TITLE": "Utilisateurs",
+        "FREE": "1",
+        "BASIC": "Jusqu'à 3",
+        "PREMIUM": "Jusqu'à 5",
+        "EXCLUSIVE": "Jusqu'à 20"
+      },
+      "SCHEDULES": {
+        "TITLE": "Horaires",
+        "FREE": "5 / mois",
+        "BASIC": "50 / mois",
+        "PREMIUM": "Illimité",
+        "EXCLUSIVE": "Illimité"
+      },
+      "RATE_PRICING": {
+        "TITLE": "Comparaison de tarifs",
+        "FREE": "5 comparaisons",
+        "BASIC": "50 comparaisons",
+        "PREMIUM": "Illimité",
+        "EXCLUSIVE": "Illimité"
+      },
+      "CARRIER_NAME": {
+        "TITLE": "Comparaison des transporteurs"
+      },
+      "QUOTE_REQUESTS": {
+        "TITLE": "Demandes de devis",
+        "FREE": "3 / mois",
+        "BASIC": "70 / mois",
+        "PREMIUM": "150 / mois",
+        "EXCLUSIVE": "Illimité"
+      },
+      "PRIORITY_QUOTE": {
+        "TITLE": "Traitement prioritaire des devis"
+      },
+      "ROUTE_DETAILS": {
+        "TITLE": "Détails de l'itinéraire",
+        "FREE": "Basique",
+        "BASIC": "Étendu",
+        "PREMIUM": "Étendu",
+        "EXCLUSIVE": "Étendu"
+      },
+      "DISCOUNTS": {
+        "TITLE": "Réductions et économies",
+        "PREMIUM": "Économisez 31$ par an",
+        "EXCLUSIVE": "Jusqu'à 15% de réduction sur 10 réservations annuelles (Maroc uniquement)"
+      },
+      "SUPPORT": {
+        "TITLE": "Support client",
+        "FREE": "Chat en direct standard",
+        "BASIC": "Support prioritaire",
+        "PREMIUM": "Support prioritaire",
+        "EXCLUSIVE": "Support premium avec consultation d'experts"
+      },
+      "EXPERT": {
+        "TITLE": "Accès à un expert dédié"
+      }
+    }
+  },
+  "FAQ_PRICE": {
+    "TITLE": "FAQ",
+    "SUBTITLE": "Questions fréquentes sur les plans et tarifs",
+    "QUESTIONS": {
+      "PAY": {
+        "TITLE": "Comment puis-je payer ?",
+        "TEXT": "Nous acceptons toutes les principales cartes de crédit, y compris VISA, MasterCard, AMEX, et plus encore. Pour les plans entreprise, nous proposons également des solutions de facturation personnalisées adaptées à vos besoins."
+      },
+      "UPGRADE": {
+        "TITLE": "Puis-je mettre à niveau mon plan en cours de cycle ?",
+        "TEXT": "Oui, vous pouvez mettre à niveau votre plan à tout moment. Un prélèvement au prorata sera appliqué en fonction de la période restante de votre cycle de facturation actuel."
+      },
+      "CANCEL": {
+        "TITLE": "Puis-je annuler mon abonnement payant ?",
+        "TEXT": "Oui, vous pouvez annuler votre abonnement à tout moment via votre tableau de bord et revenir au plan gratuit quand vous le souhaitez."
+      },
+      "LIMITS": {
+        "TITLE": "Que se passe-t-il si je dépasse les limites de mon plan ?",
+        "TEXT": "Si vous dépassez les limites de votre plan (par exemple, les recherches de comparaison de tarifs), vous recevrez une notification. Vous ne pourrez plus effectuer cette action jusqu'à ce que votre cycle de facturation soit réinitialisé ou que vous passiez à un plan supérieur."
+      },
+      "TRIAL": {
+        "TITLE": "Y a-t-il un essai gratuit ?",
+        "TEXT": "Notre plan gratuit donne accès à la plupart des fonctionnalités, avec des limites réduites sur les recherches et les utilisateurs. Si vous souhaitez essayer les plans Team ou Pro+, veuillez visiter la section Gérer l’abonnement ou nous contacter directement."
+      },
+      "MIN_SUB": {
+        "TITLE": "Quelle est la durée minimale d’abonnement ?",
+        "TEXT": "La durée minimale de l’abonnement est d’un mois. Vous pouvez annuler à tout moment et conserver l’accès complet aux fonctionnalités de votre plan jusqu’à la fin de votre cycle de facturation actuel."
+      },
+      "ENTERPRISE": {
+        "TITLE": "Proposez-vous des plans entreprise ou personnalisés ?",
+        "TEXT": "Oui, nous proposons des plans entreprise adaptés à vos besoins spécifiques. Pour en savoir plus ou discuter des options de personnalisation, veuillez nous contacter."
+      },
+      "DELETE": {
+        "TITLE": "Comment puis-je supprimer mon compte ?",
+        "TEXT": "Cliquez sur l’icône de compte, allez dans Profil, puis sélectionnez Gérer le compte. À partir de là, choisissez l’onglet Supprimer le compte."
+      },
+      "DIFFERENCES": {
+        "TITLE": "Quelles sont les différences entre les types d’abonnement ?",
+        "TEXT": "Vous pouvez comparer tous nos plans en détail <a href='#'>ici</a>."
+      }
+    }
+  },
+  "PROFILE": {
+    "BACK": "Retour",
+    "MY_PROFILE": "Mon profil",
+    "EDIT": "Modifier",
+    "PROFILE_PROFILE": "Profil",
+    "PRE_BOOKINGS": "Pré-réservations",
+    "QUOTES": "Devis",
+    "MANAGE_SUBSCRIPTION": "Gérer l'abonnement",
+    "SUPPORT_CENTER": "Centre de support",
+    "LOGOUT": "Se déconnecter",
+    "FIELDS": {
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom",
+      "EMAIL": "Email",
+      "PHONE": "Numéro de téléphone",
+      "CITY": "Ville",
+      "COUNTRY": "Pays",
+      "ADDRESS": "Adresse de contact",
+      "PASSWORD": "Mot de passe"
+    },
+    "FOOTER": {
+      "DISCARD": "Annuler",
+      "SAVE": "Enregistrer les modifications"
+    }
+  },
+  "QUOTES": {
+    "BACK": "Atrás",
+    "LIST": "Lista de cotizaciones ({{count}})",
+    "REQUEST": "Solicitar una cotización",
+    "PENDING": "Cotizaciones pendientes",
+    "RECEIVED": "Ofertas recibidas",
+    "ACCEPTED": "Ofertas aceptadas",
+    "EXPIRED": "Cotizaciones expiradas",
+    "SEARCH": "Buscar por ID, salidas, llegadas y modo de transporte, etc...",
+    "FILTERS": "Filtros",
+    "ID": "ID",
+    "DEPARTURE": "Salida",
+    "ARRIVAL": "Llegada",
+    "TRANSPORT": "Modo de transporte",
+    "SHIPPING": "Tipo de envío",
+    "READY": "Listo para cargar",
+    "STATUS": "Estado",
+    "ACTIONS": "Acciones"
+  },
+  "HELP": {
+    "TITLE": "Comment pouvons-nous vous aider ?",
+    "SEARCH_PLACEHOLDER": "Rechercher des articles d'aide",
+    "GENERAL": "Général",
+    "PRICING": "Tarification et paiements",
+    "BROKER": "Devenir courtier",
+    "CARRIERS": "Transporteurs et expéditions",
+    "DESCRIPTION": "Débloquez des outils avancés pour optimiser vos opérations logistiques.",
+    "ARTICLES": "{{count}} articles"
+  },
+  "MANAGE_SUBSCRIPTION": {
+    "BACK": "Retour",
+    "MANAGE": "Gérer l'abonnement",
+    "FREE_PLAN": "Forfait gratuit",
+    "FREE_DESC": "Parfait pour les particuliers et les expéditeurs occasionnels.",
+    "BUSINESS_PLAN": "Forfait entreprise",
+    "BUSINESS_DESC": "Débloquez des outils avancés pour optimiser vos opérations logistiques.",
+    "PRICE_FREE": "0 $/mois",
+    "PRICE_CUSTOM": "Personnalisé",
+    "CURRENT": "Forfait actuel",
+    "REQUEST_QUOTE": "Demander un devis personnalisé",
+    "FEATURES": {
+      "MARKETPLACE": "Parcourir le marché mondial",
+      "COMPARE": "Rechercher et comparer les itinéraires d'expédition",
+      "OFFERS": "Accéder à des offres et réductions limitées",
+      "REALTIME": "Accès en temps réel à la disponibilité et au suivi des conteneurs",
+      "API": "Intégration API pour les flux de travail automatisés",
+      "ANALYTICS": "Analyses et rapports avancés",
+      "SUPPORT": "Assistance 24h/24 et 7j/7"
+    },
+    "BILLING": {
+      "TITLE": "Historique de facturation",
+      "SEARCH": "Rechercher",
+      "FILTERS": "Filtres",
+      "EXPORT": "Exporter",
+      "TABLE": {
+        "PLAN": "Forfait",
+        "AMOUNT": "Montant",
+        "PURCHASE": "Date d'achat",
+        "END": "Date de fin",
+        "STATUS": "Statut",
+        "ACTIONS": "Actions"
+      },
+      "STATUS": {
+        "PENDING": "En attente",
+        "PAID": "Payé"
+      }
+    }
+  },
+  "SEARCH_SCHEDULE": {
+    "BACK": "Retour",
+    "SCHEDULES": "Horaires",
+    "FROM": "De",
+    "TO": "À",
+    "SHIPPING_TYPE": "Type de transport",
+    "FCL": "Conteneur complet",
+    "LCL": "Moins que conteneur complet (LCL)",
+    "BULK": "Vrac",
+    "SEARCH_ON": "Rechercher sur",
+    "DEPARTURE": "Départ",
+    "DATE": "Date",
+    "SELECT_DAY": "Sélectionnez un jour",
+    "WEEKS_AHEAD": "Semaines à venir",
+    "ONE_WEEK": "1 semaine",
+    "TWO_WEEKS": "2 semaines",
+    "THREE_WEEKS": "3 semaines",
+    "SORT_FASTEST": "Trier par trajets les plus rapides",
+    "SHOW_DIRECT": "Afficher uniquement les trajets directs (Sans transit)",
+    "STAY_UPDATED": "Restez informé",
+    "SHOWING_RESULTS": "Affichage de {{count}} résultats",
+    "DAYS": "jours",
+    "DIRECT": "Direct",
+    "SHOW_DETAILS": "Afficher les détails",
+    "SHOWING_PAGINATION": "Affichage de {{from}}-{{to}} sur {{count}} résultats",
+    "PREVIOUS": "Précédent",
+    "NEXT": "Suivant"
+  },
+  "SEARCH_COMPARISON": {
+    "BACK": "Retour",
+    "BOOK_CONTAINER": "Réserver un conteneur",
+    "FROM": "De",
+    "TO": "À",
+    "SPECIFIC_DAY": "Jour spécifique",
+    "INTERVAL": "Intervalle",
+    "SHIPPING_TYPE": "Type d'expédition",
+    "FULL_CONTAINER": "Conteneur complet",
+    "LCL": "Moins qu'un conteneur complet (LCL)",
+    "BULK": "En vrac",
+    "FILTERS": "Filtres",
+    "CLEAR_ALL": "Tout effacer",
+    "CARRIER": "Transporteur",
+    "PRICE_RANGE": "Gamme de prix",
+    "TRANSIT_TIME": "Temps de transit",
+    "SORT_FASTEST": "Trier par trajets les plus rapides",
+    "SORT_CHEAPEST": "Trier par trajets les moins chers",
+    "STAY_UPDATED": "Rester informé",
+    "SHOWING_RESULTS": "Affichage de {{count}} résultats",
+    "MARINE": "Maritime",
+    "MARINE_SHIPPING": "Transport maritime",
+    "ID": "ID: {{id}}",
+    "LESS_CONTAINER_LOAD": "Moins qu'un conteneur complet",
+    "TRANSIT": "Transit",
+    "CHAT": "Discussion",
+    "VIEW_DETAILS": "Voir les détails",
+    "PRICE": "{{price}} $",
+    "BOOK_NOW": "Réserver maintenant",
+    "PREVIOUS": "Précédent",
+    "NEXT": "Suivant"
+  },
+  "SEARCH_COMPARISON_DETAIL": {
+    "LESS_CONTAINER_LOAD": "Moins que conteneur complet",
+    "RATE_BREAKDOWN": "Détail du tarif",
+    "TERMS_ADDITIONAL": "Conditions et frais supplémentaires",
+    "SUBJECT_TO": "Sous réserve de :",
+    "LOCAL_FEES": "- Frais locaux en SPA",
+    "OWS_SURCHARGE": "- Supplément OWS si applicable",
+    "IMO_ADR_SURCHARGE": "- Supplément IMO/ADR si applicable",
+    "SPACE_AVAILABILITY": "- Disponibilité de l'espace",
+    "EQUIPMENT_AVAILABILITY": "- Disponibilité du matériel",
+    "TRUCKS_AVAILABILITY": "- Disponibilité des camions/remorques",
+    "OTHER_CHARGES": "- Tous autres frais imprévus ou supplémentaires",
+    "STORAGE_DETENTION": "Temps libre standard à l'origine et à la destination pour stockage/démurrage/détention et branchement électrique (pour réfrigérés).",
+    "TRUCK_DOWNTIME": "Temps d'arrêt standard des camions selon les termes de la société de transport locale.",
+    "ALL_RATES_SUBJECT": "Tous les tarifs sont soumis aux",
+    "TERMS_CONDITIONS": "Conditions générales",
+    "CHAT": "Discussion",
+    "CLOSE": "Fermer",
+    "BOOK_NOW": "Réserver maintenant"
+  },
+  "SEARCH_RESULT_TRIP": {
+    "BACK_TO_SEARCH": "Retour aux résultats de recherche",
+    "BOOK_CONTAINER": "Réserver un conteneur",
+    "TRIP_DETAILS": "Détails du voyage",
+    "TERMS_ADDITIONAL": "Conditions et frais supplémentaires",
+    "CONTACT_DETAILS": "Coordonnées",
+    "EDIT_PROFILE_PROMPT": "Vous voulez modifier vos informations ? Cliquez ici",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom",
+    "PHONE_NUMBER": "Numéro de téléphone",
+    "COMPANY_NAME": "Nom de l'entreprise",
+    "TERMS_CONDITIONS_AGREE": "En soumettant ce formulaire, vous acceptez nos Conditions générales",
+    "ORDER_SUMMARY": "Résumé de la commande",
+    "ID": "ID",
+    "DEPARTURE": "Départ",
+    "ARRIVAL": "Arrivée",
+    "TRANSPORT_MODE": "Mode de transport",
+    "SHIPPING_TYPE": "Type d'expédition",
+    "CONTAINER": "Conteneur",
+    "READY_TO_LOAD": "Prêt à charger",
+    "ARRIVAL_DATE": "Date d'arrivée",
+    "CARRIER": "Transporteur",
+    "PRICE_DETAILS": "Détails du prix",
+    "TOTAL_PRICE": "Prix total",
+    "APPLY": "Appliquer",
+    "NEXT": "Suivant : Détails du cargo & services associés",
+    "PROMOCODE": "Code promo",
+    "MARINE_SHIPPING": "Transport maritime",
+    "FULL_CONTAINER_LOAD": "Chargement complet de conteneur (FCL)",
+    "SUBJECT_TO": "Sous réserve de :",
+    "LOCAL_FEES": "Frais locaux en Espagne",
+    "OWS_SURCHARGE": "Surcharge OWS le cas échéant",
+    "IMO_ADR_SURCHARGE": "Surcharge IMO/ADR le cas échéant",
+    "SPACE_AVAILABILITY": "Disponibilité de l’espace",
+    "EQUIPMENT_AVAILABILITY": "Disponibilité de l’équipement",
+    "TRUCK_TRAILER_AVAILABILITY": "Disponibilité des camions/remorques",
+    "OTHER_ADDITIONAL_CHARGES": "Tous autres frais imprévus ou supplémentaires",
+    "STANDARD_FREE_TIME": "Temps libre standard à l’origine et à la destination pour le stockage/démurrage/détention et le branchement électrique (pour les conteneurs frigorifiques).",
+    "STANDARD_TRUCK_DOWNTIME": "Temps d’arrêt standard des camions selon les conditions de la société locale de transport.",
+    "ALL_RATES_SUBJECT": "Tous les tarifs sont soumis aux",
+    "TERMS_CONDITIONS_AGREE_TERMS": "Conditions générales"
+  },
+  "SEARCH_RESULT_CARGO": {
+    "BACK_TO_RESULTS": "Retour aux résultats de recherche",
+    "BOOK_CONTAINER": "Réserver un conteneur",
+    "CARGO_DETAILS": "Détails de la cargaison",
+    "PRODUCT": "Produit",
+    "HS_CODES": "Codes SH",
+    "ENTER_COMMODITY": "Entrez le type de marchandise ou le code SH",
+    "WEIGHT_PER_CONTAINER": "Poids par conteneur",
+    "ADDITIONAL_INFO": "Informations supplémentaires",
+    "EXPLAIN_PRODUCT": "Décrivez votre produit",
+    "ADDITIONAL_SERVICES": "Services supplémentaires",
+    "INSURANCE": "Assurance",
+    "INSURANCE_INFO": "Ajoutez une assurance cargaison pour protéger votre expédition contre les accidents.",
+    "CUSTOMS": "Dédouanement",
+    "CUSTOMS_INFO": "Sélectionnez cet élément si vous avez besoin de services de courtage en douane.",
+    "CERTIFICATION": "Certification",
+    "CERTIFICATION_INFO": "Nous vous aidons à obtenir les certificats requis (phytosanitaires, vétérinaires, radiologie, etc.).",
+    "INSPECTION": "Services d'inspection",
+    "INSPECTION_INFO": "Commandez un service d’inspection ou de comptage en cochant cette option.",
+    "ORDER_SUMMARY": "Résumé de la commande",
+    "DEPARTURE": "Départ",
+    "ARRIVAL": "Arrivée",
+    "TRANSPORT_MODE": "Mode de transport",
+    "MARINE_SHIPPING": "Transport maritime",
+    "SHIPPING_TYPE": "Type d’expédition",
+    "FCL": "Chargement complet (FCL)",
+    "CONTAINER": "Conteneur",
+    "READY_TO_LOAD": "Prêt à charger",
+    "ARRIVAL_DATE": "Date d’arrivée",
+    "CARRIER": "Transporteur",
+    "PRICE_DETAILS": "Détails du prix",
+    "PROMOCODE": "Code promo",
+    "APPLY": "Appliquer",
+    "TOTAL_PRICE": "Prix total",
+    "PREVIOUS": "Précédent",
+    "BOOK_NOW": "Réserver maintenant",
+    "AGREE_PREFIX": "En soumettant ce formulaire, vous acceptez nos",
+    "TERMS_CONDITIONS": "Conditions générales"
+  },
+  "WISHLIST_BOOKING": {
+    "BACK": "Retour",
+    "NEXT": "Suivant",
+    "PREVIOUS": "Précédent",
+    "CHAT": "Discussion",
+    "VIEW_DETAILS": "Voir les détails",
+    "BOOK_NOW": "Réserver maintenant",
+    "ALL_TIME": "Tout le temps",
+    "ID": "ID",
+    "TRANSIT": "Transit",
+    "TITLE": "Listes de souhaits",
+    "PRE_BOOKINGS": "Pré-réservations",
+    "QUOTES": "Devis",
+    "SCHEDULES": "Horaires",
+    "SAVED_TODAY": "Enregistré aujourd'hui",
+    "MARINE": "Transport maritime",
+    "LESS_CONTAINER": "Groupage (LCL)"
+  },
+  "QUOTE_NEW": {
+    "REQUEST_A_QUOTE": "Demander un devis",
+    "TRIP_INFORMATION": "Informations sur le trajet",
+    "FROM": "De",
+    "TO": "À",
+    "PORT_FOB": "Port (FOB)",
+    "PLACEHOLDER_FROM": "ex. Port de Casablanca, MA",
+    "PLACEHOLDER_TO": "ex. Majorque, ESP",
+    "READY_PICKUP": "Date prête à être récupérée",
+    "SELECT_DAY": "Sélectionner un jour",
+    "PACKAGE_INFORMATION": "Informations sur le(s) colis",
+    "ADD_CONTAINER": "Ajouter un autre conteneur",
+    "PACKAGE_TYPE": "Type de colis",
+    "PLACEHOLDER_PACKAGE": "ex. Conteneurs",
+    "CONTAINER": "Conteneur",
+    "CONTAINER_TYPE": "Type de conteneur",
+    "PLACEHOLDER_CONTAINER": "ex. Conteneur 40’ HC",
+    "WEIGHT": "Poids",
+    "PLACEHOLDER_WEIGHT": "ex. 1800",
+    "NUMBER_UNITS": "Nombre d’unités",
+    "PLACEHOLDER_UNITS": "ex. 1",
+    "CUSTOMS_INSURANCE": "Douane et Assurance",
+    "INSURANCE": "Assurance",
+    "INSURANCE_DESC": "Activez ceci si vous souhaitez activer l’assurance",
+    "ONLY_LOCAL_CHARGES": "Uniquement frais locaux",
+    "CUSTOMS_CLEARANCE": "J’ai besoin du dédouanement",
+    "DANGEROUS": "Mon expédition est dangereuse",
+    "DANGEROUS_DESC": "Activez ceci si votre expédition contient des matières sous classe IMO",
+    "SAVE_DRAFT": "Enregistrer comme brouillon",
+    "MARINE": "Maritime"
+  },
+  "TERMS_SERVICES": {
+    "TITLE": "Conditions d'utilisation",
+    "LAST_UPDATED": "Dernière mise à jour : {{date}}",
+    "INTRODUCTION_TITLE": "Introduction",
+    "INTRODUCTION_TEXT": "Bienvenue sur www.booking-container.com. En accédant et en utilisant notre site, vous acceptez d’être lié par ces termes et conditions.",
+    "USE_TITLE": "Utilisation du site",
+    "USE_TEXT": "Le site propose des comparaisons de prix de conteneurs. L'accès aux informations est payant et vise à aider les utilisateurs à prendre des décisions éclairées concernant l'achat ou la location de conteneurs.",
+    "CONTENT_TITLE": "Contenu et Propriété intellectuelle",
+    "CONTENT_TEXT": "Tout le contenu du site, y compris les textes, graphiques, logos et logiciels, est la propriété de www.booking-container.com et est protégé par les lois sur la propriété intellectuelle. Toute reproduction sans autorisation est interdite.",
+    "ACCURACY_TITLE": "Exactitude des informations",
+    "ACCURACY_TEXT": "Nous nous efforçons de fournir des informations exactes et à jour. Cependant, nous ne garantissons pas l'exactitude, l'exhaustivité ou l'actualité des données fournies. Les utilisateurs doivent vérifier les informations avant de prendre des décisions.",
+    "LINKS_TITLE": "Liens vers des sites tiers",
+    "LINKS_TEXT": "Le site peut contenir des liens vers des sites tiers. Nous ne sommes pas responsables du contenu ou des pratiques de confidentialité de ces sites.",
+    "LIABILITY_TITLE": "Limitation de responsabilité",
+    "LIABILITY_TEXT": "www.booking-container.com ne pourra être tenu responsable des dommages directs, indirects, accidentels ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser le site.",
+    "MODIFICATIONS_TITLE": "Modifications",
+    "MODIFICATIONS_TEXT": "Nous nous réservons le droit de modifier ces termes et conditions à tout moment. Les modifications prendront effet immédiatement après leur publication sur le site.",
+    "LAW_TITLE": "Droit applicable",
+    "LAW_TEXT": "Ces termes et conditions seront régis et interprétés conformément aux lois du pays dans lequel nous opérons.",
+    "CONTACT_TITLE": "Contact",
+    "CONTACT_TEXT": "Pour toute question ou remarque concernant ces conditions, contactez-nous via le formulaire de contact de notre site."
+  },
+  "PRIVACY_POLICY": {
+    "TITLE": "Politique de Confidentialité",
+    "LAST_UPDATED": "Dernière mise à jour : {{date}}",
+    "INTRO_TITLE": "Introduction",
+    "INTRO_TEXT": "Cette politique de confidentialité explique comment BEST CONTAINER LINE collecte, utilise et protège les informations personnelles que vous fournissez lors de l'utilisation de notre site de comparaison de compagnies de transport maritime.",
+    "INFO_COLLECTED_TITLE": "Informations Collectées",
+    "INFO_COLLECTED_TEXT": "Nous collectons différents types d'informations lorsque vous utilisez notre site, notamment :",
+    "PERSONAL_INFO": "Informations personnelles :",
+    "PERSONAL_INFO_DESC": "Lorsque vous vous inscrivez sur notre site ou nous contactez, nous pouvons collecter des informations telles que votre nom, adresse e-mail, numéro de téléphone et autres informations pertinentes.",
+    "BROWSING_INFO": "Informations de navigation :",
+    "BROWSING_INFO_DESC": "Nous recueillons des données sur votre utilisation du site, y compris les pages que vous visitez, le temps passé sur notre site, votre adresse IP et d'autres informations techniques.",
+    "USE_INFO_TITLE": "Utilisation des Informations",
+    "USE_INFO_TEXT": "Les informations que nous collectons sont utilisées pour :",
+    "USE_INFO_POINT1": "Fournir et améliorer nos services de comparaison",
+    "USE_INFO_POINT2": "Répondre à vos demandes et vous fournir des informations pertinentes.",
+    "USE_INFO_POINT3": "Améliorer l'expérience utilisateur sur notre site",
+    "USE_INFO_POINT4": "Envoyer des communications marketing, si vous avez choisi de les recevoir.",
+    "SHARING_TITLE": "Partage des Informations",
+    "SHARING_TEXT": "Nous ne partageons pas vos informations personnelles avec des tiers, sauf dans les cas suivants :",
+    "SHARING_PROVIDERS": "Fournisseurs de services :",
+    "SHARING_PROVIDERS_DESC": "Nous pouvons partager vos informations avec des tiers de confiance qui nous aident à fournir nos services, tels que les hébergeurs web ou les prestataires d'analyse.",
+    "SHARING_LEGAL": "Obligations légales :",
+    "SHARING_LEGAL_DESC": "Nous pouvons divulguer vos informations si la loi l'exige ou si nous croyons de bonne foi qu'une telle action est nécessaire pour se conformer à une procédure légale.",
+    "SECURITY_TITLE": "Sécurité des Données",
+    "SECURITY_TEXT": "Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles contre tout accès, modification, divulgation ou destruction non autorisé.",
+    "COOKIES_TITLE": "Cookies",
+    "COOKIES_TEXT": "Notre site utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte placés sur votre appareil afin de collecter des informations standard de connexion Internet et des informations sur le comportement des visiteurs. Vous pouvez configurer votre navigateur pour refuser les cookies, mais cela peut affecter la fonctionnalité du site.",
+    "RIGHTS_TITLE": "Vos Droits",
+    "RIGHTS_TEXT": "Conformément à la loi marocaine sur la protection des données, vous avez le droit de :",
+    "RIGHTS_ACCESS": "Accéder à vos informations personnelles.",
+    "RIGHTS_CORRECT": "Corriger ou mettre à jour vos informations personnelles.",
+    "RIGHTS_DELETE": "Demander la suppression de vos informations personnelles.",
+    "RIGHTS_OBJECT": "Vous opposer au traitement de vos données pour des raisons légitimes.",
+    "RIGHTS_CONTACT": "Pour exercer ces droits, veuillez nous contacter à l'adresse e-mail indiquée sur notre site.",
+    "CHANGES_TITLE": "Modifications de la Politique de Confidentialité",
+    "CHANGES_TEXT": "Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Les modifications seront publiées sur cette page et prendront effet immédiatement. Nous vous encourageons à consulter régulièrement cette page pour rester informé des mises à jour."
+  },
+  "PAYMENT_CONDITIONS": {
+    "TITLE": "Conditions de Paiement",
+    "LAST_UPDATED": "Dernière mise à jour : {{date}}",
+    "ACCEPTED_METHODS_TITLE": "Méthodes de Paiement Acceptées",
+    "ACCEPTED_METHODS_TEXT": "Sur notre site, nous acceptons les paiements via les méthodes suivantes :",
+    "ACCEPTED_METHODS_POINT1": "Cartes de crédit (Visa, MasterCard, etc.) via la plateforme sécurisée CMI Maroc.",
+    "ACCEPTED_METHODS_POINT2": "Virements bancaires directs.",
+    "CMI_PROCESS_TITLE": "Processus de Paiement via CMI Maroc",
+    "CMI_PROCESS_TEXT": "Lorsque vous effectuez un paiement par carte de crédit via la plateforme CMI Maroc, vos données de paiement sont cryptées pour garantir la sécurité de la transaction. Aucune information bancaire n'est stockée sur nos serveurs. Une fois le paiement confirmé, vous recevrez un e-mail de confirmation contenant les détails de votre transaction.",
+    "NO_REFUND_TITLE": "Politique de Non-Remise",
+    "NO_REFUND_TEXT": "Toutes les ventes effectuées sur notre site sont définitives. Nous n'offrons aucun remboursement, que ce soit pour les services de comparaison, les abonnements ou d'autres produits numériques proposés sur notre site. En acceptant ces conditions, vous reconnaissez avoir lu et compris notre politique de non-remboursement.",
+    "BILLING_TITLE": "Facturation et TVA",
+    "BILLING_TEXT": "Les prix affichés sur notre site sont en dirhams marocains (MAD) et incluent toutes les taxes applicables. Une facture détaillée sera envoyée à l'adresse e-mail fournie lors de la transaction. Assurez-vous que toutes les informations fournies sont correctes pour éviter toute erreur de facturation.",
+    "ISSUES_TITLE": "Problèmes de Paiement",
+    "ISSUES_TEXT": "Si vous rencontrez un problème avec votre paiement, qu'il s'agisse d'une erreur de facturation ou d'un refus de transaction par votre banque, veuillez nous contacter immédiatement. Nous ferons de notre mieux pour résoudre le problème le plus rapidement possible.",
+    "SECURITY_TITLE": "Sécurité des Paiements",
+    "SECURITY_TEXT": "La sécurité de vos informations de paiement est notre priorité. Tous les paiements effectués sur notre site sont traités via des connexions sécurisées et cryptées pour protéger vos données de toute tentative de fraude.",
+    "CONTACT_TITLE": "Contact Paiement",
+    "CONTACT_TEXT": "Si vous avez des questions concernant votre paiement ou si vous rencontrez des difficultés lors du processus de paiement, n'hésitez pas à nous contacter."
+  },
+  "DISPUTE_CONDITIONS": {
+    "TITLE": "Conditions en Cas de Litige",
+    "LAST_UPDATED": "Dernière mise à jour : {{date}}",
+    "RESOLUTION_TITLE": "Politique de Résolution des Litiges",
+    "RESOLUTION_TEXT": "En cas de litige concernant l'utilisation de nos services, nous nous engageons à tenter de résoudre le problème à l'amiable. Les utilisateurs sont encouragés à nous contacter directement à <a href='mailto:contact@booking-container.com'>contact@booking-container.com</a> avant d'engager toute action légale.",
+    "COMPLAINT_TITLE": "Processus de Réclamation",
+    "COMPLAINT_TEXT": "Si vous rencontrez un problème ou souhaitez déposer une réclamation, veuillez nous contacter dans les 25 jours suivant la découverte du problème. Votre réclamation doit inclure une description détaillée du problème, toute preuve pertinente et vos coordonnées complètes. Nous nous engageons à répondre à votre réclamation dans les 10 jours ouvrables.",
+    "JURISDICTION_TITLE": "Compétence",
+    "JURISDICTION_TEXT": "Tout litige qui ne peut être résolu à l'amiable sera soumis à la compétence exclusive des tribunaux compétents de Rabat, au Royaume du Maroc. En utilisant nos services, vous acceptez que toute action légale ou procédure judiciaire soit menée devant ces tribunaux.",
+    "LAW_TITLE": "Droit Applicable",
+    "LAW_TEXT": "Ces conditions en cas de litige sont régies et interprétées conformément aux lois en vigueur au Royaume du Maroc. Les dispositions légales marocaines s'appliqueront à tous les aspects du litige, y compris les procédures judiciaires.",
+    "MEDIATION_TITLE": "Médiation et Arbitrage",
+    "MEDIATION_TEXT": "Avant de recourir au tribunal, les parties acceptent de tenter une médiation ou un arbitrage pour résoudre le litige. La médiation sera effectuée par un tiers neutre accepté par les deux parties, et les frais de médiation seront partagés équitablement.",
+    "CONTACTS_TITLE": "Contacts pour Litiges",
+    "CONTACTS_TEXT": "Pour toute question ou pour initier un processus de résolution de litige, veuillez nous contacter par e-mail à <a href='mailto:contact@booking-container.com'>contact@booking-container.com</a> ou par courrier postal à notre siège."
+  },
+  "CANCELLATION_CONDITIONS": {
+    "TITLE": "Conditions d'Annulation",
+    "LAST_UPDATED": "Dernière mise à jour : {{date}}",
+    "POLICY_TITLE": "Politique d'Annulation",
+    "POLICY_TEXT": "Toute demande d'annulation doit être faite par écrit et envoyée à notre adresse e-mail officielle <a href='mailto:contact@booking-container.com'>contact@booking-container.com</a>. Veuillez noter que les annulations ne sont possibles que dans des conditions spécifiques, et tous les paiements effectués restent non remboursables conformément à notre politique de non-remboursement.",
+    "DEADLINE_TITLE": "Délai d'Annulation",
+    "DEADLINE_TEXT": "Les demandes d'annulation doivent être soumises au moins 48 heures avant la date prévue du service ou de la prestation. Toute demande reçue après ce délai ne sera pas prise en compte et le service sera considéré comme consommé.",
+    "FEES_TITLE": "Frais d'Annulation",
+    "FEES_TEXT": "Des frais d'annulation peuvent s'appliquer en fonction de la nature du service ou de la prestation annulée. Ces frais seront clairement indiqués dans les conditions spécifiques de chaque service au moment de la commande. Les frais d'annulation sont déduits du montant total déjà payé.",
+    "EXCEPTIONS_TITLE": "Exceptions à la Politique d'Annulation",
+    "EXCEPTIONS_TEXT": "Dans certains cas exceptionnels, tels que des circonstances imprévues ou la force majeure, nous pouvons examiner votre demande d'annulation et décider, à notre discrétion, de vous offrir un crédit ou un report de service. Ces cas seront évalués individuellement.",
+    "SUBMIT_TITLE": "Comment Soumettre une Demande d'Annulation",
+    "SUBMIT_TEXT": "Pour soumettre une demande d'annulation, veuillez envoyer un e-mail à <a href='mailto:contact@booking-container.com'>contact@booking-container.com</a>, en incluant votre numéro de commande, la date prévue du service et les raisons de votre demande d'annulation. Nous répondrons dans les 24 à 48 heures."
+  },
+  "FAQ_GENERAL": {
+    "TITLE": "Questions Fréquemment Posées",
+    "SUBTITLE": "Trouvez des réponses aux questions courantes sur les services et la plateforme Booking-Container",
+    "CATEGORIES": {
+      "GENERAL": "Général",
+      "RATE_COMPARISON": "Comparaison de Tarifs",
+      "SCHEDULE_SEARCH": "Recherche d'Horaires",
+      "MARKETPLACE": "Marketplace",
+      "PLANS_PRICING": "Forfaits et Tarifs",
+      "SHIPPING_QUOTES": "Devis d'Expédition"
+    },
+    "QUESTIONS": {
+      "Q1": "Qu'est-ce que Booking-Container ?",
+      "Q2": "À qui s'adresse Booking-Container ?",
+      "Q3": "Booking-Container est-il uniquement destiné à la planification d'expédition de fret ?",
+      "Q4": "Booking-Container est-il un transitaire ?",
+      "Q5": "Booking-Container fournit-il des réservations ?",
+      "Q6": "Booking-Container fournit-il des tarifs de fret ?",
+      "Q7": "Comment fonctionne votre service de comparaison de tarifs ?",
+      "Q8": "D'où viennent vos données ?",
+      "Q9": "Pour combien de compagnies aériennes fournissez-vous des routes et des horaires ?",
+      "Q10": "Pour combien de compagnies maritimes fournissez-vous des routes et des horaires ?",
+      "Q11": "Que se passe-t-il si je ne trouve pas une route ou un transporteur que je recherche ?",
+      "Q12": "Combien coûte la recherche de tarifs de fret ?",
+      "Q13": "Comment fonctionne votre recherche d'horaires ?",
+      "Q14": "D'où viennent vos données ?",
+      "Q15": "Que se passe-t-il si je ne trouve pas une route ou un transporteur que je recherche ?",
+      "Q16": "Que se passe-t-il si vous manquez un service ou un horaire ?",
+      "Q17": "Pour combien de transporteurs avez-vous des horaires ?",
+      "Q18": "Puis-je rechercher des horaires pour une plage de dates spécifique ?",
+      "Q19": "Qu'est-ce que le marketplace de Booking Container ?",
+      "Q20": "Combien coûte l'adhésion à Booking Container et y a-t-il des frais ?",
+      "Q21": "Comment fonctionne le processus de devis et de réservation ?",
+      "Q22": "Les clients sur la plateforme sont-ils légitimes et vérifiés ?",
+      "Q23": "Quels documents le client recevra-t-il et que envoie le transitaire ?",
+      "Q24": "Que se passe-t-il s'il y a un problème pendant l'expédition ?",
+      "Q25": "Quel type de support est disponible ?",
+      "Q26": "Comment commencer ?",
+      "Q27": "Comment payer ?",
+      "Q28": "Puis-je mettre à niveau mon forfait en milieu de cycle ?",
+      "Q29": "Puis-je annuler mon abonnement payant ?",
+      "Q30": "Que se passe-t-il si je dépasse les limites de mon forfait ?",
+      "Q31": "Y a-t-il un essai gratuit ?",
+      "Q32": "Quelle est la durée minimale d'abonnement ?",
+      "Q33": "Proposez-vous des forfaits et tarifs personnalisés/entreprise ?",
+      "Q34": "Comment puis-je supprimer mon compte ?",
+      "Q35": "Quelles sont les différences entre les différents types d'abonnement ?",
+      "Q36": "Fournissez-vous des devis pour les routes de fret ?",
+      "Q37": "Vos devis sont-ils immédiats ?",
+      "Q38": "Serai-je informé si ma demande de devis est rejetée ?",
+      "Q39": "Pourquoi mon devis a-t-il été rejeté ?",
+      "Q40": "Fournissez-vous des devis de messagerie ?"
+    },
+    "ANSWERS": {
+      "A1": "Booking-Container est une plateforme logistique numérique qui rationalise le processus pré-expédition en fournissant un routage en temps réel, des horaires et des comparaisons de tarifs pour les expéditions de fret dans le monde entier. Nous connectons les expéditeurs, les transitaires et les transporteurs pour offrir des solutions de transport intelligentes, flexibles et créatives permettant à votre cargaison d'aller du point A au point B, n'importe où dans le monde, avec efficacité et facilité.",
+      "A2": "Booking-Container est conçu pour toute personne ayant besoin d'informations précises et à jour sur les routes et horaires de fret mondiaux. Conçue en pensant aux besoins des transitaires, des propriétaires de cargaison bénéficiaires (BCO) et des prestataires logistiques tiers (3PL), notre plateforme aide les professionnels de la logistique à planifier, comparer et exécuter des expéditions en toute confiance.",
+      "A3": "Oui. Booking-Container est spécialement conçu pour l'industrie du fret. Bien que nous incluions certaines routes et horaires utilisant des compagnies aériennes passagers pour le transport de fret, nous ne fournissons pas de routes de voyage passagers ni de services de réservation.",
+      "A4": "Non. Booking-Container n'est pas un transitaire, mais nous travaillons avec un réseau fiable de partenaires de transitaires et pouvons vous mettre en relation avec ces services dans le cadre de notre offre.",
+      "A5": "Nous sommes une plateforme de planification d'itinéraires pré-expédition et pré-réservation. Bien que nous ne traitions pas les réservations d'expédition de fret final directement via notre plateforme, nous vous aidons à planifier et préparer votre expédition à l'avance afin que vous soyez prêt à réserver rapidement et efficacement avec votre transporteur ou transitaire choisi.",
+      "A6": "Oui. Booking-Container fournit des tarifs de fret en temps réel basés sur le tarif instantané de chaque compagnie maritime, vous permettant de comparer les options et de choisir la solution la plus rentable pour votre expédition.",
+      "A7": "Booking-Container se connecte directement aux transporteurs via de multiples intégrations, y compris des API et des systèmes EDI. Cela nous permet d'afficher des tarifs à jour de différentes compagnies maritimes au même endroit, facilitant la comparaison des prix et le choix de la meilleure option pour votre expédition.",
+      "A8": "Booking-Container combine les horaires aériens, maritimes et ferroviaires, les données de suivi historiques via de nombreuses intégrations de transporteurs et les données de suivi en direct provenant de satellites et de stations terrestres.",
+      "A9": "Nous couvrons les routes et horaires de plus de 50 compagnies aériennes cargo, offrant des trajets de vol et des informations d'horaires à jour pour soutenir votre planification d'expédition.",
+      "A10": "Nous travaillons avec plus de 150 compagnies maritimes, fournissant des routes, des horaires et des données d'expédition historiques à jour pour vous aider à planifier et optimiser vos mouvements de cargaison.",
+      "A11": "Chez Booking-Container, nous nous engageons à rassembler les données de transport et d'expédition mondiales sur une seule plateforme. Cependant, certaines routes ou transporteurs peuvent ne pas encore être inclus. Si vous ne trouvez pas ce dont vous avez besoin, veuillez nous contacter ou utiliser notre service Demander un devis - notre équipe vous aidera à trouver la solution adaptée.",
+      "A12": "Vous pouvez rechercher des tarifs de route de base gratuitement avec notre plan limité. Pour accéder aux tarifs détaillés et aux fonctionnalités avancées, veuillez consulter notre page Forfaits et tarifs.",
+      "A13": "Nous collectons les horaires de transport maritime et aérien auprès de tous les principaux fournisseurs de services et de nombreux mineurs, en les consolidant sur une seule plateforme. Cela vous permet d'accéder et de comparer facilement toutes les options d'horaire disponibles en un seul endroit.",
+      "A14": "Booking-Container intègre les horaires et données de suivi des transporteurs aériens, maritimes et ferroviaires. Nos sources incluent de nombreuses API de transporteurs, des registres d'expédition historiques et des données de suivi en direct provenant de satellites et de stations terrestres.",
+      "A15": "Chez Booking-Container, notre mission est d'unifier les données de transport et d'expédition mondiales sur une seule plateforme. Bien que nous élargissions continuellement notre couverture, certaines routes ou transporteurs peuvent ne pas encore être inclus. Si vous ne trouvez pas ce dont vous avez besoin, veuillez nous contacter et nous le faire savoir afin que nous puissions travailler à l'ajouter.",
+      "A16": "Nous développons continuellement notre couverture d'horaires et comprenons qu'il peut y avoir des lacunes occasionnelles. Si vous connaissez un service, un horaire ou un transporteur manquant, contactez-nous et faites-le nous savoir - nous travaillerons à l'ajouter dès que possible !",
+      "A17": "Nous fournissons des horaires pour tous les principaux prestataires de services de fret maritime et aérien. Notre couverture comprend les principales compagnies maritimes comme CMA CGM, MSC, Maersk, Sealand, COSCO, OOCL, HMM, Evergreen, Unifeeder et Hapag Lloyd. Côté fret aérien, nous présentons des opérateurs leaders tels que Cargolux, Polar Air, Korean Air, Lufthansa, Air China Cargo, Turkish Airlines et UPS Airlines.",
+      "A18": "Oui, notre plateforme vous permet de filtrer les horaires par plages de dates spécifiques, temps de transit (durée) et nombre de semaines à l'avance. Utilisez le menu déroulant 'Arriver/Partir' avec ces filtres dans la vue Horaires pour personnaliser votre recherche et trouver les options d'expédition les plus adaptées.",
+      "A19": "Le Marketplace de Booking-Container est une plateforme numérique leader conçue spécifiquement pour les transitaires. Il vous connecte directement à un vaste réseau d'entreprises vérifiées expédiant activement des marchandises par mer, air et route. En réduisant les perturbations, notre marketplace vous aide à vous concentrer moins sur la recherche de clients et plus sur leur service, vous permettant de développer votre activité efficacement.",
+      "A20": "Rejoindre Marketplace est complètement gratuit - aucun frais d'inscription ou abonnement requis. Vous pouvez créer le profil de votre entreprise et commencer à accéder aux opportunités d'expédition sans aucun engagement financier initial. Nous ne facturons qu'une petite commission sur chaque réservation confirmée, sans frais cachés. Vous ne payez que lorsque vous remportez des affaires, faisant de la plateforme une solution à faible risque et rentable pour votre agence.",
+      "A21_FORWARDER": "Pour les transitaires :",
+      "A21_FORWARDER_LIST1": "Parcourez les offres d'expédition de clients vérifiés directement sur la plateforme.",
+      "A21_FORWARDER_LIST2": "Recevez des notifications instantanées pour les nouvelles demandes d'expédition correspondant à vos services.",
+      "A21_FORWARDER_LIST3": "Envoyez des devis compétitifs rapidement et facilement via notre interface numérique.",
+      "A21_FORWARDER_LIST4": "Soyez notifié immédiatement lorsqu'un client accepte votre offre, afin que vous puissiez procéder à la réservation.",
+      "A21_FORWARDER_LIST5": "Complétez la réservation et préparez toute la documentation d'expédition nécessaire.",
+      "A21_FORWARDER_LIST6": "Envoyez la confirmation de réservation finalisée et les documents directement au client via la plateforme.",
+      "A21_CLIENTS": "Pour les clients :",
+      "A21_CLIENTS_LIST1": "Soumettez les détails de votre expédition : itinéraire, type de cargaison, dates et toute exigence particulière.",
+      "A21_CLIENTS_LIST2": "Recevez plusieurs offres compétitives de transitaires vérifiés en quelques heures.",
+      "A21_CLIENTS_LIST3": "Comparez les offres basées sur le prix, la date de départ, le temps de transit et la date d'arrivée, puis choisissez la meilleure.",
+      "A21_CLIENTS_LIST4": "Payez en toute sécurité via la plateforme et recevez instantanément votre connaissement (BL) et documents d'expédition.",
+      "A21_CONCLUSION": "Terminé ! Votre transitaire sélectionné s'occupera du reste.",
+      "A22": "Absolument. Tous les clients sur le marketplace Booking-Container subissent un processus strict d'onboarding et de vérification pour s'assurer qu'il s'agit d'entreprises légitimes avec des besoins réels d'expédition. De même, chaque transitaire sur notre plateforme est soigneusement vérifié pour les licences, l'assurance et les performances passées. Pour votre sécurité, nous collectons le paiement des clients avant de confirmer toute réservation, afin que vous puissiez procéder en toute confiance sachant que les fonds sont sécurisés.",
+      "A23": "Après la réservation, le client recevra une confirmation de réservation officielle et un connaissement (BL) vérifié, ainsi que tous les documents d'expédition nécessaires tels que la liste de colisage et le manifeste de cargaison. Le transitaire est responsable de fournir et coordonner ces documents pour assurer un processus d'expédition fluide.",
+      "A24": "Booking-Container fournit un support client dédié pour aider avec tout problème survenant pendant l'expédition. Parce que nous traitons les paiements et la documentation, nous pouvons médier directement avec les transporteurs en votre nom pour résoudre les problèmes rapidement et minimiser toute perturbation de votre expédition.",
+      "A25": "Nous offrons un support dédié 24/7 pour garantir que l'aide est toujours à portée de main. Notre équipe d'onboarding vous assiste avec la configuration et la formation, tandis que notre centre d'aide détaillé et tutoriels vidéo fournissent des conseils continus. De plus, des gestionnaires de compte sont disponibles pour vous aider à maximiser la valeur de la plateforme Marketplace de Booking Container.",
+      "A26_CLIENTS": "Pour les clients : C'est simple - inscrivez-vous pour un compte gratuit sur notre page d'accueil, entrez les détails de votre expédition et recevez instantanément des devis de notre réseau mondial de transitaires. Aucune obligation jusqu'à ce que vous décidiez de réserver votre expédition.",
+      "A26_FORWARDERS": "Pour les transitaires : Soumettez vos informations d'inscription via notre plateforme et attendez le processus de vérification. Une fois vérifié (couvrant les licences, l'assurance), vous serez prêt à soumettre des offres et accéder aux opportunités d'expédition.",
+      "A27": "Nous acceptons toutes les principales cartes de crédit, y compris VISA, MasterCard, AMEX et plus. Pour les forfaits entreprise, nous offrons également des solutions de facturation personnalisées adaptées aux besoins de votre entreprise.",
+      "A28": "Oui, vous pouvez mettre à niveau votre forfait à tout moment. Vous serez facturé d'un montant au prorata basé sur la période restante de votre cycle de facturation actuel.",
+      "A29": "Oui, vous pouvez annuler votre abonnement à tout moment via votre tableau de bord et revenir au forfait gratuit quand vous le souhaitez.",
+      "A30": "Si vous dépassez les limites de votre forfait actuel, comme les recherches de comparaison de tarifs, vous recevrez une notification. Vous ne pourrez plus effectuer cette action jusqu'à la réinitialisation de votre cycle de facturation ou la mise à niveau vers un forfait supérieur.",
+      "A31": "Notre forfait gratuit donne accès à la plupart des fonctionnalités, avec des limites plus basses sur les recherches et utilisateurs. Pour les forfaits Team ou Pro+, veuillez visiter la section Gérer l'abonnement ou nous contacter directement.",
+      "A32": "Vous pouvez vous abonner pour aussi peu qu'un mois. Annulez à tout moment et vous conserverez un accès complet aux fonctionnalités de votre forfait jusqu'à la fin de votre cycle de facturation actuel.",
+      "A33": "Oui, nous proposons des forfaits entreprise adaptés à vos besoins spécifiques. Pour en savoir plus ou discuter des options de personnalisation, veuillez nous contacter ici.",
+      "A34": "Cliquez sur l'icône de compte sur le Profil, sélectionnez Gérer le compte, puis cliquez sur l'onglet Supprimer le compte.",
+      "A35": "Vous pouvez comparer tous les forfaits ici pour comprendre les différences de fonctionnalités, limites et options de support.",
+      "A36": "Oui, nous fournissons des devis pour l'expédition de fret par transport maritime, aérien et camion via notre service Demander un devis. Bien que Booking-Container ne soit pas un transitaire, nous travaillons avec un réseau fiable de partenaires de transit si votre demande d'expédition correspond à leurs services.",
+      "A37": "Non, nous ne fournissons pas de prix instantanés. Lorsque vous soumettez une demande de devis, nous collectons des données auprès de notre réseau de partenaires de transit et transporteurs. Ce processus prend généralement jusqu'à 24 heures, pendant lesquelles vous recevrez des mises à jour jusqu'à ce qu'un devis soit fourni.",
+      "A38": "Oui. Si nous ne pouvons pas référer votre demande de devis à un partenaire de transit et transporteurs, vous serez promptement informé.",
+      "A39_REASON1": "Taille de l'expédition : Mieux gérée par des services de colis comme DHL, FedEx ou UPS pour les expéditions plus petites.",
+      "A39_REASON2": "Informations incomplètes : La demande manque de détails essentiels, donc le système ne peut pas la faire correspondre avec le bon partenaire.",
+      "A39_REASON3": "Limitations du réseau : Occasionnellement, aucun partenaire n'a l'expertise requise pour votre expédition.",
+      "A39_CONCLUSION": "Nous apprécions votre compréhension alors que nous travaillons à élargir nos capacités.",
+      "A40": "Non, nos ressources de transporteurs et partenaires de transit se spécialisent dans les volumes d'expédition plus importants et ne gèrent pas les services de messagerie ou petits colis."
+    }
+  },
+    "SIGNUP": {
+    "CREATE_ACCOUNT": "Créer un compte",
+    "SUBTITLE": "Accédez aux devis de plusieurs transitaires en même temps et trouvez la meilleure offre sans effort.",
+    "FIRST_NAME": "Prénom",
+    "FIRST_NAME_PLACEHOLDER": "ex. Jean",
+    "LAST_NAME": "Nom",
+    "LAST_NAME_PLACEHOLDER": "ex. Dupont",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "ex. jeandupont@email.com",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD_PLACEHOLDER": "ex. Ab112244@@",
+    "PASSWORD_RULE": "Doit contenir au moins 8 caractères",
+    "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Saisir à nouveau le mot de passe",
+    "BUTTON": "Créer un compte",
+    "ALTERNATIVE": "Ou créez un compte avec",
+    "ALREADY_HAVE": "Vous avez déjà un compte ?",
+    "SIGN_IN": "Se connecter"
+  },
+  "AUTH": {
+    "CREATE_ACCOUNT": "Créer un compte",
+    "ACCESS_QUOTES": "Accédez à des devis de plusieurs transitaires en une seule fois et trouvez la meilleure offre sans tracas.",
+    "FIRST_NAME": "Prénom",
+    "FIRST_NAME_PLACEHOLDER": "ex. Jean",
+    "LAST_NAME": "Nom",
+    "LAST_NAME_PLACEHOLDER": "ex. Dupont",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "ex. jeandupont@email.com",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD_PLACEHOLDER": "ex. Ab112244@@",
+    "PASSWORD_RULE": "Doit contenir au moins 8 caractères",
+    "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Saisissez à nouveau le mot de passe",
+    "CREATE_BUTTON": "Créer un compte",
+    "OR_USING": "Ou créez un compte en utilisant",
+    "ALREADY_ACCOUNT": "Vous avez déjà un compte ? ",
+    "SIGN_IN": "Se connecter"
+  }
+}

@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Service implementation named {@link UserReadServiceImpl} for reading users.
@@ -82,6 +83,13 @@ public class UserReadServiceImpl implements UserReadService {
                 .toUserList(userEntityPage.getContent());
 
         return CustomPage.of(userDomainModels, userEntityPage);
+    }
+
+    public List<User> getUsersByEmails(List<String> emails) {
+        List<UserEntity> userEntities = userRepository.findByEmailIn(emails);
+        return userEntities.stream()
+                .map(userEntityToUserMapper::map)
+                .collect(Collectors.toList());
     }
 
 }

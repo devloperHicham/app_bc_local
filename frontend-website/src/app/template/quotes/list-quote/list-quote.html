@@ -1,0 +1,448 @@
+<div class="content">
+  <div class="header">
+    <div class="left-wrapper">
+      <div class="ctasecondary" id="cTASecondaryContainer">
+        <div class="icon">
+          <img
+            class="vector-icon"
+            alt=""
+            src="assets/images/arrow-right-blue.png"
+          />
+        </div>
+        <div class="back">{{ "QUOTES.BACK" | translate }}</div>
+      </div>
+      <div class="quotes-list-24">
+        {{ "QUOTES.LIST" | translate : { count: 24 } }}
+      </div>
+    </div>
+    <div class="button">
+      <div class="text-placeholder">{{ "QUOTES.REQUEST" | translate }}</div>
+      <div class="icon">
+        <img class="vector-icon1" alt="" src="assets/images/bell-orange.png" />
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stats-card">
+      <div class="div">1</div>
+      <div class="content1">
+        <div class="icon">
+          <img
+            class="vector-icon2"
+            alt=""
+            src="assets/images/time-orange.png"
+          />
+        </div>
+        <div class="pending-quotes">{{ "QUOTES.PENDING" | translate }}</div>
+      </div>
+    </div>
+    <div class="stats-card1">
+      <div class="div">2</div>
+      <div class="content1">
+        <div class="icon">
+          <img
+            class="vector-icon1"
+            alt=""
+            src="assets/images/file-perpule.png"
+          />
+        </div>
+        <div class="pending-quotes">{{ "QUOTES.RECEIVED" | translate }}</div>
+      </div>
+    </div>
+    <div class="stats-card2">
+      <div class="div">3</div>
+      <div class="content1">
+        <div class="icon">
+          <img
+            class="vector-icon4"
+            alt=""
+            src="assets/images/valide-green.png"
+          />
+        </div>
+        <div class="pending-quotes">{{ "QUOTES.ACCEPTED" | translate }}</div>
+      </div>
+    </div>
+    <div class="stats-card3">
+      <div class="div">2</div>
+      <div class="content1">
+        <div class="icon">
+          <img class="vector-icon5" alt="" src="assets/images/experation.png" />
+        </div>
+        <div class="pending-quotes">{{ "QUOTES.EXPIRED" | translate }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-filters">
+    <div class="input-field">
+      <div class="text-field">
+        <div class="icon">
+          <img
+            class="vector-icon6"
+            alt=""
+            src="assets/images/search-blue.png"
+          />
+        </div>
+        <div class="eg-casablanca-portma">
+          {{ "QUOTES.SEARCH" | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="notification">
+      <div class="pending-quotes">{{ "QUOTES.FILTERS" | translate }}</div>
+      <div class="icon5">
+        <img class="vector-icon7" alt="" src="assets/images/filters.png" />
+      </div>
+    </div>
+  </div>
+  <div class="table">
+    <div class="table-header">
+      <div class="id">{{ "QUOTES.ID" | translate }}</div>
+      <div class="departure">{{ "QUOTES.DEPARTURE" | translate }}</div>
+      <div class="departure">{{ "QUOTES.ARRIVAL" | translate }}</div>
+      <div class="transport-mode">{{ "QUOTES.TRANSPORT" | translate }}</div>
+      <div class="shipping-type">{{ "QUOTES.SHIPPING" | translate }}</div>
+      <div class="menu-item">
+        <div class="ready-to-load">{{ "QUOTES.READY" | translate }}</div>
+        <img class="tailing-icon1" alt="" src="assets/image/up-down.png" />
+      </div>
+      <div class="status">{{ "QUOTES.STATUS" | translate }}</div>
+      <div class="actions">{{ "QUOTES.ACTIONS" | translate }}</div>
+    </div>
+    <div class="table-items">
+      <div
+        class="table-item"
+        (click)="openModal()"
+        (keydown)="$event.stopPropagation()"
+      >
+        <div class="div4">345678941241</div>
+        <div class="departure1">
+          <div class="flags">
+            <img class="vector-icon34" alt="" src="assets/images/usa.png" />
+          </div>
+          <div class="golden-gate-harbor">Golden Gate Harbor, CA</div>
+        </div>
+        <div class="arrival1">
+          <div class="flags">
+            <img class="vector-icon8" alt="" src="assets/images/france.png" />
+          </div>
+          <div class="golden-gate-harbor">Corsica, FRA</div>
+        </div>
+        <div class="trip-category">
+          <div class="icon">
+            <img
+              class="vector-icon10"
+              alt=""
+              src="assets/images/truck-green.png"
+            />
+          </div>
+          <div class="truck-transport">Truck transport</div>
+        </div>
+        <div class="trip-category1">
+          <div class="icon">
+            <img
+              class="vector-icon11"
+              alt=""
+              src="assets/images/container.png"
+            />
+          </div>
+          <div class="eg-casablanca-portma">1x 20’ Standard</div>
+        </div>
+        <div class="div5">22/05/2025</div>
+        <div class="trip-category2">
+          <div class="icon">
+            <img
+              class="vector-icon1"
+              alt=""
+              src="assets/images/time-orange.png"
+            />
+          </div>
+          <div class="pending">Offers Received</div>
+        </div>
+        <div class="actions1">
+          <div class="icon">
+            <button
+              style="
+                background-color: transparent;
+                cursor: pointer;
+                border: none;
+              "
+              (click)="openModal()"
+            >
+              <img
+                class="vector-icon13"
+                alt=""
+                src="assets/images/eye-show.png"
+              />
+            </button>
+          </div>
+          <div class="icon">
+            <img class="vector-icon14" alt="" src="assets/images/share.png" />
+          </div>
+          <div class="icon">
+            <img class="vector-icon15" alt="" src="assets/images/delete.png" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="table-item"
+        (click)="openModal()"
+        (keydown)="$event.stopPropagation()"
+      >
+        <div class="div4">8765432421412</div>
+        <div class="arrival1">
+          <div class="flags">
+            <img
+              class="vector-icon34"
+              alt=""
+              src="assets/images/Guatemala.png"
+            />
+          </div>
+          <div class="golden-gate-harbor">Silver Sands Port, NJ</div>
+        </div>
+        <div class="arrival1">
+          <div class="flags">
+            <img class="vector-icon8" alt="" src="assets/images/german.png" />
+          </div>
+          <div class="golden-gate-harbor">Sardinia, ITA</div>
+        </div>
+        <div class="trip-category3">
+          <div class="icon">
+            <img
+              class="vector-icon2"
+              alt=""
+              src="assets/images/ship-blue.png"
+            />
+          </div>
+          <div class="truck-transport">Marine shipping</div>
+        </div>
+        <div class="trip-category1">
+          <div class="icon">
+            <img
+              class="vector-icon11"
+              alt=""
+              src="assets/images/container.png"
+            />
+          </div>
+          <div class="eg-casablanca-portma">1x 20’ Standard</div>
+        </div>
+        <div class="div5">01/05/2025</div>
+        <div class="trip-category8">
+          <div class="icon">
+            <img
+              class="vector-icon5"
+              alt=""
+              src="assets/images/experation.png"
+            />
+          </div>
+          <div class="pending">Expired</div>
+        </div>
+        <div class="actions1">
+          <div class="icon">
+            <button
+              style="
+                background-color: transparent;
+                cursor: pointer;
+                border: none;
+              "
+              (click)="openModal()"
+            >
+              <img
+                class="vector-icon13"
+                alt=""
+                src="assets/images/eye-show.png"
+              />
+            </button>
+          </div>
+          <div class="icon">
+            <img class="vector-icon14" alt="" src="assets/images/share.png" />
+          </div>
+          <div class="icon">
+            <img class="vector-icon15" alt="" src="assets/images/delete.png" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="table-item"
+        (click)="openModal()"
+        (keydown)="$event.stopPropagation()"
+      >
+        <div class="div4">345678941241</div>
+        <div class="departure1">
+          <div class="flags">
+            <img class="vector-icon34" alt="" src="assets/images/usa.png" />
+          </div>
+          <div class="golden-gate-harbor">Golden Gate Harbor, CA</div>
+        </div>
+        <div class="arrival1">
+          <div class="flags">
+            <img class="vector-icon8" alt="" src="assets/images/france.png" />
+          </div>
+          <div class="golden-gate-harbor">Corsica, FRA</div>
+        </div>
+        <div class="trip-category">
+          <div class="icon">
+            <img
+              class="vector-icon10"
+              alt=""
+              src="assets/images/truck-green.png"
+            />
+          </div>
+          <div class="truck-transport">Truck transport</div>
+        </div>
+        <div class="trip-category1">
+          <div class="icon">
+            <img
+              class="vector-icon11"
+              alt=""
+              src="assets/images/container.png"
+            />
+          </div>
+          <div class="eg-casablanca-portma">1x 20’ Standard</div>
+        </div>
+        <div class="div5">22/05/2025</div>
+        <div class="trip-category2">
+          <div class="icon">
+            <img
+              class="vector-icon1"
+              alt=""
+              src="assets/images/time-orange.png"
+            />
+          </div>
+          <div class="pending">Offers Received</div>
+        </div>
+        <div class="actions1">
+          <div class="icon">
+            <button
+              style="
+                background-color: transparent;
+                cursor: pointer;
+                border: none;
+              "
+              (click)="openModal()"
+            >
+              <img
+                class="vector-icon13"
+                alt=""
+                src="assets/images/eye-show.png"
+              />
+            </button>
+          </div>
+          <div class="icon">
+            <img class="vector-icon14" alt="" src="assets/images/share.png" />
+          </div>
+          <div class="icon">
+            <img class="vector-icon15" alt="" src="assets/images/delete.png" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="table-item"
+        (click)="openModal()"
+        (keydown)="$event.stopPropagation()"
+      >
+        <div class="div4">345678941241</div>
+        <div class="departure1">
+          <div class="flags">
+            <img class="vector-icon34" alt="" src="assets/images/usa.png" />
+          </div>
+          <div class="golden-gate-harbor">Golden Gate Harbor, CA</div>
+        </div>
+        <div class="arrival1">
+          <div class="flags">
+            <img class="vector-icon8" alt="" src="assets/images/france.png" />
+          </div>
+          <div class="golden-gate-harbor">Corsica, FRA</div>
+        </div>
+        <div class="trip-category">
+          <div class="icon">
+            <img
+              class="vector-icon10"
+              alt=""
+              src="assets/images/truck-green.png"
+            />
+          </div>
+          <div class="truck-transport">Truck transport</div>
+        </div>
+        <div class="trip-category1">
+          <div class="icon">
+            <img
+              class="vector-icon11"
+              alt=""
+              src="assets/images/container.png"
+            />
+          </div>
+          <div class="eg-casablanca-portma">1x 20’ Standard</div>
+        </div>
+        <div class="div5">22/05/2025</div>
+        <div class="trip-category2">
+          <div class="icon">
+            <img
+              class="vector-icon1"
+              alt=""
+              src="assets/images/time-orange.png"
+            />
+          </div>
+          <div class="pending">Offers Received</div>
+        </div>
+        <div class="actions1">
+          <div class="icon">
+            <button
+              style="
+                background-color: transparent;
+                cursor: pointer;
+                border: none;
+              "
+              (click)="openModal()"
+            >
+              <img
+                class="vector-icon13"
+                alt=""
+                src="assets/images/eye-show.png"
+              />
+            </button>
+          </div>
+          <div class="icon">
+            <img class="vector-icon14" alt="" src="assets/images/share.png" />
+          </div>
+          <div class="icon">
+            <img class="vector-icon15" alt="" src="assets/images/delete.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <div class="showing-1-8-out">Showing 1-8 out of 24 results</div>
+    <div class="actions17">
+      <div class="ctasecondary1">
+        <div class="back">Previous</div>
+      </div>
+      <div class="pages">
+        <div class="page">
+          <div class="back">1</div>
+        </div>
+        <div class="page1">
+          <div class="back">2</div>
+        </div>
+        <div class="page1">
+          <div class="back">3</div>
+        </div>
+        <div class="page1">
+          <div class="back">4</div>
+        </div>
+      </div>
+      <div class="ctasecondary2">
+        <div class="back">Next</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Conditionally render the modal component -->
+<app-detail-quote
+  *ngIf="isModalOpen"
+  (closeEvent)="closeModal()"
+></app-detail-quote>

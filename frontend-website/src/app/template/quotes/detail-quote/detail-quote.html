@@ -1,0 +1,215 @@
+<div
+  class="modal-backdrop"
+  (click)="close()"
+  (keydown)="$event.stopPropagation()"
+>
+  <div
+    style="top: 70px"
+    class="modal-content"
+    (click)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+  >
+    <button class="close-btn" (click)="close()">&times;</button>
+    <br />
+    <div class="quote-details">
+      <div class="trip-card">
+        <div class="header">
+          <div class="pending">ID: 345678941241</div>
+          <div class="trip-category">
+            <div class="icon">
+              <img
+                class="vector-icon"
+                alt=""
+                src="assets/images/time-orange.png"
+              />
+            </div>
+            <div class="pending">Pending</div>
+          </div>
+        </div>
+        <div class="trip">
+          <div class="departure">
+            <div class="departure1">
+              <div class="flags">
+                <img
+                  class="vector-icon1"
+                  alt=""
+                  src="assets/images/german.png"
+                />
+              </div>
+              <div class="casablanca-port-ma">Casablanca Port, MA</div>
+            </div>
+          </div>
+          <div class="road">
+            <div class="ellipse-parent">
+              <div class="ellipse2"></div>
+              <div class="frame-div"></div>
+              <div class="ellipse2"></div>
+            </div>
+          </div>
+          <div class="arrival">
+            <div class="departure1">
+              <div class="flags1">
+                <img
+                  class="vector-icon2"
+                  alt=""
+                  src="assets/images/france.png"
+                />
+              </div>
+              <div class="casablanca-port-ma">Mallorca, SPA</div>
+            </div>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="trip-content">
+          <div class="rate-breakdown">
+            <div class="header1">
+              <div class="pending">Request Summary</div>
+            </div>
+            <div class="content">
+              <div class="left-wrapper">
+                <div class="transport-mode">
+                  <div class="product">Transport mode</div>
+                  <div class="trip-category1">
+                    <div class="icon">
+                      <img
+                        class="vector-icon"
+                        alt=""
+                        src="assets/images/ship-blue.png"
+                      />
+                    </div>
+                    <div class="marine-shipping">Marine shipping</div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Product</div>
+                  <div class="trip-category2">
+                    <div class="icon">
+                      <img
+                        class="vector-icon14"
+                        alt=""
+                        src="assets/images/product.png"
+                      />
+                    </div>
+                    <div class="animal-animal">Animal & Animal Products</div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Ready to load</div>
+                  <div class="trip-category3">
+                    <div class="icon">
+                      <img
+                        class="vector-icon2"
+                        alt=""
+                        src="assets/images/calendar.png"
+                      />
+                    </div>
+                    <div class="animal-animal">22/05/2025</div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Shipping type</div>
+                  <div class="trip-category3">
+                    <div class="icon">
+                      <img
+                        class="vector-icon16"
+                        alt=""
+                        src="assets/images/container.png"
+                      />
+                    </div>
+                    <div class="animal-animal">1x 20’ Standard</div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Volume</div>
+                  <div class="trip-category2">
+                    <div class="icon">
+                      <img
+                        class="vector-icon17"
+                        alt=""
+                        src="assets/images/volume.png"
+                      />
+                    </div>
+                    <div class="animal-animal">1</div>
+                    <div class="kg">
+                      M
+                      <sup>3</sup>
+                    </div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Weight</div>
+                  <div class="trip-category2">
+                    <div class="icon">
+                      <img
+                        class="vector-icon18"
+                        alt=""
+                        src="assets/images/weight.png"
+                      />
+                    </div>
+                    <div class="animal-animal">12</div>
+                    <div class="kg">KG</div>
+                  </div>
+                </div>
+                <div class="transport-mode">
+                  <div class="product">Associated services</div>
+                  <div class="trip-category2">
+                    <div class="icon">
+                      <img
+                        class="vector-icon19"
+                        alt=""
+                        src="assets/images/inssurence.png"
+                      />
+                    </div>
+                    <div class="insurance">Insurance</div>
+                    <div class="div3">($1.200)</div>
+                  </div>
+                </div>
+              </div>
+              <img class="map-icon" alt="" src="assets/images/maps.png" />
+            </div>
+          </div>
+        </div>
+        <div class="separator1"></div>
+        <div class="footer">
+          <div class="actions">
+            <div class="button">
+              <div class="text-placeholder">Close</div>
+            </div>
+            <div class="button1">
+              <div class="text-placeholder">Delete request</div>
+              <div class="icon">
+                <img
+                  class="vector-icon15"
+                  alt=""
+                  src="assets/images/delete.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="button2">
+              <div class="text-placeholder">Copy link</div>
+              <div class="icon">
+                <img
+                  class="vector-icon21"
+                  alt=""
+                  src="assets/images/share.png"
+                />
+              </div>
+            </div>
+            <div class="button2">
+              <div class="text-placeholder">Chat</div>
+              <div class="icon">
+                <img
+                  class="vector-icon22"
+                  alt=""
+                  src="assets/images/support.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

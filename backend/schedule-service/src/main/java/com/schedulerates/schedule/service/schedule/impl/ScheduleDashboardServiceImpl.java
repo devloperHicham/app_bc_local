@@ -5,6 +5,7 @@ import com.schedulerates.schedule.model.schedule.dto.response.DailyScheduleByUse
 import com.schedulerates.schedule.model.schedule.dto.response.DashboardResponse;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleByCompaniesData;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
+import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
 import com.schedulerates.schedule.repository.ScheduleRepository;
 import com.schedulerates.schedule.service.schedule.ScheduleDashboardService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -51,13 +51,13 @@ public class ScheduleDashboardServiceImpl implements ScheduleDashboardService {
     }
     
     @Override
-    public List<DailyScheduleByUsersData> getDaillyScheduleByUsers() {
+    public List<DailyScheduleByUsersData> getDailyScheduleByUsers() {
         LocalDate today = LocalDate.now();
         List<Object[]> results = scheduleRepository.findDailyUsersScheduleCounts(today);
 
         return results.stream()
             .map(row -> new DailyScheduleByUsersData((String) row[0], ((Long) row[1]).intValue()))
-            .collect(Collectors.toList());
+            .toList();
     }
 
     @Override

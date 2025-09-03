@@ -1,0 +1,312 @@
+<div class="modal-backdrop" (click)="close()" (keydown)="$event.stopPropagation()">
+  <div
+    style="top: 70px"
+    class="modal-content"
+    (click)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+  >
+    <button class="close-btn" (click)="close()">&times;</button>
+    <br />
+    <div class="details">
+      <div class="trip-card">
+        <div class="header">
+          <div class="carrier-id">
+            <img
+              class="shipping-partner-icon"
+              alt=""
+              src="assets/images/Maersk.png"
+            />
+
+            <div class="h">ID: 43255464233</div>
+          </div>
+          <div class="shipping-info">
+            <div class="info">
+              <div class="icon">
+                <img
+                  class="vector-icon"
+                  alt=""
+                  src="assets/images/time-blue.png"
+                />
+              </div>
+              <div class="h">19h</div>
+            </div>
+            <div class="info">
+              <div class="icon">
+                <img
+                  class="vector-icon1"
+                  alt=""
+                  src="assets/images/container-blue.png"
+                />
+              </div>
+              <div class="h">Less Container Load</div>
+            </div>
+          </div>
+        </div>
+        <div class="trip">
+          <div class="departure">
+            <div class="departure1">
+              <div class="flags">
+                <img
+                  class="vector-icon3"
+                  alt=""
+                  src="assets/images/Morocco.png"
+                />
+              </div>
+              <div class="casablanca-port-ma">Casablanca Port, MA</div>
+            </div>
+            <div class="div">11/06/2025 - 15:00</div>
+          </div>
+          <div class="road">
+            <div class="ellipse-parent">
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+            </div>
+            <div class="ellipse-parent">
+              <div class="ellipse2"></div>
+              <div class="frame-div"></div>
+              <div class="ellipse2"></div>
+            </div>
+            <div class="ellipse-container">
+              <div class="ellipse"></div>
+              <div class="frame-child3"></div>
+              <div class="frame-child4"></div>
+              <div class="frame-child5"></div>
+              <div class="ellipse"></div>
+            </div>
+          </div>
+          <div class="arrival">
+            <div class="departure1">
+              <div class="flags1">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/Brazil.png"
+                />
+              </div>
+              <div class="casablanca-port-ma">Mallorca, SPA</div>
+            </div>
+            <div class="div">11/05/2025 - 09:10</div>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="trip-content">
+          <div class="rate-breakdown">
+            <div
+              class="header1"
+              (click)="toggleSection('rate')"
+              (keydown)="handleKeyDown($event, 'rate')"
+            >
+              <div class="terms-and-additional">{{ 'SEARCH_COMPARISON_DETAIL.RATE_BREAKDOWN' | translate }}</div>
+              <div class="icon">
+                <img
+                  class="vector-icon31"
+                  [src]="
+                    isRateOpen()
+                      ? 'assets/images/moins.png'
+                      : 'assets/images/plus.png'
+                  "
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="content" *ngIf="isRateOpen()">
+              <div class="content1">
+                <div class="departure2">
+                  <div class="departure3">
+                    <div class="departure1">
+                      <div class="flags">
+                        <img
+                          class="vector-icon3"
+                          src="assets/images/Brazil.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="casablanca-port-ma">Casablanca Port, MA</div>
+                    </div>
+                    <div class="div">11/06/2025 - 15:00</div>
+                  </div>
+                  <div class="ellipse2"></div>
+                </div>
+                <div class="road1">
+                  <div class="trip-details">
+                    <div class="timeline">
+                      <div class="timeline-child"></div>
+                      <div class="details1">
+                        <div class="header2">
+                          <div class="trip-category">
+                            <div class="icon">
+                              <img
+                                class="vector-icon"
+                                alt=""
+                                src="assets/images/ship-blue.png"
+                              />
+                            </div>
+                            <div class="h">Marine shipping</div>
+                          </div>
+                          <div class="km-3-days">303.8 km, 3 days</div>
+                        </div>
+                        <div class="content2">
+                          <div class="ocean-freight-fifo">
+                            Ocean Freight (FIFO)
+                          </div>
+                          <div class="km-3-days">$ 1,500.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="transit2">
+                      <div class="ellipse3"></div>
+                      <div class="trip-category">
+                        <div class="transit3">Transit</div>
+                        <div class="h">Tanger Port, MA</div>
+                        <div class="h">35 min</div>
+                      </div>
+                    </div>
+                    <div class="timeline1">
+                      <div class="timeline-item"></div>
+                      <div class="details2">
+                        <div class="header2">
+                          <div class="trip-category">
+                            <div class="icon">
+                              <img
+                                class="vector-icon"
+                                alt=""
+                                src="assets/images/ship-blue.png"
+                              />
+                            </div>
+                            <div class="h">Marine shipping</div>
+                          </div>
+                          <div class="km-3-days">6243.8 km, 10 days</div>
+                        </div>
+                        <div class="content2">
+                          <div class="ocean-freight-fifo">
+                            Ocean Freight (FIFO)
+                          </div>
+                          <div class="km-3-days">$ 565.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="transit2">
+                      <div class="ellipse3"></div>
+                      <div class="trip-category">
+                        <div class="transit3">Transit</div>
+                        <div class="h">Estepona, SPA</div>
+                        <div class="h">1h</div>
+                      </div>
+                    </div>
+                    <div class="timeline">
+                      <div class="timeline-item"></div>
+                      <div class="details1">
+                        <div class="header2">
+                          <div class="trip-category">
+                            <div class="icon">
+                              <img
+                                class="vector-icon"
+                                alt=""
+                                src="assets/images/ship-blue.png"
+                              />
+                            </div>
+                            <div class="h">Marine shipping</div>
+                          </div>
+                          <div class="km-3-days">6243.8 km, 10 days</div>
+                        </div>
+                        <div class="content2">
+                          <div class="ocean-freight-fifo">
+                            Ocean Freight (FIFO)
+                          </div>
+                          <div class="km-3-days">$ 55.00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arrival2">
+                  <div class="ellipse2"></div>
+                  <div class="departure3">
+                    <div class="departure1">
+                      <div class="flags1">
+                        <img
+                          class="vector-icon4"
+                          alt=""
+                          src="assets/images/german.png"
+                        />
+                      </div>
+                      <div class="casablanca-port-ma">Mallorca, SPA</div>
+                    </div>
+                    <div class="div">15/05/2025 - 09:10</div>
+                  </div>
+                </div>
+              </div>
+              <img class="content-icon" alt="" src="assets/images/maps.png" />
+            </div>
+          </div>
+          <div class="terms-and-conditions">
+            <div
+              class="header1"
+              (click)="toggleSection('terms')"
+              (keydown)="handleKeyDown($event, 'terms')"
+            >
+              <div class="terms-and-additional">
+                {{ 'SEARCH_COMPARISON_DETAIL.TERMS_ADDITIONAL' | translate }}
+              </div>
+              <div class="icon">
+                <img
+                  class="vector-icon31"
+                  [src]="
+                    isTermsOpen()
+                      ? 'assets/images/moins.png'
+                      : 'assets/images/plus.png'
+                  "
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="stateopen" *ngIf="isTermsOpen()">
+              <!-- 📝 terms/conditions content here -->
+              <div class="subject-to-container1">
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.SUBJECT_TO' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.LOCAL_FEES' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.OWS_SURCHARGE' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.IMO_ADR_SURCHARGE' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.SPACE_AVAILABILITY' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.EQUIPMENT_AVAILABILITY' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.TRUCKS_AVAILABILITY' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.OTHER_CHARGES' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.STORAGE_DETENTION' | translate }}</p>
+                <p class="subject-to">{{ 'SEARCH_COMPARISON_DETAIL.TRUCK_DOWNTIME' | translate }}</p>
+              </div>
+              <div class="subject-to-container1">
+                <span>{{ 'SEARCH_COMPARISON_DETAIL.ALL_RATES_SUBJECT' | translate }}</span>
+                <span class="terms-and-conditions1" style="color: #ff6600">{{ 'SEARCH_COMPARISON_DETAIL.TERMS_CONDITIONS' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="separator1"></div>
+        <div class="footer">
+          <div class="carrier-id">
+            <div class="ctasecondary">
+              <div class="ocean-freight-fifo">{{ 'SEARCH_COMPARISON_DETAIL.CHAT' | translate }}</div>
+            </div>
+            <div class="ctasecondary1">
+              <button class="ocean-freight-fifo" (click)="close()">
+                {{ 'SEARCH_COMPARISON_DETAIL.CLOSE' | translate }}
+              </button>
+            </div>
+          </div>
+          <div class="pricing">
+            <div class="casablanca-port-ma">$2,120.00</div>
+            <div class="ctaprimary" id="cTAPrimaryContainer">
+              <a
+                style="cursor: pointer; color: white; text-decoration: none"
+                routerLink="/trip-comp-details"
+                routerLinkActive="active"
+                class="ocean-freight-fifo"
+                > {{ 'SEARCH_COMPARISON_DETAIL.BOOK_NOW' | translate }}</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

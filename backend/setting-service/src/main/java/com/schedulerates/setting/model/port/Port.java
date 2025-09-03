@@ -18,6 +18,7 @@ public class Port extends BaseDomainModel {
     private String id;
     private String portName;
     private String countryName;
+    private String countryNameAbbreviation;
     private String portCode;
     private Double portLongitude;
     private Double portLatitude;

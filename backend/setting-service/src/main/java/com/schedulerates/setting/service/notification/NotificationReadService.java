@@ -3,6 +3,7 @@ package com.schedulerates.setting.service.notification;
 import com.schedulerates.setting.model.common.CustomPage;
 import com.schedulerates.setting.model.faq.Faq;
 import com.schedulerates.setting.model.faq.dto.request.FaqPagingRequest;
+import com.schedulerates.setting.model.notification.dto.response.NotificationResponse;
 import com.schedulerates.setting.service.faq.FaqReadService;
 
 /**
@@ -18,4 +19,5 @@ public interface NotificationReadService {
      */
     CustomPage<Faq> getNotifications(final FaqPagingRequest faqPagingRequest);
 
+    NotificationResponse getNotificationCounts();
 }

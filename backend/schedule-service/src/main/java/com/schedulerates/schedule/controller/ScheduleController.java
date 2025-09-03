@@ -234,7 +234,7 @@ public class ScheduleController {
         
         @GetMapping("/graphic-users")
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
-        public List<DailyScheduleByUsersData> getDaillyScheduleByUsersStats() {
-                return scheduleDashboardService.getDaillyScheduleByUsers();
+        public List<DailyScheduleByUsersData> getDailyScheduleByUsersStats() {
+                return scheduleDashboardService.getDailyScheduleByUsers();
         }
 }

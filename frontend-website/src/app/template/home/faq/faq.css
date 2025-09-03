@@ -1,0 +1,283 @@
+.faq1 {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+}
+.we-answered-the {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: #243458;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+  font-size: 14px;
+  color: #0739a4;
+}
+.vector-icon {
+  position: absolute;
+  height: 75.62%;
+  width: 83.33%;
+  top: 11.84%;
+  right: 8.33%;
+  bottom: 12.53%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 48px;
+  position: relative;
+  height: 48px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.how-to-book {
+  width: 231px;
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 125%;
+  display: inline-block;
+}
+.simply-enter-your {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.question-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 340px;
+}
+.vector-icon1 {
+  position: absolute;
+  height: 83.33%;
+  width: 83.33%;
+  top: 8.33%;
+  right: 8.33%;
+  bottom: 8.33%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon2 {
+  position: absolute;
+  height: 83.33%;
+  width: 83.54%;
+  top: 8.33%;
+  right: 8.12%;
+  bottom: 8.33%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon3 {
+  position: absolute;
+  height: 75%;
+  width: 83.33%;
+  top: 8.33%;
+  right: 8.33%;
+  bottom: 16.67%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.how-do-i {
+  width: 282px;
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 125%;
+  display: inline-block;
+}
+.vector-icon4 {
+  position: absolute;
+  height: 75.42%;
+  width: 83.33%;
+  top: 12.5%;
+  right: 8.33%;
+  bottom: 12.09%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon5 {
+  position: absolute;
+  height: 58.33%;
+  width: 83.33%;
+  top: 20.83%;
+  right: 8.33%;
+  bottom: 20.83%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.content1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 66px;
+}
+.user-icon {
+  width: 48px;
+  position: relative;
+  border-radius: 100px;
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 2;
+}
+.user-icon1 {
+  width: 48px;
+  position: relative;
+  border-radius: 100px;
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 1;
+  margin-left: -16px;
+}
+.user-icon2 {
+  width: 48px;
+  position: relative;
+  border-radius: 100px;
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 0;
+  margin-left: -16px;
+}
+.avatars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.if-you-still {
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  text-align: left;
+}
+.content2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.heading1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.contact-us {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+.vector-icon6 {
+  position: absolute;
+  height: 66.88%;
+  width: 83.13%;
+  top: 16.67%;
+  right: 8.54%;
+  bottom: 16.46%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon6 {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ctaprimary {
+  border-radius: 4px;
+  background-color: #0739a4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  gap: 8px;
+  text-align: left;
+  font-size: 16px;
+  color: #fff;
+}
+.trip-card {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #fff9f5;
+  height: 248px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 24px;
+  text-align: center;
+}
+.content {
+  width: 100%;
+  background-color: #fafbfd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 32px;
+  box-sizing: border-box;
+  gap: 48px;
+  max-width: 1440px;
+}
+.faq {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  text-align: left;
+  font-size: 20px;
+  color: #243458;
+  font-family: "Helvetica Neue", sans-serif;
+}

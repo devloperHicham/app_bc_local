@@ -1,0 +1,160 @@
+.home {
+  position: relative;
+  letter-spacing: -0.12px;
+  line-height: 14px;
+}
+.vector-icon {
+  position: absolute;
+  height: 50%;
+  width: 25%;
+  top: 25%;
+  right: 37.5%;
+  bottom: 25%;
+  left: 37.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.privacy-policy {
+  position: relative;
+  letter-spacing: -0.12px;
+  line-height: 14px;
+  opacity: 0.32;
+}
+.home-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  font-size: 12px;
+}
+.privacy-policy1 {
+  width: 770px;
+  position: relative;
+  font-size: 64px;
+  letter-spacing: -0.8px;
+  line-height: 70px;
+  display: inline-block;
+}
+.last-updated-30 {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: -0.12px;
+  line-height: 14px;
+  opacity: 0.48;
+}
+.introduction {
+  width: 770px;
+  position: relative;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+  height: 20px;
+  flex-shrink: 0;
+}
+.this-privacy-policy {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.copy {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 980px;
+}
+.we-collect-different {
+  margin: 0;
+}
+.personal-information2 {
+  font-weight: 500;
+}
+.personal-information {
+  margin: 0;
+  font-size: inherit;
+  padding-left: 21px;
+}
+.use-of-information {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 27px;
+}
+.use-of-information-container {
+  width: 770px;
+  position: relative;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+}
+.provide-and-improve {
+  margin-bottom: 0px;
+}
+.provide-and-improve-our-compar {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 21px;
+}
+.we-do-not {
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.service-providers2 {
+  letter-spacing: -0.18px;
+  line-height: 19px;
+  font-weight: 500;
+}
+.we-do-not-container {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+}
+.heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 770px;
+}
+.hero {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 66px 32px 120px;
+  text-align: left;
+  font-size: 20px;
+  color: #03133d;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.use-of-information,
+.use-of-information-container ol {
+  list-style: none; /* removes automatic numbering */
+  padding-left: 0;  /* optional: remove default indentation */
+  margin: 0;
+}

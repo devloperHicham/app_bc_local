@@ -1,0 +1,178 @@
+.image-icon {
+  	width: 826px;
+  	position: absolute;
+  	margin: 0 !important;
+  	top: -68px;
+  	right: -200px;
+  	height: 776px;
+  	z-index: 0;
+}
+.image-icon1 {
+  	width: 754px;
+  	position: absolute;
+  	margin: 0 !important;
+  	top: -30px;
+  	right: -151px;
+  	height: 708px;
+  	object-fit: cover;
+  	z-index: 1;
+}
+.how-it-works1 {
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+}
+.your-container-fully {
+  	position: relative;
+  	font-size: 32px;
+  	letter-spacing: -0.03em;
+  	color: #243458;
+}
+.heading {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 2px;
+}
+.vector-icon {
+  	position: absolute;
+  	height: 45.63%;
+  	width: 66.88%;
+  	top: 25%;
+  	right: 16.46%;
+  	bottom: 29.37%;
+  	left: 16.67%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.icon {
+  	width: 16px;
+  	position: relative;
+  	height: 16px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.done {
+  	width: 24px;
+  	border-radius: 100px;
+  	background-color: #ff6701;
+  	height: 24px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+}
+.enter-your-trip {
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 110%;
+}
+.enter-your-origin {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+  	text-align: left;
+}
+.content2 {
+  	width: 431px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.step {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 12px;
+  	opacity: 0.48;
+}
+.separator {
+  	align-self: stretch;
+  	position: relative;
+  	background-color: rgba(7, 57, 164, 0.08);
+  	height: 1px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.timer {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff6701 0deg 220deg,   /* orange arc from 00h to 19h */
+    transparent 220deg 360deg
+  );
+
+  /* make it look like a border (thin ring) */
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), black 0);
+  mask: radial-gradient(farthest-side, transparent calc(115% - 5px), black 0);
+}
+
+
+
+.confirm-your-booking {
+  	margin: 0;
+}
+.step2 {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 12px;
+}
+.steps {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	text-align: right;
+  	font-size: 20px;
+  	color: #243458;
+}
+.content1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 48px;
+  	z-index: 2;
+}
+.content {
+  	width: 100%;
+  	background-color: #fafbfd;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 66px 32px;
+  	box-sizing: border-box;
+  	position: relative;
+  	gap: 48px;
+  	max-width: 1440px;
+}
+.how-it-works {
+  	width: 100%;
+  	position: relative;
+  	border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 120px 32px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #0739a4;
+  	font-family: 'Helvetica Neue', sans-serif;
+}
+

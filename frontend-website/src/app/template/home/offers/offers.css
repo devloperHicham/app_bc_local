@@ -1,0 +1,792 @@
+.special-offers {
+  position: relative;
+  letter-spacing: -0.03em;
+}
+.vector-icon {
+  position: absolute;
+  height: 83.13%;
+  width: 83.13%;
+  top: 8.33%;
+  right: 8.54%;
+  bottom: 8.54%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.marine-shipping {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.trip-category {
+  align-self: stretch;
+  border-radius: 4px 4px 0px 0px;
+  background-color: #e8efff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  gap: 4px;
+}
+.shipping-partner-icon {
+  width: 96px;
+  height: 22px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.info {
+  border-radius: 2px;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 4px;
+}
+.vector-icon2 {
+  position: absolute;
+  height: 82.5%;
+  width: 83.13%;
+  top: 8.65%;
+  right: 8.54%;
+  bottom: 8.85%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.shipping-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.header {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+.vector-icon4 {
+  position: absolute;
+  height: 30%;
+  width: 22.86%;
+  top: 34.93%;
+  right: 38.47%;
+  bottom: 35.07%;
+  left: 38.68%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.flags {
+  width: 21px;
+  position: relative;
+  background-color: #af010d;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.casablanca-port-ma {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  font-weight: 600;
+}
+.div {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  color: #909090;
+  text-align: left;
+}
+.departure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.ellipse {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #0739a4;
+  height: 8px;
+}
+.frame-child {
+  flex: 1;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+}
+.ellipse1 {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #ff6701;
+  height: 8px;
+}
+.ellipse-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.h1 {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  color: #909090;
+}
+.road {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 12px;
+  color: #ff6701;
+}
+.vector-icon5 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon6 {
+  position: absolute;
+  height: 46.67%;
+  width: 100%;
+  top: 26.67%;
+  right: 0%;
+  bottom: 26.67%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon7 {
+  position: absolute;
+  height: 34.67%;
+  width: 23.81%;
+  top: 31.79%;
+  right: 57.14%;
+  bottom: 33.54%;
+  left: 19.05%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon8 {
+  position: absolute;
+  height: 20%;
+  width: 33.33%;
+  top: 46.67%;
+  right: 52.38%;
+  bottom: 33.33%;
+  left: 14.29%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon9 {
+  position: absolute;
+  height: 6.67%;
+  width: 33.33%;
+  top: 60%;
+  right: 52.38%;
+  bottom: 33.33%;
+  left: 14.29%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon10 {
+  position: absolute;
+  height: 6.67%;
+  width: 33.33%;
+  top: 40%;
+  right: 52.38%;
+  bottom: 53.33%;
+  left: 14.29%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon11 {
+  position: absolute;
+  height: 23.33%;
+  width: 14.29%;
+  top: 40%;
+  right: 61.9%;
+  bottom: 36.67%;
+  left: 23.81%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon12 {
+  position: absolute;
+  height: 10%;
+  width: 4.76%;
+  top: 40%;
+  right: 61.9%;
+  bottom: 50%;
+  left: 33.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon13 {
+  position: absolute;
+  height: 10%;
+  width: 4.76%;
+  top: 53.33%;
+  right: 71.43%;
+  bottom: 36.67%;
+  left: 23.81%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon14 {
+  position: absolute;
+  height: 6.67%;
+  width: 14.29%;
+  top: 33.33%;
+  right: 61.9%;
+  bottom: 60%;
+  left: 23.81%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon15 {
+  position: absolute;
+  height: 6.67%;
+  width: 4.76%;
+  top: 26.67%;
+  right: 66.67%;
+  bottom: 66.67%;
+  left: 28.57%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.flags1 {
+  width: 21px;
+  position: relative;
+  background-color: #f93939;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.arrival {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.content2 {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  text-align: right;
+  font-size: 16px;
+  color: #000;
+}
+.separator {
+  align-self: stretch;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.08);
+  height: 1px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.view-details {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+  font-weight: 500;
+}
+.ctasecondary {
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #0739a4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+}
+.ctaprimary {
+  border-radius: 4px;
+  background-color: #0739a4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #fff;
+}
+.pricing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  text-align: right;
+  font-size: 20px;
+  color: #000;
+}
+.footer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  font-size: 14px;
+}
+.content1 {
+  align-self: stretch;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #fff;
+  border-top: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  height: 179px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+  gap: 12px;
+  min-width: 564px;
+  min-height: 179px;
+}
+.trip-card {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 564px;
+}
+.vector-icon16 {
+  position: absolute;
+  height: 66.88%;
+  width: 83.13%;
+  top: 16.67%;
+  right: 8.54%;
+  bottom: 16.46%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.trip-category1 {
+  align-self: stretch;
+  border-radius: 2px;
+  background-color: #e5fff0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  gap: 4px;
+}
+.shipping-partner-icon1 {
+  width: 96px;
+  height: 22px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.flags-child {
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 7px;
+  height: 7.6px;
+}
+.flags-item {
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  background-color: #f93939;
+  width: 5px;
+  height: 15px;
+}
+.flags-inner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #f93939;
+  width: 5px;
+  height: 15px;
+}
+.flags2 {
+  width: 21px;
+  position: relative;
+  background-color: #fff;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ellipse4 {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #ff6701;
+  height: 8px;
+  display: none;
+}
+.frame-div {
+  width: 108.5px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  display: none;
+}
+.h3 {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  display: none;
+}
+.road1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 12px;
+  color: #909090;
+}
+.vector-icon20 {
+  position: absolute;
+  height: 46.67%;
+  width: 33.33%;
+  top: 26.67%;
+  right: 33.33%;
+  bottom: 26.67%;
+  left: 33.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.flags3 {
+  width: 21px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  box-sizing: border-box;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.trip-card2 {
+  align-self: stretch;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #fff;
+  border-top: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  height: 179px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+  gap: 12px;
+  min-width: 564px;
+  min-height: 179px;
+  color: #0739a4;
+}
+.trip-card1 {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 564px;
+  color: #008738;
+}
+.ellipse6 {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #0739a4;
+  height: 8px;
+  opacity: 0;
+}
+.frame-child1 {
+  width: 58px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.frame-child2 {
+  flex: 1;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  opacity: 0;
+}
+.frame-child3 {
+  width: 57px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.frame-child7 {
+  width: 65px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.frame-child9 {
+  width: 66px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.ellipse-parent2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  color: #909090;
+}
+.vector-icon26 {
+  position: absolute;
+  height: 33.33%;
+  width: 100%;
+  top: 66.67%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon27 {
+  position: absolute;
+  height: 33.33%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 66.67%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon28 {
+  position: absolute;
+  height: 75.63%;
+  width: 75.63%;
+  top: 11.72%;
+  right: 11.88%;
+  bottom: 12.66%;
+  left: 12.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.trip-category3 {
+  align-self: stretch;
+  border-radius: 4px 4px 0px 0px;
+  background-color: #ffebdd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  gap: 4px;
+}
+.shipping-partner-icon3 {
+  align-self: stretch;
+  width: 96px;
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.vector-icon32 {
+  position: absolute;
+  height: 46.67%;
+  width: 42.86%;
+  top: 0%;
+  right: 57.14%;
+  bottom: 53.33%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon34 {
+  position: absolute;
+  height: 33.33%;
+  width: 33.33%;
+  top: 6.67%;
+  right: 61.9%;
+  bottom: 60%;
+  left: 4.76%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon35 {
+  position: absolute;
+  height: 100%;
+  width: 33.33%;
+  top: 0%;
+  right: 66.67%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector-icon36 {
+  position: absolute;
+  height: 100%;
+  width: 33.33%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 66.67%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.trip-card5 {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 564px;
+  color: #ff6701;
+}
+.trips {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 24px;
+  font-size: 12px;
+  color: #0739a4;
+}
+.vector-icon37 {
+  position: absolute;
+  height: 58.13%;
+  width: 58.13%;
+  top: 20.83%;
+  right: 21.04%;
+  bottom: 21.04%;
+  left: 20.83%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.ctaprimary4 {
+  border-radius: 4px;
+  background-color: #ff6701;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 8px;
+  font-size: 14px;
+  color: #fff;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+  max-width: 1440px;
+}
+.offers {
+  width: 100%;
+  position: relative;
+  background-color: #fafbfd;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  text-align: left;
+  font-size: 32px;
+  color: #243458;
+  font-family: "Helvetica Neue", sans-serif;
+}

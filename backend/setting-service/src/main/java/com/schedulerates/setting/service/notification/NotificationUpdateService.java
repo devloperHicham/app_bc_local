@@ -1,8 +1,5 @@
 package com.schedulerates.setting.service.notification;
 
-import com.schedulerates.setting.model.faq.Faq;
-import com.schedulerates.setting.model.faq.dto.request.FaqUpdateRequest;
-
 /**
  * Service interface named {@link NotificationUpdateService} for updating notifications.
  */
@@ -15,6 +12,6 @@ public interface NotificationUpdateService {
      * @param faqUpdateRequest The request containing updated data for the FAQ.
      * @return The updated FAQ object.
      */
-    Faq updateNotificationById(final String faqId, final FaqUpdateRequest faqUpdateRequest);
+    void updateNotificationStatus();
 
 }

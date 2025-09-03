@@ -1,0 +1,710 @@
+.why-choose-us1 {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+}
+.where-transparency-meets {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: #243458;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+  font-size: 14px;
+  color: #0739a4;
+}
+.real-time-container-availabili {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 125%;
+}
+.instantly-check-container {
+  width: 398px;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.heading1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 24px;
+  gap: 12px;
+}
+.shipping-partner-icon {
+  width: 96px;
+  height: 22px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.vector-icon {
+  position: absolute;
+  height: 83.13%;
+  width: 83.13%;
+  top: 8.33%;
+  right: 8.54%;
+  bottom: 8.54%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.marine {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.info {
+  border-radius: 2px;
+  background-color: #e8efff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 4px;
+}
+.info1 {
+  border-radius: 2px;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 4px;
+}
+.vector-icon2 {
+  position: absolute;
+  height: 82.5%;
+  width: 83.13%;
+  top: 8.65%;
+  right: 8.54%;
+  bottom: 8.85%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.shipping-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.trip-card1 {
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  height: 114px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+  z-index: 0;
+  width: 100%;
+}
+.shipping-partner-icon1 {
+  width: 96px;
+  height: 22px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.vector-icon4 {
+  position: absolute;
+  height: 66.88%;
+  width: 83.13%;
+  top: 16.67%;
+  right: 8.54%;
+  bottom: 16.46%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.info4 {
+  border-radius: 2px;
+  background-color: #e5fff0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 4px;
+  color: #008738;
+}
+.trip-card2 {
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  height: 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+  z-index: 1;
+}
+.shadow {
+  width: 125px;
+  position: absolute;
+  margin: 0 !important;
+  top: calc(50% - 47px);
+  right: 0px;
+  filter: blur(100px);
+  background-color: #fff;
+  height: 94px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.shadow1 {
+  width: 124px;
+  position: absolute;
+  margin: 0 !important;
+  top: calc(50% + 47px);
+  left: 124px;
+  filter: blur(100px);
+  background-color: #fff;
+  height: 94px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: rotate(-180deg);
+  transform-origin: 0 0;
+  z-index: 3;
+}
+.illustration {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 16px;
+  text-align: left;
+  font-size: 12px;
+  color: #0739a4;
+}
+.trip-card {
+  width: 646px;
+  border-radius: 4px;
+  background-color: #fafbfd;
+  height: 248px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px 0px;
+  box-sizing: border-box;
+  gap: 32px;
+}
+.transparent-pricing-with {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 125%;
+}
+.our-pricing-is {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+.heading2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.div {
+  position: relative;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  font-weight: 500;
+  color: #000;
+  text-align: right;
+}
+.final-amount-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  z-index: 0;
+}
+.hidden-fees-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  z-index: 1;
+}
+.total-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  z-index: 2;
+}
+.shadow2 {
+  width: 83px;
+  position: absolute;
+  margin: 0 !important;
+  top: 83px;
+  right: 100px;
+  filter: blur(100px);
+  background-color: #fff;
+  height: 183px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+  z-index: 3;
+}
+.invoice {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  width: 183px;
+  height: 172px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 12px;
+  opacity: 0.24;
+}
+.invoice1 {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  width: 183px;
+  height: 172px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 12px;
+  opacity: 0.66;
+}
+.invoice2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid rgba(7, 57, 164, 0.12);
+  box-sizing: border-box;
+  width: 183px;
+  height: 172px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 12px;
+}
+.invoice-parent {
+  width: 207px;
+  position: relative;
+  height: 196px;
+  font-size: 12px;
+  color: #0739a4;
+}
+.trip-card3 {
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fff9f5;
+  height: 248px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 32px;
+  text-align: left;
+}
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+}
+.global-shipping-schedules {
+  margin: 0;
+}
+.heading3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px 0px 0px;
+  gap: 12px;
+}
+.schedule-illustration-no-magni-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 152px;
+  height: 153.5px;
+  object-fit: cover;
+}
+.vector-icon8 {
+  position: absolute;
+  height: 74.9%;
+  width: 74.9%;
+  top: 12.48%;
+  right: 12.61%;
+  bottom: 12.61%;
+  left: 12.48%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon8 {
+  position: absolute;
+  top: 89.47px;
+  left: -37.76px;
+  width: 26.3px;
+  height: 26.3px;
+  overflow: hidden;
+}
+.schedule-illustration {
+  width: 152.7px;
+  position: relative;
+  height: 153.5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.illustration1 {
+  align-self: stretch;
+  width: 201px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0px 0px 12px;
+  box-sizing: border-box;
+}
+.trip-card4 {
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fff9f5;
+  height: 248px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 24px;
+  box-sizing: border-box;
+  gap: 32px;
+}
+.easily-book-your {
+  width: 520px;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.heading4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.ellipse {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #0739a4;
+  height: 8px;
+  opacity: 0;
+}
+.separator {
+  width: 57px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.your-cargo {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  z-index: 0;
+}
+.content-child {
+  width: 16px;
+  position: absolute;
+  margin: 0 !important;
+  top: 20px;
+  left: calc(50% - 8px);
+  border-radius: 1px;
+  max-height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+.content1 {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #e8efff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  position: relative;
+  gap: 10px;
+}
+.cargo-indicator {
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 0px 24px;
+  box-sizing: border-box;
+}
+.separator1 {
+  width: 80px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.transit {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  color: #ff6701;
+}
+.separator2 {
+  flex: 1;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  opacity: 0;
+}
+.details {
+  align-self: stretch;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.ellipse2 {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #0739a4;
+  height: 8px;
+}
+.road-child {
+  flex: 1;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+}
+.vector-icon9 {
+  position: absolute;
+  height: 82.5%;
+  width: 83.33%;
+  top: 8.65%;
+  right: 8.33%;
+  bottom: 8.85%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon9 {
+  width: 24px;
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ellipse3 {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #ff6701;
+  height: 8px;
+}
+.road1 {
+  width: 564px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.separator4 {
+  width: 65px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.separator5 {
+  width: 116px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.separator6 {
+  width: 102px;
+  position: relative;
+  background-color: rgba(7, 57, 164, 0.12);
+  height: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.min {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  text-align: center;
+}
+.time-info {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  color: #909090;
+}
+.road {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 12px;
+  color: #0739a4;
+}
+.trip-card5 {
+  width: 646px;
+  border-radius: 4px;
+  background-color: #fafbfd;
+  height: 248px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 32px;
+  text-align: right;
+}
+.row1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  max-width: 1440px;
+}
+.why-choose-us {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 20px;
+  color: #243458;
+  font-family: "Helvetica Neue", sans-serif;
+}

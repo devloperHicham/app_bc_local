@@ -30,5 +30,4 @@ public interface UserServiceClient {
      */
     @GetMapping("/authenticate")
     UsernamePasswordAuthenticationToken getAuthentication(@RequestParam String token);
-
 }

@@ -1,0 +1,331 @@
+.glyph-icon {
+  	width: 26.8px;
+  	position: relative;
+  	height: 30.5px;
+}
+.text-icon {
+  	width: 69.8px;
+  	position: relative;
+  	height: 28px;
+}
+.logo {
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 5px;
+  	cursor: pointer;
+}
+.create-an-account {
+  	position: relative;
+  	letter-spacing: -0.2px;
+  	line-height: 24px;
+  	font-weight: 500;
+}
+.access-quotes-from {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 15px;
+  	letter-spacing: -0.16px;
+  	line-height: 18px;
+  	color: #909090;
+}
+.header {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 4px;
+  	z-index: 4;
+  	font-size: 20px;
+  	color: #041b53;
+}
+.text-placeholder-1 {
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	font-weight: 500;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+.input-title {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+}
+.header1 {
+  	width: 300px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.vector-icon {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 12.5%;
+  	right: 21.04%;
+  	bottom: 12.5%;
+  	left: 20.83%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.leading-icon {
+  	width: 16px;
+  	position: relative;
+  	height: 16px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.eg-casablanca-portma {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 22px;
+    border: none;
+    background-color: transparent;
+}
+.text-field {
+  	align-self: stretch;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	gap: 8px;
+  	color: #909090;
+}
+.input-field {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.row {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 16px;
+}
+.vector-icon2 {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 16.67%;
+  	right: 8.54%;
+  	bottom: 16.46%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.input-field2 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.vector-icon3 {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 8.33%;
+  	right: 9.79%;
+  	bottom: 12.29%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.vector-icon4 {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 20.84%;
+  	right: 8.54%;
+  	bottom: 21.04%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.text-placeholder {
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 15px;
+}
+.input-underline {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	font-size: 12px;
+  	color: #000;
+}
+.form-fields {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 16px;
+  	z-index: 3;
+  	color: #03133d;
+}
+.button {
+  	align-self: stretch;
+  	border-radius: 4px;
+  	background-color: #0739a4;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px 12px;
+  	cursor: pointer;
+  	z-index: 2;
+  	color: #fff;
+}
+.header-child {
+  	flex: 1;
+  	position: relative;
+  	background-color: #f5f5f5;
+  	height: 1px;
+  	overflow: hidden;
+}
+.or-create-an {
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+}
+.header6 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 12px;
+}
+.google-logo-1 {
+  	width: 54.7px;
+  	position: relative;
+  	height: 18px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.option {
+  	flex: 1;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px;
+}
+.microsoft-seeklogo-icon {
+  	width: 84.3px;
+  	position: relative;
+  	max-height: 100%;
+  	object-fit: cover;
+}
+.option-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 16px;
+}
+.alternatives {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 16px;
+  	z-index: 1;
+}
+.sign-in {
+  	text-decoration: underline;
+  	font-weight: 500;
+  	color: #ff6600;
+}
+.already-have-an-container {
+  	align-self: stretch;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	text-align: center;
+  	z-index: 0;
+}
+.content {
+  	width: 530px;
+  	backdrop-filter: blur(12px);
+  	border-radius: 4px;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 16px;
+  	box-sizing: border-box;
+  	gap: 24px;
+}
+.form {
+  	align-self: stretch;
+  	flex: 1;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+}
+.connect {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background-image: url('/assets/images/marine-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+.sign-updesktop {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-align: left;
+  font-size: 14px;
+  color: #999;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+

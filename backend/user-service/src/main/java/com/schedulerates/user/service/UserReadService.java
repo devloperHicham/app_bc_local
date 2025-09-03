@@ -35,4 +35,11 @@ public interface UserReadService {
      */
     CustomPage<User> getUsers(final UserPagingRequest userPagingRequest);
 
+    /**
+     * Retrieves a user by its email address.
+     *
+     * @param userEmail The email address of the user to retrieve.
+     * @return The User object corresponding to the given email address.
+     */
+    List<User> getUsersByEmails(final List<String> userEmails);
 }

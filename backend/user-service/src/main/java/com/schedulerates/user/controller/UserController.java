@@ -282,4 +282,22 @@ public class UserController {
 
         return CustomResponse.successOf(userResponse);
     }
+
+    /**
+     * Retrieves a Gargo by its ID.
+     *
+     * @param gargoId the ID of the Gargo to retrieve
+     * @return a {@link CustomResponse} containing the Gargo details
+     */
+    @GetMapping("/emails") // no path variable here
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+    public CustomResponse<List<UserResponse>> getUsersByEmails(@RequestParam List<String> userEmails) {
+        List<User> users = userReadService.getUsersByEmails(userEmails);
+        List<UserResponse> userResponses = users.stream()
+                .map(userToUserResponseMapper::map)
+                .toList();
+
+        return CustomResponse.successOf(userResponses);
+    }
+
 }

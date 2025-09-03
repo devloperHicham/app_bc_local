@@ -45,4 +45,8 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
    */
   @NonNull
   List<UserEntity> findAll();
+
+  Optional<UserEntity> findByEmail(String email);
+
+  List<UserEntity> findByEmailIn(List<String> emails);
 }

@@ -1,0 +1,202 @@
+.how-can-we {
+  	position: relative;
+  	letter-spacing: -0.6px;
+  	line-height: 36px;
+  	font-weight: 500;
+}
+.vector-icon {
+  	position: absolute;
+  	height: 75%;
+  	width: 75%;
+  	top: 12.5%;
+  	right: 12.5%;
+  	bottom: 12.5%;
+  	left: 12.5%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.leading-icon {
+  	width: 16px;
+  	position: relative;
+  	height: 16px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.eg-casablanca-portma {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 20px;
+	border: none;
+}
+.text-field {
+  	align-self: stretch;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	gap: 8px;
+}
+.input-field {
+  	width: 408px;
+  	border-radius: 4px;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	min-width: 272px;
+  	font-size: 14px;
+  	color: #909090;
+}
+.search {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 16px;
+}
+.vector-icon1 {
+  	position: absolute;
+  	height: 83.33%;
+  	width: 83.33%;
+  	top: 8.33%;
+  	right: 8.33%;
+  	bottom: 8.33%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.icon {
+  	width: 48px;
+  	position: relative;
+  	height: 48px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.general {
+  	position: relative;
+  	letter-spacing: -0.24px;
+  	line-height: 28px;
+  	font-weight: 500;
+}
+.unlock-advanced-tools {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+  	color: #243458;
+}
+.content2 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 12px;
+}
+.articles {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+  	color: #ff8840;
+}
+.content1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+}
+.category {
+  	width: 500px;
+  	border-radius: 8px;
+  	background-color: #fff;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-end;
+  	padding: 24px;
+  	box-sizing: border-box;
+  	gap: 32px;
+}
+.vector-icon2 {
+  	position: absolute;
+  	height: 58.33%;
+  	width: 83.33%;
+  	top: 20.83%;
+  	right: 8.33%;
+  	bottom: 20.83%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.vector-icon3 {
+  	position: absolute;
+  	height: 75%;
+  	width: 83.33%;
+  	top: 8.33%;
+  	right: 8.33%;
+  	bottom: 16.67%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.vector-icon4 {
+  	position: absolute;
+  	height: 82.71%;
+  	width: 83.33%;
+  	top: 8.65%;
+  	right: 8.33%;
+  	bottom: 8.65%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.categories {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+  	gap: 24px;
+  	font-size: 24px;
+  	color: #05256e;
+	width: 100%;
+}
+.content {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 120px 32px;
+  	box-sizing: border-box;
+  	gap: 48px;
+  	background-image: url('/assets/images/help.jpg');
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	background-position: top;
+  	text-align: left;
+  	font-size: 32px;
+  	color: #fff;
+  	font-family: 'Helvetica Neue', sans-serif;
+}
+

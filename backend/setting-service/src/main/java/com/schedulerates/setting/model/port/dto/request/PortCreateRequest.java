@@ -26,6 +26,10 @@ public class PortCreateRequest {
     @Size(max = 100, message = "cpuntry name can't exceed 100 characters.")
     private String countryName;
 
+    @NotBlank(message = "county name abbreviation can't be blank.")
+    @Size(max = 100, message = "cpuntry name can't exceed 100 characters.")
+    private String countryNameAbbreviation;
+
     @NotBlank(message = "code can't be blank.")
     @Size(max = 100, message = "Port code can't exceed 100 characters.")
     private String portCode;

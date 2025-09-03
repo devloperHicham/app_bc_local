@@ -1,0 +1,45 @@
+<div class="hero">
+  <!-- Conditions in Case of Dispute Section -->
+  <div class="heading">
+    <b class="privacy-policy1">{{ 'DISPUTE_CONDITIONS.TITLE' | translate }}</b>
+    <div class="last-updated-30">{{ 'DISPUTE_CONDITIONS.LAST_UPDATED' | translate:{date:'25 August 2025'} }}</div>
+
+    <div class="copy">
+      <div class="this-privacy-policy">
+        <ol class="use-of-information">
+
+          <li>
+            <b style="font-size: 25px;">1. {{ 'DISPUTE_CONDITIONS.RESOLUTION_TITLE' | translate }}</b>
+            <p [innerHTML]="'DISPUTE_CONDITIONS.RESOLUTION_TEXT' | translate"></p>
+          </li>
+
+          <li>
+            <b style="font-size: 25px;">2. {{ 'DISPUTE_CONDITIONS.COMPLAINT_TITLE' | translate }}</b>
+            <p>{{ 'DISPUTE_CONDITIONS.COMPLAINT_TEXT' | translate }}</p>
+          </li>
+
+          <li>
+            <b style="font-size: 25px;">3. {{ 'DISPUTE_CONDITIONS.JURISDICTION_TITLE' | translate }}</b>
+            <p>{{ 'DISPUTE_CONDITIONS.JURISDICTION_TEXT' | translate }}</p>
+          </li>
+
+          <li>
+            <b style="font-size: 25px;">4. {{ 'DISPUTE_CONDITIONS.LAW_TITLE' | translate }}</b>
+            <p>{{ 'DISPUTE_CONDITIONS.LAW_TEXT' | translate }}</p>
+          </li>
+
+          <li>
+            <b style="font-size: 25px;">5. {{ 'DISPUTE_CONDITIONS.MEDIATION_TITLE' | translate }}</b>
+            <p>{{ 'DISPUTE_CONDITIONS.MEDIATION_TEXT' | translate }}</p>
+          </li>
+
+          <li>
+            <b style="font-size: 25px;">6. {{ 'DISPUTE_CONDITIONS.CONTACTS_TITLE' | translate }}</b>
+            <p [innerHTML]="'DISPUTE_CONDITIONS.CONTACTS_TEXT' | translate"></p>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

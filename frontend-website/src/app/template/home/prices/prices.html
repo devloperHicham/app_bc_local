@@ -1,0 +1,570 @@
+<div class="pricing">
+  <div class="content" [ngStyle]="{ 'background-color': currentBg }">
+    <!------------------------- free plan ---------------------->
+    <div class="heading" *ngIf="activeTab === 'free'">
+      <div class="pricing1">{{ "PRICING.TITLE" | translate }}</div>
+      <b class="transparent-flexible">{{
+        "PRICING.FREE.SUBTITLE" | translate
+      }}</b>
+      <div class="whether-youre-shipping">
+        {{ "PRICING.FREE.DESCRIPTION" | translate }}
+      </div>
+    </div>
+
+    <!------------------------- business plan ---------------------->
+    <div class="heading" *ngIf="activeTab === 'business'">
+      <div class="pricing1" style="color: #ff6701">
+        {{ "PRICING.TITLE" | translate }}
+      </div>
+      <b class="transparent-flexible">{{
+        "PRICING.BUSINESS.SUBTITLE" | translate
+      }}</b>
+      <div class="whether-youre-shipping">
+        {{ "PRICING.BUSINESS.DESCRIPTION" | translate }}
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="tabs">
+        <a
+          class="tab-item1"
+          [class.active]="activeTab === 'free'"
+          (click)="selectTab('free')"
+          [ngClass]="{ 'active-blue': activeTab === 'free' }"
+        >
+          <div class="icon">
+            <img
+              class="vector-icon"
+              alt=""
+              [src]="
+                activeTab === 'free'
+                  ? 'assets/images/container-white.png'
+                  : 'assets/images/container-blue.png'
+              "
+            />
+          </div>
+          <div class="for-shippers">
+            {{ "PRICING.TABS.SHIPPER" | translate }}
+          </div>
+        </a>
+
+        <a
+          class="tab-item1"
+          [class.active]="activeTab === 'business'"
+          (click)="selectTab('business')"
+          [ngClass]="{ 'active-orange': activeTab === 'business' }"
+        >
+          <div class="icon">
+            <img
+              class="vector-icon1"
+              alt=""
+              [src]="
+                activeTab === 'business'
+                  ? 'assets/images/backpack.png'
+                  : 'assets/images/backpack.png'
+              "
+            />
+          </div>
+          <div class="for-shippers">
+            {{ "PRICING.TABS.BROKER" | translate }}
+          </div>
+        </a>
+      </div>
+
+      <!------------------------- free plans ---------------------->
+      <div class="content1" *ngIf="activeTab === 'free'">
+        <!-- Free Access -->
+        <div class="pricing-card">
+          <div class="frame-parent" style="background-color: #e0e0e0">
+            <div class="free-plan-parent">
+              <b class="free-plan">{{
+                "PRICING.FREE.PLAN1.TITLE" | translate
+              }}</b>
+              <div class="perfect-for-individuals">
+                {{ "PRICING.FREE.PLAN1.DESC" | translate }}
+              </div>
+            </div>
+            <b class="month">{{ "PRICING.FREE.PLAN1.PRICE" | translate }}</b>
+          </div>
+          <div class="frame-group">
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE1" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE2" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE3" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE4" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE5" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN1.FEATURE6" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ctaprimary">
+            <a routerLink="/inscription-users" class="get-started-for">{{
+              "PRICING.FREE.PLAN1.CTA" | translate
+            }}</a>
+            <div class="icon">
+              <img
+                class="vector-icon5"
+                alt=""
+                src="assets/images/arrow-up-right-white.png"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Basic Access -->
+        <div class="pricing-card">
+          <div class="frame-parent" style="background-color: #4a90e2">
+            <div class="free-plan-parent">
+              <b class="free-plan">{{
+                "PRICING.FREE.PLAN2.TITLE" | translate
+              }}</b>
+              <div class="perfect-for-individuals">
+                {{ "PRICING.FREE.PLAN2.DESC" | translate }}
+              </div>
+            </div>
+            <b class="month">{{ "PRICING.FREE.PLAN2.PRICE" | translate }}</b>
+          </div>
+          <div class="frame-group">
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE1" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE2" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE3" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE4" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE5" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE6" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN2.FEATURE7" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ctaprimary">
+            <a routerLink="/prices" class="get-started-for">{{
+              "PRICING.FREE.PLAN2.CTA" | translate
+            }}</a>
+            <div class="icon">
+              <img
+                class="vector-icon10"
+                alt=""
+                src="assets/images/lettre.png"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Access -->
+        <div class="pricing-card">
+          <div class="frame-parent" style="background-color: #27ae60">
+            <div class="free-plan-parent">
+              <b class="free-plan">{{
+                "PRICING.FREE.PLAN3.TITLE" | translate
+              }}</b>
+              <div class="perfect-for-individuals">
+                {{ "PRICING.FREE.PLAN3.DESC" | translate }}
+              </div>
+            </div>
+            <b class="month">{{ "PRICING.FREE.PLAN3.PRICE" | translate }}</b>
+          </div>
+          <div class="frame-group">
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE1" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE2" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE3" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE4" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE5" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE6" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE7" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN3.FEATURE8" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ctaprimary">
+            <a routerLink="/prices" class="get-started-for">{{
+              "PRICING.FREE.PLAN3.CTA" | translate
+            }}</a>
+            <div class="icon">
+              <img
+                class="vector-icon10"
+                alt=""
+                src="assets/images/lettre.png"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Exclusive Deal -->
+        <div class="pricing-card">
+          <div class="frame-parent" style="background-color: #cfae58">
+            <div class="free-plan-parent">
+              <b class="free-plan">{{
+                "PRICING.FREE.PLAN4.TITLE" | translate
+              }}</b>
+              <div class="perfect-for-individuals">
+                {{ "PRICING.FREE.PLAN4.DESC" | translate }}
+              </div>
+            </div>
+            <b class="month">{{ "PRICING.FREE.PLAN4.PRICE" | translate }}</b>
+          </div>
+          <div class="frame-group">
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE1" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE2" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE3" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE4" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE5" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE6" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE7" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE8" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="browse-the-global">
+                {{ "PRICING.FREE.PLAN4.FEATURE9" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ctaprimary">
+            <a routerLink="/prices" class="get-started-for">{{
+              "PRICING.FREE.PLAN4.CTA" | translate
+            }}</a>
+            <div class="icon">
+              <img
+                class="vector-icon10"
+                alt=""
+                src="assets/images/lettre.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!------------------------- business plan ---------------------->
+      <div class="content1" *ngIf="activeTab === 'business'">
+        <div style="height: 450px" class="pricing-card">
+          <div class="frame-parent">
+            <div class="broker-parent">
+              <b class="broker">{{
+                "PRICING.BUSINESS.PLAN1.TITLE" | translate
+              }}</b>
+              <div class="designed-for-freight">
+                {{ "PRICING.BUSINESS.PLAN1.DESC" | translate }}
+              </div>
+            </div>
+            <b class="on-request" style="color: #0739a4">{{
+              "PRICING.BUSINESS.PLAN1.PRICE" | translate
+            }}</b>
+          </div>
+          <div class="frame-group">
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="list-and-manage">
+                {{ "PRICING.BUSINESS.PLAN1.FEATURE1" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="list-and-manage">
+                {{ "PRICING.BUSINESS.PLAN1.FEATURE2" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="list-and-manage">
+                {{ "PRICING.BUSINESS.PLAN1.FEATURE3" | translate }}
+              </div>
+            </div>
+            <div class="vector-parent">
+              <img
+                class="vector-icon2"
+                alt=""
+                src="assets/images/container-price.png"
+              />
+              <div class="list-and-manage">
+                {{ "PRICING.BUSINESS.PLAN1.FEATURE4" | translate }}
+              </div>
+            </div>
+          </div>
+          <div
+            class="ctaprimary"
+            style="
+              background-color: #ff6701;
+              color: white;
+              text-decoration: none;
+            "
+          >
+            <a
+              routerLink="/prices"
+              style="color: white; text-decoration: none"
+              class="join-as-broker"
+              >{{ "PRICING.BUSINESS.PLAN1.CTA" | translate }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

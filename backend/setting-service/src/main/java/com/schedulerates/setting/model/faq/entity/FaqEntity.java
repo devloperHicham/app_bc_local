@@ -33,18 +33,15 @@ public class FaqEntity extends BaseEntity {
     @NotBlank(message = "Type of FAQ can't be blank.")
     private String typeFaq;
 
+    @Builder.Default
     @Column(name = "ACTIVE")
-    private String active;
+    private String active = "1";
+
+    @Builder.Default
+    @Column(name = "READ")
+    private Boolean read = false;
 
     @Column(name = "OBS")
     @Size(min = 5, max = 500, message = "Observation must be between 10 and 500 characters.")
     private String obs;
-
-    @Override
-    @PrePersist
-    public void prePersist() {
-        if (this.active == null) {
-            this.active = "1"; // Only set default if not already set
-        }
-    }
 }

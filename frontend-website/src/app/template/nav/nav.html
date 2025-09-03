@@ -1,0 +1,110 @@
+<div class="marketplacedesktop">
+  <div class="are-you-a">{{ 'NAV.ARE_YOU' | translate }}</div>
+  <div
+    class="button"
+    (click)="handleMenuItemClick('marketplaces')"
+    (keydown)="onKeyMenuItem($event, 'marketplaces')"
+  >
+    <div class="text-placeholder">{{ 'NAV.JOIN_MARKETPLACE' | translate }}</div>
+    <div class="tailing-icon">
+      <img class="vector-icon" alt="" src="assets/images/arrow-up-right.png" />
+    </div>
+  </div>
+</div>
+
+<div class="navbar">
+  <div class="content-container">
+    <div class="logo">
+      <img class="text-icon" alt="" src="assets/images/Logo-bc.svg" />
+    </div>
+    <div class="navbar-menu">
+      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'home', 'menu-item1': activeMenuItem() !== 'home' }">
+        <div class="home" [class.active]="activeMenuItem() === 'home'" (click)="handleMenuItemClick('home')" (keydown)="onKeyMenuItem($event, 'home')">
+          {{ 'NAV.HOME' | translate }}
+        </div>
+      </div>
+      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'marketplaces', 'menu-item1': activeMenuItem() !== 'marketplaces' }">
+        <div class="home" (click)="handleMenuItemClick('marketplaces')" (keydown)="onKeyMenuItem($event, 'marketplaces')">
+          {{ 'NAV.MARKETPLACE' | translate }}
+        </div>
+        <div class="icon" style="width: 26px; height: 26px">
+          <img class="vector-icon" alt="" src="assets/images/arrow-up-right.png" />
+        </div>
+      </div>
+      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'about-us', 'menu-item1': activeMenuItem() !== 'about-us' }">
+        <div class="home" (click)="handleMenuItemClick('about-us')" (keydown)="onKeyMenuItem($event, 'about-us')">
+          {{ 'NAV.ABOUT_US' | translate }}
+        </div>
+      </div>
+      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'contacts', 'menu-item1': activeMenuItem() !== 'contacts' }">
+        <div class="home" (click)="handleMenuItemClick('contacts')" (keydown)="onKeyMenuItem($event, 'contacts')">
+          {{ 'NAV.CONTACT' | translate }}
+        </div>
+      </div>
+      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'prices', 'menu-item1': activeMenuItem() !== 'prices' }">
+        <div class="home" (click)="handleMenuItemClick('prices')" (keydown)="onKeyMenuItem($event, 'prices')">
+          {{ 'NAV.PLANS_PRICING' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="main-action-div">
+      <div style="font-size: 14px" class="ctaprimary">
+        <button style="cursor: pointer; background-color: transparent; border: none; color: #ff6600;" class="home" (click)="openModal()">
+          {{ 'NAV.REQUEST_QUOTE' | translate }}
+        </button>
+        <div class="icon">
+          <img class="vector-icon1" alt="" src="assets/images/file-input.png" />
+        </div>
+      </div>
+
+      @if (switch === true) {
+      <div style="font-size: 14px" class="ctaprimary1" id="cTAPrimaryContainer1">
+        <div (click)="handleMenuItemClick('inscription-users')" (keydown)="onKeyMenuItem($event, 'inscription-users')" class="request-a-quote">
+          {{ 'NAV.SIGN_UP_FREE' | translate }}
+        </div>
+        <div class="icon">
+          <img class="vector-icon1" alt="" src="assets/images/user-up-white.png" />
+        </div>
+      </div>
+      <div style="font-size: 14px" class="ctasecondary">
+        <div (click)="handleMenuItemClick('login')" (keydown)="onKeyMenuItem($event, 'login')" class="request-a-quote">
+          {{ 'NAV.LOGIN' | translate }}
+        </div>
+        <div class="icon">
+          <img class="vector-icon2" alt="" src="assets/images/arrow-up-right.png" />
+        </div>
+      </div>
+      }@else {
+      <div class="notification">
+        <div class="icon">
+          <img class="vector-icon2" alt="" src="assets/images/bell-blue.png" />
+        </div>
+      </div>
+      <app-dropdown-profile></app-dropdown-profile>
+      }
+
+      <div class="language-selector">
+        <div class="selected-language" (click)="toggleDropdown()" (keydown)="onKeyMenuItem($event, '')">
+          <span class="flag {{ currentLanguage }}-flag"></span>
+          {{ currentLanguage | uppercase }}
+          <span class="arrow">▼</span>
+        </div>
+
+        <div class="dropdown" *ngIf="isOpen">
+          <div class="option" (click)="changeLanguage('en')" (keydown)="onKeyMenuItem($event, 'en')">
+            <span class="flag en-flag"></span> EN
+          </div>
+          <div class="option" (click)="changeLanguage('fr')" (keydown)="onKeyMenuItem($event, 'fr')">
+            <span class="flag fr-flag"></span> FR
+          </div>
+          <div class="option" (click)="changeLanguage('es')" (keydown)="onKeyMenuItem($event, 'es')">
+            <span class="flag es-flag"></span> ES
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-add-quote *ngIf="isModalOpen" (closeEvent)="closeModal()"></app-add-quote>

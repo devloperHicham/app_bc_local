@@ -1,0 +1,130 @@
+<div class="hero">
+  <div class="content">
+    <div class="heading">
+      <b class="get-in-touch-container">
+        <p class="get-in-touch">{{ 'CONTACT.TITLE_LINE1' | translate }}</p>
+        <p class="get-in-touch">{{ 'CONTACT.TITLE_LINE2' | translate }}</p>
+      </b>
+      <div class="have-a-question">{{ 'CONTACT.SUBTITLE' | translate }}</div>
+    </div>
+
+    <div class="profile-information">
+      <div class="input-field-parent">
+        <div class="input-field">
+          <div class="header">
+            <div class="input-title">
+              <div class="text-placeholder">{{ 'CONTACT.FIRST_NAME' | translate }}</div>
+            </div>
+          </div>
+          <div class="text-field">
+            <input
+              type="text"
+              placeholder="{{ 'CONTACT.FIRST_NAME_PLACEHOLDER' | translate }}"
+              class="eg-casablanca-portma"
+            />
+          </div>
+        </div>
+
+        <div class="input-field">
+          <div class="header">
+            <div class="input-title">
+              <div class="text-placeholder">{{ 'CONTACT.LAST_NAME' | translate }}</div>
+            </div>
+          </div>
+          <div class="text-field">
+            <input
+              type="text"
+              placeholder="{{ 'CONTACT.LAST_NAME_PLACEHOLDER' | translate }}"
+              class="eg-casablanca-portma"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="input-field-parent">
+        <div class="input-field">
+          <div class="header">
+            <div class="input-title">
+              <div class="text-placeholder">{{ 'CONTACT.EMAIL' | translate }}</div>
+            </div>
+          </div>
+          <div class="text-field2">
+            <div class="leading-icon">
+              <img class="vector-icon" alt="" src="assets/images/email-black.png" />
+            </div>
+            <input
+              type="email"
+              placeholder="{{ 'CONTACT.EMAIL_PLACEHOLDER' | translate }}"
+              class="eg-casablanca-portma"
+            />
+          </div>
+        </div>
+
+        <div class="input-field">
+          <div class="header">
+            <div class="input-title">
+              <div class="text-placeholder">{{ 'CONTACT.PHONE' | translate }}</div>
+            </div>
+          </div>
+          <div class="text-field2">
+            <div class="leading-icon">
+              <img class="vector-icon1" alt="" src="assets/images/phone.png" />
+            </div>
+            <input
+              type="phone"
+              placeholder="{{ 'CONTACT.PHONE_PLACEHOLDER' | translate }}"
+              class="eg-casablanca-portma"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="input-field-parent">
+        <div class="input-field">
+          <div class="header">
+            <div class="input-title">
+              <div class="text-placeholder">{{ 'CONTACT.MESSAGE_TYPE' | translate }}</div>
+            </div>
+          </div>
+          <div class="text-field2" style="width: 102%;">
+            <div class="leading-icon">
+              <img class="vector-icon" alt="" src="assets/images/email-black.png" />
+            </div>
+            <select class="eg-casablanca-portma">
+              <option value="" disabled selected>{{ 'CONTACT.SELECT_MESSAGE_TYPE' | translate }}</option>
+              <option value="reclamation">{{ 'CONTACT.RECLAMATION' | translate }}</option>
+              <option value="suggestion">{{ 'CONTACT.SUGGESTION' | translate }}</option>
+              <option value="feedback">{{ 'CONTACT.FEEDBACK' | translate }}</option>
+              <option value="other">{{ 'CONTACT.OTHER' | translate }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-field4">
+        <div class="header">
+          <div class="input-title">
+            <div class="text-placeholder">{{ 'CONTACT.MESSAGE' | translate }}</div>
+          </div>
+        </div>
+        <div class="text-field4">
+          <textarea
+            style="resize: none; height: 100px"
+            class="eg-casablanca-portma"
+            placeholder="{{ 'CONTACT.MESSAGE_PLACEHOLDER' | translate }}"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="button">
+      <div class="text-placeholder">{{ 'CONTACT.SEND_MESSAGE' | translate }}</div>
+      <div class="leading-icon">
+        <img class="vector-icon" alt="" src="assets/images/lettre-white.png" />
+      </div>
+    </div>
+  </div>
+  <img class="hero-child" alt="" src="assets/images/boite.jpg" />
+</div>
+
+<app-faq></app-faq>

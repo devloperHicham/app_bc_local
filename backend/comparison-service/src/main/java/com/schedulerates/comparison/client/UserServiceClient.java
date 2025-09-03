@@ -1,14 +1,22 @@
 package com.schedulerates.comparison.client;
 
 import com.schedulerates.comparison.config.FeignClientConfig;
+
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.schedulerates.comparison.model.common.dto.client.ApiResponse;
+import com.schedulerates.comparison.model.common.dto.client.UserDto;
+
 /**
- * Feign client interface named {@link UserServiceClient} for interacting with the User Service.
+ * Feign client interface named {@link UserServiceClient} for interacting with
+ * the User Service.
  * Provides methods to validate tokens and retrieve authentication information.
  */
 @FeignClient(name = "user-service", path = "/api/v1/users", configuration = FeignClientConfig.class)
@@ -26,9 +34,14 @@ public interface UserServiceClient {
      * Retrieves authentication information based on the provided token.
      *
      * @param token the token to use for retrieving authentication information
-     * @return {@link UsernamePasswordAuthenticationToken} containing authentication details
+     * @return {@link UsernamePasswordAuthenticationToken} containing authentication
+     *         details
      */
     @GetMapping("/authenticate")
     UsernamePasswordAuthenticationToken getAuthentication(@RequestParam String token);
+
+    @GetMapping("/users/emails")
+    ApiResponse<List<UserDto>> getUsersByEmails(@RequestParam("emails") List<String> emails,
+            @RequestHeader("Authorization") String authHeader);
 
 }

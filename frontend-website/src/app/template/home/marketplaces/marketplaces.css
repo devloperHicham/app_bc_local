@@ -1,0 +1,128 @@
+.image-frame-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.image-frame {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #0b296d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+}
+.marketplace1 {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.48);
+}
+.global-shipping {
+  color: #ff6701;
+}
+.the-global-shipping-container {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+}
+.easily-discover-compare {
+  margin: 0;
+}
+.easily-discover-compare-container {
+  width: 484px;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+  display: inline-block;
+}
+.heading {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.explore-the-marketplace {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+  font-weight: 500;
+}
+.vector-icon {
+  position: absolute;
+  height: 41.88%;
+  width: 41.88%;
+  top: 29.17%;
+  right: 28.96%;
+  bottom: 28.96%;
+  left: 29.17%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icon {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ctaprimary {
+  border-radius: 4px;
+  background-color: #ff6701;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 8px;
+}
+.content1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 48px;
+}
+.content {
+  width: 100%;
+  height: 618px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 66px 32px;
+  box-sizing: border-box;
+  gap: 48px;
+  max-width: 1440px;
+}
+.marketplace {
+  width: 100%;
+  position: relative;
+  background-color: #042368;
+  border-top: 1px solid rgba(7, 57, 164, 0.08);
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  height: 958px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  text-align: left;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/************** this for display marketplace in full home page **************/

@@ -1,11 +1,16 @@
 package com.schedulerates.comparison.service.comparison.impl;
 
+import com.schedulerates.comparison.client.UserServiceClient;
 import com.schedulerates.comparison.model.auth.enums.TokenClaims;
+import com.schedulerates.comparison.model.common.dto.client.UserDto;
 import com.schedulerates.comparison.model.comparison.dto.response.DashboardResponse;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonByCompaniesData;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonData;
+import com.schedulerates.comparison.model.comparison.dto.response.DailyComparisonByUsersData;
 import com.schedulerates.comparison.repository.ComparisonRepository;
 import com.schedulerates.comparison.service.comparison.ComparisonDashboardService;
+
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,12 +24,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ComparisonDashboardServiceImpl implements ComparisonDashboardService {
 
     private final ComparisonRepository comparisonRepository;
+    private final HttpServletRequest httpServletRequest;
+    private final UserServiceClient userServiceClient;
     private static final String ANONYMOUS_USER = "anonymousUser";
 
     @Override
@@ -47,6 +55,41 @@ public class ComparisonDashboardServiceImpl implements ComparisonDashboardServic
         }
 
         return response;
+    }
+
+    @Override
+    public List<DailyComparisonByUsersData> getDailyComparisonByUsers() {
+        LocalDate today = LocalDate.now();
+        List<Object[]> results = comparisonRepository.findDailyUsersComparisonCounts(today);
+
+        // Extract emails from results
+        List<String> emails = results.stream()
+                .map(row -> (String) row[0])
+                .toList();
+
+        // Get the auth header from context or pass it to method as param
+        String authHeader = httpServletRequest.getHeader("Authorization");
+
+        // Call user service to get user details for these emails
+        List<UserDto> users = userServiceClient
+                .getUsersByEmails(emails, authHeader)
+                .getResponse();
+
+        // Map email to full name
+        Map<String, String> emailToFullName = users.stream()
+                .collect(Collectors.toMap(
+                        UserDto::getId, // assuming 'id' is the email here
+                        user -> user.getFirstName() + " " + user.getLastName()));
+
+        // Map results to DailyComparisonByUsersData using full names
+        return results.stream()
+                .map(row -> {
+                    String email = (String) row[0];
+                    int count = ((Long) row[1]).intValue();
+                    String fullName = emailToFullName.getOrDefault(email, email); // fallback to email if no user found
+                    return new DailyComparisonByUsersData(fullName, count);
+                })
+                .toList();
     }
 
     @Override

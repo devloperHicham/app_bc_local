@@ -1,0 +1,470 @@
+<div class="hero">
+  <div
+    class="herocontent"
+    [ngStyle]="{
+      'background-image':
+        'linear-gradient(to bottom, #0739A4A8 0%, #0739A400 70%), url(' +
+        currentBg +
+        ')'
+    }"
+  >
+    <div class="heading-content">
+      <b class="find-the-best-container">
+        <p class="find-the-best">{{ "HERO.TITLE_LINE1" | translate }}</p>
+        <p class="find-the-best">{{ "HERO.TITLE_LINE2" | translate }}</p>
+      </b>
+      <div class="access-quotes-from">
+        {{ "HERO.DESCRIPTION" | translate }}
+      </div>
+    </div>
+    <div class="search-bardesktop">
+      <div class="content">
+        <div class="header">
+          <div class="tabs">
+            <a
+              class="tab-item1"
+              [class.active]="activeTab === 'marine'"
+              (click)="selectTab('marine')"
+              [ngClass]="{ 'active-blue': activeTab === 'marine' }"
+            >
+              <div class="icon">
+                <img
+                  class="vector-icon"
+                  alt=""
+                  [src]="
+                    activeTab === 'marine'
+                      ? 'assets/images/ship-white.png'
+                      : 'assets/images/ship-blue.png'
+                  "
+                />
+              </div>
+              <div class="for-brokers">{{ "TABS.MARINE" | translate }}</div>
+            </a>
+
+            <a
+              class="tab-item1"
+              [class.active]="activeTab === 'schedules'"
+              (click)="selectTab('schedules')"
+              [ngClass]="{ 'active-voilya': activeTab === 'schedules' }"
+            >
+              <div class="icon">
+                <img
+                  class="vector-icon1"
+                  alt=""
+                  [src]="
+                    activeTab === 'schedules'
+                      ? 'assets/images/calendar-search.svg'
+                      : 'assets/images/calendar-search.png'
+                  "
+                />
+              </div>
+              <div class="for-brokers">{{ "TABS.SCHEDULES" | translate }}</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Marine tab -->
+        <div class="content1" *ngIf="activeTab === 'marine'">
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.FROM" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/location-blue.png"
+                />
+              </div>
+              <input
+                style="border: none"
+                type="text"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
+                list="portsListTo"
+              />
+              <datalist id="portsListTo">
+                <option
+                  *ngFor="let port of ports"
+                  [value]="port.PORTNAME + ' (' + port.CODEPORT + ')'"
+                >
+                  {{ port.COUNTRY }}
+                </option>
+              </datalist>
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.TO" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/location-blue.png"
+                />
+              </div>
+              <input
+                style="border: none"
+                type="text"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+                list="portsListFrom"
+              />
+              <datalist id="portsListFrom">
+                <option
+                  *ngFor="let port of ports"
+                  [value]="port.PORTNAME + ' (' + port.CODEPORT + ')'"
+                >
+                  {{ port.COUNTRY }}
+                </option>
+              </datalist>
+            </div>
+          </div>
+          <div class="date-field">
+            <div class="header3">
+              <div class="input-title2">
+                <div class="text-placeholder-1">
+                  {{ "FORM.SPECIFIC_DAY" | translate }}
+                </div>
+                <div class="checkbox">
+                  <input
+                    type="checkbox"
+                    class="checkbox-child"
+                    [checked]="isIntervalMode"
+                    (change)="toggleDateMode()"
+                  />
+                </div>
+                <div class="text-placeholder-1">
+                  {{ "FORM.INTERVAL" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field2">
+              <div class="icon">
+                <img
+                  class="vector-icon10"
+                  alt=""
+                  src="assets/images/date-blue.png"
+                />
+              </div>
+              <!-- Interval Mode -->
+              <input
+                #intervalDateInput
+                type="text"
+                class="eg-casablanca-portma"
+                style="border: none"
+                placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}"
+                readonly
+                *ngIf="isIntervalMode"
+              />
+              <!-- Single Day Mode -->
+              <input
+                #singleDateInput
+                type="text"
+                class="eg-casablanca-portma"
+                style="border: none"
+                placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}"
+                readonly
+                *ngIf="!isIntervalMode"
+              />
+            </div>
+          </div>
+          <div class="shipping-typemarine">
+            <div class="mono-select-field">
+              <div class="header3">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.SHIPPING_TYPE" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field2">
+                <select
+                  style="border: none; background-color: transparent"
+                  class="eg-casablanca-portma"
+                >
+                  <option value="">{{ "PLACEHOLDERS.FCL" | translate }}</option>
+                  <option value="">{{ "PLACEHOLDERS.LCL" | translate }}</option>
+                  <option value="">
+                    {{ "PLACEHOLDERS.BULK" | translate }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="mono-select-field1">
+              <div class="header3">
+                <div class="input-title2">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.TRANSPORT_UNIT_TYPE" | translate }}
+                  </div>
+                  <div
+                    class="popup-container"
+                    (click)="togglePopover($event)"
+                    (keydown)="onKeyMenuItem($event)"
+                  >
+                    <img
+                      class="icon4"
+                      src="assets/images/Popup-info.png"
+                      alt=""
+                    />
+                    <div class="popover" *ngIf="isPopoverVisible">
+                      <div class="popover-content">
+                        {{ "FORM.TRANSPORT_UNIT_INFO" | translate }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-field2">
+                <select
+                  style="border: none; background-color: transparent"
+                  class="eg-casablanca-portma"
+                >
+                  <option value="">
+                    20 {{ "PLACEHOLDERS.STANDARD" | translate }}
+                  </option>
+                  <option value="">
+                    40 {{ "PLACEHOLDERS.STANDARD" | translate }}
+                  </option>
+                  <option value="">
+                    80 {{ "PLACEHOLDERS.STANDARD" | translate }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Marine tab -->
+
+        <!-- Schedules tab -->
+        <div class="content1" *ngIf="activeTab === 'schedules'">
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.FROM" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/location-blue.png"
+                />
+              </div>
+              <input
+                style="border: none"
+                type="text"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.TO" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/location-blue.png"
+                />
+              </div>
+              <input
+                style="border: none"
+                type="text"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.SHIPPING_LINES" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/ship-lines.png"
+                />
+              </div>
+              <select
+                class="eg-casablanca-portma"
+                style="border: none; background-color: transparent"
+              >
+                <option value="">
+                  {{ "PLACEHOLDERS.ALL_SEALINES" | translate }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.SEARCH_ON" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon4"
+                  alt=""
+                  src="assets/images/flag-icon.png"
+                />
+              </div>
+              <select
+                class="eg-casablanca-portma"
+                style="border: none; background-color: transparent"
+              >
+                <option value="">
+                  {{ "PLACEHOLDERS.DEPARTURE" | translate }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.DATE" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon">
+                <img
+                  class="vector-icon10"
+                  alt=""
+                  src="assets/images/date-blue.png"
+                />
+              </div>
+              <input
+                #singleDateScheduleInput
+                type="text"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="header1">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "FORM.WEEKS_AHEAD" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="text-field">
+              <div class="icon"></div>
+              <input
+                style="border: none"
+                type="number"
+                class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.MAX_WEEKS' | translate }}"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- End Schedules tab -->
+      </div>
+      <!-- Footer Marine -->
+      <div class="footer" *ngIf="activeTab === 'marine'">
+        <div class="filters">
+          <div class="quick-filters">
+            <input type="checkbox" class="checkbox1" />
+            <div class="sort-by-fastest">
+              {{ "FILTERS.SORT_FASTEST" | translate }}
+            </div>
+          </div>
+          <div class="quick-filters">
+            <input type="checkbox" class="checkbox1" />
+            <div class="sort-by-fastest">
+              {{ "FILTERS.SORT_CHEAPEST" | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="ctaprimary">
+          <button
+            style="
+              cursor: pointer;
+              background-color: transparent;
+              border: none;
+              color: white;
+              font-size: 15px;
+            "
+            routerLink="/search-comp-results"
+            class="show-129429-results"
+          >
+            {{ "BUTTONS.SHOW_RESULTS" | translate }}
+          </button>
+          <div class="icon">
+            <img class="vector-icon16" alt="" src="assets/images/search.png" />
+          </div>
+        </div>
+      </div>
+      <!-- Footer Schedules -->
+      <div class="footer" *ngIf="activeTab === 'schedules'">
+        <div class="filters">
+          <div class="quick-filters">
+            <input type="checkbox" class="checkbox1" />
+            <div class="sort-by-fastest">
+              {{ "FILTERS.SORT_FASTEST" | translate }}
+            </div>
+          </div>
+          <div class="quick-filters">
+            <input type="checkbox" class="checkbox1" />
+            <div class="sort-by-fastest">
+              {{ "FILTERS.SHOW_DIRECT" | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="ctaprimary" style="background-color: #9747ff">
+          <button
+            style="
+              cursor: pointer;
+              background-color: transparent;
+              border: none;
+              color: white;
+              font-size: 15px;
+            "
+            routerLink="/search-sched-results"
+            class="show-129429-results"
+          >
+            {{ "BUTTONS.SHOW_RESULTS" | translate }}
+          </button>
+          <div class="icon">
+            <img class="vector-icon16" alt="" src="assets/images/search.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -46,6 +46,7 @@ public class PortCreateServiceImpl implements PortCreateService {
         PortEntity portEntity = PortEntity.builder()
                 .portName(portCreateRequest.getPortName())
                 .countryName(portCreateRequest.getCountryName())
+                .countryNameAbbreviation(portCreateRequest.getCountryNameAbbreviation())
                 .portCode(portCreateRequest.getPortCode())
                 .portLatitude(portCreateRequest.getPortLatitude())
                 .portLongitude(portCreateRequest.getPortLongitude())

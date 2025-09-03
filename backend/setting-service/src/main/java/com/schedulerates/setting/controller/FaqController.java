@@ -16,6 +16,7 @@ import com.schedulerates.setting.service.faq.FaqReadService;
 import com.schedulerates.setting.service.faq.FaqUpdateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
 import org.hibernate.validator.constraints.UUID;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -38,8 +39,8 @@ public class FaqController {
 
     private final FaqToFaqResponseMapper faqToFaqResponseMapper = FaqToFaqResponseMapper.initialize();
 
-    private final CustomPageToCustomPagingResponseMapper customPageToCustomPagingResponseMapper =
-            CustomPageToCustomPagingResponseMapper.initialize();
+    private final CustomPageToCustomPagingResponseMapper customPageToCustomPagingResponseMapper = CustomPageToCustomPagingResponseMapper
+            .initialize();
 
     /**
      * Creates a new FAQ.
@@ -88,8 +89,8 @@ public class FaqController {
 
         final CustomPage<Faq> faqPage = faqReadService.getFaqs(faqPagingRequest);
 
-        final CustomPagingResponse<FaqResponse> faqPagingResponse =
-                customPageToCustomPagingResponseMapper.toPagingResponse(faqPage);
+        final CustomPagingResponse<FaqResponse> faqPagingResponse = customPageToCustomPagingResponseMapper
+                .toPagingResponse(faqPage);
 
         return CustomResponse.successOf(faqPagingResponse);
 
@@ -99,7 +100,7 @@ public class FaqController {
      * Updates an existing FAQ by its ID.
      *
      * @param faqUpdateRequest the request payload containing updated FAQ details
-     * @param faqId the ID of the FAQ to update
+     * @param faqId            the ID of the FAQ to update
      * @return a {@link CustomResponse} containing the updated FAQ details
      */
     @PutMapping("/{faqId}")
@@ -128,5 +129,4 @@ public class FaqController {
         faqDeleteService.deleteFaqById(faqId);
         return CustomResponse.SUCCESS;
     }
-
 }

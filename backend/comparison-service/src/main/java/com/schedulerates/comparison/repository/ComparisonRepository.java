@@ -235,4 +235,15 @@ public interface ComparisonRepository extends JpaRepository<ComparisonEntity, St
         List<Object[]> findWeeklyCompanyComparisonCounts(
             @Param("startDate") LocalDate startDate,
             @Param("endDate") LocalDate endDate);
+
+    // Get daily Comparison counts by user
+        @Query("""
+            SELECT s.createdBy, COUNT(s)
+            FROM ComparisonEntity s
+            WHERE CAST(s.createdAt AS DATE) = :today
+            AND s.active = '1'
+            GROUP BY s.createdBy
+            ORDER BY s.createdBy
+        """)
+        List<Object[]> findDailyUsersComparisonCounts(@Param("today") LocalDate today);
 }

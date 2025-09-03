@@ -1,0 +1,44 @@
+.cant-find-a {
+  margin: 0;
+}
+.contact-us {
+  text-decoration: underline;
+  font-weight: 500;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #ff6600;
+}
+.cant-find-a-container {
+  flex: 1;
+  position: relative;
+  letter-spacing: -0.18px;
+  line-height: 19px;
+}
+.content {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid rgba(7, 57, 164, 0.08);
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  height: 159px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0px;
+  max-width: 1440px;
+}
+.cant-find-a-suitable-plan {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 32px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  color: #05256e;
+  font-family: "Helvetica Neue", sans-serif;
+}

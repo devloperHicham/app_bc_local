@@ -7,7 +7,9 @@ import com.schedulerates.setting.model.faq.Faq;
 import com.schedulerates.setting.model.faq.dto.request.FaqPagingRequest;
 import com.schedulerates.setting.model.faq.dto.response.FaqResponse;
 import com.schedulerates.setting.model.faq.mapper.CustomPageToCustomPagingResponseMapper;
+import com.schedulerates.setting.model.notification.dto.response.NotificationResponse;
 import com.schedulerates.setting.service.notification.NotificationReadService;
+import com.schedulerates.setting.service.notification.NotificationUpdateService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,52 +27,53 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class NotificationController {
 
-    private final NotificationReadService notificationReadService;
+        private final NotificationReadService notificationReadService;
 
-    private final CustomPageToCustomPagingResponseMapper customPageToCustomPagingResponseMapper = CustomPageToCustomPagingResponseMapper
-            .initialize();
+        private final NotificationUpdateService notificationUpdateService;
 
-    /**
-     * Retrieves a paginated list of FAQs based on the paging request.
-     *
-     * @param faqPagingRequest the request payload containing paging information
-     * @return a {@link CustomResponse} containing the paginated list of FAQs
-     */
-    @PostMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
-    public CustomResponse<CustomPagingResponse<FaqResponse>> getFaqs(
-            @RequestBody @Valid final FaqPagingRequest faqPagingRequest) {
+        private final CustomPageToCustomPagingResponseMapper customPageToCustomPagingResponseMapper = CustomPageToCustomPagingResponseMapper
+                        .initialize();
 
-        final CustomPage<Faq> faqPage = notificationReadService.getNotifications(faqPagingRequest);
+        /**
+         * Retrieves a paginated list of FAQs based on the paging request.
+         *
+         * @param faqPagingRequest the request payload containing paging information
+         * @return a {@link CustomResponse} containing the paginated list of FAQs
+         */
+        @PostMapping
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public CustomResponse<CustomPagingResponse<FaqResponse>> getFaqs(
+                        @RequestBody @Valid final FaqPagingRequest faqPagingRequest) {
 
-        final CustomPagingResponse<FaqResponse> faqPagingResponse = customPageToCustomPagingResponseMapper
-                .toPagingResponse(faqPage);
+                final CustomPage<Faq> faqPage = notificationReadService.getNotifications(faqPagingRequest);
 
-        return CustomResponse.successOf(faqPagingResponse);
+                final CustomPagingResponse<FaqResponse> faqPagingResponse = customPageToCustomPagingResponseMapper
+                                .toPagingResponse(faqPage);
 
-    }
+                return CustomResponse.successOf(faqPagingResponse);
 
-    /**
-     * Updates an existing FAQ by its ID.
-     *
-     * @param faqUpdateRequest the request payload containing updated FAQ details
-     * @param faqId            the ID of the FAQ to update
-     * @return a {@link CustomResponse} containing the updated FAQ details
-     * 
-     *         @PutMapping("/{notificationId}")
-     *         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
-     *         public CustomResponse<FaqResponse> updatedFaqById(
-     * @RequestBody @Valid final FaqUpdateRequest faqUpdateRequest,
-     * @PathVariable @UUID final String notificationId) {
-     * 
-     *               final Faq updatedFaq =
-     *               notificationUpdateService.updateNotificationById(notificationId,
-     *               faqUpdateRequest);
-     * 
-     *               final FaqResponse faqResponse =
-     *               faqToFaqResponseMapper.map(updatedFaq);
-     * 
-     *               return CustomResponse.successOf(faqResponse);
-     *               }
-     */
+        }
+
+        /**
+         * Updates the status of a FAQ to read.
+         *
+         * @return a {@link CustomResponse} indicating successful update
+         */ 
+        @PutMapping("/read")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public CustomResponse<Void> updateFaqStatus() {
+                notificationUpdateService.updateNotificationStatus();
+                return CustomResponse.SUCCESS;
+        }
+
+        /**
+         * Retrieves a NotificationResponse object containing the number of unread notifications and the total number of notifications.
+         *
+         * @return a {@link NotificationResponse} containing the number of unread notifications and the total number of notifications
+         */
+       @GetMapping("/stats")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public NotificationResponse getNotificationCounts() {
+                return notificationReadService.getNotificationCounts();
+        }
 }

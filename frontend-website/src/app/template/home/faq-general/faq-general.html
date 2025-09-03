@@ -1,0 +1,605 @@
+<div class="faq-container">
+  <header class="faq-header">
+    <h1 class="faq-title">{{ 'FAQ_GENERAL.TITLE' | translate }}</h1>
+    <p class="faq-subtitle">
+      {{ 'FAQ_GENERAL.SUBTITLE' | translate }}
+    </p>
+  </header>
+
+  <div class="faq-content">
+    <!-- ==================== GENERAL ==================== -->
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.GENERAL' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(1)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q1' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(1)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(1)">
+        {{ 'FAQ_GENERAL.ANSWERS.A1' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(2)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q2' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(2)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(2)">
+        {{ 'FAQ_GENERAL.ANSWERS.A2' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(3)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q3' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(3)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(3)">
+        {{ 'FAQ_GENERAL.ANSWERS.A3' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(4)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q4' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(4)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(4)">
+        {{ 'FAQ_GENERAL.ANSWERS.A4' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(5)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q5' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(5)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(5)">
+        {{ 'FAQ_GENERAL.ANSWERS.A5' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(6)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q6' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(6)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(6)">
+        {{ 'FAQ_GENERAL.ANSWERS.A6' | translate }}
+      </div>
+    </div>
+
+    <!-- ==================== RATE COMPARISON ==================== -->
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.RATE_COMPARISON' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(7)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q7' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(7)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(7)">
+        {{ 'FAQ_GENERAL.ANSWERS.A7' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(8)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q8' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(8)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(8)">
+        {{ 'FAQ_GENERAL.ANSWERS.A8' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(9)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q9' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(9)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(9)">
+        {{ 'FAQ_GENERAL.ANSWERS.A9' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(10)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q10' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(10)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(10)">
+        {{ 'FAQ_GENERAL.ANSWERS.A10' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(11)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q11' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(11)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(11)">
+        {{ 'FAQ_GENERAL.ANSWERS.A11' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(12)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q12' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(12)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(12)">
+        {{ 'FAQ_GENERAL.ANSWERS.A12' | translate }}
+      </div>
+    </div>
+
+    <!-- ==================== SCHEDULE SEARCH ==================== -->
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.SCHEDULE_SEARCH' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(13)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q13' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(13)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(13)">
+        {{ 'FAQ_GENERAL.ANSWERS.A13' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(14)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q14' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(14)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(14)">
+        {{ 'FAQ_GENERAL.ANSWERS.A14' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(15)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q15' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(15)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(15)">
+        {{ 'FAQ_GENERAL.ANSWERS.A15' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(16)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q16' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(16)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(16)">
+        {{ 'FAQ_GENERAL.ANSWERS.A16' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(17)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q17' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(17)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(17)">
+        {{ 'FAQ_GENERAL.ANSWERS.A17' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(18)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q18' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(18)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(18)">
+        {{ 'FAQ_GENERAL.ANSWERS.A18' | translate }}
+      </div>
+    </div>
+    
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.MARKETPLACE' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(19)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q19' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(19)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(19)">
+        {{ 'FAQ_GENERAL.ANSWERS.A19' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(20)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q20' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(20)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(20)">
+        {{ 'FAQ_GENERAL.ANSWERS.A20' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(21)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q21' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(21)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(21)">
+        <strong>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER' | translate }}</strong>
+        <ul>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST1' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST2' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST3' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST4' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST5' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_FORWARDER_LIST6' | translate }}</li>
+        </ul>
+        <strong>{{ 'FAQ_GENERAL.ANSWERS.A21_CLIENTS' | translate }}</strong>
+        <ol>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_CLIENTS_LIST1' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_CLIENTS_LIST2' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_CLIENTS_LIST3' | translate }}</li>
+          <li>{{ 'FAQ_GENERAL.ANSWERS.A21_CLIENTS_LIST4' | translate }}</li>
+        </ol>
+        {{ 'FAQ_GENERAL.ANSWERS.A21_CONCLUSION' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(22)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q22' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(22)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(22)">
+        {{ 'FAQ_GENERAL.ANSWERS.A22' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(23)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q23' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(23)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(23)">
+        {{ 'FAQ_GENERAL.ANSWERS.A23' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(24)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q24' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(24)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(24)">
+        {{ 'FAQ_GENERAL.ANSWERS.A24' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(25)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q25' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(25)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(25)">
+        {{ 'FAQ_GENERAL.ANSWERS.A25' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(26)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q26' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(26)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(26)">
+        <strong>{{ 'FAQ_GENERAL.ANSWERS.A26_CLIENTS' | translate }}</strong><br /><br />
+        <strong>{{ 'FAQ_GENERAL.ANSWERS.A26_FORWARDERS' | translate }}</strong>
+      </div>
+    </div>
+
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.PLANS_PRICING' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(27)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q27' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(27)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(27)">
+        {{ 'FAQ_GENERAL.ANSWERS.A27' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(28)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q28' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(28)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(28)">
+        {{ 'FAQ_GENERAL.ANSWERS.A28' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(29)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q29' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(29)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(29)">
+        {{ 'FAQ_GENERAL.ANSWERS.A29' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(30)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q30' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(30)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(30)">
+        {{ 'FAQ_GENERAL.ANSWERS.A30' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(31)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q31' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(31)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(31)">
+        {{ 'FAQ_GENERAL.ANSWERS.A31' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(32)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q32' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(32)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(32)">
+        {{ 'FAQ_GENERAL.ANSWERS.A32' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(33)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q33' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(33)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(33)">
+        {{ 'FAQ_GENERAL.ANSWERS.A33' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(34)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q34' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(34)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(34)">
+        {{ 'FAQ_GENERAL.ANSWERS.A34' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(35)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q35' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(35)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(35)">
+        {{ 'FAQ_GENERAL.ANSWERS.A35' | translate }}
+      </div>
+    </div>
+
+    <h2 class="faq-category">{{ 'FAQ_GENERAL.CATEGORIES.SHIPPING_QUOTES' | translate }}</h2>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(36)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q36' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(36)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(36)">
+        {{ 'FAQ_GENERAL.ANSWERS.A36' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(37)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q37' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(37)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(37)">
+        {{ 'FAQ_GENERAL.ANSWERS.A37' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(38)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q38' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(38)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(38)">
+        {{ 'FAQ_GENERAL.ANSWERS.A38' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(39)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q39' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(39)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(39)">
+        {{ 'FAQ_GENERAL.ANSWERS.A39_REASON1' | translate }}<br />
+        {{ 'FAQ_GENERAL.ANSWERS.A39_REASON2' | translate }}<br />
+        {{ 'FAQ_GENERAL.ANSWERS.A39_REASON3' | translate }}<br /><br />
+        {{ 'FAQ_GENERAL.ANSWERS.A39_CONCLUSION' | translate }}
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div
+        class="faq-question"
+        (keydown)="onKeyMenuItem($event)"
+        (click)="toggle(40)"
+      >
+        <span>{{ 'FAQ_GENERAL.QUESTIONS.Q40' | translate }}</span>
+        <span class="arrow" [class.open]="isOpen(40)">&#9662;</span>
+      </div>
+      <div class="faq-answer" *ngIf="isOpen(40)">
+        {{ 'FAQ_GENERAL.ANSWERS.A40' | translate }}
+      </div>
+    </div>
+  </div>
+</div>

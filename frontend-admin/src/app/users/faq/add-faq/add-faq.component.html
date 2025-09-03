@@ -1,0 +1,142 @@
+<!-- start page content wrapper -->
+<div class="page-content-wrapper">
+  <!-- start page content -->
+  <div class="page-content">
+    <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">AJOUTER FAQ</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="p-4 border rounded">
+              <form
+                class="row g-3 needs-validation"
+                [formGroup]="form"
+                (ngSubmit)="submit()"
+              >
+                <!-- Admin Section -->
+                <div *ngIf="isAdmin(); else userTemplate" class="col-md-6">
+                  <label for="fullName" class="form-label">Opérateurs</label>
+                  <ng-select
+                    id="fullName"
+                    name="fullName"
+                    [items]="users"
+                    bindLabel="fullName"
+                    bindValue="email"
+                    placeholder="--- Sélectionner ---"
+                    formControlName="fullName"
+                    [clearable]="false"
+                    [searchable]="true"
+                    required
+                  >
+                  </ng-select>
+                </div>
+
+                <!-- User Section -->
+                <ng-template #userTemplate>
+                  <div class="col-md-6">
+                    <label for="fullName" class="form-label">
+                      Nom et Prénom <span style="color: red">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control form-control-rounded"
+                      id="fullName"
+                      placeholder="Entrez votre Nom"
+                      name="fullName"
+                      required
+                      formControlName="fullName"
+                    />
+                    <!-- Validation errors -->
+                    <div
+                      class="text-danger"
+                      *ngIf="submitted && f['fullName'].errors?.['required']"
+                    >
+                      Nom est obligatoire!
+                    </div>
+                    <div
+                      class="text-danger"
+                      *ngIf="f['fullName'].invalid && f['fullName'].errors?.['pattern']"
+                    >
+                      Nom non valide Example(David).
+                    </div>
+                  </div>
+                </ng-template>
+
+                <!-- Type FAQ -->
+                <div class="col-md-6">
+                  <label for="typeFaq" class="form-label">
+                    Type FAQ <span style="color: red">*</span>
+                  </label>
+                  <div class="input-group">
+                    <select
+                      class="single-select form-select"
+                      id="typeFaq"
+                      name="typeFaq"
+                      formControlName="typeFaq"
+                      required
+                    >
+                      <option value="">--- Sélectionner ---</option>
+                      <option value="questions">Questions fréquentes</option>
+                      <option value="suggestions">Suggestions</option>
+                      <option value="reclamation">Réclamations</option>
+                    </select>
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="submitted && f['typeFaq'].errors?.['required']"
+                  >
+                    Type FAQ est obligatoire!
+                  </div>
+                </div>
+                <!-- Observation -->
+                <div class="col-md-12">
+                  <label for="obs" class="form-label">
+                    Observation <span style="color: red">*</span>
+                  </label>
+
+                  <!-- ✅ TOOLBAR -->
+                  <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+
+                  <!-- ✅ RICH TEXT EDITOR -->
+                  <ngx-editor
+                    [editor]="editor"
+                    formControlName="obs"
+                    placeholder="Entrez votre observation ici..."
+                    height="250px"
+                  ></ngx-editor>
+
+                  <!-- ✅ Validation message -->
+                  <div class="text-danger" *ngIf="submitted && f['obs'].errors?.['required']">
+                    Observation est obligatoire!
+                  </div>
+                </div>
+                <!-- Submit button -->
+                <div class="col-12 text-center mt-3">
+                  <button class="btn btn-info" [disabled]="form.invalid">
+                    ENREGISTRER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!-- end page content -->
+</div>
+
+<!--********************************** ngx-spinner for loading ***********************************-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

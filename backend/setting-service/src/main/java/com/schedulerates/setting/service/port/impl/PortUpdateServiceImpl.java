@@ -65,7 +65,7 @@ public class PortUpdateServiceImpl implements PortUpdateService {
             entity.setPortCode(updateRequest.getPortCode());
         }
 
-        // 7. Update latitude,  if provided
+        // 7. Update latitude, if provided
         if (updateRequest.getPortLatitude() != null) {
             entity.setPortLatitude(updateRequest.getPortLatitude());
         }
@@ -78,6 +78,10 @@ public class PortUpdateServiceImpl implements PortUpdateService {
         // 9. Update observation if provided
         if (updateRequest.getObs() != null) {
             entity.setObs(updateRequest.getObs());
+        }
+        // 10. Update country name if provided
+        if (updateRequest.getCountryNameAbbreviation() != null) {
+            entity.setCountryNameAbbreviation(updateRequest.getCountryNameAbbreviation());
         }
 
         // 6. Save the updated entity

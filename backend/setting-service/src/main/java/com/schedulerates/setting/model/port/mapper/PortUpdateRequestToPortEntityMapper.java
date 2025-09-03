@@ -42,6 +42,7 @@ public interface PortUpdateRequestToPortEntityMapper extends BaseMapper<PortUpda
         return PortEntity.builder()
                 .portName(request.getPortName())
                 .countryName(request.getCountryName())
+                .countryNameAbbreviation(request.getCountryNameAbbreviation())
                 .portCode(request.getPortCode())
                 .portLongitude(request.getPortLatitude())
                 .portLatitude(request.getPortLatitude())

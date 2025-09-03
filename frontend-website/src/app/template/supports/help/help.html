@@ -1,0 +1,97 @@
+<div class="content">
+  <div class="search">
+    <div class="how-can-we">{{ "HELP.TITLE" | translate }}</div>
+    <div class="input-field">
+      <div class="text-field">
+        <div class="leading-icon">
+          <img
+            class="vector-icon"
+            alt=""
+            src="assets/images/arrow-right-blue.png"
+          />
+        </div>
+        <input
+          type="text"
+          placeholder="{{ 'HELP.SEARCH_PLACEHOLDER' | translate }}"
+          class="eg-casablanca-portma"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="categories">
+    <div class="category">
+      <div class="icon">
+        <img class="vector-icon1" alt="" src="assets/images/Category.png" />
+      </div>
+      <div class="content1">
+        <div class="content2">
+          <div class="general">{{ "HELP.GENERAL" | translate }}</div>
+          <div class="unlock-advanced-tools">
+            {{ "HELP.DESCRIPTION" | translate }}
+          </div>
+        </div>
+        <div class="articles">
+          {{ "HELP.ARTICLES" | translate : { count: 12 } }}
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="icon">
+        <img class="vector-icon2" alt="" src="assets/images/broker.png" />
+      </div>
+      <div class="content1">
+        <div class="content2">
+          <div class="general">{{ "HELP.PRICING" | translate }}</div>
+          <div class="unlock-advanced-tools">
+            {{ "HELP.DESCRIPTION" | translate }}
+          </div>
+        </div>
+        <div class="articles">
+          {{ "HELP.ARTICLES" | translate : { count: 7 } }}
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="icon">
+        <img class="vector-icon3" alt="" src="assets/images/price.png" />
+      </div>
+      <div class="content1">
+        <div class="content2">
+          <div class="general">{{ "HELP.BROKER" | translate }}</div>
+          <div class="unlock-advanced-tools">
+            {{ "HELP.DESCRIPTION" | translate }}
+          </div>
+        </div>
+        <div class="articles">
+          {{ "HELP.ARTICLES" | translate : { count: 20 } }}
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="icon">
+        <img
+          class="vector-icon4"
+          alt=""
+          src="assets/images/container-orange.png"
+        />
+      </div>
+      <div class="content1">
+        <div class="content2">
+          <div class="general">{{ "HELP.CARRIERS" | translate }}</div>
+          <div class="unlock-advanced-tools">
+            {{ "HELP.DESCRIPTION" | translate }}
+          </div>
+        </div>
+        <div class="articles">
+          {{ "HELP.ARTICLES" | translate : { count: 3 } }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-faq></app-faq>

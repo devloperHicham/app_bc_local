@@ -6,6 +6,7 @@ import com.schedulerates.setting.model.faq.Faq;
 import com.schedulerates.setting.model.faq.dto.request.FaqPagingRequest;
 import com.schedulerates.setting.model.faq.entity.FaqEntity;
 import com.schedulerates.setting.model.faq.mapper.ListFaqEntityToListFaqMapper;
+import com.schedulerates.setting.model.notification.dto.response.NotificationResponse;
 import com.schedulerates.setting.repository.FaqRepository;
 import com.schedulerates.setting.service.faq.impl.FaqReadServiceImpl;
 import com.schedulerates.setting.service.notification.NotificationReadService;
@@ -60,6 +61,21 @@ public class NotificationReadServiceImpl implements NotificationReadService {
 
         return CustomPage.of(faqDomainModels, faqEntityPage);
 
+    }
+
+    /**
+     * Retrieves the count of unread notifications for the current user.
+     *
+     * @return The number of unread notifications associated with the current user.
+     */
+
+    @Override
+    public NotificationResponse getNotificationCounts() {
+        String currentUserEmail = getCurrentUserEmail();
+        long count = faqRepository.countByReadFalseAndCreatedBy(currentUserEmail);
+        return NotificationResponse.builder()
+                .notifications((int) count)
+                .build();
     }
 
     private String getCurrentUserEmail() {

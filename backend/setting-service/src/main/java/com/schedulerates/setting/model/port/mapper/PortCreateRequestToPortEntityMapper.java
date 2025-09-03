@@ -43,6 +43,7 @@ public interface PortCreateRequestToPortEntityMapper extends BaseMapper<PortCrea
         return PortEntity.builder()
                 .portName(request.getPortName())
                 .countryName(request.getCountryName())
+                .countryNameAbbreviation(request.getCountryNameAbbreviation())
                 .portCode(request.getPortCode())
                 .portLongitude(request.getPortLatitude())
                 .portLatitude(request.getPortLatitude())

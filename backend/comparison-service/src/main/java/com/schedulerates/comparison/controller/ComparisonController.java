@@ -12,6 +12,7 @@ import com.schedulerates.comparison.model.comparison.dto.response.ComparisonResp
 import com.schedulerates.comparison.model.comparison.dto.response.DashboardResponse;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonByCompaniesData;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonData;
+import com.schedulerates.comparison.model.comparison.dto.response.DailyComparisonByUsersData;
 import com.schedulerates.comparison.model.comparison.mapper.CustomPageToCustomPagingResponseMapper;
 import com.schedulerates.comparison.repository.ComparisonRepository;
 import com.schedulerates.comparison.model.comparison.mapper.ComparisonToComparisonResponseMapper;
@@ -249,5 +250,11 @@ public class ComparisonController {
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
         public List<WeeklyComparisonByCompaniesData> getWeeklyComparisonByCompaniesStats() {
                 return comparisonDashboardService.getGraphicComparisonByCompanies();
+        }
+
+        @GetMapping("/graphic-users")
+        @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+        public List<DailyComparisonByUsersData> getDailyComparisonByUsersStats() {
+                return comparisonDashboardService.getDailyComparisonByUsers();
         }
 }

@@ -1,0 +1,250 @@
+<div class="search-results">
+  <div class="header">
+    <div class="ctasecondary">
+      <div class="icon">
+        <img
+          class="vector-icon"
+          alt=""
+          src="assets/images/arrow-right-blue.png"
+        />
+      </div>
+      <a routerLink="/home" class="back">
+        {{ 'SEARCH_SCHEDULE.BACK' | translate }}
+      </a>
+    </div>
+    <div class="schedules">{{ 'SEARCH_SCHEDULE.SCHEDULES' | translate }}</div>
+  </div>
+  <div class="content">
+    <div class="left-column">
+      <div class="search-bardesktop">
+        <div class="content1">
+          <div class="content2">
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.FROM' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon1" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input
+                  style="border: none"
+                  type="text"
+                  placeholder="Casablanca, MA"
+                  class="casablanca-portma"
+                />
+              </div>
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.TO' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon1" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input
+                  style="border: none"
+                  type="text"
+                  placeholder="Mallorca, SPA"
+                  class="casablanca-portma"
+                />
+              </div>
+            </div>
+            <div class="mono-select-field">
+              <div class="header3">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.SHIPPING_TYPE' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field2">
+                <div class="icon">
+                  <img class="vector-icon3" alt="" src="assets/images/ship-lines.png" />
+                </div>
+                <select style="border: none; background-color: transparent" class="casablanca-portma">
+                  <option value="">{{ 'SEARCH_SCHEDULE.FCL' | translate }}</option>
+                  <option value="">{{ 'SEARCH_SCHEDULE.LCL' | translate }}</option>
+                  <option value="">{{ 'SEARCH_SCHEDULE.BULK' | translate }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="mono-select-field">
+              <div class="header3">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.SEARCH_ON' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field2">
+                <div class="icon">
+                  <img class="vector-icon1" alt="" src="assets/images/flag-icon.png" />
+                </div>
+                <select style="border: none; background-color: transparent" class="casablanca-portma">
+                  <option value="">{{ 'SEARCH_SCHEDULE.DEPARTURE' | translate }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="date-field">
+              <div class="header3">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.DATE' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field2">
+                <div class="icon1">
+                  <img class="vector-icon9" alt="" src="assets/images/date-blue.png" />
+                </div>
+                <input
+                  #singleDateInput
+                  id="single-input"
+                  type="text"
+                  class="casablanca-portma"
+                  style="border: none"
+                  placeholder="{{ 'SEARCH_SCHEDULE.SELECT_DAY' | translate }}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">{{ 'SEARCH_SCHEDULE.WEEKS_AHEAD' | translate }}</div>
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon12" alt="" src="assets/images/calendar-SEARCH_SCHEDULE.png" />
+                </div>
+                <select style="border: none; background-color: transparent" class="casablanca-portma">
+                  <option value="">{{ 'SEARCH_SCHEDULE.ONE_WEEK' | translate }}</option>
+                  <option value="">{{ 'SEARCH_SCHEDULE.TWO_WEEKS' | translate }}</option>
+                  <option value="">{{ 'SEARCH_SCHEDULE.THREE_WEEKS' | translate }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="topbar">
+        <div class="filters">
+          <div class="quick-filters">
+            <input class="checkbox" type="checkbox" />
+            <div class="sort-by-fastest">{{ 'SEARCH_SCHEDULE.SORT_FASTEST' | translate }}</div>
+          </div>
+          <div class="quick-filters">
+            <input class="checkbox" type="checkbox" />
+            <div class="sort-by-fastest">{{ 'SEARCH_SCHEDULE.SHOW_DIRECT' | translate }}</div>
+          </div>
+        </div>
+        <div class="stay-updated">
+          <div class="icon">
+            <img class="vector-icon3" alt="" src="assets/images/bell-orange.png" />
+          </div>
+          <div class="stay-updated1">{{ 'SEARCH_SCHEDULE.STAY_UPDATED' | translate }}</div>
+        </div>
+      </div>
+      <div class="showing-129429-results">{{ 'SEARCH_SCHEDULE.SHOWING_RESULTS' | translate:{count:129429} }}</div>
+      <div class="schedule-carddesktop" *ngIf="!isContentVisible">
+        <div class="top-bar">
+          <div class="quick-actions">
+            <div class="icon">
+              <img class="vector-icon16" alt="" src="assets/images/past-blue.png" />
+            </div>
+            <div class="icon">
+              <img class="vector-icon17" alt="" src="assets/images/heart-blue.png" />
+            </div>
+          </div>
+        </div>
+        <div class="content3">
+          <div class="header">
+            <div class="trip">
+              <!-- Departure -->
+              <div class="quick-actions">
+                <img class="departure-child" alt="" src="assets/images/Ellipse-blue.png" />
+                <div class="quick-filters">
+                  <div class="flags">
+                    <img class="vector-icon18" alt="" src="assets/images/Guatemala.png" />
+                  </div>
+                  <div class="text">
+                    <div class="casablanca-port-ma">Casablanca Port, MA</div>
+                    <div class="div36">11/06/2025 - 11:00</div>
+                    <div class="terminal-somaport">Terminal Somaport</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Arrival -->
+              <div class="road">
+                <div class="trip-timeline">
+                  <div class="trip-timeline-child"></div>
+                </div>
+              </div>
+              <div class="departure2">
+                <img class="departure-child" alt="" src="assets/images/Ellipse-blue.png" />
+                <div class="quick-filters">
+                  <div class="flags1">
+                    <img class="vector-icon19" alt="" src="assets/images/german.png" />
+                  </div>
+                  <div class="text">
+                    <div class="mallorca-spa">Mallorca, SPA</div>
+                    <div class="div37">28/06/2025 - 09:10</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shipping-info">
+              <div class="info">
+                <div class="icon">
+                  <img class="vector-icon3" alt="" src="assets/images/date-blue.png" />
+                </div>
+                <div class="direct">11 {{ 'SEARCH_SCHEDULE.DAYS' | translate }}</div>
+              </div>
+              <div class="info">
+                <div class="icon">
+                  <img class="vector-icon31" alt="" src="assets/images/arrow-left-blue.png" />
+                </div>
+                <div class="direct">{{ 'SEARCH_SCHEDULE.DIRECT' | translate }}</div>
+              </div>
+              <div class="info2">
+                <div class="icon">
+                  <img class="vector-icon32" alt="" src="assets/images/leef-green.png" />
+                </div>
+                <div class="direct">0.69 CO2 (t)/EVP</div>
+              </div>
+            </div>
+          </div>
+          <div class="showhide-button" (click)="toggleContent()" (keydown)="$event.stopPropagation()">
+            <div class="separator"></div>
+            <div class="back">{{ 'SEARCH_SCHEDULE.SHOW_DETAILS' | translate }}</div>
+            <img class="icon9" alt="" src="assets/images/seclect-down.png" />
+            <div class="separator"></div>
+          </div>
+        </div>
+      </div>
+      <app-detail-sched-result *ngIf="isContentVisible" (closeDetail)="hideDetail()"></app-detail-sched-result>
+      <div class="pagination">
+        <div class="showing-1-4">{{ 'SEARCH_SCHEDULE.SHOWING_PAGINATION' | translate:{from:1,to:4,count:129429} }}</div>
+        <div class="actions">
+          <div class="ctasecondary1">
+            <div class="back">{{ 'SEARCH_SCHEDULE.PREVIOUS' | translate }}</div>
+          </div>
+          <div class="pages">
+            <div class="page"><div class="back">1</div></div>
+            <div class="page1"><div class="back">2</div></div>
+            <div class="page1"><div class="back">3</div></div>
+            <div class="page1"><div class="back">4</div></div>
+          </div>
+          <div class="ctasecondary2">
+            <div class="back">{{ 'SEARCH_SCHEDULE.NEXT' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-faq></app-faq>

@@ -34,6 +34,10 @@ public class PortEntity extends BaseEntity {
     @NotBlank(message = "Port name can't be blank.")
     private String countryName;
 
+    @Column(name = "COUNTRY_NAME_ABBREVIATION")
+    @NotBlank(message = "Port name abbreviation can't be blank.")
+    private String countryNameAbbreviation;
+
     @Column(name = "PORT_CODE")
     @NotBlank(message = "Port name can't be blank.")
     private String portCode;

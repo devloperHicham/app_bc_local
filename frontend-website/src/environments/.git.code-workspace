@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../../.git"
+		},
+		{
+			"path": "../../../.vscode"
+		},
+		{
+			"path": "../../../backend"
+		},
+		{
+			"path": "../../../config-data"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../init-scripts"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}

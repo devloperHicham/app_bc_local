@@ -1,0 +1,328 @@
+<div
+  style="top: 45px"
+  class="modal-backdrop"
+  (click)="close()"
+  (keydown)="$event.stopPropagation()"
+>
+  <div
+    class="modal-content"
+    (click)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+  >
+    <div class="header">
+      <b class="request-a-quote">{{ 'QUOTE_NEW.REQUEST_A_QUOTE' | translate }}</b>
+      <div class="icon">
+        <div class="vector-icon">
+          <img
+            (click)="close()"
+            class="vector-icon99"
+            alt=""
+            src="assets/images/delete-dd.png"
+            (keydown)="$event.stopPropagation()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="content1">
+      <div class="tabs">
+        <div class="tab-item">
+          <div class="icon1">
+            <img
+              class="vector-icon1"
+              alt=""
+              src="assets/images/ship-white.png"
+            />
+          </div>
+          <div class="marine">{{ 'QUOTE_NEW.MARINE' | translate }}</div>
+        </div>
+      </div>
+      <div class="content2">
+        <div class="trip-information">
+          <div class="header1">
+            <div class="trip-information1">
+              <ol class="trip-information2">
+                <li>{{ 'QUOTE_NEW.TRIP_INFORMATION' | translate }}</li>
+              </ol>
+            </div>
+            <div class="icon1">
+              <img
+                class="vector-icon4"
+                alt=""
+                src="assets/images/ship-blue.png"
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="from">{{ 'QUOTE_NEW.FROM' | translate }}</div>
+            <div class="inputsmall">
+              <div class="type">
+                <div class="icon1">
+                  <img
+                    class="vector-icon1"
+                    alt=""
+                    src="assets/images/ship-blue.png"
+                  />
+                </div>
+                <select class="portfob">
+                  <option value="">{{ 'QUOTE_NEW.PORT_FOB' | translate }}</option>
+                </select>
+              </div>
+              <div class="separator"></div>
+              <input
+                type="text"
+                placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_FROM' | translate }}"
+                class="eg-casablanca-portma"
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="from">{{ 'QUOTE_NEW.TO' | translate }}</div>
+            <div class="inputsmall">
+              <div class="type">
+                <div class="icon1">
+                  <img
+                    class="vector-icon1"
+                    alt=""
+                    src="assets/images/ship-blue.png"
+                  />
+                </div>
+                <select class="portfob">
+                  <option value="">{{ 'QUOTE_NEW.PORT_FOB' | translate }}</option>
+                </select>
+              </div>
+              <div class="separator"></div>
+              <input
+                type="text"
+                placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_TO' | translate }}"
+                class="eg-casablanca-portma"
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="from">{{ 'QUOTE_NEW.READY_PICKUP' | translate }}</div>
+            <div class="inputsmall2">
+              <div class="icon1">
+                <img
+                  class="vector-icon9"
+                  alt=""
+                  src="assets/images/date-blue.png"
+                />
+              </div>
+              <input
+                #singleDateInput
+                id="single-input"
+                type="text"
+                class="eg-casablanca-portma"
+                style="border: none"
+                placeholder="{{ 'QUOTE_NEW.SELECT_DAY' | translate }}"
+                readonly
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="packages-information">
+          <div class="header1">
+            <div class="title-button">
+              <div class="custom-and-insurance-container">
+                <ol class="trip-information2">
+                  <li>{{ 'QUOTE_NEW.PACKAGE_INFORMATION' | translate }}</li>
+                </ol>
+              </div>
+              <div class="type2">
+                <div class="icon1">
+                  <img
+                    class="vector-icon10"
+                    alt=""
+                    src="assets/images/container.png"
+                  />
+                </div>
+                <div class="portfob">{{ 'QUOTE_NEW.ADD_CONTAINER' | translate }}</div>
+              </div>
+            </div>
+            <div class="icon1">
+              <img
+                class="vector-icon4"
+                alt=""
+                src="assets/images/container.png"
+              />
+            </div>
+          </div>
+          <div class="input-field3">
+            <div class="package-type">{{ 'QUOTE_NEW.PACKAGE_TYPE' | translate }}</div>
+            <div class="inputsmall2">
+              <select class="select-a-date">
+                <option value="">{{ 'QUOTE_NEW.PLACEHOLDER_PACKAGE' | translate }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="container-card">
+            <div class="header3">
+              <div class="type3">
+                <div class="icon1">
+                  <img
+                    class="vector-icon10"
+                    alt=""
+                    src="assets/images/container.png"
+                  />
+                </div>
+                <div class="portfob">{{ 'QUOTE_NEW.CONTAINER' | translate }} 1</div>
+              </div>
+            </div>
+            <div class="input-field4">
+              <div class="from">{{ 'QUOTE_NEW.CONTAINER_TYPE' | translate }}</div>
+              <div class="inputsmall4">
+                <select class="select-a-date">
+                  <option value="">{{ 'QUOTE_NEW.PLACEHOLDER_CONTAINER' | translate }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field5">
+                <div class="package-type">{{ 'QUOTE_NEW.WEIGHT' | translate }}</div>
+                <div class="inputsmall4">
+                  <input
+                    type="text"
+                    placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_WEIGHT' | translate }}"
+                    class="select-a-date"
+                  />
+                  <div class="kg">KG</div>
+                </div>
+              </div>
+              <div class="input-field6">
+                <div class="from">{{ 'QUOTE_NEW.NUMBER_UNITS' | translate }}</div>
+                <div class="inputsmall6">
+                  <input
+                    type="number"
+                    placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_UNITS' | translate }}"
+                    class="select-a-date"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Same logic repeats for Container 2 -->
+          <div class="container-card">
+            <div class="header4">
+              <div class="type3">
+                <div class="icon1">
+                  <img
+                    class="vector-icon10"
+                    alt=""
+                    src="assets/images/container.png"
+                  />
+                </div>
+                <div class="portfob">{{ 'QUOTE_NEW.CONTAINER' | translate }} 2</div>
+              </div>
+            </div>
+            <div class="input-field4">
+              <div class="from">{{ 'QUOTE_NEW.CONTAINER_TYPE' | translate }}</div>
+              <div class="inputsmall4">
+                <select class="select-a-date">
+                  <option value="">{{ 'QUOTE_NEW.PLACEHOLDER_CONTAINER' | translate }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field5">
+                <div class="package-type">{{ 'QUOTE_NEW.WEIGHT' | translate }}</div>
+                <div class="inputsmall4">
+                  <input
+                    type="text"
+                    placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_WEIGHT' | translate }}"
+                    class="select-a-date"
+                  />
+                  <div class="kg">KG</div>
+                </div>
+              </div>
+              <div class="input-field6">
+                <div class="from">{{ 'QUOTE_NEW.NUMBER_UNITS' | translate }}</div>
+                <div class="inputsmall6">
+                  <input
+                    type="number"
+                    placeholder="{{ 'QUOTE_NEW.PLACEHOLDER_UNITS' | translate }}"
+                    class="select-a-date"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-and-insurance">
+          <div class="header1">
+            <div class="title-button1">
+              <div class="custom-and-insurance-container">
+                <ol class="trip-information2">
+                  <li>{{ 'QUOTE_NEW.CUSTOMS_INSURANCE' | translate }}</li>
+                </ol>
+              </div>
+            </div>
+            <div class="icon1">
+              <img class="vector-icon20" alt="" src="Vector.svg" />
+            </div>
+          </div>
+          <div class="insurance">
+            <div class="header6">
+              <div class="header7">
+                <div class="from">{{ 'QUOTE_NEW.INSURANCE' | translate }}</div>
+                <label class="toggle-switch">
+                  <input type="checkbox" [(ngModel)]="isInsuranceEnabled" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="enable-this-if">{{ 'QUOTE_NEW.INSURANCE_DESC' | translate }}</div>
+            </div>
+          </div>
+          <div class="quick-filters">
+            <input type="checkbox" class="quick-filters-child" />
+            <div class="marine">{{ 'QUOTE_NEW.ONLY_LOCAL_CHARGES' | translate }}</div>
+          </div>
+          <div class="quick-filters">
+            <input type="checkbox" class="quick-filters-child" />
+            <div class="marine">{{ 'QUOTE_NEW.CUSTOMS_CLEARANCE' | translate }}</div>
+          </div>
+          <div class="dangerous-shipment">
+            <div class="header6">
+              <div class="header7">
+                <div class="from">{{ 'QUOTE_NEW.DANGEROUS' | translate }}</div>
+                <label class="toggle-switch">
+                  <input type="checkbox" [(ngModel)]="isDangerousEnabled" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="description">
+                <div class="enable-this-if1">{{ 'QUOTE_NEW.DANGEROUS_DESC' | translate }}</div>
+                <div class="icon1">
+                  <img class="vector-icon1" alt="" src="Vector.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="for-space-only"></div>
+      </div>
+    </div>
+
+    <div class="header10">
+      <div class="ctaprimary">
+        <button style="color: #ff6701" cl class="save-as-draft">
+          {{ 'QUOTE_NEW.REQUEST_A_QUOTE' | translate }}
+        </button>
+        <div class="icon1">
+          <img class="vector-icon24" alt="" src="assets/images/file-input.png" />
+        </div>
+      </div>
+      <div class="ctasecondary">
+        <button style="color: #0739a4" class="save-as-draft">
+          {{ 'QUOTE_NEW.SAVE_DRAFT' | translate }}
+        </button>
+        <div class="icon1">
+          <img class="vector-icon25" alt="" src="assets/images/save.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

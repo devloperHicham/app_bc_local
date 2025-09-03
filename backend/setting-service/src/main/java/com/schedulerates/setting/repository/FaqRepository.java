@@ -85,4 +85,16 @@ public interface FaqRepository extends JpaRepository<FaqEntity, String> {
          */
         @Query("SELECT f FROM FaqEntity f WHERE f.active = '1'")
         List<FaqEntity> findAllActive();
+
+        /**
+         * Finds a list of FAQs that have not been read and were created by the given
+         * user.
+         *
+         * @param createdBy the user who created the FAQs to search for
+         * @return a list of FAQ entities that match the search criteria
+         */
+        List<FaqEntity> findByReadFalseAndCreatedBy(String createdBy);
+
+        
+        long countByReadFalseAndCreatedBy(String createdBy);
 }

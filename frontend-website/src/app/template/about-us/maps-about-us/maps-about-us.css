@@ -1,0 +1,227 @@
+.active-shipping-leads {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 18px;
+}
+.thousands-of-businesses {
+  align-self: stretch;
+  position: relative;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: #243458;
+}
+.heading {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.earth-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1095.6px;
+  height: 540px;
+  object-fit: cover;
+}
+.instance-child {
+  position: absolute;
+  top: calc(50% - 5.36px);
+  left: calc(50% - 5.36px);
+  border-radius: 50%;
+  background-color: #fd5656;
+  width: 10.2px;
+  height: 10.2px;
+  animation: pulse 2s infinite ease-in-out;
+  opacity: 0.7;
+}
+.instance-item {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  border-radius: 50%;
+  border: 2.6px solid #fd5656;
+  box-sizing: border-box;
+  opacity: 0;
+}
+.ellipse-parent {
+  position: absolute;
+  top: 373.99px;
+  left: 353.13px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-group {
+  position: absolute;
+  top: 226.56px;
+  left: 816.29px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-container {
+  position: absolute;
+  top: 376.97px;
+  left: 555.67px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.group-div {
+  position: absolute;
+  top: 312.93px;
+  left: 621.21px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent1 {
+  position: absolute;
+  top: 251.88px;
+  left: 516.95px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent2 {
+  position: absolute;
+  top: 235.23px;
+  left: 485.16px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent3 {
+  position: absolute;
+  top: 186.35px;
+  left: 174.43px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent4 {
+  position: absolute;
+  top: 53.81px;
+  left: 379.94px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent5 {
+  position: absolute;
+  top: 412.71px;
+  left: 907.13px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent6 {
+  position: absolute;
+  top: 128.27px;
+  left: 665.87px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.ellipse-parent7 {
+  position: absolute;
+  top: 104.44px;
+  left: 896.71px;
+  width: 20.5px;
+  height: 20.5px;
+}
+.wm {
+  width: 1095.6px;
+  position: relative;
+  height: 540px;
+}
+.wm-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.asia {
+  position: relative;
+  letter-spacing: -0.18px;
+  line-height: 19px;
+  font-weight: 500;
+}
+.leads {
+  position: relative;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  color: #ff6600;
+}
+.content {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #eef2fb;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  gap: 8px;
+  min-width: 155px;
+  max-width: 1440px;
+}
+.content3 {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #eef2fb;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  gap: 8px;
+  max-width: 1440px;
+}
+.content-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  font-size: 16px;
+  color: #243458;
+}
+.map {
+  width: 100%;
+  position: relative;
+  background-color: #fff9f5;
+  border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 32px;
+  gap: 48px;
+  text-align: left;
+  font-size: 14px;
+  color: #0739a4;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}

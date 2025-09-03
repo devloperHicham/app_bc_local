@@ -1,0 +1,480 @@
+<div class="search-results">
+  <div class="header">
+    <div class="ctasecondary" id="cTASecondaryContainer">
+      <div class="icon">
+        <img
+          class="vector-icon"
+          alt=""
+          src="assets/images/arrow-right-blue.png"
+        />
+      </div>
+      <a routerLink="/search-comp-results" class="back-to-search">
+        {{ "SEARCH_RESULT_TRIP.BACK_TO_SEARCH" | translate }}
+      </a>
+    </div>
+    <div class="book-a-container">
+      {{ "SEARCH_RESULT_TRIP.BOOK_CONTAINER" | translate }}
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="column">
+      <!-- Trip Details -->
+      <div class="rate-breakdown">
+        <div class="detail">
+          <div class="terms-and-additional">
+            {{ "SEARCH_RESULT_TRIP.TRIP_DETAILS" | translate }}
+          </div>
+          <div class="icon">
+            <img class="vector-icon1" alt="" src="assets/images/plus.png" />
+          </div>
+        </div>
+
+        <div class="content1">
+          <div class="content2">
+            <div class="departure">
+              <div class="departure1">
+                <div class="departure2">
+                  <div class="flags">
+                    <img
+                      class="vector-icon2"
+                      alt=""
+                      src="assets/images/Guatemala.png"
+                    />
+                  </div>
+                  <div class="casablanca-port-ma">Casablanca Port, MA</div>
+                </div>
+                <div class="div">11/06/2025 - 15:00</div>
+              </div>
+              <div class="ellipse"></div>
+            </div>
+
+            <div class="road">
+              <div class="trip-details">
+                <div class="timeline">
+                  <div class="timeline-child"></div>
+                  <div class="details">
+                    <div class="header2">
+                      <div class="trip-category">
+                        <div class="icon">
+                          <img
+                            class="vector-icon3"
+                            alt=""
+                            src="assets/images/ship-blue.png"
+                          />
+                        </div>
+                        <div class="marine-shipping">
+                          {{ "SEARCH_RESULT_TRIP.MARINE_SHIPPING" | translate }}
+                        </div>
+                      </div>
+                      <div class="km-3-days">303.8 km, 3 days</div>
+                    </div>
+                    <div class="content3">
+                      <div class="back-to-search">Ocean Freight (FIFO)</div>
+                      <div class="km-3-days">$ 1,500.00</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="transit">
+                  <div class="ellipse1"></div>
+                  <div class="trip-category">
+                    <div class="transit1">Transit</div>
+                    <div class="marine-shipping">Tanger Port, MA</div>
+                    <div class="marine-shipping">35 min</div>
+                  </div>
+                </div>
+
+                <div class="timeline1">
+                  <div class="timeline-item"></div>
+                  <div class="details1">
+                    <div class="header2">
+                      <div class="trip-category">
+                        <div class="icon">
+                          <img
+                            class="vector-icon3"
+                            alt=""
+                            src="assets/images/ship-blue.png"
+                          />
+                        </div>
+                        <div class="marine-shipping">
+                          {{ "SEARCH_RESULT_TRIP.MARINE_SHIPPING" | translate }}
+                        </div>
+                      </div>
+                      <div class="km-3-days">6243.8 km, 10 days</div>
+                    </div>
+                    <div class="content3">
+                      <div class="back-to-search">Ocean Freight (FIFO)</div>
+                      <div class="km-3-days">$ 565.00</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="transit">
+                  <div class="ellipse1"></div>
+                  <div class="trip-category">
+                    <div class="transit1">Transit</div>
+                    <div class="marine-shipping">Estepona, SPA</div>
+                    <div class="marine-shipping">1h</div>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="timeline-item"></div>
+                  <div class="details">
+                    <div class="header2">
+                      <div class="trip-category">
+                        <div class="icon">
+                          <img
+                            class="vector-icon3"
+                            alt=""
+                            src="assets/images/ship-blue.png"
+                          />
+                        </div>
+                        <div class="marine-shipping">
+                          {{ "SEARCH_RESULT_TRIP.MARINE_SHIPPING" | translate }}
+                        </div>
+                      </div>
+                      <div class="km-3-days">6243.8 km, 10 days</div>
+                    </div>
+                    <div class="content3">
+                      <div class="back-to-search">Ocean Freight (FIFO)</div>
+                      <div class="km-3-days">$ 55.00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="arrival">
+              <div class="ellipse"></div>
+              <div class="departure1">
+                <div class="departure2">
+                  <div class="flags1">
+                    <img
+                      class="vector-icon6"
+                      alt=""
+                      src="assets/images/Brazil.png"
+                    />
+                  </div>
+                  <div class="casablanca-port-ma">Mallorca, SPA</div>
+                </div>
+                <div class="div">15/05/2025 - 09:10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div class="terms-and-conditions">
+        <div
+          class="detail"
+          (click)="toggleSection('terms')"
+          (keydown)="handleKeyDown($event, 'terms')"
+          style="cursor: pointer"
+        >
+          <div class="terms-and-additional">
+            {{ "SEARCH_RESULT_TRIP.TERMS_ADDITIONAL" | translate }}
+          </div>
+          <div class="icon">
+            <img
+              class="vector-icon"
+              [src]="
+                isTermsOpen
+                  ? 'assets/images/moins.png'
+                  : 'assets/images/plus.png'
+              "
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="stateopen" *ngIf="isTermsOpen">
+          <!-- 📝 terms/conditions content here -->
+          <div class="subject-to-container1">
+            <p class="subject-to">
+              {{ "SEARCH_RESULT_TRIP.SUBJECT_TO" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.LOCAL_FEES" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.OWS_SURCHARGE" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.IMO_ADR_SURCHARGE" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.SPACE_AVAILABILITY" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.EQUIPMENT_AVAILABILITY" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.TRUCK_TRAILER_AVAILABILITY" | translate }}
+            </p>
+            <p class="subject-to">
+              - {{ "SEARCH_RESULT_TRIP.OTHER_ADDITIONAL_CHARGES" | translate }}
+            </p>
+            <p class="subject-to">
+              {{ "SEARCH_RESULT_TRIP.STANDARD_FREE_TIME" | translate }}
+            </p>
+            <p class="subject-to">
+              {{ "SEARCH_RESULT_TRIP.STANDARD_TRUCK_DOWNTIME" | translate }}
+            </p>
+          </div>
+
+          <div class="subject-to-container1">
+            <span>{{ "SEARCH_RESULT_TRIP.ALL_RATES_SUBJECT" | translate }} </span>
+            <span class="terms-and-conditions1" style="color: #ff6600">
+              {{ "SEARCH_RESULT_TRIP.TERMS_CONDITIONS_AGREE_TERMS" | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="contact-details">
+        <div
+          class="detail"
+          (click)="toggleSection('contacts')"
+          (keydown)="handleKeyDown($event, 'contacts')"
+          style="cursor: pointer"
+        >
+          <div class="terms-and-additional">
+            {{ "SEARCH_RESULT_TRIP.CONTACT_DETAILS" | translate }}
+          </div>
+          <div class="icon">
+            <img
+              class="vector-icon"
+              [src]="
+                isContactsOpen
+                  ? 'assets/images/moins.png'
+                  : 'assets/images/plus.png'
+              "
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="stateopen" *ngIf="isContactsOpen">
+          <div class="you-want-to-edit-your-profile-wrapper">
+            <div class="you-want-to-container">
+              <span>{{
+                "SEARCH_RESULT_TRIP.EDIT_PROFILE_PROMPT" | translate
+              }}</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <div class="header7">
+                <div class="input-title">
+                  {{ "SEARCH_RESULT_TRIP.FIRST_NAME" | translate }}
+                </div>
+              </div>
+              <div class="text-field2">
+                <input
+                  type="text"
+                  placeholder="David"
+                  class="eg-casablanca-portma"
+                />
+              </div>
+            </div>
+
+            <div class="input-field">
+              <div class="header7">
+                <div class="input-title">
+                  {{ "SEARCH_RESULT_TRIP.LAST_NAME" | translate }}
+                </div>
+              </div>
+              <div class="text-field2">
+                <input
+                  type="text"
+                  placeholder="Hadraoui"
+                  class="eg-casablanca-portma"
+                />
+              </div>
+            </div>
+
+            <div class="input-field">
+              <div class="header7">
+                <div class="input-title">
+                  {{ "SEARCH_RESULT_TRIP.PHONE_NUMBER" | translate }}
+                </div>
+              </div>
+              <div class="text-field2">
+                <div class="icon">
+                  <img
+                    class="vector-icon19"
+                    alt=""
+                    src="assets/images/phone.png"
+                  />
+                </div>
+                <input
+                  type="phone"
+                  placeholder="+212 760 958 460"
+                  class="eg-casablanca-portma"
+                />
+              </div>
+            </div>
+
+            <div class="input-field">
+              <div class="header7">
+                <div class="input-title">
+                  {{ "SEARCH_RESULT_TRIP.COMPANY_NAME" | translate }}
+                </div>
+              </div>
+              <div class="text-field2">
+                <div class="icon">
+                  <img
+                    class="vector-icon21"
+                    alt=""
+                    src="assets/images/briefcase.png"
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="e.g. Acme"
+                  class="eg-casablanca-portma"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="by-submitting-this-container">
+            {{ "SEARCH_RESULT_TRIP.TERMS_CONDITIONS_AGREE" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters / Order Summary -->
+    <div class="filters">
+      <div class="order-summary">
+        {{ "SEARCH_RESULT_TRIP.ORDER_SUMMARY" | translate }}
+      </div>
+
+      <div class="content8">
+        <div class="detail">
+          <div class="id">{{ "SEARCH_RESULT_TRIP.ID" | translate }}</div>
+          <div class="div5">34435235235262</div>
+        </div>
+        <div class="detail">
+          <div class="id">{{ "SEARCH_RESULT_TRIP.DEPARTURE" | translate }}</div>
+          <div class="div5">Casablanca Port, MA</div>
+        </div>
+        <div class="detail">
+          <div class="id">{{ "SEARCH_RESULT_TRIP.ARRIVAL" | translate }}</div>
+          <div class="div5">Mallorca, SPA</div>
+        </div>
+        <div class="detail">
+          <div class="id">
+            {{ "SEARCH_RESULT_TRIP.TRANSPORT_MODE" | translate }}
+          </div>
+          <div class="trip-category3">
+            <div class="icon">
+              <img class="vector-icon3" alt="" src="assets/images/ship.png" />
+            </div>
+            <div class="full-container-load">
+              {{ "SEARCH_RESULT_TRIP.MARINE_SHIPPING" | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="detail">
+          <div class="id">
+            {{ "SEARCH_RESULT_TRIP.SHIPPING_TYPE" | translate }}
+          </div>
+          <div class="trip-category4">
+            {{ "SEARCH_RESULT_TRIP.FULL_CONTAINER_LOAD" | translate }}
+          </div>
+        </div>
+        <div class="detail">
+          <div class="id">{{ "SEARCH_RESULT_TRIP.CONTAINER" | translate }}</div>
+          <div class="notification-parent">1x 20’ Standard</div>
+        </div>
+        <div class="detail">
+          <div class="id">
+            {{ "SEARCH_RESULT_TRIP.READY_TO_LOAD" | translate }}
+          </div>
+          <div class="div5">24/05/2025</div>
+        </div>
+        <div class="detail">
+          <div class="id">
+            {{ "SEARCH_RESULT_TRIP.ARRIVAL_DATE" | translate }}
+          </div>
+          <div class="div5">31/05/2025</div>
+        </div>
+        <div class="detail">
+          <div class="id">{{ "SEARCH_RESULT_TRIP.CARRIER" | translate }}</div>
+          <img
+            class="shipping-partner-icon"
+            alt=""
+            src="assets/images/Maersk.png"
+          />
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="price-details">
+        <div class="terms-and-additional">
+          {{ "SEARCH_RESULT_TRIP.PRICE_DETAILS" | translate }}
+        </div>
+        <div class="detail9">
+          <div class="id">
+            {{ "SEARCH_RESULT_TRIP.MARINE_SHIPPING" | translate }}
+          </div>
+          <div class="div5">$ 2,120.00</div>
+        </div>
+      </div>
+
+      <div class="separator1"></div>
+
+      <div class="text-field-parent">
+        <div class="text-field5">
+          <input
+            type="text"
+            placeholder="{{ 'SEARCH_RESULT_TRIP.PROMOCODE' | translate }}"
+            class="eg-casablanca-portma"
+          />
+        </div>
+        <div class="button">
+          <div class="full-container-load">
+            {{ "SEARCH_RESULT_TRIP.APPLY" | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="separator2"></div>
+
+      <div class="detail10">
+        <div class="terms-and-additional">
+          {{ "SEARCH_RESULT_TRIP.TOTAL_PRICE" | translate }}
+        </div>
+        <div class="div7">$ 2,120.00</div>
+      </div>
+
+      <div class="button1" id="buttonContainer">
+        <a
+          style="
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+          "
+          routerLink="/cargo-comp-details"
+          routerLinkActive="active"
+          class="full-container-load"
+        >
+          {{ "SEARCH_RESULT_TRIP.NEXT" | translate }}
+        </a>
+      </div>
+
+      <div class="by-submitting-this-container1">
+        {{ "SEARCH_RESULT_TRIP.TERMS_CONDITIONS_AGREE" | translate }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,525 @@
+.vector-icon {
+  	position: absolute;
+  	height: 58.13%;
+  	width: 58.13%;
+  	top: 20.83%;
+  	right: 21.04%;
+  	bottom: 21.04%;
+  	left: 20.84%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.icon {
+  	width: 16px;
+  	position: relative;
+  	height: 16px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.back {
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+  	font-weight: 500;
+}
+.ctasecondary {
+  	border-radius: 4px;
+  	background-color: #eef2fb;
+  	border: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px 12px;
+  	gap: 8px;
+}
+.manage-subscription {
+  	width: 191px;
+  	position: relative;
+  	font-size: 20px;
+  	letter-spacing: -0.2px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	color: #05256e;
+  	display: inline-block;
+  	flex-shrink: 0;
+  	max-width: 1440px;
+}
+.header {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 12px;
+  	font-size: 14px;
+}
+.free-plan {
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 110%;
+}
+.perfect-for-individuals {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+}
+.free-plan-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.month {
+  	position: relative;
+  	font-size: 24px;
+  	letter-spacing: -0.02em;
+  	line-height: 110%;
+  	color: #ff6701;
+}
+.frame-parent {
+  	align-self: stretch;
+  	border-radius: 4px;
+  	background-color: #f8f9fb;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 16px;
+  	gap: 16px;
+  	font-size: 20px;
+}
+.vector-icon1 {
+  	width: 16px;
+  	position: relative;
+  	max-height: 100%;
+}
+.browse-the-global {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 20px;
+}
+.vector-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 12px;
+}
+.frame-group {
+  	align-self: stretch;
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.ctaprimary {
+  	align-self: stretch;
+  	border-radius: 4px;
+  	background-color: #eef2fb;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 12px;
+  	color: #0739a4;
+}
+.pricing-card {
+  	flex: 1;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 2px solid #0739a4;
+  	box-sizing: border-box;
+  	height: 406px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 16px;
+  	gap: 32px;
+  	min-height: 406px;
+}
+.vector-icon8 {
+  	position: absolute;
+  	height: 66.88%;
+  	width: 83.13%;
+  	top: 16.67%;
+  	right: 8.54%;
+  	bottom: 16.46%;
+  	left: 8.34%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.ctaprimary1 {
+  	align-self: stretch;
+  	border-radius: 4px;
+  	background-color: #0739a4;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 12px;
+  	gap: 8px;
+  	color: #fff;
+}
+.pricing-card1 {
+  	flex: 1;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid rgba(7, 57, 164, 0.12);
+  	box-sizing: border-box;
+  	height: 406px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 16px;
+  	gap: 32px;
+  	min-height: 406px;
+}
+.plans {
+  	width: 100%;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid rgba(7, 57, 164, 0.12);
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 20px;
+  	gap: 16px;
+  	max-width: 1440px;
+  	color: #243458;
+}
+.billing-history {
+  	position: relative;
+  	letter-spacing: -0.18px;
+  	line-height: 19px;
+  	font-weight: 500;
+}
+.vector-icon9 {
+  	position: absolute;
+  	height: 95%;
+  	width: 95%;
+  	top: 12.5%;
+  	right: 12.5%;
+  	bottom: 12.5%;
+  	left: 12.5%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.eg-casablanca-portma {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.12px;
+  	line-height: 14px;
+}
+.text-field {
+  	width: 300px;
+  	flex: 1;
+  	background-color: #fff;
+  	border-bottom: 1px solid #d6e0f8;
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 8px;
+  	gap: 8px;
+}
+.input-field {
+  	height: 30px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	color: #909090;
+}
+.filters1 {
+  	position: relative;
+  	letter-spacing: -0.12px;
+  	line-height: 14px;
+  	font-weight: 500;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+.vector-icon10 {
+  	position: absolute;
+  	height: 79.17%;
+  	width: 83.33%;
+  	top: 12.5%;
+  	right: 8.33%;
+  	bottom: 8.33%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.icon2 {
+  	width: 12px;
+  	position: relative;
+  	height: 12px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.filters {
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid #d6e0f8;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px;
+  	gap: 8px;
+}
+.actions {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 12px;
+  	font-size: 12px;
+  	color: #0739a4;
+}
+.header1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 0px;
+}
+.plan {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+  	font-weight: 500;
+  	display: inline-block;
+  	max-width: 140px;
+}
+.amount {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+  	font-weight: 500;
+  	display: inline-block;
+  	max-width: 164px;
+}
+.status {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+  	font-weight: 500;
+  	display: inline-block;
+  	max-width: 110px;
+}
+.actions1 {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18px;
+  	font-weight: 500;
+  	display: inline-block;
+  	max-width: 72px;
+}
+.table-header {
+  	align-self: stretch;
+  	border-radius: 4px 4px 0px 0px;
+  	background-color: #fafbfd;
+  	border-bottom: 1px solid #eef2fb;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 12px;
+  	gap: 0px;
+}
+.pro-plan- {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	display: inline-block;
+  	max-width: 140px;
+}
+.div {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	font-weight: 500;
+  	color: #000;
+  	display: inline-block;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	max-width: 164px;
+}
+.div1 {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.16px;
+  	line-height: 17px;
+  	display: inline-block;
+  	max-width: 164px;
+}
+.vector-icon12 {
+  	position: absolute;
+  	height: 83.13%;
+  	width: 83.13%;
+  	top: 8.33%;
+  	right: 8.54%;
+  	bottom: 8.54%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.pending {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.12px;
+  	line-height: 14px;
+  	font-weight: 500;
+}
+.trip-category {
+  	flex: 1;
+  	border-radius: 4px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 4px;
+  	max-width: 110px;
+  	font-size: 12px;
+  	color: #ff6600;
+}
+.vector-icon14 {
+  	position: absolute;
+  	height: 95%;
+  	width: 95%;
+  	top: 20.84%;
+  	right: 8.54%;
+  	bottom: 21.04%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.actions2 {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 12px;
+  	max-width: 72px;
+}
+.table-item {
+  	align-self: stretch;
+  	border-radius: 4px 4px 0px 0px;
+  	background-color: #fff;
+  	border-bottom: 1px solid #eef2fb;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 16px 12px;
+  	gap: 0px;
+}
+.vector-icon15 {
+  	position: absolute;
+  	height: 90%;
+  	width: 90%;
+  	top: 15%;
+  	right: 8.54%;
+  	bottom: 26.88%;
+  	left: 8.33%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.trip-category1 {
+  	flex: 1;
+  	border-radius: 4px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 4px;
+  	max-width: 110px;
+  	font-size: 12px;
+  	color: #10b981;
+}
+.table-items {
+  	align-self: stretch;
+  	overflow-y: auto;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	color: #03133d;
+}
+.table {
+  	align-self: stretch;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid #eef2fb;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	font-size: 14px;
+  	color: #959eb1;
+}
+.payment-history {
+  	width: 100%;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	border: 1px solid rgba(7, 57, 164, 0.12);
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 20px;
+  	gap: 24px;
+  	max-width: 1440px;
+  	color: #05256e;
+}
+.content {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fafbfd;
+  	border-bottom: 1px solid rgba(7, 57, 164, 0.08);
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 24px 32px;
+  	gap: 16px;
+  	min-height: 768px;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #0739a4;
+  	font-family: 'Helvetica Neue', sans-serif;
+}

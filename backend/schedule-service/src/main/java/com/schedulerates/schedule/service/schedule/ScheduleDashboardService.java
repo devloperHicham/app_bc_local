@@ -18,5 +18,5 @@ public interface ScheduleDashboardService {
 
     List<WeeklyScheduleByCompaniesData> getGraphicScheduleByCompanies();
    
-    List<DailyScheduleByUsersData> getDaillyScheduleByUsers();
+    List<DailyScheduleByUsersData> getDailyScheduleByUsers();
 }

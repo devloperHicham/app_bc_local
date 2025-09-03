@@ -5,6 +5,7 @@ import java.util.List;
 import com.schedulerates.comparison.model.comparison.dto.response.DashboardResponse;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonByCompaniesData;
 import com.schedulerates.comparison.model.comparison.dto.response.WeeklyComparisonData;
+import com.schedulerates.comparison.model.comparison.dto.response.DailyComparisonByUsersData;
 
 /**
  * Service interface named {@link TransportationReadService} for reading Transportations.
@@ -16,4 +17,6 @@ public interface ComparisonDashboardService {
     List<WeeklyComparisonData> getGraphicComparisons();
 
     List<WeeklyComparisonByCompaniesData> getGraphicComparisonByCompanies();
+   
+    List<DailyComparisonByUsersData> getDailyComparisonByUsers();
 }
