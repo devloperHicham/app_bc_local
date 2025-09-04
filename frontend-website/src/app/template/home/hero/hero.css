@@ -854,3 +854,84 @@
     }
   }
 }
+
+
+
+
+
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 4px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each option */
+.custom-dropdown li {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: normal; /* allow multi-line text */
+}
+
+/* Hover effect */
+.custom-dropdown li:hover {
+  background-color: #e6f2ff;
+  color: #000;
+}
+
+/* Flag icon */
+.custom-dropdown img {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Port info text */
+.port-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.port-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.port-country {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Scrollbar */
+.custom-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.custom-dropdown::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.custom-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

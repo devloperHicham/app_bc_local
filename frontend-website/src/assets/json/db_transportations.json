@@ -1,0 +1,14 @@
+[
+  {
+    "ID": "cd59cbd3-dd1c-4981-8643-475287d90041",
+    "TRANSPORTATIONNAME": "Full Container Load FCL"
+  },
+  {
+    "ID": "f28cffbf-06ad-4021-96df-5cb87ea8c84c",
+    "TRANSPORTATIONNAME": "Less Container Load LCL"
+  },
+  {
+    "ID": "e761c469-f1eb-4719-af4a-998946030fea",
+    "TRANSPORTATIONNAME": "Bulk"
+  }
+]

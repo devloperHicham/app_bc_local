@@ -1,13 +1,10 @@
 <div class="hero">
-  <div
-    class="herocontent"
-    [ngStyle]="{
+  <div class="herocontent" [ngStyle]="{
       'background-image':
         'linear-gradient(to bottom, #0739A4A8 0%, #0739A400 70%), url(' +
         currentBg +
         ')'
-    }"
-  >
+    }">
     <div class="heading-content">
       <b class="find-the-best-container">
         <p class="find-the-best">{{ "HERO.TITLE_LINE1" | translate }}</p>
@@ -21,42 +18,26 @@
       <div class="content">
         <div class="header">
           <div class="tabs">
-            <a
-              class="tab-item1"
-              [class.active]="activeTab === 'marine'"
-              (click)="selectTab('marine')"
-              [ngClass]="{ 'active-blue': activeTab === 'marine' }"
-            >
+            <a class="tab-item1" [class.active]="activeTab === 'marine'" (click)="selectTab('marine')"
+              [ngClass]="{ 'active-blue': activeTab === 'marine' }">
               <div class="icon">
-                <img
-                  class="vector-icon"
-                  alt=""
-                  [src]="
+                <img class="vector-icon" alt="" [src]="
                     activeTab === 'marine'
                       ? 'assets/images/ship-white.png'
                       : 'assets/images/ship-blue.png'
-                  "
-                />
+                  " />
               </div>
               <div class="for-brokers">{{ "TABS.MARINE" | translate }}</div>
             </a>
 
-            <a
-              class="tab-item1"
-              [class.active]="activeTab === 'schedules'"
-              (click)="selectTab('schedules')"
-              [ngClass]="{ 'active-voilya': activeTab === 'schedules' }"
-            >
+            <a class="tab-item1" [class.active]="activeTab === 'schedules'" (click)="selectTab('schedules')"
+              [ngClass]="{ 'active-voilya': activeTab === 'schedules' }">
               <div class="icon">
-                <img
-                  class="vector-icon1"
-                  alt=""
-                  [src]="
+                <img class="vector-icon1" alt="" [src]="
                     activeTab === 'schedules'
                       ? 'assets/images/calendar-search.svg'
                       : 'assets/images/calendar-search.png'
-                  "
-                />
+                  " />
               </div>
               <div class="for-brokers">{{ "TABS.SCHEDULES" | translate }}</div>
             </a>
@@ -73,30 +54,24 @@
                 </div>
               </div>
             </div>
-            <div class="text-field">
+            <div class="text-field" style="position: relative;">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/location-blue.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input
-                style="border: none"
-                type="text"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
-                list="portsListTo"
-              />
-              <datalist id="portsListTo">
-                <option
-                  *ngFor="let port of ports"
-                  [value]="port.PORTNAME + ' (' + port.CODEPORT + ')'"
-                >
-                  {{ port.COUNTRY }}
-                </option>
-              </datalist>
+              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
+                [(ngModel)]="selectedPortFrom" (input)="filterPorts('from', $event)" (focus)="dropdownOpenFrom = true"
+                (blur)="closeDropdown('from')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsFrom.length && dropdownOpenFrom">
+                <li *ngFor="let port of filteredPortsFrom" (mousedown)="selectPort('from', port)">
+                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                  <div class="port-info">
+                    <div class="port-name">{{ port.PORTNAME }}</div>
+                    <div class="port-country">{{ port.COUNTRY }}</div>
+                  </div>
+                </li>
+              </ul>
             </div>
+
           </div>
           <div class="input-field">
             <div class="header1">
@@ -106,29 +81,22 @@
                 </div>
               </div>
             </div>
-            <div class="text-field">
+            <div class="text-field" style="position: relative;">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/location-blue.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input
-                style="border: none"
-                type="text"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                list="portsListFrom"
-              />
-              <datalist id="portsListFrom">
-                <option
-                  *ngFor="let port of ports"
-                  [value]="port.PORTNAME + ' (' + port.CODEPORT + ')'"
-                >
-                  {{ port.COUNTRY }}
-                </option>
-              </datalist>
+              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+                [(ngModel)]="selectedPortTo" (input)="filterPorts('to', $event)" (focus)="dropdownOpenTo = true"
+                (blur)="closeDropdown('to')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsTo.length && dropdownOpenTo">
+                <li *ngFor="let port of filteredPortsTo" (mousedown)="selectPort('to', port)">
+                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
+                  <div class="port-info">
+                    <div class="port-name">{{ port.PORTNAME }}</div>
+                    <div class="port-country">{{ port.COUNTRY }}</div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="date-field">
@@ -138,12 +106,8 @@
                   {{ "FORM.SPECIFIC_DAY" | translate }}
                 </div>
                 <div class="checkbox">
-                  <input
-                    type="checkbox"
-                    class="checkbox-child"
-                    [checked]="isIntervalMode"
-                    (change)="toggleDateMode()"
-                  />
+                  <input type="checkbox" class="checkbox-child" [checked]="isIntervalMode"
+                    (change)="toggleDateMode()" />
                 </div>
                 <div class="text-placeholder-1">
                   {{ "FORM.INTERVAL" | translate }}
@@ -152,32 +116,14 @@
             </div>
             <div class="text-field2">
               <div class="icon">
-                <img
-                  class="vector-icon10"
-                  alt=""
-                  src="assets/images/date-blue.png"
-                />
+                <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
               </div>
               <!-- Interval Mode -->
-              <input
-                #intervalDateInput
-                type="text"
-                class="eg-casablanca-portma"
-                style="border: none"
-                placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}"
-                readonly
-                *ngIf="isIntervalMode"
-              />
+              <input #intervalDateInput type="text" class="eg-casablanca-portma" style="border: none"
+                placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}" readonly *ngIf="isIntervalMode" />
               <!-- Single Day Mode -->
-              <input
-                #singleDateInput
-                type="text"
-                class="eg-casablanca-portma"
-                style="border: none"
-                placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}"
-                readonly
-                *ngIf="!isIntervalMode"
-              />
+              <input #singleDateInput type="text" class="eg-casablanca-portma" style="border: none"
+                placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}" readonly *ngIf="!isIntervalMode" />
             </div>
           </div>
           <div class="shipping-typemarine">
@@ -190,14 +136,9 @@
                 </div>
               </div>
               <div class="text-field2">
-                <select
-                  style="border: none; background-color: transparent"
-                  class="eg-casablanca-portma"
-                >
-                  <option value="">{{ "PLACEHOLDERS.FCL" | translate }}</option>
-                  <option value="">{{ "PLACEHOLDERS.LCL" | translate }}</option>
-                  <option value="">
-                    {{ "PLACEHOLDERS.BULK" | translate }}
+                <select style="border: none; background-color: transparent" class="eg-casablanca-portma">
+                  <option *ngFor="let transportation of transportations" [value]="transportation.ID">
+                    {{ transportation.TRANSPORTATIONNAME }}
                   </option>
                 </select>
               </div>
@@ -208,16 +149,8 @@
                   <div class="text-placeholder-1">
                     {{ "FORM.TRANSPORT_UNIT_TYPE" | translate }}
                   </div>
-                  <div
-                    class="popup-container"
-                    (click)="togglePopover($event)"
-                    (keydown)="onKeyMenuItem($event)"
-                  >
-                    <img
-                      class="icon4"
-                      src="assets/images/Popup-info.png"
-                      alt=""
-                    />
+                  <div class="popup-container" (click)="togglePopover($event)" (keydown)="onKeyMenuItem($event)">
+                    <img class="icon4" src="assets/images/Popup-info.png" alt="" />
                     <div class="popover" *ngIf="isPopoverVisible">
                       <div class="popover-content">
                         {{ "FORM.TRANSPORT_UNIT_INFO" | translate }}
@@ -227,18 +160,10 @@
                 </div>
               </div>
               <div class="text-field2">
-                <select
-                  style="border: none; background-color: transparent"
-                  class="eg-casablanca-portma"
-                >
-                  <option value="">
-                    20 {{ "PLACEHOLDERS.STANDARD" | translate }}
-                  </option>
-                  <option value="">
-                    40 {{ "PLACEHOLDERS.STANDARD" | translate }}
-                  </option>
-                  <option value="">
-                    80 {{ "PLACEHOLDERS.STANDARD" | translate }}
+                <select style="border: none; background-color: transparent" class="eg-casablanca-portma">
+                   <option  [value]="">----- Selectionner -----</option>
+                  <option *ngFor="let container of containers" [value]="container.CONTAINERNAME">
+                    {{ container.CONTAINERNAME }}
                   </option>
                 </select>
               </div>
@@ -259,18 +184,10 @@
             </div>
             <div class="text-field">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/location-blue.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input
-                style="border: none"
-                type="text"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
-              />
+              <input style="border: none" type="text" class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" />
             </div>
           </div>
           <div class="input-field">
@@ -283,18 +200,10 @@
             </div>
             <div class="text-field">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/location-blue.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input
-                style="border: none"
-                type="text"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-              />
+              <input style="border: none" type="text" class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}" />
             </div>
           </div>
           <div class="input-field">
@@ -307,16 +216,9 @@
             </div>
             <div class="text-field">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/ship-lines.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/ship-lines.png" />
               </div>
-              <select
-                class="eg-casablanca-portma"
-                style="border: none; background-color: transparent"
-              >
+              <select class="eg-casablanca-portma" style="border: none; background-color: transparent">
                 <option value="">
                   {{ "PLACEHOLDERS.ALL_SEALINES" | translate }}
                 </option>
@@ -333,16 +235,9 @@
             </div>
             <div class="text-field">
               <div class="icon">
-                <img
-                  class="vector-icon4"
-                  alt=""
-                  src="assets/images/flag-icon.png"
-                />
+                <img class="vector-icon4" alt="" src="assets/images/flag-icon.png" />
               </div>
-              <select
-                class="eg-casablanca-portma"
-                style="border: none; background-color: transparent"
-              >
+              <select class="eg-casablanca-portma" style="border: none; background-color: transparent">
                 <option value="">
                   {{ "PLACEHOLDERS.DEPARTURE" | translate }}
                 </option>
@@ -359,19 +254,10 @@
             </div>
             <div class="text-field">
               <div class="icon">
-                <img
-                  class="vector-icon10"
-                  alt=""
-                  src="assets/images/date-blue.png"
-                />
+                <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
               </div>
-              <input
-                #singleDateScheduleInput
-                type="text"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}"
-                readonly
-              />
+              <input #singleDateScheduleInput type="text" class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}" readonly />
             </div>
           </div>
           <div class="input-field">
@@ -384,12 +270,8 @@
             </div>
             <div class="text-field">
               <div class="icon"></div>
-              <input
-                style="border: none"
-                type="number"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.MAX_WEEKS' | translate }}"
-              />
+              <input style="border: none" type="number" class="eg-casablanca-portma"
+                placeholder="{{ 'PLACEHOLDERS.MAX_WEEKS' | translate }}" />
             </div>
           </div>
         </div>
@@ -412,17 +294,13 @@
           </div>
         </div>
         <div class="ctaprimary">
-          <button
-            style="
+          <button style="
               cursor: pointer;
               background-color: transparent;
               border: none;
               color: white;
               font-size: 15px;
-            "
-            routerLink="/search-comp-results"
-            class="show-129429-results"
-          >
+            " routerLink="/search-comp-results" class="show-129429-results">
             {{ "BUTTONS.SHOW_RESULTS" | translate }}
           </button>
           <div class="icon">
@@ -447,17 +325,13 @@
           </div>
         </div>
         <div class="ctaprimary" style="background-color: #9747ff">
-          <button
-            style="
+          <button style="
               cursor: pointer;
               background-color: transparent;
               border: none;
               color: white;
               font-size: 15px;
-            "
-            routerLink="/search-sched-results"
-            class="show-129429-results"
-          >
+            " routerLink="/search-sched-results" class="show-129429-results">
             {{ "BUTTONS.SHOW_RESULTS" | translate }}
           </button>
           <div class="icon">

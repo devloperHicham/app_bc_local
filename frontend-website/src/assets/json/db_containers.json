@@ -1,0 +1,32 @@
+[
+  {
+    "ID": "fe5f9a0b-9a71-4241-be3a-e64d55f80d2c",
+    "CONTAINERNAME": "20 Standard",
+    "CONTAINERWEIGHT": 4000
+  },
+  {
+    "ID": "851248d7-a83c-4782-a1e8-7b29be13f729",
+    "CONTAINERNAME": "40 Standard",
+    "CONTAINERWEIGHT": 40000
+  },
+  {
+    "ID": "80432187-03f4-4b3b-b81d-fed02462e630",
+    "CONTAINERNAME": "40 High Cube",
+    "CONTAINERWEIGHT": 4000
+  },
+  {
+    "ID": "0467d630-06c6-4c1b-8c81-891adebf6d9b",
+    "CONTAINERNAME": "45 High Cube",
+    "CONTAINERWEIGHT": 40000
+  },
+  {
+    "ID": "abcf77ba-26fc-4d5c-8098-af1d1581743f",
+    "CONTAINERNAME": "20 Refregerated",
+    "CONTAINERWEIGHT": 4000
+  },
+  {
+    "ID": "99c2e94d-a548-4854-adaa-a53846a25877",
+    "CONTAINERNAME": "40 Refregerated",
+    "CONTAINERWEIGHT": 4000
+  }
+]
