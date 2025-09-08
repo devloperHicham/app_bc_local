@@ -1,7 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Container, Port, Transportation } from "../../../modules/data-json";
+import {
+  Company,
+  Container,
+  Port,
+  Transportation,
+} from "../../../modules/data-json";
 
 @Injectable({
   providedIn: "root",
@@ -9,6 +14,7 @@ import { Container, Port, Transportation } from "../../../modules/data-json";
 export class HeroSerice {
   private readonly jsonUrlPorts = "assets/json/db_ports.json";
   private readonly jsonUrlContainers = "assets/json/db_containers.json";
+  private readonly jsonUrlCompanies = "assets/json/db_companies.json";
   private readonly jsonUrlTransportations =
     "assets/json/db_transportations.json";
 
@@ -22,5 +28,8 @@ export class HeroSerice {
   }
   getTransportations(): Observable<Transportation[]> {
     return this.http.get<Transportation[]>(this.jsonUrlTransportations);
+  }
+  getCompanies(): Observable<Company[]> {
+    return this.http.get<Company[]>(this.jsonUrlCompanies);
   }
 }

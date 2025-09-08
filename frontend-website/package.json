@@ -27,6 +27,7 @@
     "@angular/forms": "^20.2.3",
     "@angular/platform-browser": "^20.2.3",
     "@angular/router": "^20.2.3",
+    "@ng-select/ng-select": "^20.2.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/flatpickr": "^3.0.2",

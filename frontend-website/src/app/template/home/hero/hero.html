@@ -59,10 +59,10 @@
                 <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
               <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
-                [(ngModel)]="selectedPortFrom" (input)="filterPorts('from', $event)" (focus)="dropdownOpenFrom = true"
-                (blur)="closeDropdown('from')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsFrom.length && dropdownOpenFrom">
-                <li *ngFor="let port of filteredPortsFrom" (mousedown)="selectPort('from', port)">
+                [(ngModel)]="selectedPortFromSchedule" (input)="filterPorts('fromSchedule', $event)"
+                (focus)="dropdownOpenFromSchedule = true" (blur)="closeDropdown('fromSchedule')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsFromSchedule.length && dropdownOpenFromSchedule">
+                <li *ngFor="let port of filteredPortsFromSchedule" (mousedown)="selectPort('fromSchedule', port)">
                   <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
                   <div class="port-info">
                     <div class="port-name">{{ port.PORTNAME }}</div>
@@ -86,10 +86,10 @@
                 <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
               <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                [(ngModel)]="selectedPortTo" (input)="filterPorts('to', $event)" (focus)="dropdownOpenTo = true"
-                (blur)="closeDropdown('to')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsTo.length && dropdownOpenTo">
-                <li *ngFor="let port of filteredPortsTo" (mousedown)="selectPort('to', port)">
+                [(ngModel)]="selectedPortToSchedule" (input)="filterPorts('toSchedule', $event)"
+                (focus)="dropdownOpenToSchedule = true" (blur)="closeDropdown('toSchedule')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsToSchedule.length && dropdownOpenToSchedule">
+                <li *ngFor="let port of filteredPortsToSchedule" (mousedown)="selectPort('toSchedule', port)">
                   <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
                   <div class="port-info">
                     <div class="port-name">{{ port.PORTNAME }}</div>
@@ -161,7 +161,7 @@
               </div>
               <div class="text-field2">
                 <select style="border: none; background-color: transparent" class="eg-casablanca-portma">
-                   <option  [value]="">----- Selectionner -----</option>
+                  <option [value]="">----- Selectionner -----</option>
                   <option *ngFor="let container of containers" [value]="container.CONTAINERNAME">
                     {{ container.CONTAINERNAME }}
                   </option>
@@ -182,12 +182,22 @@
                 </div>
               </div>
             </div>
-            <div class="text-field">
+            <div class="text-field" style="position: relative;">
               <div class="icon">
                 <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input style="border: none" type="text" class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" />
+              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
+                [(ngModel)]="selectedPortFromComparison" (input)="filterPorts('fromComparison', $event)"
+                (focus)="dropdownOpenFromComparison = true" (blur)="closeDropdown('fromComparison')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsFromComparison.length && dropdownOpenFromComparison">
+                <li *ngFor="let port of filteredPortsFromComparison" (mousedown)="selectPort('fromComparison', port)">
+                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                  <div class="port-info">
+                    <div class="port-name">{{ port.PORTNAME }}</div>
+                    <div class="port-country">{{ port.COUNTRY }}</div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="input-field">
@@ -198,12 +208,22 @@
                 </div>
               </div>
             </div>
-            <div class="text-field">
+            <div class="text-field" style="position: relative;">
               <div class="icon">
                 <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
               </div>
-              <input style="border: none" type="text" class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.TO' | translate }}" />
+              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+                [(ngModel)]="selectedPortToComparison" (input)="filterPorts('toComparison', $event)"
+                (focus)="dropdownOpenToComparison = true" (blur)="closeDropdown('toComparison')" />
+              <ul class="custom-dropdown" *ngIf="filteredPortsToComparison.length && dropdownOpenToComparison">
+                <li *ngFor="let port of filteredPortsToComparison" (mousedown)="selectPort('toComparison', port)">
+                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
+                  <div class="port-info">
+                    <div class="port-name">{{ port.PORTNAME }}</div>
+                    <div class="port-country">{{ port.COUNTRY }}</div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="input-field">
@@ -218,11 +238,18 @@
               <div class="icon">
                 <img class="vector-icon4" alt="" src="assets/images/ship-lines.png" />
               </div>
-              <select class="eg-casablanca-portma" style="border: none; background-color: transparent">
-                <option value="">
-                  {{ "PLACEHOLDERS.ALL_SEALINES" | translate }}
-                </option>
-              </select>
+
+              <ng-select 
+                [items]="companies" bindLabel="COMPANYNAME" bindValue="ID" [(ngModel)]="selectedCompany"
+                placeholder="{{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}" [searchable]="true" [clearable]="true"
+                class="eg-casablanca-portma">
+                <!-- Custom template for showing logo + name -->
+                <ng-template class="eg-casablanca-portma" style="border: none; background-color: transparent" ng-option-tmp let-item="item">
+                  <div class="flex items-center gap-2">
+                     <img [src]="'assets/flag_companies/' + item.COMPANYLOGO" alt="{{item.COMPANYNAME}}" />
+                  </div>
+                </ng-template>
+              </ng-select>
             </div>
           </div>
           <div class="input-field">
@@ -238,8 +265,11 @@
                 <img class="vector-icon4" alt="" src="assets/images/flag-icon.png" />
               </div>
               <select class="eg-casablanca-portma" style="border: none; background-color: transparent">
-                <option value="">
-                  {{ "PLACEHOLDERS.DEPARTURE" | translate }}
+                <option value="departure">
+                  departure
+                </option>
+                <option value="arrival">
+                  arrival
                 </option>
               </select>
             </div>

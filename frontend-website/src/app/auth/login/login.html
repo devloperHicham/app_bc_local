@@ -5,17 +5,17 @@
   </div>
 
   <div class="form">
-    <div class="content">
-      <!-- Header -->
-      <div class="header">
-        <div class="welcome-back">Welcome back</div>
-        <div class="connect-to-your">
-          Connect to your account and continue where you left off.
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="content">
+        <!-- Header -->
+        <div class="header">
+          <div class="welcome-back">Welcome back</div>
+          <div class="connect-to-your">
+            Connect to your account and continue where you left off.
+          </div>
         </div>
-      </div>
 
-      <!-- Reactive Form -->
-      <form [formGroup]="form" (ngSubmit)="submit()">
+        <!-- Reactive Form -->
         <div class="form-fields">
           <!-- Email -->
           <div class="input-field">
@@ -43,18 +43,6 @@
                 required
               />
             </div>
-            <div
-              *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched"
-              class="error"
-            >
-              e-mail est obligatoire
-            </div>
-            <div
-              *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched"
-              class="error"
-            >
-              Veuillez entrer un e-mail valide
-            </div>
           </div>
 
           <!-- Password -->
@@ -75,26 +63,29 @@
               <input
                 autocomplete="off"
                 id="password"
-                type="password"
+                [type]="showPassword ? 'text' : 'password'"
                 name="password"
                 class="eg-casablanca-portma"
                 formControlName="password"
                 placeholder="Saisissez votre mot de passe..."
                 required
               />
-              <div class="leading-icon">
+              <div
+                class="leading-icon"
+                (click)="togglePasswordVisibility()"
+                (keydown)="onKeyMenuItem($event)"
+                style="cursor: pointer"
+              >
                 <img
-                  class="vector-icon2"
-                  alt=""
-                  src="assets/images/eye-orange.png"
+                  class="vector-icon4"
+                  alt="toggle password"
+                  [src]="
+                    showPassword
+                      ? 'assets/images/eye-off.png'
+                      : 'assets/images/eye.png'
+                  "
                 />
               </div>
-            </div>
-            <div
-              *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
-              class="error"
-            >
-              Le mot de passe est obligatoire
             </div>
           </div>
 
@@ -114,42 +105,20 @@
             {{ errorMessage }}
           </div>
         </div>
-      </form>
-
-      <!-- Alternatives -->
-      <div class="alternatives">
-        <div class="header3">
-          <div class="header-child"></div>
-          <div class="or-login-using">Or login using</div>
-          <div class="header-child"></div>
-        </div>
-        <div class="option-parent">
-          <div class="option">
-            <img class="google-logo-1" alt="" src="assets/images/google.png" />
-          </div>
-          <div class="option">
-            <img
-              class="microsoft-seeklogo-icon"
-              alt=""
-              src="assets/images/microsoft.png"
-            />
-          </div>
+        <!-- Signup Link -->
+        <div class="new-to-booking-container">
+          <span>New to Booking container? </span>
+          <span class="create-an-account">
+            <a
+              style="cursor: pointer"
+              routerLink="/inscription-users"
+              routerLinkActive="active"
+            >
+              Create an account
+            </a>
+          </span>
         </div>
       </div>
-
-      <!-- Signup Link -->
-      <div class="new-to-booking-container">
-        <span>New to Booking container? </span>
-        <span class="create-an-account">
-          <a
-            style="cursor: pointer"
-            routerLink="/inscription-users"
-            routerLinkActive="active"
-          >
-            Create an account
-          </a>
-        </span>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

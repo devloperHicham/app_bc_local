@@ -1,0 +1,102 @@
+[
+  {
+    "ID": "2e989568-130a-44ae-9d5e-2d74e2f038d5",
+    "COMPANYNAME": "MSC",
+    "COMPANYLOGO": "MSC.jpeg"
+  },
+  {
+    "ID": "0734fcff-970e-47e6-bb5f-b50999e7072d",
+    "COMPANYNAME": "MAERSK",
+    "COMPANYLOGO": "MAERSK.png"
+  },
+  {
+    "ID": "423c2b1c-7554-448d-a048-ec10291d4309",
+    "COMPANYNAME": "CMA CGM",
+    "COMPANYLOGO": "CMA_CGM.jpeg"
+  },
+  {
+    "ID": "1d32bff7-caa8-4650-abf8-38842313f8cb",
+    "COMPANYNAME": "COSCO",
+    "COMPANYLOGO": "COSCO.webp"
+  },
+  {
+    "ID": "dd059616-4272-45fc-a59d-67c815d6c432",
+    "COMPANYNAME": "HAPAG-LLOYD",
+    "COMPANYLOGO": "HAPAG_LLOYD.webp"
+  },
+  {
+    "ID": "c1c6caea-6c1c-422d-8d7f-73da5a433a13",
+    "COMPANYNAME": "ONE LINE",
+    "COMPANYLOGO": "ONE_LINE.png"
+  },
+  {
+    "ID": "0e5da1b0-4294-4841-aedb-17cef490b0f0",
+    "COMPANYNAME": "EVERGREEN",
+    "COMPANYLOGO": "EVERGREEN.png"
+  },
+  {
+    "ID": "aab9e24b-22dd-498f-b60f-ffbb16a6a3bb",
+    "COMPANYNAME": "HMM",
+    "COMPANYLOGO": "HMM.jpg"
+  },
+  {
+    "ID": "e7b0addd-cf16-4349-aaee-bb157c85dfb5",
+    "COMPANYNAME": "OOCL",
+    "COMPANYLOGO": "OOCL.png"
+  },
+  {
+    "ID": "c0258d82-a30e-4662-8122-856ef082533c",
+    "COMPANYNAME": "YANG MING",
+    "COMPANYLOGO": "YANG_MING.png"
+  },
+  {
+    "ID": "f3ef6944-36bc-414c-aaf3-d7fe816305bd",
+    "COMPANYNAME": "PIL",
+    "COMPANYLOGO": "PIL.png"
+  },
+  {
+    "ID": "7fcbb673-458f-425d-93bc-6f5914c32c23",
+    "COMPANYNAME": "ZIM",
+    "COMPANYLOGO": "ZIM.png"
+  },
+  {
+    "ID": "08302e4e-cfea-4a46-a5fa-a065db4e15ce",
+    "COMPANYNAME": "KMTC",
+    "COMPANYLOGO": "KMTC.jpeg"
+  },
+  {
+    "ID": "1d765fcc-4f54-4a87-a414-5dd1bb7480ba",
+    "COMPANYNAME": "UNIFEEDER",
+    "COMPANYLOGO": "UNIFEEDER.webp"
+  },
+  {
+    "ID": "4aaa77c3-e4d7-46a5-8bef-c7fedd09d82f",
+    "COMPANYNAME": "MARGUISA",
+    "COMPANYLOGO": "MARGUISA.png"
+  },
+  {
+    "ID": "0d785f83-6bbd-487e-8837-7f400fb28df6",
+    "COMPANYNAME": "ARKAS",
+    "COMPANYLOGO": "ARKAS.png"
+  },
+  {
+    "ID": "d1840d51-505f-46cf-9b9c-1c1be54647ed",
+    "COMPANYNAME": "WAN HAI LINES",
+    "COMPANYLOGO": "WAN_HAI_LINES.png"
+  },
+  {
+    "ID": "0e5f4dc0-26a0-4781-bade-7f5e01bb0ea8",
+    "COMPANYNAME": "MATSON",
+    "COMPANYLOGO": "MATSON.webp"
+  },
+  {
+    "ID": "9df314ae-ba7a-4640-bb85-e223866e7c32",
+    "COMPANYNAME": "SWIRE SHIPPING",
+    "COMPANYLOGO": "SWIRE_SHIPPING.jpg"
+  },
+  {
+    "ID": "ff9d6eb7-31f6-4d6a-a5b0-0308bb09f0dd",
+    "COMPANYNAME": "X-PRESS  FEEDERS",
+    "COMPANYLOGO": "X_PRESS_FEEDERS.jpg"
+  }
+]

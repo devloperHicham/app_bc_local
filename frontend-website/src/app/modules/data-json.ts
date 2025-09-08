@@ -18,3 +18,9 @@ export interface Container {
   CONTAINERNAME: string;
   CONTAINERWEIGHT: number;
 }
+
+export interface Company {
+  ID: string;
+  COMPANYNAME: string;
+  COMPANYLOGO: string;
+}

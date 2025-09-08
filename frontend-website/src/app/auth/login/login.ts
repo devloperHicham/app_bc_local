@@ -23,6 +23,7 @@ export class Login implements OnInit {
   isLoading = false;
   submitted = false;
   errorMessage = '';
+  showPassword: boolean = false;
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
@@ -39,6 +40,16 @@ export class Login implements OnInit {
   //@return response()
   get f() {
     return this.form.controls;
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  onKeyMenuItem(event: KeyboardEvent): void {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+    }
   }
 
   //get authentication token

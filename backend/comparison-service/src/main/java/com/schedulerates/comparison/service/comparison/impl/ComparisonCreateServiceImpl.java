@@ -111,25 +111,45 @@ public class ComparisonCreateServiceImpl implements ComparisonCreateService {
                                                                         dateArriveStr,
                                                                         "1"); // active = 1
 
-                                        if (!exists && !comparisonCreateRequest.getPortFromId().equals(comparisonCreateRequest.getPortToId())) {
+                                        if (!exists && !comparisonCreateRequest.getPortFromId()
+                                                        .equals(comparisonCreateRequest.getPortToId())) {
                                                 ComparisonEntity comparisonEntity = ComparisonEntity.builder()
                                                                 .portFromId(comparisonCreateRequest.getPortFromId())
+                                                                .portFromName(portFrom.getPortName())
+                                                                .countryFromName(portFrom.getCountryName())
+                                                                .countryFromNameAbbreviation(
+                                                                                portFrom.getCountryNameAbbreviation())
+                                                                .portFromCode(portFrom.getPortCode())
+                                                                .portFromLatitude(portFrom.getPortLatitude())
+                                                                .portFromLongitude(portFrom.getPortLongitude())
+                                                                .portFromLogo(portFrom.getPortLogo())
+
                                                                 .portToId(comparisonCreateRequest.getPortToId())
+                                                                .portToName(portTo.getPortName())
+                                                                .countryToName(portTo.getCountryName())
+                                                                .countryToNameAbbreviation(
+                                                                                portTo.getCountryNameAbbreviation())
+                                                                .portToCode(portTo.getPortCode())
+                                                                .portToLatitude(portTo.getPortLatitude())
+                                                                .portToLongitude(portTo.getPortLongitude())
+                                                                .portToLogo(portTo.getPortLogo())
+
                                                                 .companyId(comparisonCreateRequest.getCompanyId())
+                                                                .companyName(company.getCompanyName())
+                                                                .companyLogo(company.getCompanyLogo())
                                                                 .transportationId(comparisonCreateRequest
                                                                                 .getTransportationId())
+                                                                .transportationName(
+                                                                                transportation.getTransportationName())
                                                                 .gargoId(comparisonCreateRequest.getGargoId())
+                                                                .gargoName(gargo.getGargoName())
                                                                 .containerId(containerId)
+                                                                .containerName(container.getContainerName())
+                                                                .containerWeight(container.getContainerWeight())
                                                                 .dateDepart(dateDepartStr)
                                                                 .dateArrive(dateArriveStr)
                                                                 .price(price)
-                                                                .portFromName(portFrom.getPortName())
-                                                                .portToName(portTo.getPortName())
-                                                                .companyName(company.getCompanyName())
-                                                                .containerName(container.getContainerName())
-                                                                .gargoName(gargo.getGargoName())
-                                                                .transportationName(
-                                                                                transportation.getTransportationName())
+
                                                                 .createdBy(getCurrentUserEmail())
                                                                 .createdAt(LocalDateTime.now())
                                                                 .active("1")

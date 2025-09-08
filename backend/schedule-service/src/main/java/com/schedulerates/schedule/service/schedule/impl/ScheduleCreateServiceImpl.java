@@ -99,20 +99,37 @@ public class ScheduleCreateServiceImpl implements ScheduleCreateService {
                                                         dateArriveStr,
                                                         "1"); // active = 1
 
-                        if (!exists && (departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate)) && (!scheduleCreateRequest.getPortFromId().equals(scheduleCreateRequest.getPortToId()))) {
+                        if (!exists && (departDate.isBefore(arriveDate) || departDate.isEqual(arriveDate))
+                                        && (!scheduleCreateRequest.getPortFromId()
+                                                        .equals(scheduleCreateRequest.getPortToId()))) {
                                 ScheduleEntity scheduleEntity = ScheduleEntity.builder()
                                                 .portFromId(scheduleCreateRequest.getPortFromId())
+                                                .portFromName(portFrom.getPortName())
+                                                .countryFromName(portFrom.getCountryName())
+                                                .countryFromNameAbbreviation(portFrom.getCountryNameAbbreviation())
+                                                .portFromCode(portFrom.getPortCode())
+                                                .portFromLatitude(portFrom.getPortLatitude())
+                                                .portFromLongitude(portFrom.getPortLongitude())
+                                                .portFromLogo(portFrom.getPortLogo())
+
                                                 .portToId(scheduleCreateRequest.getPortToId())
+                                                .portToName(portTo.getPortName())
+                                                .countryToName(portTo.getCountryName())
+                                                .countryToNameAbbreviation(portTo.getCountryNameAbbreviation())
+                                                .portToCode(portTo.getPortCode())
+                                                .portToLatitude(portTo.getPortLatitude())
+                                                .portToLongitude(portTo.getPortLongitude())
+                                                .portToLogo(portTo.getPortLogo())
+
                                                 .companyId(scheduleCreateRequest.getCompanyId())
+                                                .companyName(company.getCompanyName())
+                                                .companyLogo(company.getCompanyLogo())
                                                 .dateDepart(dateDepartStr)
                                                 .dateArrive(dateArriveStr)
                                                 .transit(transit)
                                                 .vessel(vessel)
                                                 .refVoyage(refVoyage)
                                                 .serviceName(serviceName)
-                                                .portFromName(portFrom.getPortName())
-                                                .portToName(portTo.getPortName())
-                                                .companyName(company.getCompanyName())
                                                 .createdBy(getCurrentUserEmail())
                                                 .createdAt(LocalDateTime.now())
                                                 .active("1")

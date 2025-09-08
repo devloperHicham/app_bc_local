@@ -6,180 +6,234 @@
     </div>
 
     <div class="form">
-      <div class="content">
-        <!-- Header -->
-        <div class="header">
-          <div class="create-an-account">
-            {{ "AUTH.CREATE_ACCOUNT" | translate }}
+      <form
+        class="row g-3 needs-validation"
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+      >
+        <div class="content">
+          <!-- Header -->
+          <div class="header">
+            <div class="create-an-account">
+              {{ "AUTH.CREATE_ACCOUNT" | translate }}
+            </div>
+            <div class="access-quotes-from">
+              {{ "AUTH.ACCESS_QUOTES" | translate }}
+            </div>
           </div>
-          <div class="access-quotes-from">
-            {{ "AUTH.ACCESS_QUOTES" | translate }}
-          </div>
-        </div>
 
-        <!-- Form Fields -->
-        <div class="form-fields">
-          <div class="row">
-            <div class="input-field" style="width: 40%">
+          <!-- Form Fields -->
+          <div class="form-fields">
+            <div class="row">
+              <div class="input-field" style="width: 40%">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "AUTH.FIRST_NAME" | translate }}
+                  </div>
+                </div>
+                <div class="text-field">
+                  <div class="leading-icon">
+                    <img
+                      class="vector-icon"
+                      alt=""
+                      src="assets/images/user-blue.png"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    class="eg-casablanca-portma"
+                    name="firstName"
+                    required
+                    formControlName="firstName"
+                    placeholder="{{
+                      'CONTACT.FIRST_NAME_PLACEHOLDER' | translate
+                    }}"
+                  />
+                </div>
+              </div>
+
+              <div class="input-field" style="width: 40%">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "AUTH.LAST_NAME" | translate }}
+                  </div>
+                </div>
+                <div class="text-field">
+                  <div class="leading-icon">
+                    <img
+                      class="vector-icon"
+                      alt=""
+                      src="assets/images/user-blue.png"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    class="eg-casablanca-portma"
+                    name="lastName"
+                    required
+                    formControlName="lastName"
+                    placeholder="{{ 'AUTH.LAST_NAME_PLACEHOLDER' | translate }}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field" style="width: 40%">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "AUTH.EMAIL" | translate }}
+                  </div>
+                </div>
+                <div class="text-field">
+                  <div class="leading-icon">
+                    <img
+                      class="vector-icon2"
+                      alt=""
+                      src="assets/images/email.png"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    formControlName="email"
+                    class="eg-casablanca-portma"
+                    placeholder="{{ 'AUTH.EMAIL_PLACEHOLDER' | translate }}"
+                  />
+                </div>
+              </div>
+              <div class="input-field" style="width: 40%">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "AUTH.EMAIL" | translate }}
+                  </div>
+                </div>
+                <div class="text-field">
+                  <div class="leading-icon">
+                    <img
+                      class="vector-icon2"
+                      alt=""
+                      src="assets/images/phone.png"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    required
+                    formControlName="phoneNumber"
+                    class="eg-casablanca-portma"
+                    placeholder="{{ 'CONTACT.PHONE_PLACEHOLDER' | translate }}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="input-field2">
               <div class="input-title">
                 <div class="text-placeholder-1">
-                  {{ "AUTH.FIRST_NAME" | translate }}
+                  {{ "AUTH.PASSWORD" | translate }}
                 </div>
               </div>
               <div class="text-field">
                 <div class="leading-icon">
                   <img
-                    class="vector-icon"
+                    class="vector-icon3"
                     alt=""
-                    src="assets/images/user-blue.png"
+                    src="assets/images/password.png"
                   />
                 </div>
                 <input
-                  type="text"
+                  [type]="showPassword ? 'text' : 'password'"
+                  name="password"
+                  required
+                  formControlName="password"
                   class="eg-casablanca-portma"
-                  placeholder="{{ 'AUTH.FIRST_NAME_PLACEHOLDER' | translate }}"
+                  placeholder="{{ 'AUTH.PASSWORD_PLACEHOLDER' | translate }}"
                 />
+                <div
+                  class="leading-icon"
+                  (click)="togglePasswordVisibility()"
+                  (keydown)="onKeyMenuItem($event)"
+                  style="cursor: pointer"
+                >
+                  <img
+                    class="vector-icon4"
+                    alt="toggle password"
+                    [src]="
+                      showPassword
+                        ? 'assets/images/eye-off.png'
+                        : 'assets/images/eye.png'
+                    "
+                  />
+                </div>
+              </div>
+              <div class="input-underline">
+                <div class="text-placeholder">
+                  {{ "AUTH.PASSWORD_RULE" | translate }}
+                </div>
               </div>
             </div>
 
-            <div class="input-field" style="width: 40%">
+            <div class="input-field2">
               <div class="input-title">
                 <div class="text-placeholder-1">
-                  {{ "AUTH.LAST_NAME" | translate }}
+                  {{ "AUTH.CONFIRM_PASSWORD" | translate }}
                 </div>
               </div>
               <div class="text-field">
                 <div class="leading-icon">
                   <img
-                    class="vector-icon"
+                    class="vector-icon3"
                     alt=""
-                    src="assets/images/user-blue.png"
+                    src="assets/images/password.png"
                   />
                 </div>
                 <input
-                  type="text"
+                  [type]="showPassword ? 'text' : 'password'"
+                  name="confirmePassword"
+                  required
+                  formControlName="confirmePassword"
                   class="eg-casablanca-portma"
-                  placeholder="{{ 'AUTH.LAST_NAME_PLACEHOLDER' | translate }}"
+                  placeholder="{{
+                    'AUTH.CONFIRM_PASSWORD_PLACEHOLDER' | translate
+                  }}"
                 />
+                <div
+                  class="leading-icon"
+                  (click)="togglePasswordVisibility()"
+                  (keydown)="onKeyMenuItem($event)"
+                  style="cursor: pointer"
+                >
+                  <img
+                    class="vector-icon4"
+                    alt="toggle password"
+                    [src]="
+                      showPassword
+                        ? 'assets/images/eye-off.png'
+                        : 'assets/images/eye.png'
+                    "
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="input-field2">
-            <div class="input-title">
-              <div class="text-placeholder-1">
-                {{ "AUTH.EMAIL" | translate }}
-              </div>
-            </div>
-            <div class="text-field">
-              <div class="leading-icon">
-                <img
-                  class="vector-icon2"
-                  alt=""
-                  src="assets/images/email.png"
-                />
-              </div>
-              <input
-                type="email"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'AUTH.EMAIL_PLACEHOLDER' | translate }}"
-              />
-            </div>
+          <!-- Submit -->
+          <div class="button" id="buttonContainer">
+            <button class="text-placeholder-1" [disabled]="form.invalid">
+              {{ "AUTH.CREATE_BUTTON" | translate }}
+            </button>
           </div>
-
-          <div class="input-field2">
-            <div class="input-title">
-              <div class="text-placeholder-1">
-                {{ "AUTH.PASSWORD" | translate }}
-              </div>
-            </div>
-            <div class="text-field">
-              <div class="leading-icon">
-                <img
-                  class="vector-icon3"
-                  alt=""
-                  src="assets/images/password.png"
-                />
-              </div>
-              <input
-                type="password"
-                class="eg-casablanca-portma"
-                placeholder="{{ 'AUTH.PASSWORD_PLACEHOLDER' | translate }}"
-              />
-              <div class="leading-icon">
-                <img class="vector-icon4" alt="" src="assets/images/eye.png" />
-              </div>
-            </div>
-            <div class="input-underline">
-              <div class="text-placeholder">
-                {{ "AUTH.PASSWORD_RULE" | translate }}
-              </div>
-            </div>
-          </div>
-
-          <div class="input-field2">
-            <div class="input-title">
-              <div class="text-placeholder-1">
-                {{ "AUTH.CONFIRM_PASSWORD" | translate }}
-              </div>
-            </div>
-            <div class="text-field">
-              <div class="leading-icon">
-                <img
-                  class="vector-icon3"
-                  alt=""
-                  src="assets/images/password.png"
-                />
-              </div>
-              <input
-                type="password"
-                class="eg-casablanca-portma"
-                placeholder="{{
-                  'AUTH.CONFIRM_PASSWORD_PLACEHOLDER' | translate
-                }}"
-              />
-              <div class="leading-icon">
-                <img class="vector-icon4" alt="" src="assets/images/eye.png" />
-              </div>
-            </div>
+          <!-- Already have account -->
+          <div class="already-have-an-container">
+            <span>{{ "AUTH.ALREADY_ACCOUNT" | translate }}</span>
+            <span class="sign-in"
+              ><a style="cursor: pointer" routerLink="/login">{{
+                "AUTH.SIGN_IN" | translate
+              }}</a></span
+            >
           </div>
         </div>
-
-        <!-- Submit -->
-        <div class="button" id="buttonContainer">
-          <button class="text-placeholder-1">
-            {{ "AUTH.CREATE_BUTTON" | translate }}
-          </button>
-        </div>
-
-        <!-- Alternatives -->
-        <div class="alternatives">
-          <div class="header6">
-            <div class="header-child"></div>
-            <div class="or-create-an">{{ "AUTH.OR_USING" | translate }}</div>
-            <div class="header-child"></div>
-          </div>
-          <div class="option-parent">
-            <a class="option" alt="" href="#">
-              <img
-                class="google-logo-1"
-                alt=""
-                src="assets/images/google.png"
-              />
-            </a>
-          </div>
-        </div>
-
-        <!-- Already have account -->
-        <div class="already-have-an-container">
-          <span>{{ "AUTH.ALREADY_ACCOUNT" | translate }}</span>
-          <span class="sign-in"
-            ><a style="cursor: pointer" routerLink="/login">{{
-              "AUTH.SIGN_IN" | translate
-            }}</a></span
-          >
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

@@ -11,4 +11,5 @@ public class CompanyDto {
 
     private String id;
     private String companyName;
+    private String companyLogo;
 }

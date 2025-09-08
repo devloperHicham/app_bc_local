@@ -14,12 +14,17 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { HeroSerice } from "../services/hero-serice";
-import { Container, Port, Transportation } from "../../../modules/data-json";
-
+import { Company, Container, Port, Transportation } from "../../../modules/data-json";
+import { SharedModule } from "../../../share/share-module";
+type PortFilterType =
+  | 'fromSchedule'
+  | 'toSchedule'
+  | 'fromComparison'
+  | 'toComparison';
 @Component({
   selector: "app-hero",
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule, TranslateModule],
+  imports: [SharedModule, RouterLink, CommonModule, FormsModule, TranslateModule],
   templateUrl: "./hero.html",
   styleUrls: ["./hero.css"],
 })
@@ -27,12 +32,28 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   ports: Port[] = [];
   containers: Container[] = [];
   transportations: Transportation[] = [];
-  selectedPortFrom = "";
-  filteredPortsFrom: any[] = [];
-  dropdownOpenFrom = false;
-  selectedPortTo = "";
-  filteredPortsTo: any[] = [];
-  dropdownOpenTo = false;
+  companies: Company[] = [];
+  selectedCompany: string | null = null;
+
+  selectedPortFromSchedule = '';
+  filteredPortsFromSchedule: any[] = [];
+  dropdownOpenFromSchedule = false;
+  selectedPortFromScheduleCode : string | null = null;
+
+  selectedPortToSchedule = '';
+  filteredPortsToSchedule: any[] = [];
+  dropdownOpenToSchedule = false;
+  selectedPortToScheduleCode  : string | null = null;
+
+  selectedPortFromComparison = '';
+  filteredPortsFromComparison: any[] = [];
+  dropdownOpenFromComparison = false;
+  selectedPortFromComparisonCode  : string | null = null;
+
+  selectedPortToComparison = '';
+  filteredPortsToComparison: any[] = [];
+  dropdownOpenToComparison = false;
+  selectedPortToComparisonCode  : string | null = null;
 
   constructor(
     private readonly heroSerice: HeroSerice,
@@ -53,18 +74,28 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     this.heroSerice.getTransportations().subscribe((data) => {
       this.transportations = data;
     });
+// Load companies data on initialization
+    this.heroSerice.getCompanies().subscribe((data) => {
+      this.companies = data;
+    });
   }
 
-  filterPorts(type: "from" | "to", event: any) {
+   filterPorts(type: PortFilterType, event: any) {
     const val = event.target.value.toLowerCase().trim();
 
     if (val.length < 3) {
-      if (type === "from") {
-        this.filteredPortsFrom = [];
-        this.dropdownOpenFrom = false;
+      if (type === 'fromSchedule') {
+        this.filteredPortsFromSchedule = [];
+        this.dropdownOpenFromSchedule = false;
+      } else if (type === 'toSchedule') {
+        this.filteredPortsToSchedule = [];
+        this.dropdownOpenToSchedule = false;
+      } else if (type === 'fromComparison') {
+        this.filteredPortsFromComparison = [];
+        this.dropdownOpenFromComparison = false;
       } else {
-        this.filteredPortsTo = [];
-        this.dropdownOpenTo = false;
+        this.filteredPortsToComparison = [];
+        this.dropdownOpenToComparison = false;
       }
       return;
     }
@@ -75,32 +106,57 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
         port.CODEPORT.toLowerCase().startsWith(val) // port code starts with input
     );
 
-    if (type === "from") {
-      this.filteredPortsFrom = filtered;
-      this.dropdownOpenFrom = filtered.length > 0;
+     if (type === 'fromSchedule') {
+      this.filteredPortsFromSchedule = filtered;
+      this.dropdownOpenFromSchedule = filtered.length > 0;
+    } else if (type === 'toSchedule') {
+      this.filteredPortsToSchedule = filtered;
+      this.dropdownOpenToSchedule = filtered.length > 0;
+    } else if (type === 'fromComparison') {
+      this.filteredPortsFromComparison = filtered;
+      this.dropdownOpenFromComparison = filtered.length > 0;
     } else {
-      this.filteredPortsTo = filtered;
-      this.dropdownOpenTo = filtered.length > 0;
+      this.filteredPortsToComparison = filtered;
+      this.dropdownOpenToComparison = filtered.length > 0;
     }
   }
 
-  selectPort(type: "from" | "to", port: any) {
-    if (type === "from") {
-      this.selectedPortFrom = port.PORTNAME + ", " + port.ISO3;
-      this.filteredPortsFrom = [];
-      this.dropdownOpenFrom = false;
+  selectPort(type: PortFilterType, port: any) {
+    if (type === 'fromSchedule') {
+      this.selectedPortFromSchedule = port.PORTNAME + ', ' + port.ISO3;
+      this.selectedPortFromScheduleCode = port.CODEPORT;
+      this.filteredPortsFromSchedule = [];
+      this.dropdownOpenFromSchedule = false;
+    } else if (type === 'toSchedule') {
+      this.selectedPortToSchedule = port.PORTNAME + ', ' + port.ISO3;
+      this.selectedPortToScheduleCode = port.CODEPORT;
+      this.filteredPortsToSchedule = [];
+      this.dropdownOpenToSchedule = false;
+    } else if (type === 'fromComparison') {
+      this.selectedPortFromComparison = port.PORTNAME + ', ' + port.ISO3;
+      this.selectedPortFromComparisonCode = port.CODEPORT;
+      this.filteredPortsFromComparison = [];
+      this.dropdownOpenFromComparison = false;
     } else {
-      this.selectedPortTo = port.PORTNAME + ", " + port.ISO3;
-      this.filteredPortsTo = [];
-      this.dropdownOpenTo = false;
+      this.selectedPortToComparison = port.PORTNAME + ', ' + port.ISO3;
+      this.selectedPortToComparisonCode = port.CODEPORT;
+      this.filteredPortsToComparison = [];
+      this.dropdownOpenToComparison = false;
     }
   }
 
-  closeDropdown(type: "from" | "to") {
+ closeDropdown(type: PortFilterType) {
     setTimeout(() => {
-      if (type === "from") this.dropdownOpenFrom = false;
-      else this.dropdownOpenTo = false;
-    }, 150); // allow click to select
+      if (type === 'fromSchedule') {
+        this.dropdownOpenFromSchedule = false;
+      } else if (type === 'toSchedule') {
+        this.dropdownOpenToSchedule = false;
+      } else if (type === 'fromComparison') {
+        this.dropdownOpenFromComparison = false;
+      } else {
+        this.dropdownOpenToComparison = false;
+      }
+    }, 150);
   }
 
   //******************************************************************************************** */

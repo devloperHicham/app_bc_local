@@ -18,8 +18,10 @@ import org.springframework.security.oauth2.server.resource.web.authentication.Be
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
+
 /**
- * Security configuration class named {@link SecurityConfig} for setting up security filters and policies.
+ * Security configuration class named {@link SecurityConfig} for setting up
+ * security filters and policies.
  * Configures HTTP security settings, CORS, CSRF, and session management.
  */
 @Configuration
@@ -41,9 +43,12 @@ public class SecurityConfig {
     /**
      * Configures the security filter chain for HTTP requests.
      *
-     * @param httpSecurity the {@link HttpSecurity} to configure
-     * @param customBearerTokenAuthenticationFilter the custom filter for token authentication
-     * @param customAuthenticationEntryPoint the custom entry point for authentication errors
+     * @param httpSecurity                          the {@link HttpSecurity} to
+     *                                              configure
+     * @param customBearerTokenAuthenticationFilter the custom filter for token
+     *                                              authentication
+     * @param customAuthenticationEntryPoint        the custom entry point for
+     *                                              authentication errors
      * @return a configured {@link SecurityFilterChain} instance
      * @throws Exception if an error occurs while configuring security
      */
@@ -51,16 +56,14 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(
             final HttpSecurity httpSecurity,
             final CustomBearerTokenAuthenticationFilter customBearerTokenAuthenticationFilter,
-            final CustomAuthenticationEntryPoint customAuthenticationEntryPoint
-    ) throws Exception {
+            final CustomAuthenticationEntryPoint customAuthenticationEntryPoint) throws Exception {
 
         httpSecurity
                 .exceptionHandling(customizer -> customizer.authenticationEntryPoint(customAuthenticationEntryPoint))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(customizer -> customizer
                         .requestMatchers(HttpMethod.POST, "/api/v1/users/**").permitAll()
-                        .anyRequest().authenticated()
-                )
+                        .anyRequest().authenticated())
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(customBearerTokenAuthenticationFilter, BearerTokenAuthenticationFilter.class);
 
