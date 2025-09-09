@@ -14,7 +14,11 @@ cd "..\discovery-service"
 call mvn clean install -DskipTests
 call mvn clean package -DskipTests
 
-cd "..\operation-service"
+cd "..\comparison-service"
+call mvn clean install -DskipTests
+call mvn clean package -DskipTests
+
+cd "..\client-service"
 call mvn clean install -DskipTests
 call mvn clean package -DskipTests
 
