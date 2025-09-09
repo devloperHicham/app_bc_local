@@ -1,10 +1,11 @@
 package com.schedulerates.schedule.model.schedule.entity;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import com.schedulerates.schedule.model.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 /**
  * Represents a persistent entity for a Transportation as
  * {@link TransportationEntity}.
@@ -90,6 +91,9 @@ public class ScheduleEntity extends BaseEntity {
     @Column(name = "TRANSIT_DAYS", nullable = false)
     private Integer transit;
 
+    @Column(name = "CODE_TRANSATION", nullable = false, unique = true, length = 11)
+    private Long codeTransation;
+
     @Column(name = "VESSEL", nullable = false, length = 100)
     private String vessel;
 
@@ -108,6 +112,15 @@ public class ScheduleEntity extends BaseEntity {
         if (this.active == null) {
             this.active = "1"; // Only set default if not already set
         }
+
+        // generate random 11-digit code if not already set
+        if (this.codeTransation == null) {
+            this.codeTransation = generateRandom11Digit();
+        }
     }
 
+    private long generateRandom11Digit() {
+        // Generates number between 10_000_000_000 and 99_999_999_999
+        return ThreadLocalRandom.current().nextLong(10_000_000_000L, 100_000_000_000L);
+    }
 }

@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      @if (switch === true) {
+      @if (auth$ | async) {
       <div style="font-size: 14px" class="ctaprimary1" id="cTAPrimaryContainer1">
         <div (click)="handleMenuItemClick('inscription-users')" (keydown)="onKeyMenuItem($event, 'inscription-users')" class="request-a-quote">
           {{ 'NAV.SIGN_UP_FREE' | translate }}

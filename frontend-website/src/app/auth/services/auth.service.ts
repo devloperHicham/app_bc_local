@@ -234,6 +234,7 @@ export class AuthService {
     return this.authState$.value.user?.id ?? null;
   }
   private getUserFromToken(token: string): AuthUser {
+
     try {
       const decoded = jwtDecode<DecodedToken>(token);
 
@@ -263,8 +264,7 @@ export class AuthService {
   }
 
   private redirectBasedOnRole(role: string): void {
-    window.location.reload(); // As a last resort, refresh the page
-    this.router.navigate(['/home']);
+    this.router.navigateByUrl('/home');
   }
 
   private setupInactivityMonitoring(): void {

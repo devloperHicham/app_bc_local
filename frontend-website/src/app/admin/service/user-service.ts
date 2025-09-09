@@ -10,15 +10,13 @@ import { ApiResponses } from '../../modules/api-responses';
 })
 export class UserService {
   private readonly url: string;
-  private readonly url_auth: string;
   getUsersPaginated: any;
 
   constructor(
     private readonly http: HttpClient,
     private readonly configService: ConfigService
   ) {
-    this.url = `${this.configService.URL_API_AUTH}${this.configService.ENDPOINTS.users}`;
-    this.url_auth = `${this.configService.URL_API_AUTH}${this.configService.ENDPOINTS.users}`;
+    this.url = `${this.configService.URL_API_AUTH}`;
   }
 
   show(id: string): Observable<Inscription | null> {
@@ -41,9 +39,9 @@ export class UserService {
   create(data: Inscription): Observable<ApiResponses<void>> {
     return this.http
       .post<ApiResponses<void>>(
-        this.url_auth + '/register',
+        this.url + '/register',
         data,
-        this.configService.httpOptions
+        this.configService.httpOptionLogins
       )
       .pipe(
         map((response) => {

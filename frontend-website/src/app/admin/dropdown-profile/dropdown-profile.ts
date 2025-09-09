@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-dropdown-profile',
@@ -17,7 +18,7 @@ export class DropdownProfile {
   userEmail = 'haitamehadraoui@gmail.com';
   userType = 'Shipper';
 
-  constructor(private readonly cdr: ChangeDetectorRef, private readonly translate :TranslateService) {}
+  constructor(private readonly authService: AuthService, private readonly cdr: ChangeDetectorRef, private readonly translate :TranslateService) {}
   
   toggleDropdown(event: Event): void {
     event.stopPropagation();
@@ -49,11 +50,11 @@ export class DropdownProfile {
         this.router.navigate(['help-centers']);
         break;
       case 'logout':
-        this.router.navigate(['login']);
+        this.authService.logout();
         break;
     }
     this.isDropdownOpen = false;
-  }
+  } 
 
   onKeyMenuItem(event: KeyboardEvent, action: string): void {
     if (event.key === 'Enter' || event.key === ' ') {

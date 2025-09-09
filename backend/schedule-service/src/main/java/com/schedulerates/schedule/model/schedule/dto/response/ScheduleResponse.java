@@ -42,6 +42,7 @@ public class ScheduleResponse {
     private String dateDepart;
     private String dateArrive;
     private Integer transit;
+    private Integer codeTransation;
 
     // Vessel and service info
     private String vessel;

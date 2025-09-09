@@ -4,6 +4,7 @@ import com.schedulerates.comparison.model.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Represents a persistent entity for a Comparison as
@@ -112,6 +113,9 @@ public class ComparisonEntity extends BaseEntity {
     @Column(name = "PRICE", nullable = false)
     private Integer price;
 
+    @Column(name = "CODE_TRANSATION", nullable = false, unique = true, length = 11)
+    private Long codeTransation;
+
     @Column(name = "ACTIVE")
     private String active;
 
@@ -121,5 +125,15 @@ public class ComparisonEntity extends BaseEntity {
         if (this.active == null) {
             this.active = "1"; // Only set default if not already set
         }
+
+        // generate random 11-digit code if not already set
+        if (this.codeTransation == null) {
+            this.codeTransation = generateRandom11Digit();
+        }
+    }
+
+    private long generateRandom11Digit() {
+        // Generates number between 10_000_000_000 and 99_999_999_999
+        return ThreadLocalRandom.current().nextLong(10_000_000_000L, 100_000_000_000L);
     }
 }

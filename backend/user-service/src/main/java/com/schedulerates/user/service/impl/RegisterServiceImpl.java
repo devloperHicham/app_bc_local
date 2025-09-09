@@ -41,7 +41,7 @@ public class RegisterServiceImpl implements RegisterService {
     public User registerUser(RegisterRequest registerRequest) {
 
         if (userRepository.existsUserEntityByEmail(registerRequest.getEmail())) {
-            throw new UserAlreadyExistException("The email is already used for another admin : " + registerRequest.getEmail());
+            throw new UserAlreadyExistException("The email is already used for another one : " + registerRequest.getEmail());
         }
 
         final UserEntity userEntityToBeSave = registerRequestToUserEntityMapper.mapForSaving(registerRequest);

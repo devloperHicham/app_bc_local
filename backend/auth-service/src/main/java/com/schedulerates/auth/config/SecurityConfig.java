@@ -45,7 +45,15 @@ public class SecurityConfig {
                 .exceptionHandling(customizer -> customizer.authenticationEntryPoint(customAuthenticationEntryPoint))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(customizer -> customizer
-                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/verify").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/forgot-password").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/reset-password").permitAll()
+
+                        // Require authentication for refresh and logout
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/refresh").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/authentication/users/logout").authenticated()
                         .anyRequest().authenticated())
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(customBearerTokenAuthenticationFilter, BearerTokenAuthenticationFilter.class);
