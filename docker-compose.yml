@@ -117,6 +117,7 @@ services:
   discovery-service:
     build:
       context: ./backend/discovery-service
+      dockerfile: Dockerfile
     container_name: discovery-service
     ports:
       - "8761:8761"
