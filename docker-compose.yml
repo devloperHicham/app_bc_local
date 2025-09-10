@@ -102,8 +102,10 @@ services:
 
   # ===================== Spring Boot Services ==========================
   config-service:
+    image: booking-container-config-service:latest
     build:
       context: ./backend/config-service
+      dockerfile: Dockerfile
     container_name: config-service
     ports:
       - "8888:8888"
@@ -115,6 +117,7 @@ services:
       - SPRING_CONFIG_LOCATION=file:/config/config-service.yml
 
   discovery-service:
+    image: booking-container-discovery-service:latest
     build:
       context: ./backend/discovery-service
       dockerfile: Dockerfile
@@ -128,8 +131,10 @@ services:
 
 # auth-service:
   auth-service:
+    image: booking-container-auth-service:latest
     build:
       context: ./backend/auth-service
+      dockerfile: Dockerfile
     container_name: auth-service
     ports:
       - "8081:8081"
@@ -149,8 +154,11 @@ services:
 
 # user-service:
   user-service:
+    image: booking-container-user-service:latest
     build:
       context: ./backend/user-service
+      dockerfile: Dockerfile
+
     container_name: user-service
     ports:
       - "8082:8082"
@@ -169,8 +177,10 @@ services:
       - backend
 # setting-service:
   setting-service:
+    image: booking-container-setting-service:latest
     build:
       context: ./backend/setting-service
+      dockerfile: Dockerfile
     container_name: setting-service
     ports:
       - "8083:8083"
@@ -192,8 +202,10 @@ services:
       - backend
  # comparison-service
   comparison-service:
+    image: booking-container-comparison-service:latest
     build:
       context: ./backend/comparison-service
+      dockerfile: Dockerfile
     container_name: comparison-service
     ports:
       - "8084:8084"
@@ -213,8 +225,10 @@ services:
 
   # schedule-service
   schedule-service:
+    image: booking-container-schedule-service:latest
     build:
       context: ./backend/schedule-service
+      dockerfile: Dockerfile
     container_name: schedule-service
     ports:
       - "8085:8085"
@@ -234,8 +248,10 @@ services:
 
  # client-service
   client-service:
+    image: booking-container-client-service:latest
     build:
       context: ./backend/client-service
+      dockerfile: Dockerfile
     container_name: client-service
     ports:
       - "8086:8086"
@@ -255,8 +271,10 @@ services:
 
   # API Gateway
   api-gateway-service:
+    image: booking-container-api-gateway-service:latest
     build:
       context: ./backend/api-gateway-service
+      dockerfile: Dockerfile
     container_name: api-gateway-service
     ports:
       - "8881:8881"
@@ -300,6 +318,7 @@ services:
   # ===================== Frontend  ==========================
   # admin Frontend Angular
   frontend:
+    image: booking-container-frontend-admin:latest
     build:
       context: ./frontend-admin
       dockerfile: Dockerfile
@@ -316,6 +335,7 @@ services:
       - backend
   # website Frontend Angular
   website:
+    image: booking-container-frontend-website:latest
     build:
       context: ./frontend-website
       dockerfile: Dockerfile
