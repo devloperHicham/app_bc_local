@@ -1,6 +1,10 @@
 # Stage 1: Build stage
 FROM maven:3.9.9-amazoncorretto-24 AS build  
 
+
+WORKDIR /app
+
+
 # Copy Maven files for dependency resolution
 COPY pom.xml ./
 COPY .mvn .mvn
@@ -18,7 +22,7 @@ FROM amazoncorretto:24
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY target/setting-service-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose port 8084
 EXPOSE 8084
