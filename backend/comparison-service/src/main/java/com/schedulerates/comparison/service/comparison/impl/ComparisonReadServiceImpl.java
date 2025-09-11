@@ -5,6 +5,7 @@ import com.schedulerates.comparison.model.auth.enums.TokenClaims;
 import com.schedulerates.comparison.model.common.CustomPage;
 import com.schedulerates.comparison.model.comparison.Comparison;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonPagingRequest;
+import com.schedulerates.comparison.model.comparison.dto.request.ComparisonClientPagingRequest;
 import com.schedulerates.comparison.model.comparison.entity.ComparisonEntity;
 import com.schedulerates.comparison.model.comparison.mapper.ListComparisonEntityToListComparisonMapper;
 import com.schedulerates.comparison.model.comparison.mapper.ComparisonEntityToComparisonMapper;
@@ -17,6 +18,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -114,4 +118,36 @@ public class ComparisonReadServiceImpl implements ComparisonReadService {
                 .orElse(ANONYMOUS_USER)
                 .equals("ADMIN");
     }
+
+@Override
+public CustomPage<Comparison> getComparisonClients(ComparisonClientPagingRequest req) {
+    LocalDate startDate = null;
+    LocalDate endDate = null;
+
+    if (req.getSelectedDateComparison() != null && req.getWeeksAhead() != null) {
+        // Formatteur pour parser les dates en format "dd/MM/yyyy"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                        .withLocale(Locale.ENGLISH);
+        startDate = LocalDate.parse(req.getSelectedDateComparison(), formatter);
+        endDate = startDate.plusWeeks(Long.parseLong(req.getWeeksAhead()));
+    }
+
+    Page<ComparisonEntity> entityPage = comparisonRepository.findByComparisonFilters(
+            req.getSelectedPortFromComparison(),
+            req.getSelectedPortToComparison(),
+            startDate,
+            endDate,
+            req.getSearchOn(),
+            req.getSelectedCompany(),
+            req.getIsCheapest(),
+            req.getIsFastest(),
+            req.getIsDirect(),
+            req.toPageable()
+    );
+
+    List<Comparison> comparisonList = listComparisonEntityToListComparisonMapper
+            .toComparisonList(entityPage.getContent());
+
+    return CustomPage.of(comparisonList, entityPage);
+}
 }

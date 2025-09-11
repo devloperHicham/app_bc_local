@@ -3,6 +3,7 @@ package com.schedulerates.comparison.service.comparison;
 import com.schedulerates.comparison.model.common.CustomPage;
 import com.schedulerates.comparison.model.comparison.Comparison;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonPagingRequest;
+import com.schedulerates.comparison.model.comparison.dto.request.ComparisonClientPagingRequest;
 
 /**
  * Service interface named {@link TransportationReadService} for reading Transportations.
@@ -25,4 +26,11 @@ public interface ComparisonReadService {
      */
     CustomPage<Comparison> getComparisons(final ComparisonPagingRequest comparisonPagingRequest);
 
+    /**
+     * Retrieves a page of Comparisons clients based on the paging request criteria.
+     *
+     * @param comparisonClientPagingRequest The paging request criteria.
+     * @return A CustomPage containing the list of Comparisons that match the paging criteria.
+     */
+    CustomPage<Comparison> getComparisonClients(final ComparisonClientPagingRequest comparisonClientPagingRequest);
 }

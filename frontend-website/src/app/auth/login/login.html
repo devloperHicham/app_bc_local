@@ -109,10 +109,8 @@
         <div class="new-to-booking-container">
           <span>New to Booking container? </span>
           <span class="create-an-account">
-            <a
+            <a (click)="navigateToSignup($event)"
               style="cursor: pointer"
-              routerLink="/inscription-users"
-              routerLinkActive="active"
             >
               Create an account
             </a>

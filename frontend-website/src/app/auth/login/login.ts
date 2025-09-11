@@ -1,18 +1,18 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../services/auth.service';
-import { ConfigService } from '../../services/config/config';
-import { SharedModule } from '../../share/share-module';
-import { catchError, finalize, of } from 'rxjs';
+import { ChangeDetectorRef, Component, inject, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { AuthService } from "../services/auth.service";
+import { ConfigService } from "../../services/config/config";
+import { SharedModule } from "../../share/share-module";
+import { catchError, finalize, of } from "rxjs";
 
 @Component({
-  selector: 'app-login',
+  selector: "app-login",
   standalone: true,
   imports: [TranslateModule, SharedModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: "./login.html",
+  styleUrl: "./login.css",
 })
 export class Login implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
@@ -22,7 +22,7 @@ export class Login implements OnInit {
   form!: FormGroup;
   isLoading = false;
   submitted = false;
-  errorMessage = '';
+  errorMessage = "";
   showPassword: boolean = false;
 
   constructor(
@@ -32,8 +32,8 @@ export class Login implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.nonNullable.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -47,21 +47,24 @@ export class Login implements OnInit {
   }
 
   onKeyMenuItem(event: KeyboardEvent): void {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
     }
   }
-
+  navigateToSignup(event: Event) {
+    event.preventDefault(); // prevent form submission
+    this.router.navigate(["/inscription-users"]);
+  }
   //get authentication token
   submit() {
     this.submitted = true;
     if (this.form.invalid) {
-      this.errorMessage = 'Échec de la connexion.';
+      this.errorMessage = "Échec de la connexion.";
       return;
     }
 
     this.isLoading = true;
-    this.errorMessage = '';
+    this.errorMessage = "";
 
     const { email, password } = this.form.getRawValue();
 
@@ -70,7 +73,7 @@ export class Login implements OnInit {
       .pipe(
         catchError((err) => {
           this.errorMessage =
-            'Échec de la connexion. Veuillez vérifier vos identifiants.';
+            "Échec de la connexion. Veuillez vérifier vos identifiants.";
           return of(null);
         }),
         finalize(() => {

@@ -15,360 +15,365 @@
       </div>
     </div>
     <div class="search-bardesktop">
-      <div class="content">
-        <div class="header">
-          <div class="tabs">
-            <a class="tab-item1" [class.active]="activeTab === 'marine'" (click)="selectTab('marine')"
-              [ngClass]="{ 'active-blue': activeTab === 'marine' }">
-              <div class="icon">
-                <img class="vector-icon" alt="" [src]="
+      <form class="row g-3 needs-validation" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="content">
+          <div class="header">
+            <div class="tabs">
+              <a class="tab-item1" [class.active]="activeTab === 'marine'" (click)="selectTab('marine')"
+                [ngClass]="{ 'active-blue': activeTab === 'marine' }">
+                <div class="icon">
+                  <img class="vector-icon" alt="" [src]="
                     activeTab === 'marine'
                       ? 'assets/images/ship-white.png'
                       : 'assets/images/ship-blue.png'
                   " />
-              </div>
-              <div class="for-brokers">{{ "TABS.MARINE" | translate }}</div>
-            </a>
+                </div>
+                <div class="for-brokers">{{ "TABS.MARINE" | translate }}</div>
+              </a>
 
-            <a class="tab-item1" [class.active]="activeTab === 'schedules'" (click)="selectTab('schedules')"
-              [ngClass]="{ 'active-voilya': activeTab === 'schedules' }">
-              <div class="icon">
-                <img class="vector-icon1" alt="" [src]="
+              <a class="tab-item1" [class.active]="activeTab === 'schedules'" (click)="selectTab('schedules')"
+                [ngClass]="{ 'active-voilya': activeTab === 'schedules' }">
+                <div class="icon">
+                  <img class="vector-icon1" alt="" [src]="
                     activeTab === 'schedules'
                       ? 'assets/images/calendar-search.svg'
                       : 'assets/images/calendar-search.png'
                   " />
-              </div>
-              <div class="for-brokers">{{ "TABS.SCHEDULES" | translate }}</div>
-            </a>
+                </div>
+                <div class="for-brokers">{{ "TABS.SCHEDULES" | translate }}</div>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <!-- Marine tab -->
-        <div class="content1" *ngIf="activeTab === 'marine'">
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.FROM" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field" style="position: relative;">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
-              </div>
-              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
-                [(ngModel)]="selectedPortFromSchedule" (input)="filterPorts('fromSchedule', $event)"
-                (focus)="dropdownOpenFromSchedule = true" (blur)="closeDropdown('fromSchedule')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsFromSchedule.length && dropdownOpenFromSchedule">
-                <li *ngFor="let port of filteredPortsFromSchedule" (mousedown)="selectPort('fromSchedule', port)">
-                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
-                  <div class="port-info">
-                    <div class="port-name">{{ port.PORTNAME }}</div>
-                    <div class="port-country">{{ port.COUNTRY }}</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.TO" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field" style="position: relative;">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
-              </div>
-              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                [(ngModel)]="selectedPortToSchedule" (input)="filterPorts('toSchedule', $event)"
-                (focus)="dropdownOpenToSchedule = true" (blur)="closeDropdown('toSchedule')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsToSchedule.length && dropdownOpenToSchedule">
-                <li *ngFor="let port of filteredPortsToSchedule" (mousedown)="selectPort('toSchedule', port)">
-                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
-                  <div class="port-info">
-                    <div class="port-name">{{ port.PORTNAME }}</div>
-                    <div class="port-country">{{ port.COUNTRY }}</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="date-field">
-            <div class="header3">
-              <div class="input-title2">
-                <div class="text-placeholder-1">
-                  {{ "FORM.SPECIFIC_DAY" | translate }}
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" class="checkbox-child" [checked]="isIntervalMode"
-                    (change)="toggleDateMode()" />
-                </div>
-                <div class="text-placeholder-1">
-                  {{ "FORM.INTERVAL" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field2">
-              <div class="icon">
-                <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
-              </div>
-              <!-- Interval Mode -->
-              <input #intervalDateInput type="text" class="eg-casablanca-portma" style="border: none"
-                placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}" readonly *ngIf="isIntervalMode" />
-              <!-- Single Day Mode -->
-              <input #singleDateInput type="text" class="eg-casablanca-portma" style="border: none"
-                placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}" readonly *ngIf="!isIntervalMode" />
-            </div>
-          </div>
-          <div class="shipping-typemarine">
-            <div class="mono-select-field">
-              <div class="header3">
+          <!-- Marine tab -->
+          <div class="content1" *ngIf="activeTab === 'marine'" formGroupName="scheduleSearch">
+            <div class="input-field">
+              <div class="header1">
                 <div class="input-title">
                   <div class="text-placeholder-1">
-                    {{ "FORM.SHIPPING_TYPE" | translate }}
+                    {{ "FORM.FROM" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field" style="position: relative;">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input style="border: none; width: 100%;" type="text"
+                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromSchedule"
+                  (input)="filterPorts('fromSchedule', $event)" (focus)="dropdownOpenFromSchedule = true"
+                  (blur)="closeDropdown('fromSchedule')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsFromSchedule.length && dropdownOpenFromSchedule">
+                  <li *ngFor="let port of filteredPortsFromSchedule" (mousedown)="selectPort('fromSchedule', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                    <div class="port-info">
+                      <div class="port-name">{{ port.PORTNAME }}</div>
+                      <div class="port-country">{{ port.COUNTRY }}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.TO" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field" style="position: relative;">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+                  [value]="selectedPortToSchedule" (input)="filterPorts('toSchedule', $event)"
+                  (focus)="dropdownOpenToSchedule = true" (blur)="closeDropdown('toSchedule')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsToSchedule.length && dropdownOpenToSchedule">
+                  <li *ngFor="let port of filteredPortsToSchedule" (mousedown)="selectPort('toSchedule', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
+                    <div class="port-info">
+                      <div class="port-name">{{ port.PORTNAME }}</div>
+                      <div class="port-country">{{ port.COUNTRY }}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="date-field">
+              <div class="header3">
+                <div class="input-title2">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.SPECIFIC_DAY" | translate }}
+                  </div>
+                  <div class="checkbox">
+                    <input formControlName="isIntervalMode" type="checkbox" class="checkbox-child"
+                      [checked]="isIntervalMode" (change)="toggleDateMode()" />
+                  </div>
+                  <div class="text-placeholder-1">
+                    {{ "FORM.INTERVAL" | translate }}
                   </div>
                 </div>
               </div>
               <div class="text-field2">
-                <select style="border: none; background-color: transparent" class="eg-casablanca-portma">
-                  <option *ngFor="let transportation of transportations" [value]="transportation.ID">
-                    {{ transportation.TRANSPORTATIONNAME }}
-                  </option>
-                </select>
+                <div class="icon">
+                  <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
+                </div>
+                <!-- Interval Mode -->
+                <input formControlName="selectedDateRange" #intervalDateInput type="text" class="eg-casablanca-portma"
+                  style="border: none" placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}" readonly
+                  *ngIf="isIntervalMode" />
+                <!-- Single Day Mode -->
+                <input formControlName="selectedDate" #singleDateInput type="text" class="eg-casablanca-portma"
+                  style="border: none" placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}" readonly
+                  *ngIf="!isIntervalMode" />
               </div>
             </div>
-            <div class="mono-select-field1">
-              <div class="header3">
-                <div class="input-title2">
-                  <div class="text-placeholder-1">
-                    {{ "FORM.TRANSPORT_UNIT_TYPE" | translate }}
+            <div class="shipping-typemarine">
+              <div class="mono-select-field">
+                <div class="header3">
+                  <div class="input-title">
+                    <div class="text-placeholder-1">
+                      {{ "FORM.SHIPPING_TYPE" | translate }}
+                    </div>
                   </div>
-                  <div class="popup-container" (click)="togglePopover($event)" (keydown)="onKeyMenuItem($event)">
-                    <img class="icon4" src="assets/images/Popup-info.png" alt="" />
-                    <div class="popover" *ngIf="isPopoverVisible">
-                      <div class="popover-content">
-                        {{ "FORM.TRANSPORT_UNIT_INFO" | translate }}
+                </div>
+                <div class="text-field2">
+                  <select formControlName="selectedTransportation" style="border: none; background-color: transparent"
+                    class="eg-casablanca-portma">
+                    <option value="" disabled selected> {{ "FORM.SHIPPING_TYPE" | translate }}</option>
+                    <option *ngFor="let transportation of transportations" [value]="transportation.ID">
+                      {{ transportation.TRANSPORTATIONNAME }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="mono-select-field1">
+                <div class="header3">
+                  <div class="input-title2">
+                    <div class="text-placeholder-1">
+                      {{ "FORM.TRANSPORT_UNIT_TYPE" | translate }}
+                    </div>
+                    <div class="popup-container" (click)="togglePopover($event)" (keydown)="onKeyMenuItem($event)">
+                      <img class="icon4" src="assets/images/Popup-info.png" alt="" />
+                      <div class="popover" *ngIf="isPopoverVisible">
+                        <div class="popover-content">
+                          {{ "FORM.TRANSPORT_UNIT_INFO" | translate }}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="text-field2">
+                  <select formControlName="selectedContainer" style="border: none; background-color: transparent"
+                    class="eg-casablanca-portma">
+                    <option value="" disabled selected> type Container</option>
+                    <option *ngFor="let container of containers" [value]="container.ID">
+                      {{ container.CONTAINERNAME }}
+                    </option>
+                  </select>
+                </div>
               </div>
-              <div class="text-field2">
-                <select style="border: none; background-color: transparent" class="eg-casablanca-portma">
-                  <option [value]="">----- Selectionner -----</option>
-                  <option *ngFor="let container of containers" [value]="container.CONTAINERNAME">
-                    {{ container.CONTAINERNAME }}
+            </div>
+          </div>
+          <!-- End Marine tab -->
+
+          <!-- Schedules tab -->
+          <div class="content1" *ngIf="activeTab === 'schedules'" formGroupName="comparisonSearch">
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.FROM" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field" style="position: relative;">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input style="border: none; width: 100%;" type="text"
+                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromComparison"
+                  (input)="filterPorts('fromComparison', $event)" (focus)="dropdownOpenFromComparison = true"
+                  (blur)="closeDropdown('fromComparison')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsFromComparison.length && dropdownOpenFromComparison">
+                  <li *ngFor="let port of filteredPortsFromComparison" (mousedown)="selectPort('fromComparison', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                    <div class="port-info">
+                      <div class="port-name">{{ port.PORTNAME }}</div>
+                      <div class="port-country">{{ port.COUNTRY }}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.TO" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field" style="position: relative;">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
+                </div>
+                <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
+                  [value]="selectedPortToComparison" (input)="filterPorts('toComparison', $event)"
+                  (focus)="dropdownOpenToComparison = true" (blur)="closeDropdown('toComparison')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsToComparison.length && dropdownOpenToComparison">
+                  <li *ngFor="let port of filteredPortsToComparison" (mousedown)="selectPort('toComparison', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
+                    <div class="port-info">
+                      <div class="port-name">{{ port.PORTNAME }}</div>
+                      <div class="port-country">{{ port.COUNTRY }}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.SHIPPING_LINES" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/ship-lines.png" />
+                </div>
+                <select formControlName="selectedCompany" style="border: none; background-color: transparent"
+                  class="eg-casablanca-portma">
+                  <option value="" disabled selected> {{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}</option>
+                  <option *ngFor="let company of companies" [value]="company.ID">
+                    {{ company.COMPANYNAME }}
                   </option>
                 </select>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- End Marine tab -->
-
-        <!-- Schedules tab -->
-        <div class="content1" *ngIf="activeTab === 'schedules'">
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.FROM" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field" style="position: relative;">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
-              </div>
-              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}"
-                [(ngModel)]="selectedPortFromComparison" (input)="filterPorts('fromComparison', $event)"
-                (focus)="dropdownOpenFromComparison = true" (blur)="closeDropdown('fromComparison')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsFromComparison.length && dropdownOpenFromComparison">
-                <li *ngFor="let port of filteredPortsFromComparison" (mousedown)="selectPort('fromComparison', port)">
-                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
-                  <div class="port-info">
-                    <div class="port-name">{{ port.PORTNAME }}</div>
-                    <div class="port-country">{{ port.COUNTRY }}</div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.SEARCH_ON" | translate }}
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.TO" | translate }}
                 </div>
               </div>
-            </div>
-            <div class="text-field" style="position: relative;">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon4" alt="" src="assets/images/flag-icon.png" />
+                </div>
+                <select formControlName="searchOn" class="eg-casablanca-portma"
+                  style="border: none; background-color: transparent">
+                  <option value="1" selected>
+                    {{ "QUOTES.DEPARTURE" | translate }}
+                  </option>
+                  <option value="2">
+                    {{ "QUOTES.ARRIVAL" | translate }}
+                  </option>
+                </select>
               </div>
-              <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                [(ngModel)]="selectedPortToComparison" (input)="filterPorts('toComparison', $event)"
-                (focus)="dropdownOpenToComparison = true" (blur)="closeDropdown('toComparison')" />
-              <ul class="custom-dropdown" *ngIf="filteredPortsToComparison.length && dropdownOpenToComparison">
-                <li *ngFor="let port of filteredPortsToComparison" (mousedown)="selectPort('toComparison', port)">
-                  <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
-                  <div class="port-info">
-                    <div class="port-name">{{ port.PORTNAME }}</div>
-                    <div class="port-country">{{ port.COUNTRY }}</div>
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.DATE" | translate }}
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.SHIPPING_LINES" | translate }}
                 </div>
               </div>
-            </div>
-            <div class="text-field">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/ship-lines.png" />
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
+                </div>
+                <input formControlName="selectedDateComparison" #singleDateScheduleInput type="text"
+                  class="eg-casablanca-portma" placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}" readonly />
               </div>
-
-              <ng-select 
-                [items]="companies" bindLabel="COMPANYNAME" bindValue="ID" [(ngModel)]="selectedCompany"
-                placeholder="{{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}" [searchable]="true" [clearable]="true"
-                class="eg-casablanca-portma">
-                <!-- Custom template for showing logo + name -->
-                <ng-template class="eg-casablanca-portma" style="border: none; background-color: transparent" ng-option-tmp let-item="item">
-                  <div class="flex items-center gap-2">
-                     <img [src]="'assets/flag_companies/' + item.COMPANYLOGO" alt="{{item.COMPANYNAME}}" />
+            </div>
+            <div class="input-field">
+              <div class="header1">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "FORM.WEEKS_AHEAD" | translate }}
                   </div>
-                </ng-template>
-              </ng-select>
-            </div>
-          </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.SEARCH_ON" | translate }}
                 </div>
               </div>
-            </div>
-            <div class="text-field">
-              <div class="icon">
-                <img class="vector-icon4" alt="" src="assets/images/flag-icon.png" />
+              <div class="text-field">
+                <div class="icon"></div>
+                <input formControlName="weeksAhead" style="border: none" type="number" class="eg-casablanca-portma"
+                  placeholder="{{ 'PLACEHOLDERS.MAX_WEEKS' | translate }}" />
               </div>
-              <select class="eg-casablanca-portma" style="border: none; background-color: transparent">
-                <option value="departure">
-                  departure
-                </option>
-                <option value="arrival">
-                  arrival
-                </option>
-              </select>
             </div>
           </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.DATE" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field">
-              <div class="icon">
-                <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
-              </div>
-              <input #singleDateScheduleInput type="text" class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}" readonly />
-            </div>
-          </div>
-          <div class="input-field">
-            <div class="header1">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "FORM.WEEKS_AHEAD" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field">
-              <div class="icon"></div>
-              <input style="border: none" type="number" class="eg-casablanca-portma"
-                placeholder="{{ 'PLACEHOLDERS.MAX_WEEKS' | translate }}" />
-            </div>
-          </div>
+          <!-- End Schedules tab -->
         </div>
-        <!-- End Schedules tab -->
-      </div>
-      <!-- Footer Marine -->
-      <div class="footer" *ngIf="activeTab === 'marine'">
-        <div class="filters">
-          <div class="quick-filters">
-            <input type="checkbox" class="checkbox1" />
-            <div class="sort-by-fastest">
-              {{ "FILTERS.SORT_FASTEST" | translate }}
+        <!-- Footer Marine -->
+        <div class="footer" *ngIf="activeTab === 'marine'">
+          <div class="filters">
+            <div class="quick-filters">
+              <input type="checkbox" class="checkbox1" />
+              <div class="sort-by-fastest">
+                {{ "FILTERS.SORT_FASTEST" | translate }}
+              </div>
+            </div>
+            <div class="quick-filters">
+              <input formControlName="isCheapest" type="checkbox" class="checkbox1" />
+              <div class="sort-by-fastest">
+                {{ "FILTERS.SORT_CHEAPEST" | translate }}
+              </div>
             </div>
           </div>
-          <div class="quick-filters">
-            <input type="checkbox" class="checkbox1" />
-            <div class="sort-by-fastest">
-              {{ "FILTERS.SORT_CHEAPEST" | translate }}
-            </div>
-          </div>
-        </div>
-        <div class="ctaprimary">
-          <button style="
+          <div class="ctaprimary">
+            <button type="submit" style="
               cursor: pointer;
               background-color: transparent;
               border: none;
               color: white;
               font-size: 15px;
-            " routerLink="/search-comp-results" class="show-129429-results">
-            {{ "BUTTONS.SHOW_RESULTS" | translate }}
-          </button>
-          <div class="icon">
-            <img class="vector-icon16" alt="" src="assets/images/search.png" />
-          </div>
-        </div>
-      </div>
-      <!-- Footer Schedules -->
-      <div class="footer" *ngIf="activeTab === 'schedules'">
-        <div class="filters">
-          <div class="quick-filters">
-            <input type="checkbox" class="checkbox1" />
-            <div class="sort-by-fastest">
-              {{ "FILTERS.SORT_FASTEST" | translate }}
-            </div>
-          </div>
-          <div class="quick-filters">
-            <input type="checkbox" class="checkbox1" />
-            <div class="sort-by-fastest">
-              {{ "FILTERS.SHOW_DIRECT" | translate }}
+            " class="show-129429-results">
+              {{ "BUTTONS.SHOW_RESULTS" | translate }}
+            </button>
+            <div class="icon">
+              <img class="vector-icon16" alt="" src="assets/images/search.png" />
             </div>
           </div>
         </div>
-        <div class="ctaprimary" style="background-color: #9747ff">
-          <button style="
+        <!-- Footer Schedules -->
+        <div class="footer" *ngIf="activeTab === 'schedules'">
+          <div class="filters">
+            <div class="quick-filters">
+              <input formControlName="isFastest" type="checkbox" class="checkbox1" />
+              <div class="sort-by-fastest">
+                {{ "FILTERS.SORT_FASTEST" | translate }}
+              </div>
+            </div>
+            <div class="quick-filters">
+              <input formControlName="isDirect" type="checkbox" class="checkbox1" />
+              <div class="sort-by-fastest">
+                {{ "FILTERS.SHOW_DIRECT" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ctaprimary" style="background-color: #9747ff">
+            <button type="submit" style="
               cursor: pointer;
               background-color: transparent;
               border: none;
               color: white;
               font-size: 15px;
-            " routerLink="/search-sched-results" class="show-129429-results">
-            {{ "BUTTONS.SHOW_RESULTS" | translate }}
-          </button>
-          <div class="icon">
-            <img class="vector-icon16" alt="" src="assets/images/search.png" />
+            " class="show-129429-results">
+              {{ "BUTTONS.SHOW_RESULTS" | translate }}
+            </button>
+            <div class="icon">
+              <img class="vector-icon16" alt="" src="assets/images/search.png" />
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

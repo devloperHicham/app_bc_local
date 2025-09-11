@@ -7,6 +7,7 @@ import com.schedulerates.comparison.model.comparison.Comparison;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonCreateRequest;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonPagingHistoriqueRequest;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonPagingRequest;
+import com.schedulerates.comparison.model.comparison.dto.request.ComparisonClientPagingRequest;
 import com.schedulerates.comparison.model.comparison.dto.request.ComparisonUpdateRequest;
 import com.schedulerates.comparison.model.comparison.dto.response.ComparisonResponse;
 import com.schedulerates.comparison.model.comparison.dto.response.DashboardResponse;
@@ -256,5 +257,27 @@ public class ComparisonController {
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
         public List<DailyComparisonByUsersData> getDailyComparisonByUsersStats() {
                 return comparisonDashboardService.getDailyComparisonByUsers();
+        }
+
+                /**
+         * Retrieves a paginated list of comparisons based on the paging request.
+         *
+         * @param comparisonPagingRequest the request payload containing paging
+         *                                information
+         * @return a {@link CustomResponse} containing the paginated list of comparisons
+         */
+        @PostMapping("/clients")
+        @PreAuthorize("hasAnyAuthority('CLIENT')")
+        public CustomResponse<CustomPagingResponse<ComparisonResponse>> getComparisonClients(
+                        @RequestBody @Valid final ComparisonClientPagingRequest comparisonClientPagingRequest) {
+
+                final CustomPage<Comparison> comparisonPage = comparisonReadService
+                                .getComparisonClients(comparisonClientPagingRequest);
+
+                final CustomPagingResponse<ComparisonResponse> comparisonPagingResponse = customPageToCustomPagingResponseMapper
+                                .toPagingResponse(comparisonPage);
+
+                return CustomResponse.successOf(comparisonPagingResponse);
+
         }
 }

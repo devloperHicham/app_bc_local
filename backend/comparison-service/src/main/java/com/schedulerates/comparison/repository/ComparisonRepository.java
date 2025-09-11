@@ -160,7 +160,7 @@ public interface ComparisonRepository extends JpaRepository<ComparisonEntity, St
                         AND (COALESCE(:dateDebut, s.createdAt) <= s.createdAt)
                         AND (COALESCE(:dateFin, s.createdAt) >= s.createdAt)
                         AND (:userId IS NULL OR s.createdBy = :userId)
-                        """)
+                        """) 
         Page<ComparisonEntity> findByFilterHistoriques(
                         @Param("portFromId") @Nullable String portFromId,
                         @Param("portToId") @Nullable String portToId,
@@ -246,4 +246,73 @@ public interface ComparisonRepository extends JpaRepository<ComparisonEntity, St
             ORDER BY s.createdBy
         """)
         List<Object[]> findDailyUsersComparisonCounts(@Param("today") LocalDate today);
-}
+
+        /************************************************************************************************************ */
+        /********************************** this party for client to gat data by search ***************************** */
+        /************************************************************************************************************ */
+
+    @Query(value = """
+    SELECT c.* FROM comparison_entity c
+    WHERE c.active = '1'
+      AND (:portFromId IS NULL OR c.port_from_id = :portFromId)
+      AND (:portToId IS NULL OR c.port_to_id = :portToId)
+      AND ((:dateStart IS NULL OR :dateEnd IS NULL)
+           OR (:searchOn = '1' AND c.date_depart BETWEEN :dateStart AND :dateEnd)
+           OR (:searchOn = '2' AND c.date_arrive BETWEEN :dateStart AND :dateEnd))
+      AND (:companyId IS NULL OR c.company_id = :companyId)
+      AND (:isCheapest IS NULL OR (:isCheapest = true AND c.price = (
+           SELECT MIN(c2.price) FROM comparison_entity c2
+           WHERE c2.port_from_id = c.port_from_id
+             AND c2.port_to_id = c.port_to_id
+             AND c2.active = '1'
+       )))
+      AND (:isFastest IS NULL OR (:isFastest = true AND 
+           EXTRACT(EPOCH FROM (c.date_arrive - c.date_depart)) = (
+           SELECT MIN(EXTRACT(EPOCH FROM (c2.date_arrive - c2.date_depart))) 
+           FROM comparison_entity c2
+           WHERE c2.port_from_id = c.port_from_id
+             AND c2.port_to_id = c.port_to_id
+             AND c2.active = '1'
+       )))
+      AND (:isDirect IS NULL OR (:isDirect = true AND c.transportation_name NOT LIKE '%Transshipment%'))
+""", 
+countQuery = """
+    SELECT COUNT(*) FROM comparison_entity c
+    WHERE c.active = '1'
+      AND (:portFromId IS NULL OR c.port_from_id = :portFromId)
+      AND (:portToId IS NULL OR c.port_to_id = :portToId)
+      AND ((:dateStart IS NULL OR :dateEnd IS NULL)
+           OR (:searchOn = '1' AND c.date_depart BETWEEN :dateStart AND :dateEnd)
+           OR (:searchOn = '2' AND c.date_arrive BETWEEN :dateStart AND :dateEnd))
+      AND (:companyId IS NULL OR c.company_id = :companyId)
+      AND (:isCheapest IS NULL OR (:isCheapest = true AND c.price = (
+           SELECT MIN(c2.price) FROM comparison_entity c2
+           WHERE c2.port_from_id = c.port_from_id
+             AND c2.port_to_id = c.port_to_id
+             AND c2.active = '1'
+       )))
+      AND (:isFastest IS NULL OR (:isFastest = true AND 
+           EXTRACT(EPOCH FROM (c.date_arrive - c.date_depart)) = (
+           SELECT MIN(EXTRACT(EPOCH FROM (c2.date_arrive - c2.date_depart))) 
+           FROM comparison_entity c2
+           WHERE c2.port_from_id = c.port_from_id
+             AND c2.port_to_id = c.port_to_id
+             AND c2.active = '1'
+       )))
+      AND (:isDirect IS NULL OR (:isDirect = true AND c.transportation_name NOT LIKE '%Transshipment%'))
+""",
+nativeQuery = true)
+Page<ComparisonEntity> findByComparisonFilters(
+        @Param("portFromId") String portFromId,
+        @Param("portToId") String portToId,
+        @Param("dateStart") LocalDate dateStart,
+        @Param("dateEnd") LocalDate dateEnd,
+        @Param("searchOn") String searchOn,
+        @Param("companyId") String companyId,
+        @Param("isCheapest") Boolean isCheapest,
+        @Param("isFastest") Boolean isFastest,
+        @Param("isDirect") Boolean isDirect,
+        Pageable pageable
+);
+
+    }

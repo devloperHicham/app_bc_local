@@ -2,11 +2,7 @@
   <div class="header">
     <div class="ctasecondary">
       <div class="icon">
-        <img
-          class="vector-icon"
-          alt=""
-          src="assets/images/arrow-right-blue.png"
-        />
+        <img class="vector-icon" alt="" src="assets/images/arrow-right-blue.png" />
       </div>
       <a routerLink="/home" class="back">
         {{ 'SEARCH_SCHEDULE.BACK' | translate }}
@@ -29,12 +25,7 @@
                 <div class="icon">
                   <img class="vector-icon1" alt="" src="assets/images/location-blue.png" />
                 </div>
-                <input
-                  style="border: none"
-                  type="text"
-                  placeholder="Casablanca, MA"
-                  class="casablanca-portma"
-                />
+                <input style="border: none" type="text" placeholder="Casablanca, MA" class="casablanca-portma" />
               </div>
             </div>
             <div class="input-field">
@@ -47,12 +38,7 @@
                 <div class="icon">
                   <img class="vector-icon1" alt="" src="assets/images/location-blue.png" />
                 </div>
-                <input
-                  style="border: none"
-                  type="text"
-                  placeholder="Mallorca, SPA"
-                  class="casablanca-portma"
-                />
+                <input style="border: none" type="text" placeholder="Mallorca, SPA" class="casablanca-portma" />
               </div>
             </div>
             <div class="mono-select-field">
@@ -97,15 +83,8 @@
                 <div class="icon1">
                   <img class="vector-icon9" alt="" src="assets/images/date-blue.png" />
                 </div>
-                <input
-                  #singleDateInput
-                  id="single-input"
-                  type="text"
-                  class="casablanca-portma"
-                  style="border: none"
-                  placeholder="{{ 'SEARCH_SCHEDULE.SELECT_DAY' | translate }}"
-                  readonly
-                />
+                <input #singleDateInput id="single-input" type="text" class="casablanca-portma" style="border: none"
+                  placeholder="{{ 'SEARCH_SCHEDULE.SELECT_DAY' | translate }}" readonly />
               </div>
             </div>
             <div class="input-field">
@@ -149,7 +128,7 @@
         </div>
       </div>
       <div class="showing-129429-results">{{ 'SEARCH_SCHEDULE.SHOWING_RESULTS' | translate:{count:129429} }}</div>
-      <div class="schedule-carddesktop" *ngIf="!isContentVisible">
+      <div *ngFor="let cmp of comparisons" class="schedule-carddesktop">
         <div class="top-bar">
           <div class="quick-actions">
             <div class="icon">
@@ -229,16 +208,16 @@
       <div class="pagination">
         <div class="showing-1-4">{{ 'SEARCH_SCHEDULE.SHOWING_PAGINATION' | translate:{from:1,to:4,count:129429} }}</div>
         <div class="actions">
-          <div class="ctasecondary1">
+          <div class="ctasecondary1" (click)="previousPage()">
             <div class="back">{{ 'SEARCH_SCHEDULE.PREVIOUS' | translate }}</div>
           </div>
           <div class="pages">
-            <div class="page"><div class="back">1</div></div>
-            <div class="page1"><div class="back">2</div></div>
-            <div class="page1"><div class="back">3</div></div>
-            <div class="page1"><div class="back">4</div></div>
+            <div *ngFor="let page of [].constructor(Math.ceil(totalRecords / pageSize)); let i = index"
+              (click)="loadPage(i+1)">
+              <div class="page" [class.active]="currentPage === i+1">{{ i+1 }}</div>
+            </div>
           </div>
-          <div class="ctasecondary2">
+          <div class="ctasecondary2" (click)="nextPage()">
             <div class="back">{{ 'SEARCH_SCHEDULE.NEXT' | translate }}</div>
           </div>
         </div>
