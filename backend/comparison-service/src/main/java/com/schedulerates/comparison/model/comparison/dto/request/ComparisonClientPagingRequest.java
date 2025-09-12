@@ -23,5 +23,5 @@ public class ComparisonClientPagingRequest extends CustomPagingRequest {
     private String weeksAhead;
     private Boolean isCheapest;
     private Boolean isFastest;
-    private Boolean isDirect;
+    private Boolean isDirect;  
 }

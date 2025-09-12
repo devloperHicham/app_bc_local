@@ -4,6 +4,7 @@ import com.schedulerates.schedule.model.common.CustomPage;
 import com.schedulerates.schedule.model.common.dto.response.CustomPagingResponse;
 import com.schedulerates.schedule.model.common.dto.response.CustomResponse;
 import com.schedulerates.schedule.model.schedule.Schedule;
+import com.schedulerates.schedule.model.schedule.dto.request.ScheduleClientPagingRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.ScheduleCreateRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingHistoriqueRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingRequest;
@@ -236,5 +237,27 @@ public class ScheduleController {
         @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
         public List<DailyScheduleByUsersData> getDailyScheduleByUsersStats() {
                 return scheduleDashboardService.getDailyScheduleByUsers();
+        }
+
+
+                        /**
+         * Retrieves a paginated list of comparisons based on the paging request.
+         *
+         * @param comparisonPagingRequest the request payload containing paging
+         *                                information
+         * @return a {@link CustomResponse} containing the paginated list of comparisons
+         */
+        @PostMapping("/clients")
+        @PreAuthorize("hasAnyAuthority('CLIENT')")
+        public CustomResponse<CustomPagingResponse<ScheduleResponse>> getScheduleClients(
+                        @RequestBody @Valid final ScheduleClientPagingRequest scheduleClientPagingRequest) {
+
+                final CustomPage<Schedule> schedulePage = scheduleReadService.getScheduleClients(scheduleClientPagingRequest);
+
+                final CustomPagingResponse<ScheduleResponse> schedulePagingResponse = customPageToCustomPagingResponseMapper
+                                .toPagingResponse(schedulePage);
+
+                return CustomResponse.successOf(schedulePagingResponse);
+
         }
 }

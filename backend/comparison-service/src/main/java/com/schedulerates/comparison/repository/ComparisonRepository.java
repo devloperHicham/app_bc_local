@@ -250,69 +250,28 @@ public interface ComparisonRepository extends JpaRepository<ComparisonEntity, St
         /************************************************************************************************************ */
         /********************************** this party for client to gat data by search ***************************** */
         /************************************************************************************************************ */
-
-    @Query(value = """
-    SELECT c.* FROM comparison_entity c
-    WHERE c.active = '1'
-      AND (:portFromId IS NULL OR c.port_from_id = :portFromId)
-      AND (:portToId IS NULL OR c.port_to_id = :portToId)
-      AND ((:dateStart IS NULL OR :dateEnd IS NULL)
-           OR (:searchOn = '1' AND c.date_depart BETWEEN :dateStart AND :dateEnd)
-           OR (:searchOn = '2' AND c.date_arrive BETWEEN :dateStart AND :dateEnd))
-      AND (:companyId IS NULL OR c.company_id = :companyId)
-      AND (:isCheapest IS NULL OR (:isCheapest = true AND c.price = (
-           SELECT MIN(c2.price) FROM comparison_entity c2
-           WHERE c2.port_from_id = c.port_from_id
-             AND c2.port_to_id = c.port_to_id
-             AND c2.active = '1'
-       )))
-      AND (:isFastest IS NULL OR (:isFastest = true AND 
-           EXTRACT(EPOCH FROM (c.date_arrive - c.date_depart)) = (
-           SELECT MIN(EXTRACT(EPOCH FROM (c2.date_arrive - c2.date_depart))) 
-           FROM comparison_entity c2
-           WHERE c2.port_from_id = c.port_from_id
-             AND c2.port_to_id = c.port_to_id
-             AND c2.active = '1'
-       )))
-      AND (:isDirect IS NULL OR (:isDirect = true AND c.transportation_name NOT LIKE '%Transshipment%'))
-""", 
-countQuery = """
-    SELECT COUNT(*) FROM comparison_entity c
-    WHERE c.active = '1'
-      AND (:portFromId IS NULL OR c.port_from_id = :portFromId)
-      AND (:portToId IS NULL OR c.port_to_id = :portToId)
-      AND ((:dateStart IS NULL OR :dateEnd IS NULL)
-           OR (:searchOn = '1' AND c.date_depart BETWEEN :dateStart AND :dateEnd)
-           OR (:searchOn = '2' AND c.date_arrive BETWEEN :dateStart AND :dateEnd))
-      AND (:companyId IS NULL OR c.company_id = :companyId)
-      AND (:isCheapest IS NULL OR (:isCheapest = true AND c.price = (
-           SELECT MIN(c2.price) FROM comparison_entity c2
-           WHERE c2.port_from_id = c.port_from_id
-             AND c2.port_to_id = c.port_to_id
-             AND c2.active = '1'
-       )))
-      AND (:isFastest IS NULL OR (:isFastest = true AND 
-           EXTRACT(EPOCH FROM (c.date_arrive - c.date_depart)) = (
-           SELECT MIN(EXTRACT(EPOCH FROM (c2.date_arrive - c2.date_depart))) 
-           FROM comparison_entity c2
-           WHERE c2.port_from_id = c.port_from_id
-             AND c2.port_to_id = c.port_to_id
-             AND c2.active = '1'
-       )))
-      AND (:isDirect IS NULL OR (:isDirect = true AND c.transportation_name NOT LIKE '%Transshipment%'))
-""",
-nativeQuery = true)
-Page<ComparisonEntity> findByComparisonFilters(
-        @Param("portFromId") String portFromId,
-        @Param("portToId") String portToId,
-        @Param("dateStart") LocalDate dateStart,
-        @Param("dateEnd") LocalDate dateEnd,
-        @Param("searchOn") String searchOn,
-        @Param("companyId") String companyId,
-        @Param("isCheapest") Boolean isCheapest,
-        @Param("isFastest") Boolean isFastest,
-        @Param("isDirect") Boolean isDirect,
-        Pageable pageable
-);
-
-    }
+   @Query("""
+        SELECT c
+        FROM ComparisonEntity c
+        WHERE (:portFromId IS NULL OR c.portFromId = :portFromId)
+          AND (:portToId IS NULL OR c.portToId = :portToId)
+          AND (:companyId IS NULL OR c.companyId = :companyId)
+          AND (
+                (:searchOn = '1' AND c.dateDepart BETWEEN :startDate AND :endDate)
+             OR (:searchOn = '2' AND c.dateArrive BETWEEN :startDate AND :endDate)
+          )
+          AND c.active = '1'
+    """)
+    Page<ComparisonEntity> findByComparisonFilters(
+            @Param("portFromId") String portFromId,
+            @Param("portToId") String portToId,
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate,
+            @Param("searchOn") String searchOn,
+            @Param("companyId") String companyId,
+            @Param("isCheapest") Boolean isCheapest,
+            @Param("isFastest") Boolean isFastest,
+            @Param("isDirect") Boolean isDirect,
+            Pageable pageable
+    );
+}

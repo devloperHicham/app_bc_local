@@ -23,7 +23,8 @@ import { HeroSerice } from "../../home/services/hero-serice";
   styleUrl: "./search-sched-result.css",
 })
 export class SearchSchedResult implements AfterViewInit, OnDestroy {
-  comparisons: Comparison[] = []; 
+  Math = Math;
+  comparisons: Comparison[] = [];
   currentPage = 1;
   pageSize = 10; // 10 items per page
   totalRecords = 0;
@@ -43,15 +44,17 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy {
       start: (page - 1) * this.pageSize,
       length: this.pageSize,
       draw: 1,
-      order: [{ column: 0, dir: 'asc' }],
-      columns: [{ data: 'portFromName' }] // default sort column
+      order: [{ column: 0, dir: "asc" }],
+      columns: [{ data: "portFromName" }], // default sort column
     };
 
-    this.heroSerice.getPaginatedData(dtParams, this.filters).subscribe(res => {
-      this.comparisons = res.data;
-      this.totalRecords = res.recordsTotal;
-      this.currentPage = page;
-    });
+    this.heroSerice
+      .getPaginatedData(dtParams, this.filters)
+      .subscribe((res) => {
+        this.comparisons = res.data;
+        this.totalRecords = res.recordsTotal;
+        this.currentPage = page;
+      });
   }
 
   nextPage() {
@@ -64,6 +67,11 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy {
     if (this.currentPage > 1) {
       this.loadPage(this.currentPage - 1);
     }
+  }
+
+  get totalPages(): number[] {
+    const pageCount = Math.ceil(this.totalRecords / this.pageSize);
+    return Array.from({ length: pageCount }, (_, i) => i + 1);
   }
 
   //******************************************************************************************** */

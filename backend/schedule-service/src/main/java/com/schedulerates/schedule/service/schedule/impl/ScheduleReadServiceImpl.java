@@ -4,6 +4,7 @@ import com.schedulerates.schedule.exception.NotFoundException;
 import com.schedulerates.schedule.model.auth.enums.TokenClaims;
 import com.schedulerates.schedule.model.common.CustomPage;
 import com.schedulerates.schedule.model.schedule.Schedule;
+import com.schedulerates.schedule.model.schedule.dto.request.ScheduleClientPagingRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingRequest;
 import com.schedulerates.schedule.model.schedule.entity.ScheduleEntity;
 import com.schedulerates.schedule.model.schedule.mapper.ListScheduleEntityToListScheduleMapper;
@@ -17,7 +18,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -111,4 +115,41 @@ public class ScheduleReadServiceImpl implements ScheduleReadService {
                 .orElse(ANONYMOUS_USER)
                 .equalsIgnoreCase("ADMIN");
     }
+
+
+            @Override
+        public CustomPage<Schedule> getScheduleClients(ScheduleClientPagingRequest req) {
+                LocalDate startDate = null;
+                LocalDate endDate = null;
+
+                if (req.getSelectedDateRange() != null) {
+                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                                        .withLocale(Locale.ENGLISH);
+                        startDate = LocalDate.parse(req.getSelectedDateRange(), formatter);
+                        endDate = startDate.plusWeeks(Long.parseLong(req.getWeeksAhead()));
+                }else{
+                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                                        .withLocale(Locale.ENGLISH);
+                        startDate = LocalDate.parse(req.getSelectedDate(), formatter);
+                        endDate = null;
+                }
+
+                Page<ScheduleEntity> entityPage = scheduleRepository.findByScheduleFilters(
+                                req.getSelectedPortFromSchedule(),
+                                req.getSelectedPortToSchedule(),
+                                startDate,
+                                endDate,
+                                req.selectedTransportation(),
+                                req.selectedContainer(),
+                                req.getIsCheapest(),
+                                req.getIsFastest(),
+                                req.getIsDirect(),
+                                req.toPageable());
+                List<Schedule> scheduleList = listScheduleEntityToListScheduleMapper
+                                .toScheduleList(entityPage.getContent());
+
+                return CustomPage.of(scheduleList, entityPage);
+        }
 }

@@ -11,7 +11,7 @@ import { SharedModule } from "../../share/share-module";
 @Component({
   selector: "app-inscription",
   standalone: true,
-  imports: [SharedModule, RouterLink, TranslateModule],
+  imports: [SharedModule, TranslateModule],
   templateUrl: "./inscription.html",
   styleUrl: "./inscription.css",
 })

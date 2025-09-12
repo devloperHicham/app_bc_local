@@ -5,7 +5,6 @@ import com.schedulerates.schedule.model.schedule.dto.response.DailyScheduleByUse
 import com.schedulerates.schedule.model.schedule.dto.response.DashboardResponse;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleByCompaniesData;
 import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
-import com.schedulerates.schedule.model.schedule.dto.response.WeeklyScheduleData;
 import com.schedulerates.schedule.repository.ScheduleRepository;
 import com.schedulerates.schedule.service.schedule.ScheduleDashboardService;
 import lombok.RequiredArgsConstructor;

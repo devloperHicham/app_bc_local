@@ -206,15 +206,16 @@
       </div>
       <app-detail-sched-result *ngIf="isContentVisible" (closeDetail)="hideDetail()"></app-detail-sched-result>
       <div class="pagination">
-        <div class="showing-1-4">{{ 'SEARCH_SCHEDULE.SHOWING_PAGINATION' | translate:{from:1,to:4,count:129429} }}</div>
+        <div class="showing-1-4">
+          {{ 'SEARCH_SCHEDULE.SHOWING_PAGINATION' | translate:{from:1, to:4, count:129429} }}
+        </div>
         <div class="actions">
           <div class="ctasecondary1" (click)="previousPage()">
             <div class="back">{{ 'SEARCH_SCHEDULE.PREVIOUS' | translate }}</div>
           </div>
           <div class="pages">
-            <div *ngFor="let page of [].constructor(Math.ceil(totalRecords / pageSize)); let i = index"
-              (click)="loadPage(i+1)">
-              <div class="page" [class.active]="currentPage === i+1">{{ i+1 }}</div>
+            <div *ngFor="let page of totalPages" (click)="loadPage(page)">
+              <div class="page" [class.active]="currentPage === page">{{ page }}</div>
             </div>
           </div>
           <div class="ctasecondary2" (click)="nextPage()">
