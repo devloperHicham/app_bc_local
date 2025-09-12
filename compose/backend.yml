@@ -1,0 +1,92 @@
+services:
+  auth-service:
+    image: booking-container-auth-service:latest
+    build: {context: ./backend/auth-service}
+    container_name: auth-service
+    ports: ["8081:8081"]
+    depends_on:
+      postgres-user: {condition: service_healthy}
+      config-service: {condition: service_started}
+    environment: &spring-user-env
+      SPRING_APPLICATION_NAME: auth-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-user:5432/user_db
+      SPRING_DATASOURCE_USERNAME: user_db
+      SPRING_DATASOURCE_PASSWORD: user_password12345@@
+    networks: [backend]
+
+  user-service:
+    extends: auth-service
+    image: booking-container-user-service:latest
+    build: {context: ./backend/user-service}
+    container_name: user-service
+    ports: ["8082:8082"]
+    environment:
+      <<: *spring-user-env
+      SPRING_APPLICATION_NAME: user-service
+
+  setting-service:
+    image: booking-container-setting-service:latest
+    build: {context: ./backend/setting-service}
+    container_name: setting-service
+    ports: ["8083:8083"]
+    depends_on:
+      postgres-setting: {condition: service_healthy}
+      config-service: {condition: service_started}
+    environment:
+      SPRING_APPLICATION_NAME: setting-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-setting:5432/setting_db
+      SPRING_DATASOURCE_USERNAME: setting_db
+      SPRING_DATASOURCE_PASSWORD: setting_password12345@@
+      STORAGE_LOCATION: /app/storage-images
+    volumes: ["./storage-images:/app/storage-images"]
+    networks: [backend]
+
+  comparison-service:
+    image: booking-container-comparison-service:latest
+    build: {context: ./backend/comparison-service}
+    container_name: comparison-service
+    ports: ["8084:8084"]
+    depends_on:
+      postgres-comparison: {condition: service_healthy}
+      config-service: {condition: service_started}
+    environment:
+      SPRING_APPLICATION_NAME: comparison-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-comparison:5432/comparison_db
+      SPRING_DATASOURCE_USERNAME: comparison_db
+      SPRING_DATASOURCE_PASSWORD: comparison_password12345@@
+    networks: [backend]
+
+  schedule-service:
+    image: booking-container-schedule-service:latest
+    build: {context: ./backend/schedule-service}
+    container_name: schedule-service
+    ports: ["8085:8085"]
+    depends_on:
+      postgres-schedule: {condition: service_healthy}
+      config-service: {condition: service_started}
+    environment:
+      SPRING_APPLICATION_NAME: schedule-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-schedule:5432/schedule_db
+      SPRING_DATASOURCE_USERNAME: schedule_db
+      SPRING_DATASOURCE_PASSWORD: schedule_password12345@@
+    networks: [backend]
+
+  client-service:
+    image: booking-container-client-service:latest
+    build: {context: ./backend/client-service}
+    container_name: client-service
+    ports: ["8086:8086"]
+    depends_on:
+      postgres-client: {condition: service_healthy}
+      config-service: {condition: service_started}
+    environment:
+      SPRING_APPLICATION_NAME: client-service
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-service:8888/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-client:5432/client_db
+      SPRING_DATASOURCE_USERNAME: client_db
+      SPRING_DATASOURCE_PASSWORD: client_password12345@@
+    networks: [backend]

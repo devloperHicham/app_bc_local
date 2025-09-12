@@ -1,0 +1,74 @@
+services:
+  postgres-user:
+    image: postgres:16
+    container_name: postgres-user
+    ports: ["5433:5432"]
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: user_password12345@@
+    volumes:
+      - user-data:/var/lib/postgresql/data
+      - ./init-scripts/user.sql:/docker-entrypoint-initdb.d/user.sql
+    networks: [backend]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-setting:
+    extends: postgres-user
+    container_name: postgres-setting
+    ports: ["5434:5432"]
+    environment:
+      POSTGRES_DB: setting_db
+      POSTGRES_USER: setting_db
+      POSTGRES_PASSWORD: setting_password12345@@
+    volumes:
+      - setting-data:/var/lib/postgresql/data
+      - ./init-scripts/setting.sql:/docker-entrypoint-initdb.d/setting.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U setting_db"]
+
+  postgres-comparison:
+    extends: postgres-user
+    container_name: postgres-comparison
+    ports: ["5435:5432"]
+    environment:
+      POSTGRES_DB: comparison_db
+      POSTGRES_USER: comparison_db
+      POSTGRES_PASSWORD: comparison_password12345@@
+    volumes:
+      - comparison-data:/var/lib/postgresql/data
+      - ./init-scripts/comparison.sql:/docker-entrypoint-initdb.d/comparison.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U comparison_db"]
+
+  postgres-schedule:
+    extends: postgres-user
+    container_name: postgres-schedule
+    ports: ["5436:5432"]
+    environment:
+      POSTGRES_DB: schedule_db
+      POSTGRES_USER: schedule_db
+      POSTGRES_PASSWORD: schedule_password12345@@
+    volumes:
+      - schedule-data:/var/lib/postgresql/data
+      - ./init-scripts/schedule.sql:/docker-entrypoint-initdb.d/schedule.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U schedule_db"]
+
+  postgres-client:
+    extends: postgres-user
+    container_name: postgres-client
+    ports: ["5437:5432"]
+    environment:
+      POSTGRES_DB: client_db
+      POSTGRES_USER: client_db
+      POSTGRES_PASSWORD: client_password12345@@
+    volumes:
+      - client-data:/var/lib/postgresql/data
+      - ./init-scripts/client.sql:/docker-entrypoint-initdb.d/client.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U client_db"]

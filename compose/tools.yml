@@ -1,0 +1,19 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports: ["5050:80"]
+    networks: [backend]
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports: ["9090:8080"]
+    volumes:
+      - ./jenkins/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment: {JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"}
