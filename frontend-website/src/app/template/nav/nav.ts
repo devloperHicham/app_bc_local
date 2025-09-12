@@ -26,7 +26,7 @@ export class Nav {
   currentLanguage: string = "en";
   isOpen = false;
   private readonly authService = inject(AuthService);
-  private readonly auth$ = this.authService.isAuthenticated$; // Observable for authentication status
+  public readonly auth$ = this.authService.isAuthenticated$; // Observable for authentication status
 
   constructor(
     private readonly translate: TranslateService,

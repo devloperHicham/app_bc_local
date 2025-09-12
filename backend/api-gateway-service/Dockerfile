@@ -1,5 +1,5 @@
 # Stage 1: Build stage
-FROM maven:3.9.9-amazoncorretto-24 AS build  
+FROM maven:3.9.9-amazoncorretto-17 AS build  
 
 
 WORKDIR /app
@@ -16,7 +16,7 @@ COPY src src
 RUN mvn clean install -DskipTests
 
 # Stage 2: Run stage
-FROM amazoncorretto:24
+FROM amazoncorretto:17
 
 # Set working directory
 WORKDIR /app

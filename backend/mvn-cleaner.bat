@@ -26,6 +26,10 @@ cd "..\setting-service"
 call mvn clean install -DskipTests
 call mvn clean package -DskipTests
 
+cd "..\schedule-service"
+call mvn clean install -DskipTests
+call mvn clean package -DskipTests
+
 cd "..\user-service"
 call mvn clean install -DskipTests
 call mvn clean package -DskipTests
