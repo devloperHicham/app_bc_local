@@ -114,6 +114,8 @@ services:
     volumes:
       - ./config-data/config-service.yml:/config/config-service.yml
     environment:
+      - SPRING_PROFILES_ACTIVE=native
+      - SPRING_BOOT_DEBUG=true
       - SPRING_CONFIG_LOCATION=file:/config/config-service.yml
 
   discovery-service:
