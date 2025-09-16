@@ -307,8 +307,8 @@ services:
       - "4000:4000"
     volumes:
       - ./frontend-admin/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./ssl/192.168.1.50.pem:/etc/ssl/certs/cert.pem
-      - ./ssl/192.168.1.50-key.pem:/etc/ssl/private/key.pem
+      - ./ssl/10.191.171.122.pem:/etc/ssl/certs/cert.pem
+      - ./ssl/10.191.171.122-key.pem:/etc/ssl/private/key.pem
     depends_on:
       - api-gateway-service
     networks:
@@ -323,8 +323,8 @@ services:
       - "7000:7000"
     volumes:
       - ./frontend-website/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./ssl/192.168.1.50.pem:/etc/ssl/certs/cert.pem
-      - ./ssl/192.168.1.50-key.pem:/etc/ssl/private/key.pem
+      - ./ssl/10.191.171.122.pem:/etc/ssl/certs/cert.pem
+      - ./ssl/10.191.171.122-key.pem:/etc/ssl/private/key.pem
     depends_on:
       - api-gateway-service
     networks:

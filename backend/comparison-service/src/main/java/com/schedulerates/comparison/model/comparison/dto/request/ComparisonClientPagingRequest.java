@@ -17,11 +17,12 @@ import lombok.experimental.SuperBuilder;
 public class ComparisonClientPagingRequest extends CustomPagingRequest {
     private String selectedPortFromComparison;
     private String selectedPortToComparison;
-    private String selectedCompany;
-    private String searchOn;
-    private String selectedDateComparison;
-    private String weeksAhead;
+    private String isIntervalMode;
+    private String selectedDateRange;
+    private String selectedDate;
+    private String selectedTransportation;
+    private String selectedContainer;
     private Boolean isCheapest;
     private Boolean isFastest;
-    private Boolean isDirect;  
+    private Boolean isDirect;
 }

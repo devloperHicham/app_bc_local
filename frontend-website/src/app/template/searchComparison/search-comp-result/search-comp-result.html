@@ -186,11 +186,8 @@
           <div class="stay-updated1">{{ 'SEARCH_COMPARISON.STAY_UPDATED' | translate }}</div>
         </div>
       </div>
-
-      <div class="showing-129429-results">{{ 'SEARCH_COMPARISON.SHOWING_RESULTS' | translate:{count: 129429} }}</div>
-      
       <!-- Trip card example -->
-      <div class="trips">
+      <div class="trips" *ngFor="let comp of comparisons; trackBy: trackById">
         <div class="trip-card">
           <div class="top-bar">
             <div class="trip-category">
@@ -199,11 +196,11 @@
               </div>
               <div class="marine-shipping">{{ 'SEARCH_COMPARISON.MARINE_SHIPPING' | translate }}</div>
             </div>
-            <div class="quick-actions">
-              <div class="icon">
+            <div class="quick-actions" >
+              <div class="icon"  (click)="togglePast(comp.id)">
                 <img class="vector-icon1" alt="" src="assets/images/past-blue.png" />
               </div>
-              <div class="icon">
+              <div class="icon"  (click)="toggleFavorite(comp.id)">
                 <img class="vector-icon18" alt="" src="assets/images/heart-blue.png" />
               </div>
             </div>
@@ -213,20 +210,20 @@
             <div class="header10">
               <div class="quick-actions">
                 <img class="shipping-partner-icon" alt="" src="assets/images/Maersk.png" />
-                <div class="marine-shipping">{{ 'SEARCH_COMPARISON.ID' | translate:{id: 43255464233} }}</div>
+                <div class="marine-shipping">{{ 'SEARCH_COMPARISON.ID' | translate:{id: comp.codeTransation} }}</div>
               </div>
               <div class="shipping-info">
                 <div class="info">
                   <div class="icon">
                     <img class="vector-icon1" alt="" src="assets/images/time-blue.png" />
                   </div>
-                  <div class="marine-shipping">19h</div>
+                  <div class="marine-shipping"> {{ calculateDaysBetween(comp.dateDepart, comp.dateArrive) }}</div>
                 </div>
                 <div class="info">
                   <div class="icon">
                     <img class="vector-icon20" alt="" src="assets/images/container-blue.png" />
                   </div>
-                  <div class="marine-shipping">{{ 'SEARCH_COMPARISON.LESS_CONTAINER_LOAD' | translate }}</div>
+                  <div class="marine-shipping">{{ comp.transportationName }}</div>
                 </div>
               </div>
             </div>
@@ -237,9 +234,9 @@
                   <div class="flags">
                     <img class="vector-icon22" alt="" src="assets/images/japan.png" />
                   </div>
-                  <div class="casablanca-port-ma">Casablanca Port, MA</div>
+                  <div class="casablanca-port-ma">{{comp.portFromName}}, {{comp.countryToNameAbbreviation}}</div>
                 </div>
-                <div class="div42">11/06/2025</div>
+                <div class="div42">{{comp.dateDepart}}</div>
               </div>
               <div class="road">
                 <div class="marine-shipping">{{ 'SEARCH_COMPARISON.TRANSIT' | translate }}</div>
@@ -250,16 +247,15 @@
                   <div class="frame-child"></div>
                   <div class="ellipse"></div>
                 </div>
-                <div class="h1">3h</div>
               </div>
               <div class="arrival">
                 <div class="quick-filters">
                   <div class="flags1">
                     <img class="vector-icon23" alt="" src="assets/images/spain.png" />
                   </div>
-                  <div class="casablanca-port-ma">Mallorca, SPA</div>
+                  <div class="casablanca-port-ma">{{comp.portToName}}, {{comp.countryToNameAbbreviation}}</div>
                 </div>
-                <div class="div42">11/05/2025</div>
+                <div class="div42">{{comp.dateArrive}}</div>
               </div>
             </div>
 
@@ -288,18 +284,26 @@
       </div>
 
       <div class="pagination">
-        <div class="showing-1-4">{{ 'SEARCH_COMPARISON.SHOWING_RESULTS' | translate:{count: 129429} }}</div>
         <div class="actions4">
-          <div class="ctasecondary9">
+          <div class="ctasecondary9" 
+            (click)="previousPage()"
+            (keyup)="onKeyMenuItem($event)">
             <div class="back">{{ 'SEARCH_COMPARISON.PREVIOUS' | translate }}</div>
           </div>
           <div class="pages">
-            <div class="page"><div class="back">1</div></div>
-            <div class="page1"><div class="back">2</div></div>
-            <div class="page1"><div class="back">3</div></div>
-            <div class="page1"><div class="back">4</div></div>
+            <div
+              *ngFor="let page of totalPages"
+              (click)="loadPage(page)"
+              (keyup)="onKeyMenuItem($event)"
+            >
+              <div class="page" [class.active]="currentPage === page">
+                {{ page }}
+              </div>
+            </div>
           </div>
-          <div class="ctasecondary10">
+          <div class="ctasecondary10" 
+            (click)="nextPage()"
+            (keyup)="onKeyMenuItem($event)">
             <div class="back">{{ 'SEARCH_COMPARISON.NEXT' | translate }}</div>
           </div>
         </div>

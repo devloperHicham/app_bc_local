@@ -17,7 +17,7 @@ export const routes: Routes = [
         (c) => c.WhishlistBooking
       ),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "about-us",
@@ -35,8 +35,8 @@ export const routes: Routes = [
       import(
         "./template/searchSchedule/search-sched-result/search-sched-result"
       ).then((c) => c.SearchSchedResult),
-    canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+   // canActivate: [AuthGuard],
+   // data: { role: "CLIENT" },
   },
   {
     path: "search-comp-results",
@@ -44,8 +44,8 @@ export const routes: Routes = [
       import(
         "./template/searchComparison/search-comp-result/search-comp-result"
       ).then((c) => c.SearchCompResult),
-    canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    //canActivate: [AuthGuard],
+    //data: { role: "CLIENT" },
   },
   {
     path: "comming-soon",
@@ -61,7 +61,7 @@ export const routes: Routes = [
         "./template/searchComparison/trip-comp-detail/trip-comp-detail"
       ).then((c) => c.TripCompDetail),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "cargo-comp-details",
@@ -70,7 +70,7 @@ export const routes: Routes = [
         "./template/searchComparison/cargo-comp-detail/cargo-comp-detail"
       ).then((c) => c.CargoCompDetail),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "quote-lists",
@@ -79,7 +79,7 @@ export const routes: Routes = [
         (c) => c.ListQuote
       ),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "manage-script",
@@ -88,7 +88,7 @@ export const routes: Routes = [
         (c) => c.ManageScript
       ),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "help-centers",
@@ -104,7 +104,7 @@ export const routes: Routes = [
     path: "profiles",
     loadComponent: () => import("./admin/profil/profil").then((c) => c.Profil),
     canActivate: [AuthGuard],
-    data: { role: "ADMIN" },
+    data: { role: "CLIENT" },
   },
   {
     path: "login",

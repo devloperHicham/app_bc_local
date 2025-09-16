@@ -15,11 +15,11 @@ import {
   FormsModule,
   Validators,
 } from "@angular/forms";
-import { Router, RouterLink } from "@angular/router";
+import { Router } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import { HeroSerice } from "../services/hero-serice";
+import { HeroService } from "../services/hero-service";
 import {
   Company,
   Container,
@@ -54,7 +54,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   activeTab: "marine" | "schedules" = "marine";
   private readonly authService = inject(AuthService);
   readonly auth$ = this.authService.isAuthenticated$; // Observable for authentication status
-  private readonly heroSerice = inject(HeroSerice);
+  private readonly heroService = inject(HeroService);
   private readonly router = inject(Router);
   private readonly spinner = inject(NgxSpinnerService);
   private readonly configService = inject(ConfigService);
@@ -115,7 +115,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   ngOnInit(): void {
     this.initializeForm();
     // Restore saved data
-    const savedData = this.heroSerice.getForm();
+    const savedData = this.heroService.getForm();
     if (savedData) {
       const activeForm =
         this.activeTab === "marine"
@@ -124,19 +124,19 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
       activeForm?.patchValue(savedData);
     }
     // Load ports data on initialization
-    this.heroSerice.getPorts().subscribe((data) => {
+    this.heroService.getPorts().subscribe((data) => {
       this.ports = data;
     });
     // Load containers data on initialization
-    this.heroSerice.getContainers().subscribe((data) => {
+    this.heroService.getContainers().subscribe((data) => {
       this.containers = data;
     });
     // Load transportations data on initialization
-    this.heroSerice.getTransportations().subscribe((data) => {
+    this.heroService.getTransportations().subscribe((data) => {
       this.transportations = data;
     });
     // Load companies data on initialization
-    this.heroSerice.getCompanies().subscribe((data) => {
+    this.heroService.getCompanies().subscribe((data) => {
       this.companies = data;
     });
   }
@@ -253,7 +253,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     }
 
     // Save form data for restoration
-    this.heroSerice.saveForm(activeForm.value);
+    this.heroService.saveForm(activeForm.value);
 
     // Auth check
     const isAuth = await this.auth$.pipe(take(1)).toPromise();

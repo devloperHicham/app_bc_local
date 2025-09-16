@@ -15,14 +15,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class ScheduleClientPagingRequest extends CustomPagingRequest {
-    private String selectedPortFromSchedule;
+        private String selectedPortFromSchedule;
     private String selectedPortToSchedule;
-    private String isIntervalMode;
-    private String selectedDateRange;
-    private String selectedDate;
-    private String selectedTransportation;
-    private String selectedContainer;
+    private String selectedCompany;
+    private String searchOn;
+    private String selectedDateSchedule;
+    private String weeksAhead;
     private Boolean isCheapest;
     private Boolean isFastest;
-    private Boolean isDirect;  
+    private Boolean isDirect; 
 }

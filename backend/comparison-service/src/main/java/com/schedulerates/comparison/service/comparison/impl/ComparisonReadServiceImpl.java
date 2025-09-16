@@ -19,7 +19,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
@@ -132,13 +131,20 @@ public class ComparisonReadServiceImpl implements ComparisonReadService {
         public CustomPage<Comparison> getComparisonClients(ComparisonClientPagingRequest req) {
                 LocalDate startDate = null;
                 LocalDate endDate = null;
+                String[] parts = req.getSelectedDateRange().split("to");
 
-                if (req.getSelectedDateComparison() != null && req.getWeeksAhead() != null) {
+                if (req.getSelectedDateRange() != null) {
                         // Formatteur pour parser les dates en format "dd/MM/yyyy"
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
                                         .withLocale(Locale.ENGLISH);
-                        startDate = LocalDate.parse(req.getSelectedDateComparison(), formatter);
-                        endDate = startDate.plusWeeks(Long.parseLong(req.getWeeksAhead()));
+                        startDate = LocalDate.parse(parts[0].trim(), formatter);
+                        endDate = LocalDate.parse(parts[1].trim(), formatter);
+                } else {
+                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                                        .withLocale(Locale.ENGLISH);
+                        startDate = LocalDate.parse(req.getSelectedDate(), formatter);
+                        endDate = null;
                 }
 
                 Page<ComparisonEntity> entityPage = comparisonRepository.findByComparisonFilters(
@@ -146,13 +152,12 @@ public class ComparisonReadServiceImpl implements ComparisonReadService {
                                 req.getSelectedPortToComparison(),
                                 startDate,
                                 endDate,
-                                req.getSearchOn(),
-                                req.getSelectedCompany(),
-                                req.getIsCheapest(),
-                                req.getIsFastest(),
-                                req.getIsDirect(),
+                                req.getSelectedTransportation(),
+                                req.getSelectedContainer(),
+                                // req.getIsCheapest(),
+                                // req.getIsFastest(),
+                                // req.getIsDirect(),
                                 req.toPageable());
-
                 List<Comparison> comparisonList = listComparisonEntityToListComparisonMapper
                                 .toComparisonList(entityPage.getContent());
 

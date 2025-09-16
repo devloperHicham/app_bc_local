@@ -1,2 +1,33 @@
-export class Schedule {
+export interface Schedule {
+  id: string;
+  createdAt: string;
+  createdBy: string;
+  updatedAt: string;
+  updatedBy: string;
+  portFromId: string;
+  portFromName: string;
+  countryFromName: string;
+  countryFromNameAbbreviation: string;
+  portFromCode: string;
+  portFromLongitude: number;
+  portFromLatitude: number;
+  portFromLogo: string;
+  portToId: string;
+  portToName: string;
+  countryToName: string;
+  countryToNameAbbreviation: string;
+  portToCode: string;
+  portToLongitude: number;
+  portToLatitude: number;
+  portToLogo: string;
+  companyId: string;
+  companyName: string;
+  companyLogo: string;
+  dateDepart: string;
+  dateArrive: string;
+  transitDays: number;
+  codeTransation: number;
+  vessel: string;
+  refVoyage: string;
+  serviceName: string;
 }
