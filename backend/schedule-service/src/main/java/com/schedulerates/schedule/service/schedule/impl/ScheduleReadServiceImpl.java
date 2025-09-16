@@ -4,6 +4,7 @@ import com.schedulerates.schedule.exception.NotFoundException;
 import com.schedulerates.schedule.model.auth.enums.TokenClaims;
 import com.schedulerates.schedule.model.common.CustomPage;
 import com.schedulerates.schedule.model.schedule.Schedule;
+import com.schedulerates.schedule.model.schedule.dto.request.ScheduleClientPagingRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingRequest;
 import com.schedulerates.schedule.model.schedule.entity.ScheduleEntity;
 import com.schedulerates.schedule.model.schedule.mapper.ListScheduleEntityToListScheduleMapper;
@@ -17,98 +18,141 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class ScheduleReadServiceImpl implements ScheduleReadService {
 
-    private final ScheduleRepository scheduleRepository;
+        private final ScheduleRepository scheduleRepository;
 
-    private final ScheduleEntityToScheduleMapper scheduleEntityToScheduleMapper = ScheduleEntityToScheduleMapper
-            .initialize();
+        private final ScheduleEntityToScheduleMapper scheduleEntityToScheduleMapper = ScheduleEntityToScheduleMapper
+                        .initialize();
 
-    private final ListScheduleEntityToListScheduleMapper listScheduleEntityToListScheduleMapper = ListScheduleEntityToListScheduleMapper
-            .initialize();
+        private final ListScheduleEntityToListScheduleMapper listScheduleEntityToListScheduleMapper = ListScheduleEntityToListScheduleMapper
+                        .initialize();
 
-    private static final String ANONYMOUS_USER = "anonymousUser";
+        private static final String ANONYMOUS_USER = "anonymousUser";
 
-    @Override
-    public Schedule getScheduleById(String scheduleId) {
-        final ScheduleEntity scheduleEntityFromDB = scheduleRepository
-                .findByIdAndActive(scheduleId, "1")
-                .orElseThrow(() -> new NotFoundException("With given scheduleId = " + scheduleId));
-        return scheduleEntityToScheduleMapper.map(scheduleEntityFromDB);
-    }
-
-    @Override
-    public CustomPage<Schedule> getSchedules(SchedulePagingRequest schedulePagingRequest) {
-        Page<ScheduleEntity> scheduleEntityPage;
-        String currentUserEmail = getCurrentUserEmail();
-        boolean isAdmin = isAdmin();
-
-        if (schedulePagingRequest.getSearch() != null && !schedulePagingRequest.getSearch().isEmpty()) {
-            scheduleEntityPage = isAdmin
-                    ? scheduleRepository.findByTextSearch(schedulePagingRequest.getSearch(),
-                            schedulePagingRequest.toPageable())
-                    : scheduleRepository.findByTextSearchAndCreatedBy(schedulePagingRequest.getSearch(),
-                            currentUserEmail, schedulePagingRequest.toPageable());
-
-        } else if (hasFilterValues(schedulePagingRequest)) {
-            scheduleEntityPage = isAdmin
-                    ? scheduleRepository.findByFilters(
-                            schedulePagingRequest.getPortFromId(),
-                            schedulePagingRequest.getPortToId(),
-                            schedulePagingRequest.getDateDepart(),
-                            schedulePagingRequest.getDateArrive(),
-                            schedulePagingRequest.getCompanyId(),
-                            schedulePagingRequest.toPageable())
-                    : scheduleRepository.findByFiltersAndCreatedBy(
-                            schedulePagingRequest.getPortFromId(),
-                            schedulePagingRequest.getPortToId(),
-                            schedulePagingRequest.getDateDepart(),
-                            schedulePagingRequest.getDateArrive(),
-                            schedulePagingRequest.getCompanyId(),
-                            currentUserEmail,
-                            schedulePagingRequest.toPageable());
-        } else {
-            scheduleEntityPage = isAdmin
-                    ? scheduleRepository.findTodayActive("1", schedulePagingRequest.toPageable())
-                    : scheduleRepository.findByActiveAndCreatedByToday("1", currentUserEmail,
-                            schedulePagingRequest.toPageable());
+        @Override
+        public Schedule getScheduleById(String scheduleId) {
+                final ScheduleEntity scheduleEntityFromDB = scheduleRepository
+                                .findByIdAndActive(scheduleId, "1")
+                                .orElseThrow(() -> new NotFoundException("With given scheduleId = " + scheduleId));
+                return scheduleEntityToScheduleMapper.map(scheduleEntityFromDB);
         }
 
-        final List<Schedule> scheduleDomainModels = listScheduleEntityToListScheduleMapper
-                .toScheduleList(scheduleEntityPage.getContent());
+        @Override
+        public CustomPage<Schedule> getSchedules(SchedulePagingRequest schedulePagingRequest) {
+                Page<ScheduleEntity> scheduleEntityPage;
+                String currentUserEmail = getCurrentUserEmail();
+                boolean isAdmin = isAdmin();
 
-        return CustomPage.of(scheduleDomainModels, scheduleEntityPage);
-    }
+                if (schedulePagingRequest.getSearch() != null && !schedulePagingRequest.getSearch().isEmpty()) {
+                        scheduleEntityPage = isAdmin
+                                        ? scheduleRepository.findByTextSearch(schedulePagingRequest.getSearch(),
+                                                        schedulePagingRequest.toPageable())
+                                        : scheduleRepository.findByTextSearchAndCreatedBy(
+                                                        schedulePagingRequest.getSearch(),
+                                                        currentUserEmail, schedulePagingRequest.toPageable());
 
-    private boolean hasFilterValues(SchedulePagingRequest schedulePagingRequest) {
-        return (schedulePagingRequest.getPortFromId() != null && !schedulePagingRequest.getPortFromId().isEmpty()) ||
-                (schedulePagingRequest.getPortToId() != null && !schedulePagingRequest.getPortToId().isEmpty()) ||
-                (schedulePagingRequest.getDateDepart() != null && !schedulePagingRequest.getDateDepart().isEmpty()) ||
-                (schedulePagingRequest.getDateArrive() != null && !schedulePagingRequest.getDateArrive().isEmpty()) ||
-                (schedulePagingRequest.getCompanyId() != null && !schedulePagingRequest.getCompanyId().isEmpty());
-    }
+                } else if (hasFilterValues(schedulePagingRequest)) {
+                        scheduleEntityPage = isAdmin
+                                        ? scheduleRepository.findByFilters(
+                                                        schedulePagingRequest.getPortFromId(),
+                                                        schedulePagingRequest.getPortToId(),
+                                                        schedulePagingRequest.getDateDepart(),
+                                                        schedulePagingRequest.getDateArrive(),
+                                                        schedulePagingRequest.getCompanyId(),
+                                                        schedulePagingRequest.toPageable())
+                                        : scheduleRepository.findByFiltersAndCreatedBy(
+                                                        schedulePagingRequest.getPortFromId(),
+                                                        schedulePagingRequest.getPortToId(),
+                                                        schedulePagingRequest.getDateDepart(),
+                                                        schedulePagingRequest.getDateArrive(),
+                                                        schedulePagingRequest.getCompanyId(),
+                                                        currentUserEmail,
+                                                        schedulePagingRequest.toPageable());
+                } else {
+                        scheduleEntityPage = isAdmin
+                                        ? scheduleRepository.findTodayActive("1", schedulePagingRequest.toPageable())
+                                        : scheduleRepository.findByActiveAndCreatedByToday("1", currentUserEmail,
+                                                        schedulePagingRequest.toPageable());
+                }
 
-    private String getCurrentUserEmail() {
-        return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
-                .map(Authentication::getPrincipal)
-                .filter(user -> !ANONYMOUS_USER.equals(user))
-                .map(Jwt.class::cast)
-                .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
-                .orElse(ANONYMOUS_USER);
-    }
+                final List<Schedule> scheduleDomainModels = listScheduleEntityToListScheduleMapper
+                                .toScheduleList(scheduleEntityPage.getContent());
 
-    private boolean isAdmin() {
-        return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
-                .map(Authentication::getPrincipal)
-                .filter(user -> !ANONYMOUS_USER.equals(user))
-                .map(Jwt.class::cast)
-                .map(jwt -> jwt.getClaim(TokenClaims.USER_TYPE.getValue()).toString())
-                .orElse(ANONYMOUS_USER)
-                .equalsIgnoreCase("ADMIN");
-    }
+                return CustomPage.of(scheduleDomainModels, scheduleEntityPage);
+        }
+
+        private boolean hasFilterValues(SchedulePagingRequest schedulePagingRequest) {
+                return (schedulePagingRequest.getPortFromId() != null
+                                && !schedulePagingRequest.getPortFromId().isEmpty()) ||
+                                (schedulePagingRequest.getPortToId() != null
+                                                && !schedulePagingRequest.getPortToId().isEmpty())
+                                ||
+                                (schedulePagingRequest.getDateDepart() != null
+                                                && !schedulePagingRequest.getDateDepart().isEmpty())
+                                ||
+                                (schedulePagingRequest.getDateArrive() != null
+                                                && !schedulePagingRequest.getDateArrive().isEmpty())
+                                ||
+                                (schedulePagingRequest.getCompanyId() != null
+                                                && !schedulePagingRequest.getCompanyId().isEmpty());
+        }
+
+        private String getCurrentUserEmail() {
+                return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
+                                .map(Authentication::getPrincipal)
+                                .filter(user -> !ANONYMOUS_USER.equals(user))
+                                .map(Jwt.class::cast)
+                                .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
+                                .orElse(ANONYMOUS_USER);
+        }
+
+        private boolean isAdmin() {
+                return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
+                                .map(Authentication::getPrincipal)
+                                .filter(user -> !ANONYMOUS_USER.equals(user))
+                                .map(Jwt.class::cast)
+                                .map(jwt -> jwt.getClaim(TokenClaims.USER_TYPE.getValue()).toString())
+                                .orElse(ANONYMOUS_USER)
+                                .equalsIgnoreCase("ADMIN");
+        }
+
+        @Override
+        public CustomPage<Schedule> getScheduleClients(ScheduleClientPagingRequest req) {
+                LocalDate startDate = null;
+                LocalDate endDate = null;
+
+                if (req.getSelectedDateSchedule() != null && req.getWeeksAhead() != null) {
+                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                                        .withLocale(Locale.ENGLISH);
+                        startDate = LocalDate.parse(req.getSelectedDateSchedule(), formatter);
+                        endDate = startDate.plusWeeks(Long.parseLong(req.getWeeksAhead()));
+                }
+
+                Page<ScheduleEntity> entityPage = scheduleRepository.findByScheduleFilters(
+                                req.getSelectedPortFromSchedule(),
+                                req.getSelectedPortToSchedule(),
+                                startDate,
+                                endDate,
+                                req.getSearchOn(),
+                                req.getSelectedCompany(),
+                                // req.getIsCheapest(),
+                                // req.getIsFastest(),
+                                // req.getIsDirect(),
+                                req.toPageable());
+
+                List<Schedule> scheduleList = listScheduleEntityToListScheduleMapper
+                                .toScheduleList(entityPage.getContent());
+
+                return CustomPage.of(scheduleList, entityPage);
+        }
 }

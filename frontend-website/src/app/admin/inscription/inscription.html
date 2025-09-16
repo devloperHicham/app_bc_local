@@ -227,7 +227,8 @@
           <div class="already-have-an-container">
             <span>{{ "AUTH.ALREADY_ACCOUNT" | translate }}</span>
             <span class="sign-in"
-              ><a style="cursor: pointer" routerLink="/login">{{
+              ><a 
+             (click)="navigateToSignin($event)" style="cursor: pointer">{{
                 "AUTH.SIGN_IN" | translate
               }}</a></span
             >

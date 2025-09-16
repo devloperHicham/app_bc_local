@@ -1,6 +1,6 @@
 package com.schedulerates.schedule.repository;
 
-import com.schedulerates.schedule.model.schedule.entity.ScheduleEntity;
+import com.schedulerates.schedule.model.schedule.entity.ScheduleEntity; 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -220,26 +220,55 @@ public interface ScheduleRepository extends JpaRepository<ScheduleEntity, String
                         @Param("email") String userEmail);
 
         // Get weekly schedule counts by company
-       @Query("""
-            SELECT CAST(s.createdAt AS DATE) AS day, s.companyName, COUNT(s) 
-            FROM ScheduleEntity s
-            WHERE CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate
-            GROUP BY CAST(s.createdAt AS DATE), s.companyName
-            ORDER BY day, s.companyName
-        """)
+        @Query("""
+                            SELECT CAST(s.createdAt AS DATE) AS day, s.companyName, COUNT(s)
+                            FROM ScheduleEntity s
+                            WHERE CAST(s.createdAt AS DATE) BETWEEN :startDate AND :endDate
+                            GROUP BY CAST(s.createdAt AS DATE), s.companyName
+                            ORDER BY day, s.companyName
+                        """)
         List<Object[]> findWeeklyCompanyScheduleCounts(
-            @Param("startDate") LocalDate startDate,
-            @Param("endDate") LocalDate endDate);
+                        @Param("startDate") LocalDate startDate,
+                        @Param("endDate") LocalDate endDate);
 
-            
         // count schedules created today by users
         @Query("""
-            SELECT s.createdBy, COUNT(s)
-            FROM ScheduleEntity s
-            WHERE CAST(s.createdAt AS DATE) = :today
-            AND s.active = '1'
-            GROUP BY s.createdBy
-            ORDER BY s.createdBy
-        """)
+                            SELECT s.createdBy, COUNT(s)
+                            FROM ScheduleEntity s
+                            WHERE CAST(s.createdAt AS DATE) = :today
+                            AND s.active = '1'
+                            GROUP BY s.createdBy
+                            ORDER BY s.createdBy
+                        """)
         List<Object[]> findDailyUsersScheduleCounts(@Param("today") LocalDate today);
+
+        /************************************************************************************************************ */
+        /**********************************
+         * this party for client to gat data by search *****************************
+         */
+        /************************************************************************************************************ */
+
+        @Query("""
+                            SELECT c
+                            FROM ScheduleEntity c
+                            WHERE (:portFromId IS NULL OR c.portFromId = :portFromId)
+                              AND (:portToId IS NULL OR c.portToId = :portToId)
+                              AND (:companyId IS NULL OR c.companyId = :companyId)
+                              AND (
+                                    (:searchOn = '1' AND c.dateDepart BETWEEN :startDate AND :endDate)
+                                 OR (:searchOn = '2' AND c.dateArrive BETWEEN :startDate AND :endDate)
+                              )
+                              AND c.active = '1'
+                        """)
+        Page<ScheduleEntity> findByScheduleFilters(
+                        @Param("portFromId") String portFromId,
+                        @Param("portToId") String portToId,
+                        @Param("startDate") LocalDate startDate,
+                        @Param("endDate") LocalDate endDate,
+                        @Param("searchOn") String searchOn,
+                        @Param("companyId") String companyId,
+                        //@Param("isCheapest") Boolean isCheapest,
+                        //@Param("isFastest") Boolean isFastest,
+                        //@Param("isDirect") Boolean isDirect,
+                        Pageable pageable);
 }

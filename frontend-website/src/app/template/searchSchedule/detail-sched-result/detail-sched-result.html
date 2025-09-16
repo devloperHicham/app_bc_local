@@ -1,10 +1,10 @@
 <div class="stateextended" style="width: 1080px">
   <div class="top-bar">
     <div class="quick-actions">
-      <div class="icon">
+      <div class="icon" (click)="togglePast(schedules.id)">
         <img class="vector-icon" alt="" src="assets/images/past-blue.png" />
       </div>
-      <div class="icon">
+      <div class="icon" (click)="toggleFavorite(schedules.id)">
         <img class="vector-icon1" alt="" src="assets/images/heart-blue.png" />
       </div>
     </div>
@@ -13,24 +13,16 @@
     <div class="information">
       <div class="trip">
         <div class="departure">
-          <img
-            class="departure-child"
-            alt=""
-            src="assets/images/Ellipse-blue.png"
-          />
+          <img class="departure-child" alt="" src="assets/images/Ellipse-blue.png" />
 
           <div class="arrival">
             <div class="flags">
-              <img
-                class="vector-icon2"
-                alt=""
-                src="assets/images/morrocco.png"
-              />
+              <img class="vector-icon2" alt="" src="assets/flag_countries/{{ schedules.countryFromName }}" />
             </div>
             <div class="text">
-              <div class="casablanca-port-ma">Casablanca Port, MA</div>
-              <div class="div">11/06/2025 - 11:00</div>
-              <div class="terminal-somaport">Terminal Somaport</div>
+              <div class="casablanca-port-ma">{{ schedules.portFromName }}, {{ schedules.countryFromNameAbbreviation }}
+              </div>
+              <div class="div">{{ schedules.dateDepart }}</div>
             </div>
           </div>
         </div>
@@ -38,31 +30,9 @@
           <div class="trip-timeline">
             <div class="trip-timeline-child"></div>
             <div class="icon2">
-              <img
-                class="vector-icon3"
-                alt=""
-                src="assets/images/ship-blue.png"
-              />
+              <img class="vector-icon3" alt="" src="assets/images/ship-blue.png" />
             </div>
             <div class="trip-timeline-child"></div>
-            <div class="ellipse"></div>
-            <div class="trip-timeline-inner"></div>
-            <div class="icon2">
-              <img class="vector-icon3" alt="" src="assets/images/rail.png" />
-            </div>
-            <div class="icon2">
-              <img
-                class="vector-icon5"
-                alt=""
-                src="assets/images/truck-green.png"
-              />
-            </div>
-            <div class="trip-timeline-inner"></div>
-          </div>
-          <div class="checkpoint" style="width: 500px">
-            <div class="barcelona-spa">Barcelona, SPA</div>
-            <div class="div1">25/06/2025</div>
-            <div class="terminal-somaport">Barcelona Europe South Ter Best</div>
           </div>
           <div class="information1" style="width: 500px">
             <div class="barcelona-spa">Port Cut-off</div>
@@ -70,35 +40,30 @@
           </div>
           <div class="information2" style="width: 500px">
             <div class="barcelona-spa">Vessel</div>
-            <div class="terminal-somaport">A LA MARINE</div>
+            <div class="terminal-somaport">{{ schedules.vessel }}</div>
           </div>
           <div class="information3" style="width: 500px">
             <div class="barcelona-spa">Service</div>
             <div class="terminal-somaport">
-              SSLMED Mediterranean Pendulum Service (MPS)
+              {{ schedules.serviceName }}
             </div>
           </div>
           <div class="information4" style="width: 500px">
             <div class="barcelona-spa">Ref. voyage</div>
-            <div class="terminal-somaport">0XPI5W1MA</div>
+            <div class="terminal-somaport">{{ schedules.refVoyage }}</div>
           </div>
         </div>
-        <div class="truck-rail">Truck / Rail</div>
         <div class="departure2">
-          <img
-            class="departure-child"
-            alt=""
-            src="assets/images/Ellipse-blue.png"
-          />
+          <img class="departure-child" alt="" src="assets/images/Ellipse-blue.png" />
 
           <div class="arrival">
             <div class="flags1">
-              <img class="vector-icon6" alt="" src="assets/images/usa.png" />
+              <img class="vector-icon6" alt="" src="assets/flag_countries/{{ schedules.countryToName }}" />
             </div>
             <div class="text">
-              <div class="casablanca-port-ma">Mallorca, SPA</div>
-              <div class="div1">28/06/2025 - 09:10</div>
-              <div class="terminal-somaport1">Terminal Somaport</div>
+              <div class="casablanca-port-ma">{{ schedules.portToName }}, {{ schedules.countryToNameAbbreviation }}
+              </div>
+              <div class="div1">{{ schedules.dateArrive }}</div>
             </div>
           </div>
         </div>
@@ -106,132 +71,19 @@
       <div class="shipping-info">
         <div class="info">
           <div class="icon">
-            <img
-              class="vector-icon17"
-              alt=""
-              src="assets/images/date-blue.png"
-            />
+            <img class="vector-icon17" alt="" src="assets/images/date-blue.png" />
           </div>
-          <div class="barcelona-spa">11 days</div>
+          <div class="barcelona-spa">{{ schedules.transitDays }} days</div>
         </div>
         <div class="info">
           <div class="icon">
-            <img
-              class="vector-icon18"
-              alt=""
-              src="assets/images/arrow-left-blue.png"
-            />
+            <img class="vector-icon18" alt="" src="assets/images/arrow-left-blue.png" />
           </div>
           <div class="barcelona-spa">Direct</div>
         </div>
-        <div class="info2">
-          <div class="icon">
-            <img
-              class="vector-icon19"
-              alt=""
-              src="assets/images/leef-green.png"
-            />
-          </div>
-          <div class="barcelona-spa">0.69 CO2 (t)/EVP</div>
-        </div>
       </div>
     </div>
-    <div class="details">
-      <div class="applicable-dates">
-        <div class="header">
-          <div class="icon">
-            <img class="vector-icon20" alt="" src="assets/images/dates.png" />
-          </div>
-          <div class="applicable-cut-off-dates-container">
-            <p class="applicable-cut-off-dates">Applicable Cut-off dates</p>
-            <p class="applicable-cut-off-dates">for Casablanca Port,Ma</p>
-          </div>
-        </div>
-        <div class="content1">
-          <div class="information5">
-            <div class="special-booking">Special booking</div>
-            <div class="terminal-somaport">12/06/2025, 11:00</div>
-            <div class="icon9">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">Standard booking</div>
-            <div class="terminal-somaport">12/06/2025, 11:00</div>
-            <div class="icon9">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">Standard booking</div>
-            <div class="terminal-somaport">12/06/2025, 11:00</div>
-            <div class="icon9">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">Port</div>
-            <div class="terminal-somaport">13/06/2025, 11:00</div>
-            <div class="icon11">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">SI</div>
-            <div class="terminal-somaport">13/06/2025, 11:00</div>
-            <div class="icon9">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">VGM</div>
-            <div class="terminal-somaport">13/06/2025, 11:00</div>
-            <div class="icon11">
-              <img
-                class="vector-icon21"
-                alt=""
-                src="assets/images/Popup-info.png"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="applicable-dates1">
-        <div class="header1">
-          <div class="applicable-cut-off-dates-container">Carbon Emissions</div>
-        </div>
-        <div class="content1">
-          <div class="information5">
-            <div class="special-booking">Land</div>
-            <div class="terminal-somaport">0.34 CO2 (t)/TEU</div>
-          </div>
-          <div class="information5">
-            <div class="special-booking">Sea</div>
-            <div class="terminal-somaport">0.34 CO2 (t)/TEU</div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="footer">
       <div class="quick-actions">
         <div class="ctasecondary">
@@ -242,19 +94,11 @@
         </div>
       </div>
     </div>
-    <div
-      class="showhide-button"
-      (click)="hideDetail()"
-      (keydown)="$event.stopPropagation()"
-    >
+    <div class="showhide-button" (click)="hideDetail()" (keydown)="$event.stopPropagation()">
       <div class="separator"></div>
       <div class="chat">Hide details</div>
       <div class="icon">
-        <img
-          class="vector-icon26"
-          alt=""
-          src="assets/images/hide-up.png"
-        />
+        <img class="vector-icon26" alt="" src="assets/images/hide-up.png" />
       </div>
       <div class="separator"></div>
     </div>

@@ -16,7 +16,7 @@ public class GlobalCorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Arrays.asList( "https://192.168.1.50:4000", "https://192.168.1.50:7000"));
+        config.setAllowedOrigins(Arrays.asList( "https://10.191.171.122:4000", "https://10.191.171.122:7000"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
 

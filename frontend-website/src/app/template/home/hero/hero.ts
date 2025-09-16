@@ -7,90 +7,151 @@ import {
   ElementRef,
   ViewChild,
   OnInit,
+  inject,
 } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { RouterLink } from "@angular/router";
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from "@angular/forms";
+import { Router } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import { HeroSerice } from "../services/hero-serice";
-import { Company, Container, Port, Transportation } from "../../../modules/data-json";
+import { HeroService } from "../services/hero-service";
+import {
+  Company,
+  Container,
+  Port,
+  Transportation,
+} from "../../../modules/data-json";
 import { SharedModule } from "../../../share/share-module";
+import { ConfigService } from "../../../services/config/config";
+import { NgxSpinnerService } from "ngx-spinner";
+import { AuthService } from "../../../auth/services/auth.service";
+import { take } from "rxjs";
 type PortFilterType =
-  | 'fromSchedule'
-  | 'toSchedule'
-  | 'fromComparison'
-  | 'toComparison';
+  | "fromSchedule"
+  | "toSchedule"
+  | "fromComparison"
+  | "toComparison";
 @Component({
   selector: "app-hero",
   standalone: true,
-  imports: [SharedModule, RouterLink, CommonModule, FormsModule, TranslateModule],
+  imports: [SharedModule, CommonModule, FormsModule, TranslateModule],
   templateUrl: "./hero.html",
   styleUrls: ["./hero.css"],
 })
 export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
+  form!: FormGroup;
+  submitted = false;
   ports: Port[] = [];
   containers: Container[] = [];
   transportations: Transportation[] = [];
   companies: Company[] = [];
   selectedCompany: string | null = null;
+  activeTab: "marine" | "schedules" = "marine";
+  private readonly authService = inject(AuthService);
+  readonly auth$ = this.authService.isAuthenticated$; // Observable for authentication status
+  private readonly heroService = inject(HeroService);
+  private readonly router = inject(Router);
+  private readonly spinner = inject(NgxSpinnerService);
+  private readonly configService = inject(ConfigService);
+  private readonly fb = inject(FormBuilder);
 
-  selectedPortFromSchedule = '';
+  selectedPortFromSchedule = "";
   filteredPortsFromSchedule: any[] = [];
   dropdownOpenFromSchedule = false;
-  selectedPortFromScheduleCode : string | null = null;
+  selectedPortFromScheduleCode: string | null = null;
 
-  selectedPortToSchedule = '';
+  selectedPortToSchedule = "";
   filteredPortsToSchedule: any[] = [];
   dropdownOpenToSchedule = false;
-  selectedPortToScheduleCode  : string | null = null;
+  selectedPortToScheduleCode: string | null = null;
 
-  selectedPortFromComparison = '';
+  selectedPortFromComparison = "";
   filteredPortsFromComparison: any[] = [];
   dropdownOpenFromComparison = false;
-  selectedPortFromComparisonCode  : string | null = null;
+  selectedPortFromComparisonCode: string | null = null;
 
-  selectedPortToComparison = '';
+  selectedPortToComparison = "";
   filteredPortsToComparison: any[] = [];
   dropdownOpenToComparison = false;
-  selectedPortToComparisonCode  : string | null = null;
+  selectedPortToComparisonCode: string | null = null;
 
   constructor(
-    private readonly heroSerice: HeroSerice,
     private readonly cdr: ChangeDetectorRef,
     private readonly translate: TranslateService
   ) {}
 
+  initializeForm(): void {
+    this.form = this.fb.group({
+      scheduleSearch: this.fb.group({
+        selectedPortFromSchedule: ["", Validators.required],
+        selectedPortToSchedule: ["", Validators.required],
+        isIntervalMode: [false],
+        selectedDateRange: [""],
+        selectedDate: [""],
+        selectedTransportation: ["", Validators.required],
+        selectedContainer: ["", Validators.required],
+      }),
+
+      comparisonSearch: this.fb.group({
+        selectedPortFromComparison: ["", Validators.required],
+        selectedPortToComparison: ["", Validators.required],
+        selectedCompany: ["", Validators.required],
+        searchOn: ["1", Validators.required], // default value
+        selectedDateComparison: ["", Validators.required],
+        weeksAhead: ["", Validators.required],
+      }),
+
+      // Filters (checkboxes apply to both maybe?)
+      isCheapest: [false],
+      isFastest: [false],
+      isDirect: [false],
+    });
+  }
   ngOnInit(): void {
+    this.initializeForm();
+    // Restore saved data
+    const savedData = this.heroService.getForm();
+    if (savedData) {
+      const activeForm =
+        this.activeTab === "marine"
+          ? this.form.get("scheduleSearch")
+          : this.form.get("comparisonSearch");
+      activeForm?.patchValue(savedData);
+    }
     // Load ports data on initialization
-    this.heroSerice.getPorts().subscribe((data) => {
+    this.heroService.getPorts().subscribe((data) => {
       this.ports = data;
     });
     // Load containers data on initialization
-    this.heroSerice.getContainers().subscribe((data) => {
+    this.heroService.getContainers().subscribe((data) => {
       this.containers = data;
     });
     // Load transportations data on initialization
-    this.heroSerice.getTransportations().subscribe((data) => {
+    this.heroService.getTransportations().subscribe((data) => {
       this.transportations = data;
     });
-// Load companies data on initialization
-    this.heroSerice.getCompanies().subscribe((data) => {
+    // Load companies data on initialization
+    this.heroService.getCompanies().subscribe((data) => {
       this.companies = data;
     });
   }
 
-   filterPorts(type: PortFilterType, event: any) {
+  filterPorts(type: PortFilterType, event: any) {
     const val = event.target.value.toLowerCase().trim();
 
     if (val.length < 3) {
-      if (type === 'fromSchedule') {
+      if (type === "fromSchedule") {
         this.filteredPortsFromSchedule = [];
         this.dropdownOpenFromSchedule = false;
-      } else if (type === 'toSchedule') {
+      } else if (type === "toSchedule") {
         this.filteredPortsToSchedule = [];
         this.dropdownOpenToSchedule = false;
-      } else if (type === 'fromComparison') {
+      } else if (type === "fromComparison") {
         this.filteredPortsFromComparison = [];
         this.dropdownOpenFromComparison = false;
       } else {
@@ -106,13 +167,13 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
         port.CODEPORT.toLowerCase().startsWith(val) // port code starts with input
     );
 
-     if (type === 'fromSchedule') {
+    if (type === "fromSchedule") {
       this.filteredPortsFromSchedule = filtered;
       this.dropdownOpenFromSchedule = filtered.length > 0;
-    } else if (type === 'toSchedule') {
+    } else if (type === "toSchedule") {
       this.filteredPortsToSchedule = filtered;
       this.dropdownOpenToSchedule = filtered.length > 0;
-    } else if (type === 'fromComparison') {
+    } else if (type === "fromComparison") {
       this.filteredPortsFromComparison = filtered;
       this.dropdownOpenFromComparison = filtered.length > 0;
     } else {
@@ -120,38 +181,54 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
       this.dropdownOpenToComparison = filtered.length > 0;
     }
   }
+  //@return response()
+  get f() {
+    return this.form.controls;
+  }
 
   selectPort(type: PortFilterType, port: any) {
-    if (type === 'fromSchedule') {
-      this.selectedPortFromSchedule = port.PORTNAME + ', ' + port.ISO3;
+    if (type === "fromSchedule") {
+      this.selectedPortFromSchedule = port.PORTNAME + ", " + port.ISO3;
       this.selectedPortFromScheduleCode = port.CODEPORT;
       this.filteredPortsFromSchedule = [];
       this.dropdownOpenFromSchedule = false;
-    } else if (type === 'toSchedule') {
-      this.selectedPortToSchedule = port.PORTNAME + ', ' + port.ISO3;
+      this.form
+        .get("scheduleSearch.selectedPortFromSchedule")
+        ?.setValue(port.CODEPORT);
+    } else if (type === "toSchedule") {
+      this.selectedPortToSchedule = port.PORTNAME + ", " + port.ISO3;
       this.selectedPortToScheduleCode = port.CODEPORT;
       this.filteredPortsToSchedule = [];
       this.dropdownOpenToSchedule = false;
-    } else if (type === 'fromComparison') {
-      this.selectedPortFromComparison = port.PORTNAME + ', ' + port.ISO3;
+      this.form
+        .get("scheduleSearch.selectedPortToSchedule")
+        ?.setValue(port.CODEPORT);
+    } else if (type === "fromComparison") {
+      this.selectedPortFromComparison = port.PORTNAME + ", " + port.ISO3;
       this.selectedPortFromComparisonCode = port.CODEPORT;
       this.filteredPortsFromComparison = [];
       this.dropdownOpenFromComparison = false;
+      this.form
+        .get("comparisonSearch.selectedPortFromComparison")
+        ?.setValue(port.CODEPORT);
     } else {
-      this.selectedPortToComparison = port.PORTNAME + ', ' + port.ISO3;
+      this.selectedPortToComparison = port.PORTNAME + ", " + port.ISO3;
       this.selectedPortToComparisonCode = port.CODEPORT;
       this.filteredPortsToComparison = [];
       this.dropdownOpenToComparison = false;
+      this.form
+        .get("comparisonSearch.selectedPortToComparison")
+        ?.setValue(port.CODEPORT);
     }
   }
 
- closeDropdown(type: PortFilterType) {
+  closeDropdown(type: PortFilterType) {
     setTimeout(() => {
-      if (type === 'fromSchedule') {
+      if (type === "fromSchedule") {
         this.dropdownOpenFromSchedule = false;
-      } else if (type === 'toSchedule') {
+      } else if (type === "toSchedule") {
         this.dropdownOpenToSchedule = false;
-      } else if (type === 'fromComparison') {
+      } else if (type === "fromComparison") {
         this.dropdownOpenFromComparison = false;
       } else {
         this.dropdownOpenToComparison = false;
@@ -159,10 +236,45 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     }, 150);
   }
 
+  //set data to insert in localstore then go to another page
+  async submit(): Promise<void> {
+    const activeForm =
+      this.activeTab === "marine"
+        ? (this.form.get("scheduleSearch") as FormGroup)
+        : (this.form.get("comparisonSearch") as FormGroup);
+
+    // Validation
+    activeForm.markAllAsTouched();
+    if (!activeForm.valid) {
+      this.spinner.show();
+      this.configService.showErrorAlert("Please fill all required fields!");
+      setTimeout(() => this.spinner.hide(), 5000);
+      return;
+    }
+
+    // Save form data for restoration
+    this.heroService.saveForm(activeForm.value);
+
+    // Auth check
+    const isAuth = await this.auth$.pipe(take(1)).toPromise();
+    if (!isAuth) {
+      this.router.navigate(["/login"], {
+        queryParams: { returnUrl: this.router.url },
+      });
+      return;
+    }
+
+    // Navigate to correct results page
+    if (this.activeTab === "marine") {
+      this.router.navigate(["/search-sched-results"]);
+    } else {
+      this.router.navigate(["/search-comp-results"]);
+    }
+  }
+
   //******************************************************************************************** */
   //************************************ * this code for design **********************************/
   //******************************************************************************************** */
-  activeTab: "marine" | "schedules" = "marine";
   currentBg: string = "/assets/images/marine-bg.png";
   isPopoverVisible = false;
   isIntervalMode = false;

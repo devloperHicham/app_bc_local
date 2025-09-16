@@ -2,6 +2,7 @@ package com.schedulerates.schedule.service.schedule;
 
 import com.schedulerates.schedule.model.common.CustomPage;
 import com.schedulerates.schedule.model.schedule.Schedule;
+import com.schedulerates.schedule.model.schedule.dto.request.ScheduleClientPagingRequest;
 import com.schedulerates.schedule.model.schedule.dto.request.SchedulePagingRequest;
 
 /**
@@ -24,5 +25,13 @@ public interface ScheduleReadService {
      * @return A CustomPage containing the list of Schedules that match the paging criteria.
      */
     CustomPage<Schedule> getSchedules(final SchedulePagingRequest schedulePagingRequest);
+
+        /**
+     * Retrieves a page of Schedules based on the paging request criteria.
+     *
+     * @param scheduleClientPagingRequest The paging request criteria.
+     * @return A CustomPage containing the list of Schedules that match the paging criteria.
+     */
+    CustomPage<Schedule> getScheduleClients(final ScheduleClientPagingRequest scheduleClientPagingRequest);
 
 }

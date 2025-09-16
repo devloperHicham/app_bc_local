@@ -9,8 +9,10 @@ import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 /**
- * Mapper interface for converting between {@link RegisterRequest} and {@link UserEntity}.
- * This mapper handles the transformation of user registration request data into a user entity
+ * Mapper interface for converting between {@link RegisterRequest} and
+ * {@link UserEntity}.
+ * This mapper handles the transformation of user registration request data into
+ * a user entity
  * for persistence in the database.
  */
 @Mapper
@@ -18,7 +20,8 @@ public interface RegisterRequestToUserEntityMapper extends BaseMapper<RegisterRe
 
     /**
      * Maps a {@link RegisterRequest} to a {@link UserEntity} for saving.
-     * This method maps the user's registration request to a {@link UserEntity} with appropriate
+     * This method maps the user's registration request to a {@link UserEntity} with
+     * appropriate
      * user type based on the role specified in the request.
      *
      * @param userRegisterRequest the registration request containing user details
@@ -27,8 +30,15 @@ public interface RegisterRequestToUserEntityMapper extends BaseMapper<RegisterRe
     @Named("mapForSaving")
     default UserEntity mapForSaving(RegisterRequest userRegisterRequest) {
 
-        UserType userType = "admin".equalsIgnoreCase(userRegisterRequest.getRole()) ? UserType.ADMIN : UserType.USER;
+        UserType userType;
 
+        if ("admin".equalsIgnoreCase(userRegisterRequest.getRole())) {
+            userType = UserType.ADMIN;
+        } else if ("client".equalsIgnoreCase(userRegisterRequest.getRole())) {
+            userType = UserType.CLIENT;
+        } else {
+            userType = UserType.USER; // default
+        }
         return UserEntity.builder()
                 .email(userRegisterRequest.getEmail())
                 .firstName(userRegisterRequest.getFirstName())

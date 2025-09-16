@@ -16,6 +16,7 @@
   	height: 16px;
   	overflow: hidden;
   	flex-shrink: 0;
+	cursor: pointer;
 }
 .back {
   	position: relative;

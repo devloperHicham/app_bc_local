@@ -1,19 +1,19 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ConfigService } from '../../services/config/config';
-import { ApiResponses } from '../../modules/api-responses';
-import { UserService } from '../service/user-service';
-import { SharedModule } from '../../share/share-module';
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router, RouterLink } from "@angular/router";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ConfigService } from "../../services/config/config";
+import { ApiResponses } from "../../modules/api-responses";
+import { UserService } from "../service/user-service";
+import { SharedModule } from "../../share/share-module";
 
 @Component({
-  selector: 'app-inscription',
+  selector: "app-inscription",
   standalone: true,
-  imports: [SharedModule, RouterLink, TranslateModule],
-  templateUrl: './inscription.html',
-  styleUrl: './inscription.css',
+  imports: [SharedModule, TranslateModule],
+  templateUrl: "./inscription.html",
+  styleUrl: "./inscription.css",
 })
 export class Inscription implements OnInit {
   form!: FormGroup;
@@ -32,21 +32,21 @@ export class Inscription implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
+      firstName: ["", [Validators.required]],
+      lastName: ["", [Validators.required]],
+      phoneNumber: ["", [Validators.required]],
       email: [
-        '',
+        "",
         [
           Validators.required,
           Validators.pattern(
-            '^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$'
+            "^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$"
           ),
         ],
       ],
-      role: ['CLIENT', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmePassword: ['', [Validators.required]],
+      role: ["CLIENT", [Validators.required]],
+      password: ["", [Validators.required]],
+      confirmePassword: ["", [Validators.required]],
     });
   }
 
@@ -60,9 +60,13 @@ export class Inscription implements OnInit {
   }
 
   onKeyMenuItem(event: KeyboardEvent): void {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
     }
+  }
+  navigateToSignin(event: Event) {
+    event.preventDefault(); // prevent form submission
+    this.router.navigate(["/login"]);
   }
   //set data to insert in database
   submit(): void {
@@ -70,14 +74,14 @@ export class Inscription implements OnInit {
     console.log(this.form.value);
     if (this.form.invalid) {
       this.configService.showErrorAlert(
-        'Veuillez corriger les erreurs dans le formulaire.'
+        "Veuillez corriger les erreurs dans le formulaire."
       );
       return;
     }
 
     if (this.form.value.password != this.form.value.confirmePassword) {
       this.configService.showErrorAlert(
-        'Veuillez corriger les erreurs de password.'
+        "Veuillez corriger les erreurs de password."
       );
       return;
     }
@@ -86,10 +90,15 @@ export class Inscription implements OnInit {
       next: (res: ApiResponses<void>) => {
         this.spinner.hide();
         if (res.isSuccess) {
-          this.configService.showSuccessAlert('Action réussie.');
-          this.router.navigateByUrl(this.configService.ENDPOINTS.login);
+          this.configService.showSuccessAlert(
+            "Successfully registered. Check your email to activate your account."
+          );
+          // Wait 8 seconds, then navigate to login
+          setTimeout(() => {
+            this.router.navigateByUrl(this.configService.ENDPOINTS.login);
+          }, 8000);
         } else {
-          this.configService.showErrorAlert('Une erreur s’est produite.');
+          this.configService.showErrorAlert("Une erreur s’est produite.");
         }
       },
       error: () => {

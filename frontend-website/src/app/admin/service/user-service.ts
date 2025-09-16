@@ -39,7 +39,7 @@ export class UserService {
   create(data: Inscription): Observable<ApiResponses<void>> {
     return this.http
       .post<ApiResponses<void>>(
-        this.url + '/register',
+        this.url + 'register',
         data,
         this.configService.httpOptionLogins
       )

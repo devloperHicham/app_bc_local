@@ -57,12 +57,12 @@
         "serve": {
           "builder": "@angular/build:dev-server",
            "options": {
-            "host": "192.168.1.50",
+            "host": "10.191.171.122",
             "ssl": true,
-            "sslKey": "ssl/192.168.1.50-key.pem",
-            "sslCert": "ssl/192.168.1.50.pem",
+            "sslKey": "ssl/10.191.171.122-key.pem",
+            "sslCert": "ssl/10.191.171.122.pem",
             "proxyConfig": "proxy.conf.json",
-            "allowedHosts": ["192.168.1.50"]
+            "allowedHosts": ["10.191.171.122"]
           },
           "configurations": {
             "production": {

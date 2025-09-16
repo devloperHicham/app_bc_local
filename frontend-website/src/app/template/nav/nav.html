@@ -1,10 +1,6 @@
 <div class="marketplacedesktop">
   <div class="are-you-a">{{ 'NAV.ARE_YOU' | translate }}</div>
-  <div
-    class="button"
-    (click)="handleMenuItemClick('marketplaces')"
-    (keydown)="onKeyMenuItem($event, 'marketplaces')"
-  >
+  <div class="button" (click)="handleMenuItemClick('marketplaces')" (keydown)="onKeyMenuItem($event, 'marketplaces')">
     <div class="text-placeholder">{{ 'NAV.JOIN_MARKETPLACE' | translate }}</div>
     <div class="tailing-icon">
       <img class="vector-icon" alt="" src="assets/images/arrow-up-right.png" />
@@ -19,12 +15,15 @@
     </div>
     <div class="navbar-menu">
       <div [ngClass]="{ 'menu-item': activeMenuItem() === 'home', 'menu-item1': activeMenuItem() !== 'home' }">
-        <div class="home" [class.active]="activeMenuItem() === 'home'" (click)="handleMenuItemClick('home')" (keydown)="onKeyMenuItem($event, 'home')">
+        <div class="home" [class.active]="activeMenuItem() === 'home'" (click)="handleMenuItemClick('home')"
+          (keydown)="onKeyMenuItem($event, 'home')">
           {{ 'NAV.HOME' | translate }}
         </div>
       </div>
-      <div [ngClass]="{ 'menu-item': activeMenuItem() === 'marketplaces', 'menu-item1': activeMenuItem() !== 'marketplaces' }">
-        <div class="home" (click)="handleMenuItemClick('marketplaces')" (keydown)="onKeyMenuItem($event, 'marketplaces')">
+      <div
+        [ngClass]="{ 'menu-item': activeMenuItem() === 'marketplaces', 'menu-item1': activeMenuItem() !== 'marketplaces' }">
+        <div class="home" (click)="handleMenuItemClick('marketplaces')"
+          (keydown)="onKeyMenuItem($event, 'marketplaces')">
           {{ 'NAV.MARKETPLACE' | translate }}
         </div>
         <div class="icon" style="width: 26px; height: 26px">
@@ -50,7 +49,8 @@
 
     <div class="main-action-div">
       <div style="font-size: 14px" class="ctaprimary">
-        <button style="cursor: pointer; background-color: transparent; border: none; color: #ff6600;" class="home" (click)="openModal()">
+        <button style="cursor: pointer; background-color: transparent; border: none; color: #ff6600;" class="home"
+          (click)="openModal()">
           {{ 'NAV.REQUEST_QUOTE' | translate }}
         </button>
         <div class="icon">
@@ -59,29 +59,30 @@
       </div>
 
       @if (auth$ | async) {
-      <div style="font-size: 14px" class="ctaprimary1" id="cTAPrimaryContainer1">
-        <div (click)="handleMenuItemClick('inscription-users')" (keydown)="onKeyMenuItem($event, 'inscription-users')" class="request-a-quote">
-          {{ 'NAV.SIGN_UP_FREE' | translate }}
+        <div class="notification">
+          <div class="icon">
+            <img class="vector-icon2" alt="" src="assets/images/bell-blue.png" />
+          </div>
         </div>
-        <div class="icon">
-          <img class="vector-icon1" alt="" src="assets/images/user-up-white.png" />
-        </div>
-      </div>
-      <div style="font-size: 14px" class="ctasecondary">
-        <div (click)="handleMenuItemClick('login')" (keydown)="onKeyMenuItem($event, 'login')" class="request-a-quote">
-          {{ 'NAV.LOGIN' | translate }}
-        </div>
-        <div class="icon">
-          <img class="vector-icon2" alt="" src="assets/images/arrow-up-right.png" />
-        </div>
-      </div>
+        <app-dropdown-profile></app-dropdown-profile>
       }@else {
-      <div class="notification">
-        <div class="icon">
-          <img class="vector-icon2" alt="" src="assets/images/bell-blue.png" />
+        <div style="font-size: 14px" class="ctaprimary1" id="cTAPrimaryContainer1">
+          <div (click)="handleMenuItemClick('inscription-users')" (keydown)="onKeyMenuItem($event, 'inscription-users')"
+            class="request-a-quote">
+            {{ 'NAV.SIGN_UP_FREE' | translate }}
+          </div>
+          <div class="icon">
+            <img class="vector-icon1" alt="" src="assets/images/user-up-white.png" />
+          </div>
         </div>
-      </div>
-      <app-dropdown-profile></app-dropdown-profile>
+        <div style="font-size: 14px" class="ctasecondary">
+          <div (click)="handleMenuItemClick('login')" (keydown)="onKeyMenuItem($event, 'login')" class="request-a-quote">
+            {{ 'NAV.LOGIN' | translate }}
+          </div>
+          <div class="icon">
+            <img class="vector-icon2" alt="" src="assets/images/arrow-up-right.png" />
+          </div>
+        </div>
       }
 
       <div class="language-selector">

@@ -31,7 +31,7 @@ export class ConfigService {
     schedules: 'schedules',
     settings: 'settings',
     comparisons: 'comparisons',
-    faqs: 'faqs',
+    clients: 'clients',
     homeUsers: 'home-users',
     homeAdmin: 'home-admin',
     notAuthorized: 'not-authorized',
