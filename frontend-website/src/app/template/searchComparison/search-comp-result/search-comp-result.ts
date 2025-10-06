@@ -10,7 +10,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { SearchCompDetail } from '../search-comp-detail/search-comp-detail';
@@ -18,7 +18,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Comparison } from '../../home/modules/comparison';
 import { HeroService } from '../../home/services/hero-service';
 import { ConfigService } from '../../../services/config/config';
-import { filter, Subscription } from 'rxjs';
+import { Company, Container, Transportation } from '../../../modules/data-json';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-search-comp-result',
@@ -38,6 +39,10 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
   private readonly configService = inject(ConfigService);
   private readonly router = inject(Router);
   selectedCompareison: Comparison | null = null;
+  containers: Container[] = [];
+  transportations: Transportation[] = [];
+  companies: Company[] = [];
+  selectedCompany: string | null = null;
   Math = Math;
   comparisons: Comparison[] = [];
   currentPage = 1;
@@ -49,18 +54,31 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly translate: TranslateService
-  ) {}
+    private readonly translate: TranslateService,
+    private readonly spinner: NgxSpinnerService,
+  ) { }
 
   ngOnInit(): void {
+    // Load containers data on initialization
+    this.heroService.getContainers().subscribe((data) => {
+      this.containers = data;
+    });
+    // Load transportations data on initialization
+    this.heroService.getTransportations().subscribe((data) => {
+      this.transportations = data;
+    });
+    // Load companies data on initialization
+    this.heroService.getCompanies().subscribe((data) => {
+      this.companies = data;
+    });
     // Listen for navigation events
-    this.isLoading = true;
+    this.spinner.show();
     this.filters = this.heroService.getForm() ?? {};
     this.loadPage(this.currentPage);
   }
 
- loadPage(page: number): void {
-    this.isLoading = true;
+  loadPage(page: number): void {
+    this.spinner.show();
     const dtParams = {
       start: (page - 1) * this.pageSize,
       length: this.pageSize,
@@ -78,16 +96,16 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
         this.totalPages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
         this.currentPage = page;
-        this.isLoading = false;
+        this.spinner.hide();
         this.cdr.detectChanges();
       },
       error: (error) => {
         this.comparisons = [];
         this.totalRecords = 0;
         this.totalPages = [1];
-        this.isLoading = false;
+        this.spinner.hide();
         this.cdr.detectChanges();
-        
+
         // Show error message to user
         this.configService.showErrorAlert('Failed to load data. Please try again.');
       },
@@ -144,7 +162,7 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
 
     return daysDiff;
   }
-//this for book and pass date to detail page
+  //this for book and pass date to detail page
   bookNow(comp: Comparison): void {
     this.heroService.setComparison(comp);
     this.router.navigate(['/trip-comp-details']);

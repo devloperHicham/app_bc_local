@@ -36,6 +36,8 @@
                   type="text"
                   placeholder="Casablanca, MA"
                   class="casablanca-portma"
+                  [value]="formData?.selectedPortFromComparison"
+                  disabled
                 />
               </div>
             </div>
@@ -55,6 +57,8 @@
                   type="text"
                   placeholder="Casablanca, MA"
                   class="casablanca-portma"
+                  [value]="formData?.selectedPortToComparison"
+                  disabled
                 />
               </div>
             </div>
@@ -102,10 +106,12 @@
                   </div>
                 </div>
                 <div class="text-field2">
-                  <select style="border: none; background-color: transparent" class="casablanca-portma">
-                    <option value="">{{ 'SEARCH_COMPARISON.FULL_CONTAINER' | translate }}</option>
-                    <option value="">{{ 'SEARCH_COMPARISON.LCL' | translate }}</option>
-                    <option value="">{{ 'SEARCH_COMPARISON.BULK' | translate }}</option>
+                  <select [value]="formData?.selectedTransportation" style="border: none; background-color: transparent"
+                    class="eg-casablanca-portma">
+                    <option value="" disabled selected> {{ "FORM.SHIPPING_TYPE" | translate }}</option>
+                    <option *ngFor="let transportation of transportations" [value]="transportation.ID">
+                      {{ transportation.TRANSPORTATIONNAME }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -127,10 +133,13 @@
               </div>
             </div>
             <div class="text-field2">
-              <select style="border: none; background-color: transparent" class="casablanca-portma">
-                <option value="">e.g. All</option>
-                <option value="">e.g. Bulk</option>
-              </select>
+                <select [value]="formData?.selectedCompany" formControlName="selectedCompany" style="border: none; background-color: transparent"
+                  class="eg-casablanca-portma">
+                  <option value="" disabled selected> {{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}</option>
+                  <option *ngFor="let company of companies" [value]="company.ID">
+                    {{ company.COMPANYNAME }}
+                  </option>
+                </select>
             </div>
           </div>
 
@@ -320,3 +329,5 @@
 </div>
 
 <app-search-comp-detail [comparisons]="selectedCompareison!" *ngIf="isModalOpen" (closeEvent)="closeModal()"></app-search-comp-detail>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "line-spin-fade" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

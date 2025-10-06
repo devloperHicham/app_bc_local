@@ -319,7 +319,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     if (this.activeTab === "marine") {
       window.location.href = "/search-comp-results";
     } else {
-      window.location.href = "/search-sched-results";
+      this.router.navigateByUrl("/search-sched-results");
     }
   }
 

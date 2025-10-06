@@ -17,6 +17,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Schedule } from '../../home/modules/schedule';
 import { HeroService } from '../../home/services/hero-service';
 import { ConfigService } from '../../../services/config/config';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-search-sched-result',
@@ -41,10 +42,13 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly translate: TranslateService
+    private readonly translate: TranslateService,
+    private readonly spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
+
+    this.spinner.show();
     this.filters = this.heroService.getForm() ?? {};
     this.loadPage(this.currentPage);
   }
@@ -68,6 +72,7 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
       weeksAhead: this.filters?.weeksAhead ?? null
     };
 
+    this.spinner.show();
     this.heroService.getPaginatedDataSchedule(dtParams, filters).subscribe({
       next: (res) => {
         this.schedules = res.data || [];
@@ -77,14 +82,14 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
         this.totalPages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
         this.currentPage = page;
-        this.isLoading = false;
+        this.spinner.hide();
         this.cdr.detectChanges();
       },
       error: (error) => {
         this.schedules = [];
         this.totalRecords = 0;
         this.totalPages = [1];
-        this.isLoading = false;
+        this.spinner.hide();
         this.cdr.detectChanges();
 
         // Show error message to user
