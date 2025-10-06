@@ -18,35 +18,30 @@ import java.util.List;
 
 /**
  * Custom deserializer for {@link UsernamePasswordAuthenticationToken}.
- * This deserializer converts JSON into a
- * {@link UsernamePasswordAuthenticationToken} object.
+ * This deserializer converts JSON into a {@link UsernamePasswordAuthenticationToken} object.
  */
-public class UsernamePasswordAuthenticationTokenDeserializer
-        extends JsonDeserializer<UsernamePasswordAuthenticationToken> {
+public class UsernamePasswordAuthenticationTokenDeserializer extends JsonDeserializer<UsernamePasswordAuthenticationToken> {
 
     private final ObjectMapper objectMapper;
 
     /**
-     * Constructs a {@link UsernamePasswordAuthenticationTokenDeserializer} with an
-     * {@link ObjectMapper}
+     * Constructs a {@link UsernamePasswordAuthenticationTokenDeserializer} with an {@link ObjectMapper}
      * configured to handle date/time serialization and ignore unknown properties.
      */
     public UsernamePasswordAuthenticationTokenDeserializer() {
         this.objectMapper = new ObjectMapper();
         this.objectMapper.registerModule(new JavaTimeModule()); // Register JavaTimeModule for date/time support
-        this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // Ignore unknown
-                                                                                               // properties
+        this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // Ignore unknown properties
     }
 
     /**
      * Deserializes JSON into a {@link UsernamePasswordAuthenticationToken} object.
      * Extracts the principal, credentials, and authorities from the JSON.
      *
-     * @param p    the {@link JsonParser} used to parse the JSON
-     * @param ctxt the {@link DeserializationContext} in which the deserialization
-     *             occurs
+     * @param p the {@link JsonParser} used to parse the JSON
+     * @param ctxt the {@link DeserializationContext} in which the deserialization occurs
      * @return a {@link UsernamePasswordAuthenticationToken} object
-     * @throws IOException             if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @throws JsonProcessingException if a JSON processing error occurs
      */
     @Override
@@ -54,8 +49,7 @@ public class UsernamePasswordAuthenticationTokenDeserializer
             throws IOException, JsonProcessingException {
         JsonNode node = p.getCodec().readTree(p);
 
-        // Extract the nested principal object and deserialize it into a JwtRecord
-        // object
+        // Extract the nested principal object and deserialize it into a JwtRecord object
         JsonNode principalNode = node.get("principal");
         JwtRecord jwtRecord = objectMapper.treeToValue(principalNode, JwtRecord.class);
 

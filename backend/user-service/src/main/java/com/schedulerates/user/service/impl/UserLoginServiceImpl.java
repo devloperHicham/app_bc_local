@@ -2,9 +2,11 @@ package com.schedulerates.user.service.impl;
 
 import com.schedulerates.user.exception.PasswordNotValidException;
 import com.schedulerates.user.exception.UserNotFoundException;
+import com.schedulerates.user.exception.UserStatusNotValidException;
 import com.schedulerates.user.model.user.Token;
 import com.schedulerates.user.model.user.dto.request.LoginRequest;
 import com.schedulerates.user.model.user.entity.UserEntity;
+import com.schedulerates.user.model.user.enums.UserStatus;
 import com.schedulerates.user.repository.UserRepository;
 import com.schedulerates.user.service.TokenService;
 import com.schedulerates.user.service.UserLoginService;
@@ -46,6 +48,8 @@ public class UserLoginServiceImpl implements UserLoginService {
                         () -> new UserNotFoundException("Can't find with given email: "
                                 + loginRequest.getEmail())
                 );
+        // Check if user account is active
+        validateUserStatus(userEntityFromDB);
 
         if (Boolean.FALSE.equals(passwordEncoder.matches(
                 loginRequest.getPassword(), userEntityFromDB.getPassword()))) {
@@ -54,6 +58,33 @@ public class UserLoginServiceImpl implements UserLoginService {
 
         return tokenService.generateToken(userEntityFromDB.getClaims());
 
+    }
+
+     /**
+     * Validates the user's status before allowing login.
+     *
+     * @param userEntity the user entity to validate
+     * @throws UserStatusNotValidException if the user status is not ACTIVE
+     */
+    private void validateUserStatus(UserEntity userEntity) {
+        UserStatus status = userEntity.getUserStatus();
+        
+        switch (status) {
+            case ACTIVE:
+                return; // User is active, allow login
+            case PENDING:
+                throw new UserStatusNotValidException("Account not activated. Please check your email for activation link.");
+            case PASSIVE:
+                throw new UserStatusNotValidException("Account is passive. Please contact support.");
+            case INACTIVE:
+                throw new UserStatusNotValidException("Account is inactive. Please contact administrator.");
+            case SUSPENDED:
+                throw new UserStatusNotValidException("Account is suspended. Please contact administrator.");
+            case EXPIRED:
+                throw new UserStatusNotValidException("Activation token has expired. Please request a new activation link.");
+            default:
+                throw new UserStatusNotValidException("Account status is invalid: " + status);
+        }
     }
 
 }

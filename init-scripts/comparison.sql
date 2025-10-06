@@ -17,7 +17,7 @@ BEGIN
    -- Check if the user exists
    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'comparison_db') THEN
       -- Create user if it doesn't exist
-      EXECUTE 'CREATE USER comparison_db WITH ENCRYPTED PASSWORD ''comparison_password12345@@''';
+      EXECUTE 'CREATE USER comparison_db WITH ENCRYPTED PASSWORD ''H@7zP!4xQw9^rS2mJf8L''';
    END IF;
 END
 $$;

@@ -35,6 +35,9 @@ export class ConfigService {
     homeUsers: 'home-users',
     homeAdmin: 'home-admin',
     notAuthorized: 'not-authorized',
+    activate: 'activate-account',
+    resendActivation: 'resend-activation',
+    checkAccountStatus: 'check-account-status',
   };
   public REMEMBER_ME_TIMEOUT = 86400; // 24 hours
   public SESSION_TIMEOUT = 3600; // 1 hour

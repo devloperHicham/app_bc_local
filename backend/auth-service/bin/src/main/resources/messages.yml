@@ -1,0 +1,7 @@
+login:
+  email:
+    required: "Email is required"
+    invalid: "Email should be valid"
+  password:
+    required: "Password is required"
+    size: "Password must be between 6 and 100 characters"

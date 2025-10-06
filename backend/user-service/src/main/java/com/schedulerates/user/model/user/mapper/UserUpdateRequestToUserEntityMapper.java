@@ -27,6 +27,7 @@ public interface UserUpdateRequestToUserEntityMapper extends BaseMapper<UserUpda
         userEntityToBeUpdate.setFirstName(userUpdateRequest.getFirstName());
         userEntityToBeUpdate.setLastName(userUpdateRequest.getLastName());
         userEntityToBeUpdate.setEmail(userUpdateRequest.getEmail());
+        userEntityToBeUpdate.setCompanyName(userUpdateRequest.getCompanyName());
         userEntityToBeUpdate.setUserType(UserType.valueOf(userUpdateRequest.getRole()));
         userEntityToBeUpdate.setPhoneNumber(userUpdateRequest.getPhoneNumber());
     }

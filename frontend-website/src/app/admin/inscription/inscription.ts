@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router, RouterLink } from "@angular/router";
+import { Router } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { NgxSpinnerService } from "ngx-spinner";
 import { ConfigService } from "../../services/config/config";
 import { ApiResponses } from "../../modules/api-responses";
 import { UserService } from "../service/user-service";
 import { SharedModule } from "../../share/share-module";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: "app-inscription",
@@ -35,6 +35,7 @@ export class Inscription implements OnInit {
       firstName: ["", [Validators.required]],
       lastName: ["", [Validators.required]],
       phoneNumber: ["", [Validators.required]],
+      companyName: ["", [Validators.required]],
       email: [
         "",
         [
@@ -71,7 +72,6 @@ export class Inscription implements OnInit {
   //set data to insert in database
   submit(): void {
     this.submitted = true;
-    console.log(this.form.value);
     if (this.form.invalid) {
       this.configService.showErrorAlert(
         "Veuillez corriger les erreurs dans le formulaire."
@@ -96,7 +96,7 @@ export class Inscription implements OnInit {
           // Wait 8 seconds, then navigate to login
           setTimeout(() => {
             this.router.navigateByUrl(this.configService.ENDPOINTS.login);
-          }, 8000);
+          }, 5000);
         } else {
           this.configService.showErrorAlert("Une erreur s’est produite.");
         }

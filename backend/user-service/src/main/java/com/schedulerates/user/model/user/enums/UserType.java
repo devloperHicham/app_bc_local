@@ -7,5 +7,6 @@ package com.schedulerates.user.model.user.enums;
 public enum UserType {
     USER,
     ADMIN, 
-    CLIENT
+    CLIENT,
+    SUPPORT
 }

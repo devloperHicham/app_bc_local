@@ -14,9 +14,6 @@ import { AuthService } from '../../auth/services/auth.service';
 export class DropdownProfile {
   private readonly router = inject(Router);
   isDropdownOpen = false;
-  userName = 'Haitame Hadraoui';
-  userEmail = 'haitamehadraoui@gmail.com';
-  userType = 'Shipper';
 
   constructor(private readonly authService: AuthService, private readonly cdr: ChangeDetectorRef, private readonly translate :TranslateService) {}
   
@@ -30,6 +27,11 @@ export class DropdownProfile {
       event.preventDefault(); // Prevent default behavior like scrolling
       this.toggleDropdown(event);
     }
+  }
+
+  // Get current user observable
+  get currentUser$() {
+    return this.authService.currentUser$;
   }
 
   handleMenuItemClick(action: string): void {

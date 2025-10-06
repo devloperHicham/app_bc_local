@@ -7,7 +7,7 @@ import com.schedulerates.user.model.user.enums.UserType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +46,9 @@ public class UserEntity extends BaseEntity {
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
+    @Column(name = "COMPANY_NAME")
+    private String companyName;
+
     @Column(name = "OBS")
     private String obs;
 
@@ -54,7 +57,16 @@ public class UserEntity extends BaseEntity {
 
     @Builder.Default
     @Enumerated(EnumType.STRING)
-    private UserStatus userStatus = UserStatus.ACTIVE;
+    private UserStatus userStatus = UserStatus.PENDING;
+
+    @Column(name = "ACTIVATION_TOKEN")
+    private String activationToken;
+
+    @Column(name = "TOKEN_CREATED_AT")
+    private LocalDateTime tokenCreatedAt;
+
+    @Column(name = "ACTIVATED_AT")
+    private LocalDateTime activatedAt;
 
     /**
      * Constructs a map of claims based on the user's attributes.
@@ -71,6 +83,7 @@ public class UserEntity extends BaseEntity {
         claims.put(TokenClaims.USER_STATUS.getValue(), this.userStatus);
         claims.put(TokenClaims.USER_FIRST_NAME.getValue(), this.firstName);
         claims.put(TokenClaims.USER_LAST_NAME.getValue(), this.lastName);
+        claims.put(TokenClaims.USER_COMPANY_NAME.getValue(), this.companyName);
         claims.put(TokenClaims.USER_EMAIL.getValue(), this.email);
         claims.put(TokenClaims.USER_PHONE_NUMBER.getValue(), this.phoneNumber);
         claims.put(TokenClaims.USER_OBS.getValue(), this.obs);

@@ -32,6 +32,9 @@ public class RegisterRequest {
     @NotBlank(message = "Phone number can't be blank.")
     @Size(min = 11, max = 20)
     private String phoneNumber;
+    
+    @NotBlank(message = "company name can't be blank.")
+    private String companyName;
 
     @NotBlank(message = "Role can't be blank.")
     private String role;

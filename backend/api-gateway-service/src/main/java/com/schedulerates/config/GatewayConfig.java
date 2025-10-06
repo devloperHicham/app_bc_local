@@ -24,7 +24,9 @@ public class GatewayConfig {
             "/api/v1/authentication/users/register",
             "/api/v1/authentication/users/login",
             "/api/v1/authentication/users/refresh-token",
-            "/api/v1/authentication/users/logout"
+            "/api/v1/authentication/users/logout",
+            "/api/v1/users/activate-account",         
+            "/api/v1/users/resend-activation"  
     );
 
     /**

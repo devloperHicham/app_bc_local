@@ -46,7 +46,7 @@
           </div>
 
           <!-- Marine tab -->
-          <div class="content1" *ngIf="activeTab === 'marine'" formGroupName="scheduleSearch">
+          <div class="content1" *ngIf="activeTab === 'marine'" formGroupName="comparisonSearch">
             <div class="input-field">
               <div class="header1">
                 <div class="input-title">
@@ -60,12 +60,12 @@
                   <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
                 </div>
                 <input style="border: none; width: 100%;" type="text"
-                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromSchedule"
-                  (input)="filterPorts('fromSchedule', $event)" (focus)="dropdownOpenFromSchedule = true"
-                  (blur)="closeDropdown('fromSchedule')" />
-                <ul class="custom-dropdown" *ngIf="filteredPortsFromSchedule.length && dropdownOpenFromSchedule">
-                  <li *ngFor="let port of filteredPortsFromSchedule" (mousedown)="selectPort('fromSchedule', port)">
-                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromComparison"
+                  (input)="filterPorts('fromComparison', $event)" (focus)="dropdownOpenFromComparison = true"
+                  (blur)="closeDropdown('fromComparison')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsFromComparison.length && dropdownOpenFromComparison">
+                  <li *ngFor="let port of filteredPortsFromComparison" (mousedown)="selectPort('fromComparison', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" alt=""/>
                     <div class="port-info">
                       <div class="port-name">{{ port.PORTNAME }}</div>
                       <div class="port-country">{{ port.COUNTRY }}</div>
@@ -88,10 +88,10 @@
                   <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
                 </div>
                 <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                  [value]="selectedPortToSchedule" (input)="filterPorts('toSchedule', $event)"
-                  (focus)="dropdownOpenToSchedule = true" (blur)="closeDropdown('toSchedule')" />
-                <ul class="custom-dropdown" *ngIf="filteredPortsToSchedule.length && dropdownOpenToSchedule">
-                  <li *ngFor="let port of filteredPortsToSchedule" (mousedown)="selectPort('toSchedule', port)">
+                  [value]="selectedPortToComparison" (input)="filterPorts('toComparison', $event)"
+                  (focus)="dropdownOpenToComparison = true" (blur)="closeDropdown('toComparison')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsToComparison.length && dropdownOpenToComparison">
+                  <li *ngFor="let port of filteredPortsToComparison" (mousedown)="selectPort('toComparison', port)">
                     <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
                     <div class="port-info">
                       <div class="port-name">{{ port.PORTNAME }}</div>
@@ -121,11 +121,11 @@
                   <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
                 </div>
                 <!-- Interval Mode -->
-                <input formControlName="selectedDateRange" #intervalDateInput type="text" class="eg-casablanca-portma"
+                <input (change)="setComparisonDate($event.target.value, true)" #intervalDateInput type="text" class="eg-casablanca-portma"
                   style="border: none" placeholder="{{ 'PLACEHOLDERS.DATE_RANGE' | translate }}" readonly
                   *ngIf="isIntervalMode" />
                 <!-- Single Day Mode -->
-                <input formControlName="selectedDate" #singleDateInput type="text" class="eg-casablanca-portma"
+                <input (change)="setComparisonDate($event.target.value, false)" #singleDateInput type="text" class="eg-casablanca-portma"
                   style="border: none" placeholder="{{ 'PLACEHOLDERS.SELECT_DAY' | translate }}" readonly
                   *ngIf="!isIntervalMode" />
               </div>
@@ -180,7 +180,7 @@
           <!-- End Marine tab -->
 
           <!-- Schedules tab -->
-          <div class="content1" *ngIf="activeTab === 'schedules'" formGroupName="comparisonSearch">
+          <div class="content1" *ngIf="activeTab === 'schedules'" formGroupName="scheduleSearch">
             <div class="input-field">
               <div class="header1">
                 <div class="input-title">
@@ -194,12 +194,12 @@
                   <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
                 </div>
                 <input style="border: none; width: 100%;" type="text"
-                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromComparison"
-                  (input)="filterPorts('fromComparison', $event)" (focus)="dropdownOpenFromComparison = true"
-                  (blur)="closeDropdown('fromComparison')" />
-                <ul class="custom-dropdown" *ngIf="filteredPortsFromComparison.length && dropdownOpenFromComparison">
-                  <li *ngFor="let port of filteredPortsFromComparison" (mousedown)="selectPort('fromComparison', port)">
-                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" />
+                  placeholder="{{ 'PLACEHOLDERS.FROM' | translate }}" [value]="selectedPortFromSchedule"
+                  (input)="filterPorts('fromSchedule', $event)" (focus)="dropdownOpenFromSchedule = true"
+                  (blur)="closeDropdown('fromSchedule')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsFromSchedule.length && dropdownOpenFromSchedule">
+                  <li *ngFor="let port of filteredPortsFromSchedule" (mousedown)="selectPort('fromSchedule', port)">
+                    <img [src]="'assets/flag/' + port.LOGO + '.svg'" width="20" alt="" />
                     <div class="port-info">
                       <div class="port-name">{{ port.PORTNAME }}</div>
                       <div class="port-country">{{ port.COUNTRY }}</div>
@@ -221,10 +221,10 @@
                   <img class="vector-icon4" alt="" src="assets/images/location-blue.png" />
                 </div>
                 <input style="border: none; width: 100%;" type="text" placeholder="{{ 'PLACEHOLDERS.TO' | translate }}"
-                  [value]="selectedPortToComparison" (input)="filterPorts('toComparison', $event)"
-                  (focus)="dropdownOpenToComparison = true" (blur)="closeDropdown('toComparison')" />
-                <ul class="custom-dropdown" *ngIf="filteredPortsToComparison.length && dropdownOpenToComparison">
-                  <li *ngFor="let port of filteredPortsToComparison" (mousedown)="selectPort('toComparison', port)">
+                  [value]="selectedPortToSchedule" (input)="filterPorts('toSchedule', $event)"
+                  (focus)="dropdownOpenToSchedule = true" (blur)="closeDropdown('toSchedule')" />
+                <ul class="custom-dropdown" *ngIf="filteredPortsToSchedule.length && dropdownOpenToSchedule">
+                  <li *ngFor="let port of filteredPortsToSchedule" (mousedown)="selectPort('toSchedule', port)">
                     <img [src]="'assets/flag/' + port.LOGO + '.svg'" alt="{{port.COUNTRY}}" />
                     <div class="port-info">
                       <div class="port-name">{{ port.PORTNAME }}</div>
@@ -290,7 +290,7 @@
                 <div class="icon">
                   <img class="vector-icon10" alt="" src="assets/images/date-blue.png" />
                 </div>
-                <input formControlName="selectedDateComparison" #singleDateScheduleInput type="text"
+                <input  (change)="setScheduleDate($event.target.value)" formControlName="selectedDateSchedule" #singleDateScheduleInput type="text"
                   class="eg-casablanca-portma" placeholder="{{ 'PLACEHOLDERS.ANOTHER_DATE' | translate }}" readonly />
               </div>
             </div>

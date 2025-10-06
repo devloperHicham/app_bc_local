@@ -49,4 +49,12 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
   Optional<UserEntity> findByEmail(String email);
 
   List<UserEntity> findByEmailIn(List<String> emails);
+
+  /**
+   * Finds a {@link UserEntity} by activation token.
+   *
+   * @param activationToken the activation token to search for
+   * @return an {@link Optional} containing the {@link UserEntity} if found
+   */
+  Optional<UserEntity> findByActivationToken(String activationToken);
 }

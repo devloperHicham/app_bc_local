@@ -125,34 +125,24 @@ public class ScheduleReadServiceImpl implements ScheduleReadService {
                                 .equalsIgnoreCase("ADMIN");
         }
 
-        @Override
-        public CustomPage<Schedule> getScheduleClients(ScheduleClientPagingRequest req) {
-                LocalDate startDate = null;
-                LocalDate endDate = null;
+         @Override
+        public CustomPage<Schedule> getScheduleClients(ScheduleClientPagingRequest schedulePagingRequest) {
+                
+                Page<ScheduleEntity> scheduleEntity = scheduleRepository.findByScheduleFilters(
+                        schedulePagingRequest.getSelectedPortFromSchedule(),
+                        schedulePagingRequest.getSelectedPortToSchedule(),
+                        schedulePagingRequest.getStartDateSchedule(),
+                        schedulePagingRequest.getEndDateSchedule(),
+                        schedulePagingRequest.getSearchOn(),
+                        schedulePagingRequest.getSelectedCompany(), 
+                        schedulePagingRequest.getIsCheapest(),
+                        schedulePagingRequest.getIsFastest(),
+                        schedulePagingRequest.getIsDirect(),
+                        schedulePagingRequest.toPageable());
 
-                if (req.getSelectedDateSchedule() != null && req.getWeeksAhead() != null) {
-                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                                        .withLocale(Locale.ENGLISH);
-                        startDate = LocalDate.parse(req.getSelectedDateSchedule(), formatter);
-                        endDate = startDate.plusWeeks(Long.parseLong(req.getWeeksAhead()));
-                }
+                final List<Schedule> scheduleDomainModels = listScheduleEntityToListScheduleMapper
+                                .toScheduleList(scheduleEntity.getContent());
 
-                Page<ScheduleEntity> entityPage = scheduleRepository.findByScheduleFilters(
-                                req.getSelectedPortFromSchedule(),
-                                req.getSelectedPortToSchedule(),
-                                startDate,
-                                endDate,
-                                req.getSearchOn(),
-                                req.getSelectedCompany(),
-                                // req.getIsCheapest(),
-                                // req.getIsFastest(),
-                                // req.getIsDirect(),
-                                req.toPageable());
-
-                List<Schedule> scheduleList = listScheduleEntityToListScheduleMapper
-                                .toScheduleList(entityPage.getContent());
-
-                return CustomPage.of(scheduleList, entityPage);
+                return CustomPage.of(scheduleDomainModels, scheduleEntity);
         }
 }

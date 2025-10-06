@@ -18,6 +18,7 @@ export interface DecodedToken {
   userStatus: string;
   userLastName: string;
   userPhoneNumber: string;
+  userCompanyName: string;
   userEmail: string;
   userType: string; // This appears to be your "role"
   userFirstName: string;

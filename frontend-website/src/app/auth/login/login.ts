@@ -6,6 +6,7 @@ import { AuthService } from "../services/auth.service";
 import { ConfigService } from "../../services/config/config";
 import { SharedModule } from "../../share/share-module";
 import { catchError, finalize, of } from "rxjs";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-login",
@@ -18,6 +19,7 @@ export class Login implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthService);
   private readonly configService = inject(ConfigService);
+  private readonly spinner = inject(NgxSpinnerService);
   private readonly router = inject(Router);
   form!: FormGroup;
   isLoading = false;
@@ -65,6 +67,7 @@ export class Login implements OnInit {
 
     this.isLoading = true;
     this.errorMessage = "";
+    this.spinner.show();
 
     const { email, password } = this.form.getRawValue();
 
@@ -78,6 +81,7 @@ export class Login implements OnInit {
         }),
         finalize(() => {
           this.isLoading = false;
+          this.spinner.hide();
         })
       )
       .subscribe();

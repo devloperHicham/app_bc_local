@@ -9,6 +9,7 @@ import {
 } from '../../../modules/data-json';
 import { ConfigService } from '../../../services/config/config';
 import { ApiResponses } from '../../../modules/api-responses';
+import { Comparison } from '../modules/comparison';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,7 @@ export class HeroService {
   private readonly url_comp: string;
   private readonly url_client: string;
   private formData: any = null;
+  private comp: Comparison | null = null;
   constructor(
     private readonly http: HttpClient,
     private readonly configService: ConfigService
@@ -59,6 +61,13 @@ export class HeroService {
     this.formData = null;
   }
 
+  setComparison(comp: Comparison) {
+    this.comp = comp;
+  }
+
+  getComparison() {
+    return this.comp;
+  }
   /**
    * Toggles the favorite status of a schedule item
    * @param id The id of the schedule item to toggle
@@ -111,22 +120,23 @@ export class HeroService {
   getPaginatedDataSchedule(dtParams: any, filters: any): Observable<any> {
     const requestBody = {
       pagination: {
-        pageNumber: dtParams.start / dtParams.length + 1,
-        pageSize: dtParams.length,
-        sortBy: dtParams.columns[dtParams.order[0].column].data,
-        sortDirection: dtParams.order[0].dir.toUpperCase(),
-      },
-      // Filters (flattened to root level)
-      portFromCode: filters?.portFromCode ?? null,
-      portToCode: filters?.portToCode ?? null,
-      dateDepart: filters?.dateDepart ?? null,
-      dateArrive: filters?.dateArrive ?? null,
-      companyId: filters?.companyId ?? null,
-      //filters: filters ?? null // Add filters to the request
-    };
+          pageNumber: dtParams.start / dtParams.length + 1,
+          pageSize: dtParams.length,
+        },
+        isCheapest: filters?.isCheapest ?? null,
+        isDirect: filters?.isDirect ?? false,
+        isFastest: filters?.isFastest ?? false,
+        selectedPortFromSchedule: filters?.selectedPortFromSchedule ?? null,
+        selectedPortToSchedule: filters?.selectedPortToSchedule ?? null,
+        selectedCompany: filters?.selectedCompany ?? null,
+        searchOn: filters?.searchOn ?? null,
+        startDateSchedule: filters?.startDateSchedule ?? null,
+        endDateSchedule: filters?.endDateSchedule ?? null,
+        weeksAhead: filters?.weeksAhead ?? null
+      };
     return this.http
       .post<any>(
-        this.jsonUrlSchedules,
+        this.url_sched,
         requestBody,
         this.configService.httpOptions
       )
@@ -148,7 +158,7 @@ export class HeroService {
       );
   }
 
-    /**
+  /**
    * Toggles the favorite status of a schedule item
    * @param id The id of the schedule item to toggle
    * @returns An observable of ApiResponses<void> representing the result of the toggle operation
@@ -196,45 +206,54 @@ export class HeroService {
       );
   }
 
-// get data using pagination method for server-side processing Comparison
+  // get data using pagination method for server-side processing Comparison
+  // In your heroService
   getPaginatedDataComparison(dtParams: any, filters: any): Observable<any> {
+    // Remove pageNumber and pageSize from top level, only keep them in pagination object
     const requestBody = {
       pagination: {
-        pageNumber: dtParams.start / dtParams.length + 1,
-        pageSize: dtParams.length,
-        sortBy: dtParams.columns[dtParams.order[0].column].data,
-        sortDirection: dtParams.order[0].dir.toUpperCase(),
-      },
-      // Filters (flattened to root level)
-      portFromCode: filters?.portFromCode ?? null,
-      portToCode: filters?.portToCode ?? null,
-      dateDepart: filters?.dateDepart ?? null,
-      dateArrive: filters?.dateArrive ?? null,
-      companyId: filters?.companyId ?? null,
-      //filters: filters ?? null // Add filters to the request
-    };
-    return this.http
-      .post<any>(
-        this.jsonUrlComparisons,
-        requestBody,
-        this.configService.httpOptions
-      )
+          pageNumber: dtParams.start / dtParams.length + 1,
+          pageSize: dtParams.length,
+        },
+        isCheapest: filters?.isCheapest ?? null,
+        isDirect: filters?.isDirect ?? false,
+        isFastest: filters?.isFastest ?? false,
+        isIntervalMode: filters?.isIntervalMode ?? null,
+        selectedContainer: filters?.selectedContainer ?? null,
+        startDateComparison: filters?.startDateComparison ?? null,
+        endDateComparison: filters?.endDateComparison ?? null,
+        selectedPortFromComparison: filters?.selectedPortFromComparison ?? null,
+        selectedPortToComparison: filters?.selectedPortToComparison ?? null,
+        selectedTransportation: filters?.selectedTransportation ?? null
+      };
+
+    return this.http.post<any>(this.url_comp, requestBody, this.configService.httpOptions)
       .pipe(
-        map((response) => ({
-          draw: dtParams.draw,
-          recordsTotal: response.response.totalElementCount,
-          recordsFiltered: response.response.totalElementCount,
-          data: response.response.content,
-        })),
-        catchError(() =>
-          of({
-            draw: 0,
+        map((response) => {
+          // Adjust this mapping based on your actual response structure
+          const customResponse = response;
+          
+          return {
+            draw: dtParams.draw,
+            recordsTotal: customResponse.response.totalElementCount,
+            recordsFiltered: customResponse.response.totalElementCount,
+            data: customResponse.response.content,
+            totalPages: Math.ceil(customResponse.response.totalElementCount / dtParams.length),
+            currentPage: customResponse.response.pageNumber
+          };
+        }),
+        catchError((error) => {
+          console.error('API Error:', error);
+          console.error('Error details:', error.error);
+          return of({
+            draw: dtParams.draw,
             recordsTotal: 0,
             recordsFiltered: 0,
             data: [],
-          })
-        )
+            totalPages: 0,
+            currentPage: 1
+          });
+        })
       );
   }
-}
-
+  }

@@ -6,11 +6,7 @@
     </div>
 
     <div class="form">
-      <form
-        class="row g-3 needs-validation"
-        [formGroup]="form"
-        (ngSubmit)="submit()"
-      >
+      <form class="row g-3 needs-validation" [formGroup]="form" (ngSubmit)="submit()">
         <div class="content">
           <!-- Header -->
           <div class="header">
@@ -33,22 +29,12 @@
                 </div>
                 <div class="text-field">
                   <div class="leading-icon">
-                    <img
-                      class="vector-icon"
-                      alt=""
-                      src="assets/images/user-blue.png"
-                    />
+                    <img class="vector-icon" alt="" src="assets/images/user-blue.png" />
                   </div>
-                  <input
-                    type="text"
-                    class="eg-casablanca-portma"
-                    name="firstName"
-                    required
-                    formControlName="firstName"
+                  <input type="text" class="eg-casablanca-portma" name="firstName" required formControlName="firstName"
                     placeholder="{{
                       'CONTACT.FIRST_NAME_PLACEHOLDER' | translate
-                    }}"
-                  />
+                    }}" />
                 </div>
               </div>
 
@@ -60,20 +46,10 @@
                 </div>
                 <div class="text-field">
                   <div class="leading-icon">
-                    <img
-                      class="vector-icon"
-                      alt=""
-                      src="assets/images/user-blue.png"
-                    />
+                    <img class="vector-icon" alt="" src="assets/images/user-blue.png" />
                   </div>
-                  <input
-                    type="text"
-                    class="eg-casablanca-portma"
-                    name="lastName"
-                    required
-                    formControlName="lastName"
-                    placeholder="{{ 'AUTH.LAST_NAME_PLACEHOLDER' | translate }}"
-                  />
+                  <input type="text" class="eg-casablanca-portma" name="lastName" required formControlName="lastName"
+                    placeholder="{{ 'AUTH.LAST_NAME_PLACEHOLDER' | translate }}" />
                 </div>
               </div>
             </div>
@@ -86,20 +62,10 @@
                 </div>
                 <div class="text-field">
                   <div class="leading-icon">
-                    <img
-                      class="vector-icon2"
-                      alt=""
-                      src="assets/images/email.png"
-                    />
+                    <img class="vector-icon2" alt="" src="assets/images/email.png" />
                   </div>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    formControlName="email"
-                    class="eg-casablanca-portma"
-                    placeholder="{{ 'AUTH.EMAIL_PLACEHOLDER' | translate }}"
-                  />
+                  <input type="email" name="email" required formControlName="email" class="eg-casablanca-portma"
+                    placeholder="{{ 'AUTH.EMAIL_PLACEHOLDER' | translate }}" />
                 </div>
               </div>
               <div class="input-field" style="width: 40%">
@@ -110,21 +76,26 @@
                 </div>
                 <div class="text-field">
                   <div class="leading-icon">
-                    <img
-                      class="vector-icon2"
-                      alt=""
-                      src="assets/images/phone.png"
-                    />
+                    <img class="vector-icon2" alt="" src="assets/images/phone.png" />
                   </div>
-                  <input
-                    type="text"
-                    name="phoneNumber"
-                    required
-                    formControlName="phoneNumber"
-                    class="eg-casablanca-portma"
-                    placeholder="{{ 'CONTACT.PHONE_PLACEHOLDER' | translate }}"
-                  />
+                  <input type="text" name="phoneNumber" required formControlName="phoneNumber"
+                    class="eg-casablanca-portma" placeholder="{{ 'CONTACT.PHONE_PLACEHOLDER' | translate }}" />
                 </div>
+              </div>
+            </div>
+            <div class="input-field2">
+              <div class="input-title">
+                <div class="text-placeholder-1">
+                  {{ "SEARCH_RESULT_TRIP.COMPANY_NAME" | translate }}
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="leading-icon">
+                  <img class="vector-icon3" alt="" src="assets/images/product.png" />
+                </div>
+
+                <input type="text" class="eg-casablanca-portma" name="companyName" required
+                  formControlName="companyName" placeholder="{{ 'SEARCH_RESULT_TRIP.COMPANY_NAME' | translate }}" />
               </div>
             </div>
             <div class="input-field2">
@@ -135,35 +106,17 @@
               </div>
               <div class="text-field">
                 <div class="leading-icon">
-                  <img
-                    class="vector-icon3"
-                    alt=""
-                    src="assets/images/password.png"
-                  />
+                  <img class="vector-icon3" alt="" src="assets/images/password.png" />
                 </div>
-                <input
-                  [type]="showPassword ? 'text' : 'password'"
-                  name="password"
-                  required
-                  formControlName="password"
-                  class="eg-casablanca-portma"
-                  placeholder="{{ 'AUTH.PASSWORD_PLACEHOLDER' | translate }}"
-                />
-                <div
-                  class="leading-icon"
-                  (click)="togglePasswordVisibility()"
-                  (keydown)="onKeyMenuItem($event)"
-                  style="cursor: pointer"
-                >
-                  <img
-                    class="vector-icon4"
-                    alt="toggle password"
-                    [src]="
+                <input [type]="showPassword ? 'text' : 'password'" name="password" required formControlName="password"
+                  class="eg-casablanca-portma" placeholder="{{ 'AUTH.PASSWORD_PLACEHOLDER' | translate }}" />
+                <div class="leading-icon" (click)="togglePasswordVisibility()" (keydown)="onKeyMenuItem($event)"
+                  style="cursor: pointer">
+                  <img class="vector-icon4" alt="toggle password" [src]="
                       showPassword
                         ? 'assets/images/eye-off.png'
                         : 'assets/images/eye.png'
-                    "
-                  />
+                    " />
                 </div>
               </div>
               <div class="input-underline">
@@ -181,37 +134,19 @@
               </div>
               <div class="text-field">
                 <div class="leading-icon">
-                  <img
-                    class="vector-icon3"
-                    alt=""
-                    src="assets/images/password.png"
-                  />
+                  <img class="vector-icon3" alt="" src="assets/images/password.png" />
                 </div>
-                <input
-                  [type]="showPassword ? 'text' : 'password'"
-                  name="confirmePassword"
-                  required
-                  formControlName="confirmePassword"
-                  class="eg-casablanca-portma"
-                  placeholder="{{
+                <input [type]="showPassword ? 'text' : 'password'" name="confirmePassword" required
+                  formControlName="confirmePassword" class="eg-casablanca-portma" placeholder="{{
                     'AUTH.CONFIRM_PASSWORD_PLACEHOLDER' | translate
-                  }}"
-                />
-                <div
-                  class="leading-icon"
-                  (click)="togglePasswordVisibility()"
-                  (keydown)="onKeyMenuItem($event)"
-                  style="cursor: pointer"
-                >
-                  <img
-                    class="vector-icon4"
-                    alt="toggle password"
-                    [src]="
+                  }}" />
+                <div class="leading-icon" (click)="togglePasswordVisibility()" (keydown)="onKeyMenuItem($event)"
+                  style="cursor: pointer">
+                  <img class="vector-icon4" alt="toggle password" [src]="
                       showPassword
                         ? 'assets/images/eye-off.png'
                         : 'assets/images/eye.png'
-                    "
-                  />
+                    " />
                 </div>
               </div>
             </div>
@@ -226,15 +161,14 @@
           <!-- Already have account -->
           <div class="already-have-an-container">
             <span>{{ "AUTH.ALREADY_ACCOUNT" | translate }}</span>
-            <span class="sign-in"
-              ><a 
-             (click)="navigateToSignin($event)" style="cursor: pointer">{{
+            <span class="sign-in"><a (click)="navigateToSignin($event)" style="cursor: pointer">{{
                 "AUTH.SIGN_IN" | translate
-              }}</a></span
-            >
+                }}</a></span>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

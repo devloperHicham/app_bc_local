@@ -1,19 +1,19 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ConfigService } from '../../../services/config/config.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { UserService } from '../../services/user.service';
-import { ApiResponses } from '../../../modules/api-responses';
-import { SharedModule } from '../../../share/shared.module';
-import { User } from '../../modules/user';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ConfigService } from "../../../services/config/config.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
+import { UserService } from "../../services/user.service";
+import { ApiResponses } from "../../../modules/api-responses";
+import { SharedModule } from "../../../share/shared.module";
+import { User } from "../../modules/user";
 
 @Component({
-  selector: 'app-edit-users',
+  selector: "app-edit-users",
   standalone: true,
   imports: [SharedModule],
-  templateUrl: './edit-users.component.html',
-  styleUrl: './edit-users.component.scss',
+  templateUrl: "./edit-users.component.html",
+  styleUrl: "./edit-users.component.scss",
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class EditUsersComponent implements OnInit {
@@ -32,34 +32,25 @@ export class EditUsersComponent implements OnInit {
   ngOnInit(): void {
     this.getData(); //this for display data
     this.form = this.fb.group({
-      firstName: [
-        '',
-        [
-          Validators.required
-        ],
-      ],
-      lastName: [
-        '',
-        [
-          Validators.required
-        ],
-      ],
+      firstName: ["", [Validators.required]],
+      lastName: ["", [Validators.required]],
       phoneNumber: [
-        '',
-        [Validators.required, Validators.pattern('^(0{1}[5678]{1}[0-9]{8})$')],
+        "",
+        [Validators.required, Validators.pattern("^(0{1}[5678]{1}[0-9]{8})$")],
       ],
       email: [
-        '',
+        "",
         [
           Validators.required,
           Validators.pattern(
-            '^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$'
+            "^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$"
           ),
         ],
       ],
-      role: ['', [Validators.required]],
+      companyName: ["comanyName"],
+      role: ["", [Validators.required]],
       obs: [
-        '',
+        "",
         [
           Validators.pattern(
             "^([a-zA-ZêéèëàöÉÈÊÀÖËç0-9]{1}[a-zA-ZêéèëàöÉÈÊÀÖËç0-9.'°_:,()+; ]{1,255})$"
@@ -75,10 +66,10 @@ export class EditUsersComponent implements OnInit {
   }
 
   getData(): void {
-    const id = this.actRoute.snapshot.paramMap.get('id');
+    const id = this.actRoute.snapshot.paramMap.get("id");
     // Handle null case first
     if (!id) {
-      this.configService.showErrorAlert('ID utilisateur non fourni');
+      this.configService.showErrorAlert("ID utilisateur non fourni");
       this.router.navigateByUrl(this.configService.ENDPOINTS.users);
       return;
     }
@@ -86,7 +77,7 @@ export class EditUsersComponent implements OnInit {
     this.userService.show(id).subscribe({
       next: (data: User | null) => {
         if (!data) {
-          this.configService.showErrorAlert('Utilisateur non trouvé');
+          this.configService.showErrorAlert("Utilisateur non trouvé");
           this.router.navigateByUrl(this.configService.ENDPOINTS.users);
           return;
         }
@@ -102,7 +93,7 @@ export class EditUsersComponent implements OnInit {
       },
       error: () => {
         this.configService.showErrorAlert(
-          'Une erreur est survenue lors de la récupération des données.'
+          "Une erreur est survenue lors de la récupération des données."
         );
       },
     });
@@ -113,16 +104,16 @@ export class EditUsersComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       this.configService.showErrorAlert(
-        'Veuillez corriger les erreurs dans le formulaire.'
+        "Veuillez corriger les erreurs dans le formulaire."
       );
       return;
     }
 
     this.spinner.show(); /** spinner starts on init */
-    const id = this.actRoute.snapshot.paramMap.get('id');
+    const id = this.actRoute.snapshot.paramMap.get("id");
     // Handle null case first
     if (!id) {
-      this.configService.showErrorAlert('ID utilisateur non fourni');
+      this.configService.showErrorAlert("ID utilisateur non fourni");
       this.router.navigateByUrl(this.configService.ENDPOINTS.users);
       return;
     }
@@ -130,10 +121,10 @@ export class EditUsersComponent implements OnInit {
       next: (res: ApiResponses<void>) => {
         this.spinner.hide();
         if (res.isSuccess) {
-          this.configService.showSuccessAlert('Action réussie.');
+          this.configService.showSuccessAlert("Action réussie.");
           this.router.navigateByUrl(this.configService.ENDPOINTS.users);
         } else {
-          this.configService.showErrorAlert('Une erreur s’est produite.');
+          this.configService.showErrorAlert("Une erreur s’est produite.");
         }
       },
       error: () => {

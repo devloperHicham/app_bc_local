@@ -243,6 +243,7 @@ export class AuthService {
         lastName: decoded.userLastName ?? '',
         email: decoded.userEmail ?? '',
         phoneNumber: decoded.userPhoneNumber ?? '',
+        companyName: decoded.userCompanyName ?? '',
         role: decoded.userType ?? 'USER',
         isAuthenticated: true,
       };

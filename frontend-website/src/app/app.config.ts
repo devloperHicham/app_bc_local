@@ -10,6 +10,7 @@ import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Factory function — NO direct inject() here
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -22,6 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
+    importProvidersFrom(BrowserAnimationsModule),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {

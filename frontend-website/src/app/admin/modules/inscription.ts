@@ -4,8 +4,9 @@ export interface Inscription {
   lastName: string;
   email: string;
   phoneNumber: string;
+  companyName: string;
   role: string;
   userType: string;
-  password:string;
+  password: string;
   obs: string;
 }

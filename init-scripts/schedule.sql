@@ -17,7 +17,7 @@ BEGIN
    -- Check if the user exists
    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'schedule_db') THEN
       -- Create user if it doesn't exist
-      EXECUTE 'CREATE USER schedule_db WITH ENCRYPTED PASSWORD ''schedule_password12345@@''';
+      EXECUTE 'CREATE USER schedule_db WITH ENCRYPTED PASSWORD ''H@7zP!4xQw9^rS2mJf8L''';
    END IF;
 END
 $$;

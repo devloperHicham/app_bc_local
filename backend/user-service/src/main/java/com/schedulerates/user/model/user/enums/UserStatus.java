@@ -5,7 +5,10 @@ package com.schedulerates.user.model.user.enums;
  * This enum defines the different states a user can have in the system.
  */
 public enum UserStatus {
-    ACTIVE,
+    PENDING,    // Waiting for email activation
+    ACTIVE,     // Activated account
     PASSIVE,
-    SUSPENDED
+    INACTIVE,   // Deactivated by admin/user
+    SUSPENDED,  // Suspended by admin
+    EXPIRED     // Activation token expired
 }

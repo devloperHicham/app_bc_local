@@ -20,10 +20,15 @@
             "outputPath": "dist/frontend-admin",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "node_modules/datatables.net-dt/css/dataTables.dataTables.min.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css",
@@ -89,13 +94,16 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-            "options": {
-            "host": "10.191.171.122",
+          "options": {
+            "host": "192.168.151.122",
             "ssl": true,
-            "sslKey": "ssl/10.191.171.122-key.pem",
-            "sslCert": "ssl/10.191.171.122.pem",
-            "proxyConfig": "proxy.conf.json",
-            "allowedHosts": ["10.191.171.122"]
+            "sslKey": "./ssl/shared-key.pem",
+            "sslCert": "./ssl/shared-cert.pem",
+            "port": 4000,
+            "allowedHosts": [
+              "192.168.151.122"
+            ],
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -116,11 +124,19 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         }

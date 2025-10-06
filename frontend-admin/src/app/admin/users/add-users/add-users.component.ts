@@ -1,18 +1,18 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { SharedModule } from '../../../share/shared.module';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ConfigService } from '../../../services/config/config.service';
-import { Router } from '@angular/router';
-import { ApiResponses } from '../../../modules/api-responses';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from "@angular/core";
+import { UserService } from "../../services/user.service";
+import { SharedModule } from "../../../share/shared.module";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ConfigService } from "../../../services/config/config.service";
+import { Router } from "@angular/router";
+import { ApiResponses } from "../../../modules/api-responses";
 
 @Component({
-  selector: 'app-add-users',
+  selector: "app-add-users",
   standalone: true,
   imports: [SharedModule],
-  templateUrl: './add-users.component.html',
-  styleUrl: './add-users.component.scss',
+  templateUrl: "./add-users.component.html",
+  styleUrl: "./add-users.component.scss",
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AddUsersComponent implements OnInit {
@@ -29,35 +29,26 @@ export class AddUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: [
-        '',
-        [
-          Validators.required
-        ],
-      ],
-      lastName: [
-        '',
-        [
-          Validators.required
-        ],
-      ],
+      firstName: ["", [Validators.required]],
+      lastName: ["", [Validators.required]],
       phoneNumber: [
-        '',
-        [Validators.required, Validators.pattern('^(0{1}[56789]{1}[0-9]{8})$')],
+        "",
+        [Validators.required, Validators.pattern("^(0{1}[56789]{1}[0-9]{8})$")],
       ],
+      companyName: ["comanyName"],
       email: [
-        '',
+        "",
         [
           Validators.required,
           Validators.pattern(
-            '^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$'
+            "^[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+@[a-zA-ZêéèëàöÉÈÊÀÖË0-9\\-_.]+\\.[a-z]{2,3}$"
           ),
         ],
       ],
-      role: ['', [Validators.required]],
-      password: ['bc12345@', [Validators.required]],
+      role: ["", [Validators.required]],
+      password: ["bc12345@", [Validators.required]],
       obs: [
-        '',
+        "",
         [
           Validators.pattern(
             "^([a-zA-ZêéèëàöÉÈÊÀÖËç0-9]{1}[a-zA-ZêéèëàöÉÈÊÀÖËç0-9.'°_:,()+; ]{1,255})$"
@@ -76,7 +67,7 @@ export class AddUsersComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       this.configService.showErrorAlert(
-        'Veuillez corriger les erreurs dans le formulaire.'
+        "Veuillez corriger les erreurs dans le formulaire."
       );
       return;
     }
@@ -85,10 +76,10 @@ export class AddUsersComponent implements OnInit {
       next: (res: ApiResponses<void>) => {
         this.spinner.hide();
         if (res.isSuccess) {
-          this.configService.showSuccessAlert('Action réussie.');
+          this.configService.showSuccessAlert("Action réussie.");
           this.router.navigateByUrl(this.configService.ENDPOINTS.users);
         } else {
-          this.configService.showErrorAlert('Une erreur s’est produite.');
+          this.configService.showErrorAlert("Une erreur s’est produite.");
         }
       },
       error: () => {

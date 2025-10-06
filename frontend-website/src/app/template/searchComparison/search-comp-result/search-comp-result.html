@@ -187,6 +187,7 @@
         </div>
       </div>
       <!-- Trip card example -->
+      @if(comparisons){
       <div class="trips" *ngFor="let comp of comparisons; trackBy: trackById">
         <div class="trip-card">
           <div class="top-bar">
@@ -205,12 +206,15 @@
               </div>
             </div>
           </div>
-
+          <!-- Loading Spinner -->
+          <div *ngIf="isLoading" class="ship-spinner-container">
+            <img src="assets/images/ship-spinner.png" alt="Loading..." class="ship-spinner" />
+          </div>
           <div class="content4">
             <div class="header10">
               <div class="quick-actions">
-                <img class="shipping-partner-icon" alt="" src="assets/images/Maersk.png" />
-                <div class="marine-shipping">{{ 'SEARCH_COMPARISON.ID' | translate:{id: comp.codeTransation} }}</div>
+                <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comp.companyLogo }}" />
+                <div class="marine-shipping">{{ 'SEARCH_COMPARISON.ID' | translate }} {{comp.codeTransation}}</div>
               </div>
               <div class="shipping-info">
                 <div class="info">
@@ -232,9 +236,9 @@
               <div class="departure">
                 <div class="quick-filters">
                   <div class="flags">
-                    <img class="vector-icon22" alt="" src="assets/images/japan.png" />
+                    <img class="vector-icon22" alt="" src="assets/flag_countries/{{comp.portFromLogo}}" />
                   </div>
-                  <div class="casablanca-port-ma">{{comp.portFromName}}, {{comp.countryToNameAbbreviation}}</div>
+                  <div class="casablanca-port-ma">{{comp.portFromName}}, {{comp.countryFromNameAbbreviation}}</div>
                 </div>
                 <div class="div42">{{comp.dateDepart}}</div>
               </div>
@@ -251,7 +255,7 @@
               <div class="arrival">
                 <div class="quick-filters">
                   <div class="flags1">
-                    <img class="vector-icon23" alt="" src="assets/images/spain.png" />
+                    <img class="vector-icon23" alt="" src="assets/flag_countries/{{comp.portToLogo}}" />
                   </div>
                   <div class="casablanca-port-ma">{{comp.portToName}}, {{comp.countryToNameAbbreviation}}</div>
                 </div>
@@ -266,14 +270,14 @@
                 <div class="ctasecondary1">
                   <div class="back">{{ 'SEARCH_COMPARISON.CHAT' | translate }}</div>
                 </div>
-                <button style="cursor: pointer" class="ctasecondary2" (click)="openModal()">
+                <button style="cursor: pointer" class="ctasecondary2" (click)="openModal(comp)">
                   {{ 'SEARCH_COMPARISON.VIEW_DETAILS' | translate }}
                 </button>
               </div>
               <div class="pricing">
-                <div class="casablanca-port-ma">{{ 'SEARCH_COMPARISON.PRICE' | translate:{price: 1523} }}</div>
+                <div class="casablanca-port-ma">${{comp.price}}</div>
                 <div class="ctaprimary">
-                  <a style="color: white; text-decoration: none; cursor: pointer" routerLink="/trip-comp-details" routerLinkActive="active" class="back">
+                  <a style="color: white; text-decoration: none; cursor: pointer" (click)="bookNow(comp)" routerLinkActive="active" class="back">
                     {{ 'SEARCH_COMPARISON.BOOK_NOW' | translate }}
                   </a>
                 </div>
@@ -282,6 +286,9 @@
           </div>
         </div>
       </div>
+     }@else {
+        <div class="separator">no data Found</div>
+      }
 
       <div class="pagination">
         <div class="actions4">
@@ -312,4 +319,4 @@
   </div>
 </div>
 
-<app-search-comp-detail *ngIf="isModalOpen" (closeEvent)="closeModal()"></app-search-comp-detail>
+<app-search-comp-detail [comparisons]="selectedCompareison!" *ngIf="isModalOpen" (closeEvent)="closeModal()"></app-search-comp-detail>

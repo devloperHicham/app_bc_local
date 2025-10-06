@@ -8,6 +8,31 @@ spring:
   messages:
     basename: messages
 
+  # ADD MAIL CONFIG HERE
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: devhicham00@gmail.com
+    password: xvrqfdgwqejuwuwm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        debug: true
+
+# ADD APP CONFIG HERE
+app:
+  activation:
+    token:
+      expiry-hours: 24
+  email:
+    from: noreply@booking-container.com
+    activation-subject: "Activate Your Booking Container Account"
+  frontend:
+    url: https://192.168.151.122:7000
+    
 eureka:
   client:
     register-with-eureka: true

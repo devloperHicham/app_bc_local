@@ -24,7 +24,8 @@ export class App {
     return (
       this.currentUrl().startsWith('/login') ||
       this.currentUrl().startsWith('/inscription-users') ||
-      this.currentUrl().startsWith('/payment-orders')
+      this.currentUrl().startsWith('/payment-orders')||
+      this.currentUrl().startsWith('/activate-account')
     );
   });
 

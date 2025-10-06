@@ -34,13 +34,15 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
   schedules: Schedule[] = [];
   currentPage = 1;
   totalPages: number[] = [];
-  pageSize = 5;
+  pageSize = 50;
+  totalRecords = 0;
+  isLoading: boolean = false;
   filters: any = {};
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly translate: TranslateService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filters = this.heroService.getForm() ?? {};
@@ -57,24 +59,36 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
       columns: [{ data: 'dateDepart' }], // default sort column
     };
     const filters = {
-      portFromCode: this.filters.portFromCode ?? null,
-      portToCode: this.filters.portToCode ?? null,
-      dateDepart: this.filters.dateDepart ?? null,
-      dateArrive: this.filters.dateArrive ?? null,
-      companyId: this.filters.companyId ?? null,
+      selectedPortFromSchedule: this.filters?.selectedPortFromSchedule ?? null,
+      selectedPortToSchedule: this.filters?.selectedPortToSchedule ?? null,
+      selectedCompany: this.filters?.selectedCompany ?? null,
+      searchOn: this.filters?.searchOn ?? null,
+      startDateSchedule: this.filters?.startDateSchedule ?? null,
+      endDateSchedule: this.filters?.endDateSchedule ?? null,
+      weeksAhead: this.filters?.weeksAhead ?? null
     };
 
     this.heroService.getPaginatedDataSchedule(dtParams, filters).subscribe({
       next: (res) => {
-        this.schedules = res.data;
-        console.log(this.schedules);
-        // calculate total pages
-        const pageCount = Math.ceil(res.recordsTotal / this.pageSize);
-        this.totalPages = Array.from({ length: pageCount }, (_, i) => i + 1);
+        this.schedules = res.data || [];
+        this.totalRecords = res.recordsTotal || 0;
+
+        const totalPages = Math.ceil(this.totalRecords / this.pageSize);
+        this.totalPages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
         this.currentPage = page;
+        this.isLoading = false;
+        this.cdr.detectChanges();
       },
-      error: () => {
-        console.log('error to get data');
+      error: (error) => {
+        this.schedules = [];
+        this.totalRecords = 0;
+        this.totalPages = [1];
+        this.isLoading = false;
+        this.cdr.detectChanges();
+
+        // Show error message to user
+        this.configService.showErrorAlert('Failed to load data. Please try again.');
       },
     });
   }
@@ -96,8 +110,8 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
     });
   }
 
-  toggleFavorite(id: string): void { 
-   this.heroService.toggleFavoriteSchedule(id).subscribe({
+  toggleFavorite(id: string): void {
+    this.heroService.toggleFavoriteSchedule(id).subscribe({
       next: (response) =>
         this.configService.showSuccessAlert('Successfully registered.'),
       error: () => console.log('error favorite schedule'),

@@ -20,6 +20,7 @@ public enum TokenClaims {
     USER_LAST_NAME("userLastName"),
     USER_EMAIL("userEmail"),
     USER_PHONE_NUMBER("userPhoneNumber"),
+    USER_COMPANY_NAME("userCompanyName"),
     USER_OBS("userObs"),
     STORE_TITLE("storeTitle"),
     ISSUED_AT("iat"),

@@ -1,16 +1,13 @@
-<div
-  class="user-profile"
-  [class.active]="isDropdownOpen"
-  (click)="toggleDropdown($event)"
-  (keydown)="onKeyToggle($event)"
->
+<div class="user-profile" [class.active]="isDropdownOpen" (click)="toggleDropdown($event)"
+  (keydown)="onKeyToggle($event)">
+
   <div class="profile-summary">
-    <img
-      class="profile-picture-icon"
-      alt=""
-      src="assets/images/Profile-picture.png"
-    />
-    <div class="user-name">{{ userName }}</div>
+    <img class="profile-picture-icon" alt="" src="assets/images/Profile-picture.png" />
+    @if (currentUser$ | async; as user) {
+      <div class="user-name">{{ user.firstName }} {{ user.lastName }}</div>
+    }@else{
+      <div class="user-name">Guest</div>
+    }
     <div class="tailing-icon">
       <img class="vector-icon" alt="" src="assets/images/seclect-down.png" />
     </div>
@@ -18,22 +15,31 @@
 
   <div class="profile-dropdown" *ngIf="isDropdownOpen">
     <div class="content">
-      <div class="header">
-        <div class="name-type">
-          <div class="user-name">{{ userName }}</div>
-          <div class="info">
-            <div class="shipper">{{ userType }}</div>
+      @if (currentUser$ | async; as user) {
+        <div class="header">
+          <div class="name-type">
+            <div class="user-name">{{ user.firstName }} {{ user.lastName }}</div>
+            <div class="info">
+              <div class="shipper">Shipper</div>
+            </div>
           </div>
+          <div class="user-email">{{ user.email }}</div>
         </div>
-        <div class="user-email">{{ userEmail }}</div>
-      </div>
+      } @else{
+        <div class="header">
+          <div class="name-type">
+            <div class="user-name">Guest</div>
+            <div class="info">
+              <div class="shipper">Shipper</div>
+            </div>
+          </div>
+          <div class="user-email">...</div>
+        </div>
+      }
       <div class="separator"></div>
 
-      <div
-        class="profil-menu-item"
-        (click)="handleMenuItemClick('profiles')"
-        (keydown)="onKeyMenuItem($event, 'profiles')"
-      >
+      <div class="profil-menu-item" (click)="handleMenuItemClick('profiles')"
+        (keydown)="onKeyMenuItem($event, 'profiles')">
         <div class="text-placeholder">
           {{ 'PROFILE.PROFILE_PROFILE' | translate }}
         </div>
@@ -44,27 +50,17 @@
       <div class="separator"></div>
 
       <div class="content1">
-        <div
-          class="profil-menu-item"
-          (click)="handleMenuItemClick('whishlist-booking')"
-          (keydown)="onKeyMenuItem($event, 'whishlist-booking')"
-        >
+        <div class="profil-menu-item" (click)="handleMenuItemClick('whishlist-booking')"
+          (keydown)="onKeyMenuItem($event, 'whishlist-booking')">
           <div class="text-placeholder">
             {{ 'PROFILE.PRE_BOOKINGS' | translate }}
           </div>
           <div class="tailing-icon">
-            <img
-              class="vector-icon"
-              alt=""
-              src="assets/images/heart-orange.png"
-            />
+            <img class="vector-icon" alt="" src="assets/images/heart-orange.png" />
           </div>
         </div>
-        <div
-          class="profil-menu-item"
-          (click)="handleMenuItemClick('quote-lists')"
-          (keydown)="onKeyMenuItem($event, 'quote-lists')"
-        >
+        <div class="profil-menu-item" (click)="handleMenuItemClick('quote-lists')"
+          (keydown)="onKeyMenuItem($event, 'quote-lists')">
           <div class="text-placeholder">
             {{ 'PROFILE.QUOTES' | translate }}
           </div>
@@ -72,30 +68,20 @@
             <img class="vector-icon" alt="" src="assets/images/wallet.png" />
           </div>
         </div>
-        <div
-          class="profil-menu-item"
-          (click)="handleMenuItemClick('manage-script')"
-          (keydown)="onKeyMenuItem($event, 'manage-script')"
-        >
+        <div class="profil-menu-item" (click)="handleMenuItemClick('manage-script')"
+          (keydown)="onKeyMenuItem($event, 'manage-script')">
           <div class="text-placeholder">
             {{ 'PROFILE.MANAGE_SUBSCRIPTION' | translate }}
           </div>
           <div class="tailing-icon">
-            <img
-              class="vector-icon"
-              alt=""
-              src="assets/images/file-input.png"
-            />
+            <img class="vector-icon" alt="" src="assets/images/file-input.png" />
           </div>
         </div>
       </div>
       <div class="separator"></div>
 
-      <div
-        class="profil-menu-item"
-        (click)="handleMenuItemClick('help-centers')"
-        (keydown)="onKeyMenuItem($event, 'help-centers')"
-      >
+      <div class="profil-menu-item" (click)="handleMenuItemClick('help-centers')"
+        (keydown)="onKeyMenuItem($event, 'help-centers')">
         <div class="text-placeholder">
           {{ 'PROFILE.SUPPORT_CENTER' | translate }}
         </div>
@@ -105,12 +91,8 @@
       </div>
       <div class="separator"></div>
 
-      <div
-        style="background-color: #fef2f2;"
-        class="profil-menu-item"
-        (click)="handleMenuItemClick('logout')"
-        (keydown)="onKeyMenuItem($event, 'logout')"
-      >
+      <div style="background-color: #fef2f2;" class="profil-menu-item" (click)="handleMenuItemClick('logout')"
+        (keydown)="onKeyMenuItem($event, 'logout')">
         <div class="text-placeholder" style="color: #ef4444">
           {{ 'PROFILE.LOGOUT' | translate }}
         </div>

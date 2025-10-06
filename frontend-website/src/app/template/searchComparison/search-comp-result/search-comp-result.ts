@@ -7,9 +7,10 @@ import {
   ChangeDetectorRef,
   OnDestroy,
   inject,
+  OnInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { SearchCompDetail } from '../search-comp-detail/search-comp-detail';
@@ -17,6 +18,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Comparison } from '../../home/modules/comparison';
 import { HeroService } from '../../home/services/hero-service';
 import { ConfigService } from '../../../services/config/config';
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-comp-result',
@@ -31,14 +33,18 @@ import { ConfigService } from '../../../services/config/config';
   templateUrl: './search-comp-result.html',
   styleUrls: ['./search-comp-result.css'],
 })
-export class SearchCompResult implements AfterViewInit, OnDestroy {
+export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
   private readonly heroService = inject(HeroService);
   private readonly configService = inject(ConfigService);
+  private readonly router = inject(Router);
+  selectedCompareison: Comparison | null = null;
   Math = Math;
   comparisons: Comparison[] = [];
   currentPage = 1;
   totalPages: number[] = [];
-  pageSize = 5;
+  pageSize = 50;
+  totalRecords = 0;
+  isLoading: boolean = false;
   filters: any = {};
 
   constructor(
@@ -47,38 +53,43 @@ export class SearchCompResult implements AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    // Listen for navigation events
+    this.isLoading = true;
     this.filters = this.heroService.getForm() ?? {};
     this.loadPage(this.currentPage);
   }
 
-  loadPage(page: number): void {
-    // 👇 build dtParams manually from page + pageSize
+ loadPage(page: number): void {
+    this.isLoading = true;
     const dtParams = {
       start: (page - 1) * this.pageSize,
       length: this.pageSize,
-      draw: page, // can use page number as draw
+      draw: page,
       order: [{ column: 0, dir: 'asc' }],
-      columns: [{ data: 'dateDepart' }], // default sort column
-    };
-    const filters = {
-      portFromCode: this.filters.portFromCode ?? null,
-      portToCode: this.filters.portToCode ?? null,
-      dateDepart: this.filters.dateDepart ?? null,
-      dateArrive: this.filters.dateArrive ?? null,
-      companyId: this.filters.companyId ?? null,
+      columns: [{ data: 'dateDepart' }],
     };
 
-    this.heroService.getPaginatedDataComparison(dtParams, filters).subscribe({
+    this.heroService.getPaginatedDataComparison(dtParams, this.filters).subscribe({
       next: (res) => {
-        this.comparisons = res.data;
-        console.log(this.comparisons);
-        // calculate total pages
-        const pageCount = Math.ceil(res.recordsTotal / this.pageSize);
-        this.totalPages = Array.from({ length: pageCount }, (_, i) => i + 1);
+        this.comparisons = res.data || [];
+        this.totalRecords = res.recordsTotal || 0;
+
+        const totalPages = Math.ceil(this.totalRecords / this.pageSize);
+        this.totalPages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
         this.currentPage = page;
+        this.isLoading = false;
+        this.cdr.detectChanges();
       },
-      error: () => {
-        console.log('error to get data');
+      error: (error) => {
+        this.comparisons = [];
+        this.totalRecords = 0;
+        this.totalPages = [1];
+        this.isLoading = false;
+        this.cdr.detectChanges();
+        
+        // Show error message to user
+        this.configService.showErrorAlert('Failed to load data. Please try again.');
       },
     });
   }
@@ -132,6 +143,11 @@ export class SearchCompResult implements AfterViewInit, OnDestroy {
     const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
     return daysDiff;
+  }
+//this for book and pass date to detail page
+  bookNow(comp: Comparison): void {
+    this.heroService.setComparison(comp);
+    this.router.navigate(['/trip-comp-details']);
   }
   /*************************************************************************** */
   /**************************this is for design ***************************** */
@@ -189,11 +205,13 @@ export class SearchCompResult implements AfterViewInit, OnDestroy {
     }
   }
 
-  openModal() {
+  openModal(comp: Comparison) {
+    this.selectedCompareison = comp;
     this.isModalOpen = true;
   }
 
   closeModal() {
+    this.selectedCompareison = null;
     this.isModalOpen = false;
   }
   onKeyMenuItem(event: KeyboardEvent): void {

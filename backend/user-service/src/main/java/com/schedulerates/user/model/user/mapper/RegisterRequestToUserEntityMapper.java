@@ -7,6 +7,8 @@ import com.schedulerates.user.model.user.enums.UserType;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
+import java.util.Optional;
+
 
 /**
  * Mapper interface for converting between {@link RegisterRequest} and
@@ -29,21 +31,24 @@ public interface RegisterRequestToUserEntityMapper extends BaseMapper<RegisterRe
      */
     @Named("mapForSaving")
     default UserEntity mapForSaving(RegisterRequest userRegisterRequest) {
-
+        
         UserType userType;
-
         if ("admin".equalsIgnoreCase(userRegisterRequest.getRole())) {
             userType = UserType.ADMIN;
         } else if ("client".equalsIgnoreCase(userRegisterRequest.getRole())) {
             userType = UserType.CLIENT;
+        } else if ("support".equalsIgnoreCase(userRegisterRequest.getRole())) {
+            userType = UserType.SUPPORT;
         } else {
-            userType = UserType.USER; // default
+            userType = UserType.USER;
         }
         return UserEntity.builder()
                 .email(userRegisterRequest.getEmail())
                 .firstName(userRegisterRequest.getFirstName())
                 .lastName(userRegisterRequest.getLastName())
                 .phoneNumber(userRegisterRequest.getPhoneNumber())
+                .companyName(userRegisterRequest.getCompanyName())
+                .obs(Optional.ofNullable(userRegisterRequest.getObs()).orElse("")) // 👈 avoid null
                 .userType(userType)
                 .build();
     }

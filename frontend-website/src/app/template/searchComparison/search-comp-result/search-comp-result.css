@@ -10,6 +10,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .icon {
   width: 16px;
   position: relative;
@@ -17,12 +18,14 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .back {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 18px;
   font-weight: 500;
 }
+
 .ctasecondary {
   border-radius: 4px;
   background-color: #eef2fb;
@@ -34,6 +37,7 @@
   padding: 8px 12px;
   gap: 8px;
 }
+
 .book-a-container {
   position: relative;
   font-size: 20px;
@@ -44,6 +48,7 @@
   display: inline-block;
   max-width: 1440px;
 }
+
 .header {
   align-self: stretch;
   display: flex;
@@ -52,6 +57,7 @@
   justify-content: flex-start;
   gap: 12px;
 }
+
 .vector-icon1 {
   position: absolute;
   height: 83.13%;
@@ -64,11 +70,13 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .for-brokers {
   position: relative;
   letter-spacing: -0.16px;
   line-height: 17px;
 }
+
 .tab-item {
   align-self: stretch;
   flex: 1;
@@ -82,6 +90,7 @@
   gap: 4px;
   color: #fff;
 }
+
 .vector-icon2 {
   position: absolute;
   height: 75.63%;
@@ -94,6 +103,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .tab-item1 {
   align-self: stretch;
   flex: 1;
@@ -105,6 +115,7 @@
   padding: 4px 12px;
   gap: 4px;
 }
+
 .vector-icon3 {
   position: absolute;
   height: 66.88%;
@@ -117,6 +128,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .tabs {
   align-self: stretch;
   border-radius: 2px;
@@ -130,6 +142,7 @@
   box-sizing: border-box;
   gap: 12px;
 }
+
 .input-title {
   align-self: stretch;
   display: flex;
@@ -137,6 +150,7 @@
   align-items: center;
   justify-content: flex-start;
 }
+
 .header1 {
   width: 300px;
   display: flex;
@@ -144,6 +158,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .vector-icon4 {
   position: absolute;
   height: 83.13%;
@@ -156,12 +171,14 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .casablanca-portma {
   flex: 1;
   position: relative;
   letter-spacing: -0.16px;
   line-height: 17px;
 }
+
 .text-field {
   align-self: stretch;
   background-color: #fff;
@@ -173,6 +190,7 @@
   padding: 8px;
   gap: 8px;
 }
+
 .input-field {
   align-self: stretch;
   display: flex;
@@ -182,6 +200,7 @@
   gap: 8px;
   min-width: 272px;
 }
+
 .vector-icon6 {
   position: absolute;
   height: 50%;
@@ -194,6 +213,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .leading-icon2 {
   width: 14px;
   position: relative;
@@ -201,6 +221,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .year {
   flex: 1;
   border-radius: 2px;
@@ -212,6 +233,7 @@
   padding: 8px;
   gap: 8px;
 }
+
 .week {
   align-self: stretch;
   display: flex;
@@ -219,6 +241,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .day {
   flex: 1;
   border-radius: 2px;
@@ -229,6 +252,7 @@
   justify-content: center;
   padding: 8px;
 }
+
 .days {
   align-self: stretch;
   display: flex;
@@ -237,6 +261,7 @@
   justify-content: flex-start;
   color: #aec3f2;
 }
+
 .day26 {
   flex: 1;
   border-radius: 2px;
@@ -247,6 +272,7 @@
   justify-content: center;
   padding: 8px;
 }
+
 .day38 {
   flex: 1;
   border-radius: 2px;
@@ -258,6 +284,7 @@
   padding: 8px;
   opacity: 0.32;
 }
+
 .calendar {
   width: 100%;
   margin: 0 !important;
@@ -281,6 +308,7 @@
   text-align: center;
   color: #05256e;
 }
+
 .checkbox-child {
   appearance: none;
   -webkit-appearance: none;
@@ -293,6 +321,7 @@
   outline: none;
   transition: background 0.3s;
 }
+
 .checkbox {
   width: 40px;
   border-radius: 999px;
@@ -303,6 +332,7 @@
   padding: 2px;
   box-sizing: border-box;
 }
+
 .input-title2 {
   align-self: stretch;
   display: flex;
@@ -311,6 +341,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
 .header3 {
   align-self: stretch;
   display: flex;
@@ -319,6 +350,7 @@
   justify-content: flex-start;
   z-index: 1;
 }
+
 .vector-icon10 {
   position: absolute;
   height: 83.13%;
@@ -331,6 +363,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .text-field2 {
   align-self: stretch;
   background-color: #fff;
@@ -343,6 +376,7 @@
   gap: 8px;
   z-index: 2;
 }
+
 .date-field {
   align-self: stretch;
   display: flex;
@@ -353,9 +387,11 @@
   gap: 8px;
   min-width: 272px;
 }
+
 .fcl1 {
   color: rgba(128, 128, 128, 0.55);
 }
+
 .fcl {
   align-self: stretch;
   border-radius: 2px;
@@ -366,6 +402,7 @@
   justify-content: flex-start;
   padding: 8px;
 }
+
 .list1 {
   flex: 1;
   display: flex;
@@ -374,6 +411,7 @@
   justify-content: flex-start;
   gap: 4px;
 }
+
 .list {
   width: 100%;
   margin: 0 !important;
@@ -395,6 +433,7 @@
   z-index: 0;
   color: #05256e;
 }
+
 .vector-icon11 {
   position: absolute;
   height: 25%;
@@ -407,6 +446,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .mono-select-field {
   align-self: stretch;
   flex: 1;
@@ -417,6 +457,7 @@
   position: relative;
   gap: 8px;
 }
+
 .tt {
   position: relative;
   letter-spacing: -0.16px;
@@ -424,6 +465,7 @@
   color: #909090;
   text-align: right;
 }
+
 .input-field2 {
   align-self: stretch;
   flex: 1;
@@ -433,6 +475,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
 .shipping-typemarine {
   align-self: stretch;
   height: 222px;
@@ -442,6 +485,7 @@
   justify-content: flex-start;
   gap: 24px;
 }
+
 .content2 {
   align-self: stretch;
   display: flex;
@@ -452,6 +496,7 @@
   text-align: left;
   color: #03133d;
 }
+
 .content1 {
   align-self: stretch;
   display: flex;
@@ -461,6 +506,7 @@
   gap: 16px;
   z-index: 0;
 }
+
 .search-bardesktop {
   align-self: stretch;
   backdrop-filter: blur(12px);
@@ -474,12 +520,14 @@
   padding: 16px;
   height: 390px;
 }
+
 .filters1 {
   position: relative;
   letter-spacing: -0.2px;
   line-height: 24px;
   font-weight: 500;
 }
+
 .clear-all {
   position: relative;
   font-size: 14px;
@@ -489,6 +537,7 @@
   font-weight: 500;
   color: #ffd4b3;
 }
+
 .filters-parent {
   align-self: stretch;
   display: flex;
@@ -498,6 +547,7 @@
   gap: 0px;
   z-index: 1;
 }
+
 .mono-select-field1 {
   align-self: stretch;
   display: flex;
@@ -507,6 +557,7 @@
   position: relative;
   gap: 8px;
 }
+
 .header8 {
   align-self: stretch;
   display: flex;
@@ -514,6 +565,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .div37 {
   flex: 1;
   position: relative;
@@ -522,6 +574,7 @@
   color: #03133d;
   text-align: center;
 }
+
 .min {
   flex: 1;
   border-radius: 4px;
@@ -535,6 +588,7 @@
   padding: 12px 8px;
   gap: 8px;
 }
+
 .min-max {
   align-self: stretch;
   display: flex;
@@ -545,6 +599,7 @@
   text-align: right;
   color: #909090;
 }
+
 .range-indicator {
   align-self: stretch;
   flex: 1;
@@ -552,6 +607,7 @@
   background-color: #05256e;
   overflow: hidden;
 }
+
 .max {
   width: 16px;
   position: relative;
@@ -561,6 +617,7 @@
   box-sizing: border-box;
   height: 16px;
 }
+
 .sliders {
   width: 300px;
   height: 3px;
@@ -569,6 +626,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .sliders-wrapper {
   align-self: stretch;
   display: flex;
@@ -577,6 +635,7 @@
   justify-content: flex-start;
   padding: 8px 0px;
 }
+
 .price-range {
   width: 300px;
   display: flex;
@@ -585,6 +644,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
 .min-max1 {
   align-self: stretch;
   display: flex;
@@ -594,6 +654,7 @@
   gap: 24px;
   text-align: center;
 }
+
 .content3 {
   display: flex;
   flex-direction: column;
@@ -604,6 +665,7 @@
   font-size: 14px;
   color: #03133d;
 }
+
 .filters {
   backdrop-filter: blur(12px);
   border-radius: 4px;
@@ -619,6 +681,7 @@
   font-size: 20px;
   color: #041b53;
 }
+
 .left-column {
   display: flex;
   flex-direction: column;
@@ -626,6 +689,7 @@
   justify-content: flex-start;
   gap: 12px;
 }
+
 .vector-icon13 {
   position: absolute;
   height: 45.83%;
@@ -638,6 +702,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .icon4 {
   width: 12px;
   position: relative;
@@ -645,6 +710,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .checkbox1 {
   width: 16px;
   border-radius: 2px;
@@ -660,11 +726,13 @@
   justify-content: flex-start;
   padding: 2px;
 }
+
 .sort-by-fastest {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 14px;
 }
+
 .quick-filters {
   display: flex;
   flex-direction: row;
@@ -672,6 +740,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
 .checkbox2 {
   width: 16px;
   border-radius: 2px;
@@ -686,6 +755,7 @@
   padding: 2px;
   box-sizing: border-box;
 }
+
 .filters2 {
   display: flex;
   flex-direction: row;
@@ -694,12 +764,14 @@
   gap: 24px;
   z-index: 1;
 }
+
 .stay-updated1 {
   position: relative;
   letter-spacing: -0.12px;
   line-height: 14px;
   font-weight: 500;
 }
+
 .stay-updated {
   border-radius: 4px;
   background-color: #fff8f2;
@@ -713,6 +785,7 @@
   font-size: 12px;
   color: #ff6600;
 }
+
 .topbar {
   align-self: stretch;
   backdrop-filter: blur(12px);
@@ -727,17 +800,20 @@
   gap: 0px;
   color: #000;
 }
+
 .showing-129429-results {
   position: relative;
   letter-spacing: -0.16px;
   line-height: 17px;
   font-weight: 500;
 }
+
 .marine-shipping {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 20px;
 }
+
 .trip-category {
   display: flex;
   flex-direction: row;
@@ -745,6 +821,7 @@
   justify-content: flex-start;
   gap: 4px;
 }
+
 .vector-icon18 {
   position: absolute;
   height: 75%;
@@ -757,6 +834,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .quick-actions {
   display: flex;
   flex-direction: row;
@@ -764,6 +842,7 @@
   justify-content: flex-start;
   gap: 12px;
 }
+
 .top-bar {
   align-self: stretch;
   border-radius: 4px 4px 0px 0px;
@@ -775,12 +854,14 @@
   padding: 8px 16px;
   gap: 0px;
 }
+
 .shipping-partner-icon {
   width: 96px;
   height: 22px;
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .info {
   border-radius: 2px;
   border: 1px solid rgba(7, 57, 164, 0.12);
@@ -791,6 +872,7 @@
   padding: 4px 8px;
   gap: 4px;
 }
+
 .vector-icon20 {
   position: absolute;
   height: 82.5%;
@@ -803,6 +885,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .shipping-info {
   display: flex;
   flex-direction: row;
@@ -811,6 +894,7 @@
   gap: 8px;
   color: #0739a4;
 }
+
 .header10 {
   align-self: stretch;
   display: flex;
@@ -819,6 +903,7 @@
   justify-content: space-between;
   gap: 0px;
 }
+
 .vector-icon22 {
   position: absolute;
   height: 30%;
@@ -831,6 +916,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .flags {
   width: 21px;
   position: relative;
@@ -839,12 +925,14 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .casablanca-port-ma {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 110%;
   font-weight: 500;
 }
+
 .div42 {
   position: relative;
   font-size: 12px;
@@ -853,6 +941,7 @@
   color: #909090;
   text-align: left;
 }
+
 .departure {
   display: flex;
   flex-direction: column;
@@ -860,6 +949,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
+
 .ellipse {
   width: 8px;
   position: relative;
@@ -867,6 +957,7 @@
   background-color: #0739a4;
   height: 8px;
 }
+
 .frame-child {
   flex: 1;
   position: relative;
@@ -874,6 +965,7 @@
   height: 2px;
   overflow: hidden;
 }
+
 .ellipse1 {
   width: 8px;
   position: relative;
@@ -881,6 +973,7 @@
   background-color: #ff6701;
   height: 8px;
 }
+
 .ellipse-parent {
   align-self: stretch;
   display: flex;
@@ -889,12 +982,14 @@
   justify-content: flex-start;
   gap: 4px;
 }
+
 .h1 {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 20px;
   color: #909090;
 }
+
 .road {
   flex: 1;
   display: flex;
@@ -905,6 +1000,7 @@
   font-size: 12px;
   color: #ff6701;
 }
+
 .vector-icon23 {
   position: absolute;
   height: 100%;
@@ -917,6 +1013,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon24 {
   position: absolute;
   height: 46.67%;
@@ -929,6 +1026,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon25 {
   position: absolute;
   height: 34.67%;
@@ -941,6 +1039,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon26 {
   position: absolute;
   height: 20%;
@@ -953,6 +1052,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon27 {
   position: absolute;
   height: 6.67%;
@@ -965,6 +1065,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon28 {
   position: absolute;
   height: 6.67%;
@@ -977,6 +1078,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon29 {
   position: absolute;
   height: 23.33%;
@@ -989,6 +1091,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon30 {
   position: absolute;
   height: 10%;
@@ -1001,6 +1104,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon31 {
   position: absolute;
   height: 10%;
@@ -1013,6 +1117,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon32 {
   position: absolute;
   height: 6.67%;
@@ -1025,6 +1130,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon33 {
   position: absolute;
   height: 6.67%;
@@ -1037,6 +1143,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .flags1 {
   width: 21px;
   position: relative;
@@ -1045,6 +1152,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .arrival {
   display: flex;
   flex-direction: column;
@@ -1052,6 +1160,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
+
 .content5 {
   align-self: stretch;
   flex: 1;
@@ -1064,6 +1173,7 @@
   font-size: 16px;
   color: #000;
 }
+
 .separator {
   align-self: stretch;
   position: relative;
@@ -1072,6 +1182,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .ctasecondary1 {
   border-radius: 4px;
   background-color: #eef2fb;
@@ -1082,6 +1193,7 @@
   justify-content: center;
   padding: 8px 12px;
 }
+
 .ctasecondary2 {
   border-radius: 4px;
   background-color: #fff;
@@ -1092,6 +1204,7 @@
   justify-content: center;
   padding: 8px 12px;
 }
+
 .ctaprimary {
   border-radius: 4px;
   background-color: #0739a4;
@@ -1104,6 +1217,7 @@
   font-size: 14px;
   color: #fff;
 }
+
 .pricing {
   display: flex;
   flex-direction: row;
@@ -1114,6 +1228,7 @@
   font-size: 20px;
   color: #000;
 }
+
 .footer {
   align-self: stretch;
   display: flex;
@@ -1124,6 +1239,7 @@
   font-size: 14px;
   color: #0739a4;
 }
+
 .content4 {
   align-self: stretch;
   border-radius: 0px 0px 4px 4px;
@@ -1141,6 +1257,7 @@
   min-height: 179px;
   color: #6c6c6c;
 }
+
 .trip-card {
   align-self: stretch;
   border-radius: 4px;
@@ -1153,6 +1270,7 @@
   justify-content: flex-start;
   min-width: 564px;
 }
+
 .shipping-partner-icon2 {
   width: 96px;
   height: 22px;
@@ -1160,6 +1278,7 @@
   flex-shrink: 0;
   object-fit: cover;
 }
+
 .ellipse6 {
   width: 8px;
   position: relative;
@@ -1168,6 +1287,7 @@
   height: 8px;
   opacity: 0;
 }
+
 .frame-child1 {
   width: 138px;
   position: relative;
@@ -1177,6 +1297,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child2 {
   width: 114px;
   position: relative;
@@ -1186,6 +1307,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child3 {
   width: 57px;
   position: relative;
@@ -1195,6 +1317,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child7 {
   width: 142px;
   position: relative;
@@ -1204,6 +1327,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child8 {
   width: 134px;
   position: relative;
@@ -1213,6 +1337,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child9 {
   width: 66px;
   position: relative;
@@ -1222,6 +1347,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .ellipse-parent2 {
   align-self: stretch;
   display: flex;
@@ -1231,12 +1357,14 @@
   gap: 4px;
   color: #909090;
 }
+
 .shipping-partner-icon3 {
   width: 39.4px;
   height: 37px;
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .content9 {
   align-self: stretch;
   display: flex;
@@ -1248,6 +1376,7 @@
   font-size: 16px;
   color: #000;
 }
+
 .trip-card5 {
   align-self: stretch;
   border-radius: 0px 0px 4px 4px;
@@ -1264,6 +1393,7 @@
   min-height: 179px;
   color: #6c6c6c;
 }
+
 .trips {
   align-self: stretch;
   display: flex;
@@ -1274,6 +1404,7 @@
   font-size: 12px;
   color: #0739a4;
 }
+
 .showing-1-4 {
   position: relative;
   letter-spacing: -0.16px;
@@ -1281,6 +1412,7 @@
   font-weight: 500;
   z-index: 1;
 }
+
 .ctasecondary9 {
   border-radius: 4px;
   background-color: #eef2fb;
@@ -1291,6 +1423,7 @@
   padding: 8px 12px;
   opacity: 0.32;
 }
+
 .page {
   width: 34px;
   border-radius: 4px;
@@ -1302,7 +1435,9 @@
   padding: 8px 12px;
   box-sizing: border-box;
   color: #fff8f2;
+  cursor: pointer;
 }
+
 .page1 {
   width: 34px;
   border-radius: 4px;
@@ -1316,6 +1451,7 @@
   padding: 8px 12px;
   opacity: 0.48;
 }
+
 .pages {
   display: flex;
   flex-direction: row;
@@ -1324,6 +1460,7 @@
   gap: 8px;
   color: #ff6600;
 }
+
 .ctasecondary10 {
   border-radius: 4px;
   background-color: #eef2fb;
@@ -1333,6 +1470,7 @@
   justify-content: center;
   padding: 8px 12px;
 }
+
 .actions4 {
   display: flex;
   flex-direction: row;
@@ -1342,6 +1480,7 @@
   z-index: 0;
   color: #0739a4;
 }
+
 .pagination {
   align-self: stretch;
   backdrop-filter: blur(12px);
@@ -1352,6 +1491,7 @@
   justify-content: space-between;
   gap: 0px;
 }
+
 .right-column {
   align-self: stretch;
   flex: 1;
@@ -1363,6 +1503,7 @@
   text-align: left;
   color: #03133d;
 }
+
 .content {
   width: 100%;
   display: flex;
@@ -1374,6 +1515,7 @@
   text-align: right;
   color: #000;
 }
+
 .search-results {
   width: 100%;
   position: relative;
@@ -1399,6 +1541,7 @@
   flex-shrink: 0;
   object-fit: cover;
 }
+
 .carrier-id4 {
   display: flex;
   flex-direction: row;
@@ -1406,6 +1549,7 @@
   justify-content: flex-start;
   gap: 12px;
 }
+
 .vector-icon88 {
   position: absolute;
   height: 83.13%;
@@ -1418,6 +1562,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .icon31 {
   width: 16px;
   position: relative;
@@ -1425,6 +1570,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .info12 {
   border-radius: 2px;
   border: 1px solid rgba(7, 57, 164, 0.12);
@@ -1435,6 +1581,7 @@
   padding: 4px 8px;
   gap: 4px;
 }
+
 .vector-icon89 {
   position: absolute;
   height: 82.5%;
@@ -1447,6 +1594,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .shipping-info4 {
   display: flex;
   flex-direction: row;
@@ -1455,6 +1603,7 @@
   gap: 8px;
   color: #0739a4;
 }
+
 .header14 {
   align-self: stretch;
   display: flex;
@@ -1464,6 +1613,7 @@
   gap: 0px;
   font-size: 12px;
 }
+
 .vector-icon91 {
   position: absolute;
   height: 30%;
@@ -1476,6 +1626,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .flags8 {
   width: 21px;
   position: relative;
@@ -1484,12 +1635,14 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .casablanca-port-ma4 {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 110%;
   font-weight: 500;
 }
+
 .departure9 {
   display: flex;
   flex-direction: row;
@@ -1497,6 +1650,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
 .div58 {
   position: relative;
   font-size: 12px;
@@ -1505,6 +1659,7 @@
   color: #909090;
   text-align: left;
 }
+
 .departure8 {
   display: flex;
   flex-direction: column;
@@ -1512,6 +1667,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
+
 .ellipse22 {
   width: 8px;
   position: relative;
@@ -1520,6 +1676,7 @@
   height: 8px;
   opacity: 0;
 }
+
 .frame-child19 {
   width: 138px;
   position: relative;
@@ -1529,6 +1686,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child20 {
   width: 114px;
   position: relative;
@@ -1538,6 +1696,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child21 {
   width: 57px;
   position: relative;
@@ -1547,6 +1706,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .ellipse-parent6 {
   align-self: stretch;
   display: flex;
@@ -1555,6 +1715,7 @@
   justify-content: flex-start;
   gap: 4px;
 }
+
 .ellipse24 {
   width: 8px;
   position: relative;
@@ -1562,6 +1723,7 @@
   background-color: #0739a4;
   height: 8px;
 }
+
 .frame-child22 {
   flex: 1;
   position: relative;
@@ -1569,6 +1731,7 @@
   height: 2px;
   overflow: hidden;
 }
+
 .ellipse25 {
   width: 8px;
   position: relative;
@@ -1576,6 +1739,7 @@
   background-color: #ff6701;
   height: 8px;
 }
+
 .frame-child25 {
   width: 142px;
   position: relative;
@@ -1585,6 +1749,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child26 {
   width: 134px;
   position: relative;
@@ -1594,6 +1759,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .frame-child27 {
   width: 66px;
   position: relative;
@@ -1603,6 +1769,7 @@
   flex-shrink: 0;
   opacity: 0;
 }
+
 .ellipse-parent8 {
   align-self: stretch;
   display: flex;
@@ -1612,6 +1779,7 @@
   gap: 4px;
   color: #909090;
 }
+
 .road4 {
   flex: 1;
   display: flex;
@@ -1622,6 +1790,7 @@
   font-size: 12px;
   color: #ff6701;
 }
+
 .vector-icon92 {
   position: absolute;
   height: 100%;
@@ -1634,6 +1803,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon93 {
   position: absolute;
   height: 46.67%;
@@ -1646,6 +1816,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon94 {
   position: absolute;
   height: 34.67%;
@@ -1658,6 +1829,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon95 {
   position: absolute;
   height: 20%;
@@ -1670,6 +1842,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon96 {
   position: absolute;
   height: 6.67%;
@@ -1682,6 +1855,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon97 {
   position: absolute;
   height: 6.67%;
@@ -1694,6 +1868,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon98 {
   position: absolute;
   height: 23.33%;
@@ -1706,6 +1881,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon99 {
   position: absolute;
   height: 10%;
@@ -1718,6 +1894,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon100 {
   position: absolute;
   height: 10%;
@@ -1730,6 +1907,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon101 {
   position: absolute;
   height: 6.67%;
@@ -1742,6 +1920,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .vector-icon102 {
   position: absolute;
   height: 6.67%;
@@ -1754,6 +1933,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .flags9 {
   width: 21px;
   position: relative;
@@ -1762,6 +1942,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .arrival8 {
   display: flex;
   flex-direction: column;
@@ -1769,6 +1950,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
+
 .trip {
   align-self: stretch;
   height: 48px;
@@ -1780,6 +1962,7 @@
   text-align: right;
   color: #000;
 }
+
 .separator4 {
   align-self: stretch;
   position: relative;
@@ -1788,6 +1971,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .vector-icon103 {
   position: absolute;
   height: 6.25%;
@@ -1800,6 +1984,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .header15 {
   align-self: stretch;
   display: flex;
@@ -1808,6 +1993,7 @@
   justify-content: space-between;
   gap: 0px;
 }
+
 .departure11 {
   display: flex;
   flex-direction: column;
@@ -1815,6 +2001,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
+
 .departure10 {
   display: flex;
   flex-direction: column;
@@ -1822,6 +2009,7 @@
   justify-content: center;
   gap: 12px;
 }
+
 .timeline-child {
   width: 1px;
   flex: 1;
@@ -1830,6 +2018,7 @@
   overflow: hidden;
   z-index: 0;
 }
+
 .trip-category4 {
   display: flex;
   flex-direction: row;
@@ -1837,6 +2026,7 @@
   justify-content: flex-start;
   gap: 4px;
 }
+
 .km-3-days {
   position: relative;
   letter-spacing: -0.12px;
@@ -1844,6 +2034,7 @@
   font-weight: 500;
   color: #000;
 }
+
 .header16 {
   display: flex;
   flex-direction: row;
@@ -1851,12 +2042,14 @@
   justify-content: flex-start;
   gap: 16px;
 }
+
 .ocean-freight-fifo {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 18px;
   font-weight: 500;
 }
+
 .content12 {
   align-self: stretch;
   display: flex;
@@ -1866,6 +2059,7 @@
   gap: 0px;
   color: #0739a4;
 }
+
 .details1 {
   margin: 0 !important;
   position: absolute;
@@ -1881,6 +2075,7 @@
   gap: 4px;
   z-index: 1;
 }
+
 .timeline {
   width: 8px;
   height: 47px;
@@ -1891,17 +2086,20 @@
   position: relative;
   gap: 10px;
 }
+
 .transit9 {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 20px;
   color: #ff6701;
 }
+
 .tanger-port-ma {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 20px;
 }
+
 .transit8 {
   display: flex;
   flex-direction: column;
@@ -1910,6 +2108,7 @@
   gap: 4px;
   color: #909090;
 }
+
 .timeline-item {
   align-self: stretch;
   width: 1px;
@@ -1919,6 +2118,7 @@
   flex-shrink: 0;
   z-index: 0;
 }
+
 .details2 {
   margin: 0 !important;
   position: absolute;
@@ -1934,6 +2134,7 @@
   gap: 4px;
   z-index: 1;
 }
+
 .timeline1 {
   width: 8px;
   height: 49px;
@@ -1944,6 +2145,7 @@
   position: relative;
   gap: 10px;
 }
+
 .timeline2 {
   width: 8px;
   height: 47px;
@@ -1954,6 +2156,7 @@
   position: relative;
   gap: 10px;
 }
+
 .trip-details {
   display: flex;
   flex-direction: column;
@@ -1961,6 +2164,7 @@
   justify-content: center;
   gap: 4px;
 }
+
 .road5 {
   display: flex;
   flex-direction: column;
@@ -1970,6 +2174,7 @@
   font-size: 12px;
   color: #7d9fec;
 }
+
 .arrival10 {
   display: flex;
   flex-direction: column;
@@ -1977,6 +2182,7 @@
   justify-content: flex-start;
   gap: 12px;
 }
+
 .content11 {
   width: 538px;
   display: flex;
@@ -1984,6 +2190,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .content-icon {
   width: 347px;
   position: relative;
@@ -1993,6 +2200,7 @@
   flex-shrink: 0;
   object-fit: cover;
 }
+
 .content10 {
   display: flex;
   flex-direction: row;
@@ -2002,6 +2210,7 @@
   text-align: right;
   color: #000;
 }
+
 .rate-breakdown {
   width: 921px;
   border-radius: 6px;
@@ -2014,12 +2223,14 @@
   padding: 12px;
   gap: 12px;
 }
+
 .terms-and-additional {
   position: relative;
   letter-spacing: -0.18px;
   line-height: 19px;
   font-weight: 500;
 }
+
 .vector-icon119 {
   position: absolute;
   height: 58.13%;
@@ -2032,6 +2243,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .terms-and-conditions {
   width: 921px;
   flex: 1;
@@ -2044,6 +2256,7 @@
   justify-content: flex-start;
   padding: 12px;
 }
+
 .trip-content {
   width: 921px;
   height: 453px;
@@ -2056,6 +2269,7 @@
   gap: 12px;
   color: #041b53;
 }
+
 .separator5 {
   align-self: stretch;
   position: relative;
@@ -2064,6 +2278,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .ctasecondary11 {
   border-radius: 4px;
   background-color: #eef2fb;
@@ -2074,6 +2289,7 @@
   justify-content: center;
   padding: 8px 12px;
 }
+
 .ctasecondary12 {
   border-radius: 4px;
   background-color: #fff;
@@ -2084,6 +2300,7 @@
   justify-content: center;
   padding: 8px 12px;
 }
+
 .ctaprimary4 {
   border-radius: 4px;
   background-color: #0739a4;
@@ -2097,6 +2314,7 @@
   font-size: 14px;
   color: #fff;
 }
+
 .pricing4 {
   display: flex;
   flex-direction: row;
@@ -2107,6 +2325,7 @@
   font-size: 20px;
   color: #000;
 }
+
 .footer4 {
   align-self: stretch;
   display: flex;
@@ -2117,6 +2336,7 @@
   font-size: 14px;
   color: #0739a4;
 }
+
 .trip-card6 {
   align-self: stretch;
   border-radius: 0px 0px 4px 4px;
@@ -2132,6 +2352,7 @@
   min-width: 564px;
   min-height: 179px;
 }
+
 .details {
   position: relative;
   border-radius: 4px;
@@ -2166,4 +2387,34 @@
 
 .checkbox-child:checked::before {
   transform: translateX(20px);
+}
+
+/******************************this is for spinner ship */
+/* Loading Spinner Styles */
+.ship-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.ship-spinner {
+  width: 48px;
+  height: 48px;
+  animation: shipTurn 1.2s linear infinite;
+}
+
+@keyframes shipTurn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 16px;
+  color: #666;
 }

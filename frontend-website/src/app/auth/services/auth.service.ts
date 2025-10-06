@@ -45,6 +45,11 @@ export class AuthService {
     USER_NOT_FOUND: 'Utilisateur introuvable après connexion',
     TOKEN_EXPIRED: 'Session expirée. Veuillez vous reconnecter.',
     LOGIN_FAILED: 'Échec de la connexion. Email ou mot de passe incorrect.',
+    // ADD ACTIVATION ERROR MESSAGES
+    ACTIVATION_FAILED: "Échec de l'activation du compte. Veuillez réessayer.",
+    ACTIVATION_TOKEN_INVALID: "Lien d'activation invalide ou expiré.",
+    ACTIVATION_EMAIL_SENT: 'Email d\'activation envoyé avec succès.',
+    ACTIVATION_EMAIL_FAILED: 'Échec de l\'envoi de l\'email d\'activation.',
   };
 
   constructor() {
@@ -243,12 +248,12 @@ export class AuthService {
         firstName: decoded.userFirstName ?? '',
         lastName: decoded.userLastName ?? '',
         email: decoded.userEmail ?? '',
+        companyName: decoded.userCompanyName ?? '',
         phoneNumber: decoded.userPhoneNumber ?? '',
         role: 'CLIENT',
         isAuthenticated: true,
       };
     } catch (error) {
-      console.error('Erreur lors du décodage du jeton:', error);
       this.logout(false);
       throw new Error(this.errorMessages.INVALID_TOKEN);
     }
@@ -304,6 +309,49 @@ export class AuthService {
   hasRole(requiredRole: string): boolean {
     const currentUser = this.authState$.value.user;
     return currentUser?.role === requiredRole;
+  }
+
+  // ==================== ACTIVATION METHODS ====================
+
+  /**
+   * Activate user account using activation token
+   */
+  activateAccount(token: string): Observable<{ message: string }> {
+    this.setLoading(true);
+    const url = `${this.configService.URL_API}${this.configService.ENDPOINTS.users}/${this.configService.ENDPOINTS.activate}`;
+
+    return this.http.post<{ message: string }>(url, null, { params: { token } }).pipe(
+      tap((res) => {
+        this.setError(null);
+      }),
+      catchError((error: HttpErrorResponse) => {
+        const errorMessage = "Activation failed:";
+        this.setError(errorMessage);
+        return throwError(() => new Error(errorMessage));
+      }),
+      finalize(() => this.setLoading(false))
+    );
+  }
+  /**
+   * Resend activation email
+   */
+  resendActivationEmail(email: string): Observable<{ message: string }> {
+    this.setLoading(true);
+    const url = `${this.configService.URL_API}${this.configService.ENDPOINTS.users}/${this.configService.ENDPOINTS.resendActivation}`;
+
+    return this.http.post<{ message: string }>(url, null, {
+      params: { email }
+    }).pipe(
+      tap(() => {
+        this.setError(null);
+      }),
+      catchError((error: HttpErrorResponse) => {
+        const errorMessage = "Activation failed:";
+        this.setError(errorMessage);
+        return throwError(() => new Error(errorMessage));
+      }),
+      finalize(() => this.setLoading(false))
+    );
   }
 }
 

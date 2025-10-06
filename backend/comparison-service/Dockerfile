@@ -1,38 +1,27 @@
 # Stage 1: Build stage
-FROM maven:3.9.9-amazoncorretto-21 AS build
+FROM maven:3.9.9-amazoncorretto-24 AS build  
 
-WORKDIR /app
-
-# Install missing tools
-RUN yum update -y && yum install -y tar gzip
-
-# Copy Maven files first (for dependency caching)
-COPY pom.xml .
-COPY mvnw .
+# Copy Maven files for dependency resolution
+COPY pom.xml ./
 COPY .mvn .mvn
 
-# Make mvnw executable
-RUN chmod +x mvnw
-
-# Download dependencies
-RUN ./mvnw dependency:go-offline -B
-
-# Copy source code
+# Copy application source code
 COPY src src
 
-# Build project (skip tests for faster build)
-RUN ./mvnw clean package -DskipTests
+# Build the project and create the executable JAR
+RUN mvn clean install -DskipTests
 
 # Stage 2: Run stage
-FROM amazoncorretto:17
+FROM amazoncorretto:24
 
+# Set working directory
 WORKDIR /app
 
-# Copy JAR from build stage
-COPY --from=build /app/target/*.jar app.jar
+# Copy the JAR file from the build stage
+COPY target/comparison-service-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port (8888 is default for config-service, change if needed)
-EXPOSE 8888
+# Expose port 8084
+EXPOSE 8084
 
-# Run app
+# Set the entrypoint command for running the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

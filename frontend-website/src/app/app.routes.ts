@@ -162,5 +162,12 @@ export const routes: Routes = [
         (c) => c.ConditionsDispute
       ),
   },
+  {
+    path: "activate-account",
+    loadComponent: () =>
+      import("./auth/active-account/active-account").then(
+        (c) => c.ActiveAccount
+      ),
+  },
   { path: "**", component: PageNotFound, title: "Erreur" },
 ];

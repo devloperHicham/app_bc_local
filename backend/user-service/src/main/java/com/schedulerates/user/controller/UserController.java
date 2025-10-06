@@ -22,7 +22,7 @@ import com.schedulerates.user.service.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
+import java.util.Map;
 import java.util.List;
 
 import org.hibernate.validator.constraints.UUID;
@@ -31,7 +31,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 /**
  * REST controller named {@link UserController} for managing user-related
  * operations.
@@ -257,6 +256,21 @@ public class UserController {
     public ResponseEntity<UsernamePasswordAuthenticationToken> getAuthentication(@RequestParam String token) {
         UsernamePasswordAuthenticationToken authentication = tokenService.getAuthentication(token);
         return ResponseEntity.ok(authentication);
+    }
+
+    @PostMapping("/activate-account")
+    public ResponseEntity<Map<String, String>> activateAccount(@RequestParam String token) {
+        boolean activated = registerService.activateUser(token);
+        if (activated) {
+            return ResponseEntity.ok(Map.of("message", "Account activated successfully"));
+        }
+        return ResponseEntity.badRequest().body(Map.of("error", "Failed to activate account"));
+    }
+
+    @PostMapping("/resend-activation")
+    public ResponseEntity<Map<String, String>> resendActivationEmail(@RequestParam String email) {
+        registerService.resendActivationEmail(email);
+        return ResponseEntity.ok(Map.of("message", "Activation email sent successfully"));
     }
 
     /**

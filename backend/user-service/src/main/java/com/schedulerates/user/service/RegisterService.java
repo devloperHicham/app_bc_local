@@ -16,4 +16,18 @@ public interface RegisterService {
      */
     User registerUser(final RegisterRequest registerRequest);
 
+        /**
+     * Activates a user account using the activation token.
+     *
+     * @param activationToken the activation token
+     * @return true if activation was successful
+     */
+    boolean activateUser(final String activationToken);
+
+    /**
+     * Resends the activation email to the user.
+     *
+     * @param email the user's email
+     */
+    void resendActivationEmail(final String email);
 }

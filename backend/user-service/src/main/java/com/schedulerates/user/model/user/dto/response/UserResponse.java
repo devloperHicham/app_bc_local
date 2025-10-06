@@ -15,6 +15,7 @@ public class UserResponse {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private String companyName;
     private UserStatus userStatus;
     private String obs;
     private UserType userType;

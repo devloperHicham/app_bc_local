@@ -83,26 +83,27 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly translate: TranslateService
-  ) {}
+  ) { }
 
   initializeForm(): void {
     this.form = this.fb.group({
-      scheduleSearch: this.fb.group({
-        selectedPortFromSchedule: ["", Validators.required],
-        selectedPortToSchedule: ["", Validators.required],
+      comparisonSearch: this.fb.group({
+        selectedPortFromComparison: ["", Validators.required],
+        selectedPortToComparison: ["", Validators.required],
         isIntervalMode: [false],
-        selectedDateRange: [""],
-        selectedDate: [""],
+        startDateComparison: [""],
+        endDateComparison: [""],
         selectedTransportation: ["", Validators.required],
         selectedContainer: ["", Validators.required],
       }),
 
-      comparisonSearch: this.fb.group({
-        selectedPortFromComparison: ["", Validators.required],
-        selectedPortToComparison: ["", Validators.required],
+      scheduleSearch: this.fb.group({
+        selectedPortFromSchedule: ["", Validators.required],
+        selectedPortToSchedule: ["", Validators.required],
         selectedCompany: ["", Validators.required],
         searchOn: ["1", Validators.required], // default value
-        selectedDateComparison: ["", Validators.required],
+        startDateSchedule: [""],
+        endDateSchedule: [""],
         weeksAhead: ["", Validators.required],
       }),
 
@@ -139,6 +140,55 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     this.heroService.getCompanies().subscribe((data) => {
       this.companies = data;
     });
+  }
+
+  setComparisonDate(input: string, isRange: boolean): void {
+    const comparisonGroup = this.form.get("comparisonSearch") as FormGroup;
+
+    if (isRange && input.includes("to")) {
+      const [start, end] = input.split("to").map(d => d.trim());
+      comparisonGroup.patchValue({
+        startDateComparison: this.formatDate(start),
+        endDateComparison: this.formatDate(end),
+        isIntervalMode: true
+      });
+    } else {
+      comparisonGroup.patchValue({
+        startDateComparison: this.formatDate(input),
+        endDateComparison: null, // single date mode
+        isIntervalMode: false
+      });
+    }
+  }
+
+  setScheduleDate(input: string): void {
+    const scheduleGroup = this.form.get("scheduleSearch") as FormGroup;
+    const weeksAheadControl = this.form.get("weeksAhead");
+
+    // Convert input to Date for calculations
+    const startDate = new Date(input);
+
+    // Extract weeksAhead value safely
+    const weeksAhead = Number(weeksAheadControl?.value ?? 0);
+
+    // Compute end date by adding weeks
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + weeksAhead * 7);
+
+    // Patch formatted string values into form
+    scheduleGroup.patchValue({
+      startDateSchedule: this.formatDate(startDate.toISOString()), // convert Date → string for your helper
+      endDateSchedule: this.formatDate(endDate.toISOString()),
+      isIntervalMode: true
+    });
+  }
+  // helper to normalize date format
+  private formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    const d = date.getDate().toString().padStart(2, '0');
+    const m = (date.getMonth() + 1).toString().padStart(2, '0');
+    const y = date.getFullYear();
+    return `${d}/${m}/${y}`; // dd/MM/yyyy format
   }
 
   filterPorts(type: PortFilterType, event: any) {
@@ -240,8 +290,8 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   async submit(): Promise<void> {
     const activeForm =
       this.activeTab === "marine"
-        ? (this.form.get("scheduleSearch") as FormGroup)
-        : (this.form.get("comparisonSearch") as FormGroup);
+        ? (this.form.get("comparisonSearch") as FormGroup)
+        : (this.form.get("scheduleSearch") as FormGroup);
 
     // Validation
     activeForm.markAllAsTouched();
@@ -254,6 +304,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
 
     // Save form data for restoration
     this.heroService.saveForm(activeForm.value);
+    await new Promise(r => setTimeout(r, 100)); // petit délai de 100ms pour s’assurer de la persistance
 
     // Auth check
     const isAuth = await this.auth$.pipe(take(1)).toPromise();
@@ -266,9 +317,9 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
 
     // Navigate to correct results page
     if (this.activeTab === "marine") {
-      this.router.navigate(["/search-sched-results"]);
+      window.location.href = "/search-comp-results";
     } else {
-      this.router.navigate(["/search-comp-results"]);
+      window.location.href = "/search-sched-results";
     }
   }
 

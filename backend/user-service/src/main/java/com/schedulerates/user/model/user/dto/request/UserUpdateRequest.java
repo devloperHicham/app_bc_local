@@ -29,13 +29,16 @@ public class UserUpdateRequest {
     @NotBlank(message = "Last name can't be blank.")
     private String lastName;
 
+    @NotBlank(message = "company name can't be blank.")
+    private String companyName;
+
     @NotBlank(message = "Phone number can't be blank.")
     @Size(min = 10, max = 20)
     private String phoneNumber;
 
     @NotBlank(message = "Role can't be blank.")
     private String role;
-    
+
     // Optional field: observation,
     private String obs;
 }

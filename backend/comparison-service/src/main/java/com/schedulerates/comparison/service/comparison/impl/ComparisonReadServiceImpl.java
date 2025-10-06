@@ -19,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
@@ -128,39 +129,23 @@ public class ComparisonReadServiceImpl implements ComparisonReadService {
         }
 
         @Override
-        public CustomPage<Comparison> getComparisonClients(ComparisonClientPagingRequest req) {
-                LocalDate startDate = null;
-                LocalDate endDate = null;
-                String[] parts = req.getSelectedDateRange().split("to");
+        public CustomPage<Comparison> getComparisonClients(ComparisonClientPagingRequest comparisonPagingRequest) {
+                
+                Page<ComparisonEntity> comparisonEntity = comparisonRepository.findByComparisonFilters(
+                                comparisonPagingRequest.getSelectedPortFromComparison(),
+                                comparisonPagingRequest.getSelectedPortToComparison(),
+                                comparisonPagingRequest.getStartDateComparison(),
+                                comparisonPagingRequest.getEndDateComparison(),
+                                comparisonPagingRequest.getSelectedTransportation(),
+                                comparisonPagingRequest.getSelectedContainer(), 
+                                comparisonPagingRequest.getIsCheapest(),
+                                comparisonPagingRequest.getIsFastest(),
+                                comparisonPagingRequest.getIsDirect(),
+                                comparisonPagingRequest.toPageable());
 
-                if (req.getSelectedDateRange() != null) {
-                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                                        .withLocale(Locale.ENGLISH);
-                        startDate = LocalDate.parse(parts[0].trim(), formatter);
-                        endDate = LocalDate.parse(parts[1].trim(), formatter);
-                } else {
-                        // Formatteur pour parser les dates en format "dd/MM/yyyy"
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                                        .withLocale(Locale.ENGLISH);
-                        startDate = LocalDate.parse(req.getSelectedDate(), formatter);
-                        endDate = null;
-                }
+                final List<Comparison> comparisonDomainModels = listComparisonEntityToListComparisonMapper
+                                .toComparisonList(comparisonEntity.getContent());
 
-                Page<ComparisonEntity> entityPage = comparisonRepository.findByComparisonFilters(
-                                req.getSelectedPortFromComparison(),
-                                req.getSelectedPortToComparison(),
-                                startDate,
-                                endDate,
-                                req.getSelectedTransportation(),
-                                req.getSelectedContainer(),
-                                // req.getIsCheapest(),
-                                // req.getIsFastest(),
-                                // req.getIsDirect(),
-                                req.toPageable());
-                List<Comparison> comparisonList = listComparisonEntityToListComparisonMapper
-                                .toComparisonList(entityPage.getContent());
-
-                return CustomPage.of(comparisonList, entityPage);
+                return CustomPage.of(comparisonDomainModels, comparisonEntity);
         }
 }

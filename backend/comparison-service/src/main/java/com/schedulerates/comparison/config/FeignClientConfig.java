@@ -22,10 +22,8 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 
 /**
- * Configuration class named {@link FeignClientConfig} for setting up Feign
- * client components.
- * Configures custom error handling, object mapping, and decoding for Feign
- * clients.
+ * Configuration class named {@link FeignClientConfig} for setting up Feign client components.
+ * Configures custom error handling, object mapping, and decoding for Feign clients.
  */
 @Slf4j
 @Configuration
@@ -39,8 +37,7 @@ public class FeignClientConfig {
     @Bean
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.addMixIn(UsernamePasswordAuthenticationToken.class,
-                UsernamePasswordAuthenticationTokenMixin.class);
+        objectMapper.addMixIn(UsernamePasswordAuthenticationToken.class, UsernamePasswordAuthenticationTokenMixin.class);
         objectMapper.registerModule(new JavaTimeModule()); // Register JavaTimeModule for date/time support
 
         SimpleModule module = new SimpleModule();
@@ -84,24 +81,19 @@ public class FeignClientConfig {
         public Object decode(Response response, Type type) throws IOException {
             // Handle specific HTTP status codes and throw corresponding FeignExceptions
             if (response.status() == HttpStatus.UNAUTHORIZED.value()) {
-                throw new FeignException.Unauthorized("Unauthorized", response.request(), response.request().body(),
-                        response.headers());
+                throw new FeignException.Unauthorized("Unauthorized", response.request(), response.request().body(), response.headers());
             }
             if (response.status() == HttpStatus.FORBIDDEN.value()) {
-                throw new FeignException.Forbidden("Forbidden", response.request(), response.request().body(),
-                        response.headers());
+                throw new FeignException.Forbidden("Forbidden", response.request(), response.request().body(), response.headers());
             }
             if (response.status() == HttpStatus.NOT_FOUND.value()) {
-                throw new FeignException.NotFound("Not Found", response.request(), response.request().body(),
-                        response.headers());
+                throw new FeignException.NotFound("Not Found", response.request(), response.request().body(), response.headers());
             }
             if (response.status() == HttpStatus.METHOD_NOT_ALLOWED.value()) {
-                throw new FeignException.MethodNotAllowed("Method Not Allowed", response.request(),
-                        response.request().body(), response.headers());
+                throw new FeignException.MethodNotAllowed("Method Not Allowed", response.request(), response.request().body(), response.headers());
             }
             if (response.status() == HttpStatus.BAD_REQUEST.value()) {
-                throw new FeignException.BadRequest("Bad Request", response.request(), response.request().body(),
-                        response.headers());
+                throw new FeignException.BadRequest("Bad Request", response.request(), response.request().body(), response.headers());
             }
 
             // Deserialize the response body using Jackson
@@ -121,23 +113,18 @@ public class FeignClientConfig {
             HttpStatus status = HttpStatus.valueOf(response.status());
             // Handle specific HTTP status codes and return corresponding FeignExceptions
             if (status == HttpStatus.UNAUTHORIZED) {
-                return new FeignException.Unauthorized("Unauthorized", response.request(), response.request().body(),
-                        response.headers());
+                return new FeignException.Unauthorized("Unauthorized", response.request(), response.request().body(), response.headers());
             }
             if (status == HttpStatus.FORBIDDEN) {
-                return new FeignException.Forbidden("Forbidden", response.request(), response.request().body(),
-                        response.headers());
+                return new FeignException.Forbidden("Forbidden", response.request(), response.request().body(), response.headers());
             }
             if (status == HttpStatus.NOT_FOUND) {
-                return new FeignException.NotFound("Not Found", response.request(), response.request().body(),
-                        response.headers());
+                return new FeignException.NotFound("Not Found", response.request(), response.request().body(), response.headers());
             }
             if (status == HttpStatus.METHOD_NOT_ALLOWED) {
-                return new FeignException.MethodNotAllowed("Method Not Allowed", response.request(),
-                        response.request().body(), response.headers());
+                return new FeignException.MethodNotAllowed("Method Not Allowed", response.request(), response.request().body(), response.headers());
             }
-            return new FeignException.BadRequest("Bad Request", response.request(), response.request().body(),
-                    response.headers());
+                return new FeignException.BadRequest("Bad Request", response.request(), response.request().body(), response.headers());
 
         }
     }

@@ -1,0 +1,11 @@
+<div class="activation-container" *ngIf="message">
+  <div class="activation-card" [ngClass]="{ success: isSuccess, error: !isSuccess }">
+    <div class="icon">
+      <span *ngIf="isSuccess">✅</span>
+      <span *ngIf="!isSuccess">❌</span>
+    </div>
+    <h2>{{ isSuccess ? 'Compte activé !' : 'Activation échouée' }}</h2>
+    <p>{{ message }}</p>
+    <p class="redirect">Redirection vers la page de connexion...</p>
+  </div>
+</div>

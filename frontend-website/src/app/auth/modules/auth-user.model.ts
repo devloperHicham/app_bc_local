@@ -4,6 +4,7 @@ export interface AuthUser {
   lastName: string;
   email: string;
   phoneNumber: string;
+  companyName: string;
   role: string;
   isAuthenticated: boolean;
 }
