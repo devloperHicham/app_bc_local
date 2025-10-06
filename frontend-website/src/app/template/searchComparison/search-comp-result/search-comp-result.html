@@ -36,7 +36,7 @@
                   type="text"
                   placeholder="Casablanca, MA"
                   class="casablanca-portma"
-                  [value]="formData?.selectedPortFromComparison"
+                  [value]="filters?.selectedPortFromComparison"
                   disabled
                 />
               </div>
@@ -57,7 +57,7 @@
                   type="text"
                   placeholder="Casablanca, MA"
                   class="casablanca-portma"
-                  [value]="formData?.selectedPortToComparison"
+                  [value]="filters?.selectedPortToComparison"
                   disabled
                 />
               </div>
@@ -106,7 +106,7 @@
                   </div>
                 </div>
                 <div class="text-field2">
-                  <select [value]="formData?.selectedTransportation" style="border: none; background-color: transparent"
+                  <select [value]="filters?.selectedTransportation" style="border: none; background-color: transparent"
                     class="eg-casablanca-portma">
                     <option value="" disabled selected> {{ "FORM.SHIPPING_TYPE" | translate }}</option>
                     <option *ngFor="let transportation of transportations" [value]="transportation.ID">
@@ -133,7 +133,7 @@
               </div>
             </div>
             <div class="text-field2">
-                <select [value]="formData?.selectedCompany" formControlName="selectedCompany" style="border: none; background-color: transparent"
+                <select [value]="filters?.selectedCompany" formControlName="selectedCompany" style="border: none; background-color: transparent"
                   class="eg-casablanca-portma">
                   <option value="" disabled selected> {{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}</option>
                   <option *ngFor="let company of companies" [value]="company.ID">

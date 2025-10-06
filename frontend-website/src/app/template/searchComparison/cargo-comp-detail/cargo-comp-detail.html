@@ -65,6 +65,7 @@
                   'SEARCH_RESULT_CARGO.ENTER_COMMODITY' | translate
                 }}"
                 class="eg-casablanca-portma"
+                formControlName="productName"
               />
             </div>
           </div>
@@ -74,7 +75,7 @@
               {{ "SEARCH_RESULT_CARGO.WEIGHT_PER_CONTAINER" | translate }}
             </div>
             <div class="inputsmall">
-              <input type="number" class="eg-1" placeholder="e.g. 1" />
+              <input type="number" class="eg-1" placeholder="e.g. 1" formControlName="weight"/>
               <div class="separator"></div>
               <select class="type">
                 <option class="mt">MT</option>
@@ -92,6 +93,7 @@
             </div>
             <div class="text-field1">
               <textarea
+                formControlName="infoDetail"
                 class="eg-casablanca-portma"
                 style="height: 130px; resize: none"
                 placeholder="{{
@@ -116,7 +118,8 @@
 
         <div class="additional-service-parent">
           <div class="additional-service">
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" class="checkbox" 
+                formControlName="insurance"/>
             <div class="icon5">
               <img
                 class="vector-icon6"
@@ -142,7 +145,8 @@
           </div>
 
           <div class="additional-service1">
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" class="checkbox" 
+                formControlName="customsDlearance"/>
             <div class="icon5">
               <img
                 class="vector-icon9"
@@ -168,7 +172,8 @@
           </div>
 
           <div class="additional-service2">
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" class="checkbox" 
+                formControlName="certification"/>
             <div class="icon5">
               <img class="vector-icon6" alt="" src="assets/images/file.png" />
             </div>
@@ -190,7 +195,8 @@
           </div>
 
           <div class="additional-service3">
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" class="checkbox" 
+                formControlName="inspectionService"/>
             <div class="icon5">
               <img
                 class="vector-icon2"
@@ -226,17 +232,20 @@
       <div class="content">
         <div class="detail">
           <div class="id">ID</div>
-          <div class="div">34435235235262</div>
+          <div class="div">{{ comparisons?.codeTransation }}</div>
         </div>
         <div class="detail">
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.DEPARTURE" | translate }}
-          </div>
-          <div class="div">Casablanca Port, MA</div>
+          </div><div class="div">
+                {{ comparisons?.portFromName }},
+                {{ comparisons?.countryFromNameAbbreviation }}</div>
         </div>
         <div class="detail">
           <div class="id">{{ "SEARCH_RESULT_CARGO.ARRIVAL" | translate }}</div>
-          <div class="div">Mallorca, SPA</div>
+          <div class="div">
+                {{ comparisons?.portToName}},
+                {{ comparisons?.countryToNameAbbreviation }}</div>
         </div>
         <div class="detail">
           <div class="id">
@@ -255,35 +264,31 @@
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.SHIPPING_TYPE" | translate }}
           </div>
-          <div class="trip-category1">
-            {{ "SEARCH_RESULT_CARGO.FCL" | translate }}
+           <div class="trip-category1">
+            {{ comparisons?.transportationName }}
           </div>
         </div>
         <div class="detail">
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.CONTAINER" | translate }}
           </div>
-          <div class="marine-shipping">1x 20’ Standard</div>
+          <div class="marine-shipping">{{ comparisons?.containerName }}</div>
         </div>
         <div class="detail">
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.READY_TO_LOAD" | translate }}
           </div>
-          <div class="div">24/05/2025 at 13:30</div>
+          <div class="div">{{ comparisons?.dateDepart }}</div>
         </div>
         <div class="detail">
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.ARRIVAL_DATE" | translate }}
           </div>
-          <div class="div">31/05/2025 at 09:00</div>
+          <div class="div">{{ comparisons?.dateArrive }}</div>
         </div>
         <div class="detail">
           <div class="id">{{ "SEARCH_RESULT_CARGO.CARRIER" | translate }}</div>
-          <img
-            class="shipping-partner-icon"
-            alt=""
-            src="assets/images/Maersk.png"
-          />
+          <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comparisons?.companyLogo }}" />
         </div>
       </div>
 
@@ -296,7 +301,7 @@
           <div class="id">
             {{ "SEARCH_RESULT_CARGO.MARINE_SHIPPING" | translate }}
           </div>
-          <div class="div">$ 2,120.00</div>
+          <div class="div">$ {{ comparisons?.price }}</div>
         </div>
       </div>
 
@@ -319,7 +324,7 @@
         <div class="total-price">
           {{ "SEARCH_RESULT_CARGO.TOTAL_PRICE" | translate }}
         </div>
-        <div class="div2">$ 2,120.00</div>
+        <div class="div2">$ {{ comparisons?.price }}</div>
       </div>
 
       <div class="button-parent">
@@ -331,7 +336,7 @@
               text-decoration: none;
               font-size: 15px;
             "
-            routerLink="//trip-comp-details"
+            routerLink="/trip-comp-details"
             class="marine-shipping"
           >
             {{ "SEARCH_RESULT_CARGO.PREVIOUS" | translate }}

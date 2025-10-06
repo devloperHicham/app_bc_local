@@ -69,8 +69,8 @@ export const routes: Routes = [
       import(
         "./template/searchComparison/cargo-comp-detail/cargo-comp-detail"
       ).then((c) => c.CargoCompDetail),
-    canActivate: [AuthGuard],
-    data: { role: "CLIENT" },
+    //canActivate: [AuthGuard],
+    //data: { role: "CLIENT" },
   },
   {
     path: "quote-lists",

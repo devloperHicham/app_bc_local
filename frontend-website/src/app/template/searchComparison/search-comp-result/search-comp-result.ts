@@ -20,11 +20,13 @@ import { HeroService } from '../../home/services/hero-service';
 import { ConfigService } from '../../../services/config/config';
 import { Company, Container, Transportation } from '../../../modules/data-json';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SharedModule } from '../../../share/share-module';
 
 @Component({
   selector: 'app-search-comp-result',
   standalone: true,
   imports: [
+    SharedModule,
     RouterLink,
     CommonModule,
     FormsModule,

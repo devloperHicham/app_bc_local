@@ -5,11 +5,12 @@ import { Comparison } from '../../home/modules/comparison';
 import { HeroService } from '../../home/services/hero-service';
 import { AuthService } from '../../../auth/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SharedModule } from '../../../share/share-module';
 
 @Component({
   selector: 'app-trip-comp-detail',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [SharedModule, CommonModule, TranslateModule],
   templateUrl: './trip-comp-detail.html',
   styleUrl: './trip-comp-detail.css',
 })

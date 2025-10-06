@@ -18,11 +18,12 @@ import { Schedule } from '../../home/modules/schedule';
 import { HeroService } from '../../home/services/hero-service';
 import { ConfigService } from '../../../services/config/config';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SharedModule } from '../../../share/share-module';
 
 @Component({
   selector: 'app-search-sched-result',
   standalone: true,
-  imports: [RouterLink, Faq, CommonModule, DetailSchedResult, TranslateModule],
+  imports: [SharedModule, RouterLink, Faq, CommonModule, DetailSchedResult, TranslateModule],
   templateUrl: './search-sched-result.html',
   styleUrl: './search-sched-result.css',
 })
