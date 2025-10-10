@@ -38,6 +38,8 @@ export class ConfigService {
     activate: 'activate-account',
     resendActivation: 'resend-activation',
     checkAccountStatus: 'check-account-status',
+    whishlistBooking: 'whishlist-booking',
+    
   };
   public REMEMBER_ME_TIMEOUT = 86400; // 24 hours
   public SESSION_TIMEOUT = 3600; // 1 hour
@@ -91,7 +93,6 @@ export class ConfigService {
   }
   public showErrorAlert(message: string): void {
     Swal.fire({
-      position: 'top-end',
       icon: 'error',
       title: message,
       showConfirmButton: false,
@@ -102,7 +103,6 @@ export class ConfigService {
 
   public showSuccessAlert(message: string): void {
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
       title: message,
       showConfirmButton: false,

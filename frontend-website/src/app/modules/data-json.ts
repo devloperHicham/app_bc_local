@@ -24,3 +24,9 @@ export interface Company {
   COMPANYNAME: string;
   COMPANYLOGO: string;
 }
+
+export interface Commodity {
+  ID: string;
+  CODE: string;
+  COMMODITYNAME: string;
+}

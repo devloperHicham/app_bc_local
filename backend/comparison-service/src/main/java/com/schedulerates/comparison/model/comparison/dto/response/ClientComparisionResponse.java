@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComparisonResponse {
+public class ClientComparisionResponse {
 
     private String id;
 
@@ -50,5 +50,14 @@ public class ComparisonResponse {
     private String dateArrive;
     private Integer price;
     private Long codeTransation;
+
+    // Additional fields from ClientComparisonCreateRequest
+    private String commodityCode;
+    private Double weight;
+    private String infoDetail;
+    private String insurance;
+    private Boolean customsDlearance;
+    private Boolean certification;
+    private Boolean inspectionService;
 
 }

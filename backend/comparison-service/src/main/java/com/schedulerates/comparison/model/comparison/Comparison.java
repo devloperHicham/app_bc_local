@@ -51,5 +51,6 @@ public class Comparison extends BaseDomainModel {
     private String dateDepart;
     private String dateArrive;
     private Integer price;
+    private Long codeTransation;
 
 }

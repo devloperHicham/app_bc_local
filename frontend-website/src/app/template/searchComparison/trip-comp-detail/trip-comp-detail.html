@@ -175,6 +175,7 @@
           </div>
 
           <div class="row">
+            @if (currentUser$ | async; as user) {
             <div class="input-field">
               <div class="header7">
                 <div class="input-title">
@@ -182,7 +183,7 @@
                 </div>
               </div>
               <div class="text-field2">
-                <input formControlName="firstName" type="text" placeholder="David" class="eg-casablanca-portma" />
+                <div class="eg-casablanca-portma"> {{user.firstName}}</div>
               </div>
             </div>
 
@@ -193,7 +194,7 @@
                 </div>
               </div>
               <div class="text-field2">
-                <input formControlName="lastName" type="text" placeholder="Hadraoui" class="eg-casablanca-portma" />
+                <div class="eg-casablanca-portma"> {{user.lastName}}</div>
               </div>
             </div>
 
@@ -207,7 +208,7 @@
                 <div class="icon">
                   <img class="vector-icon19" alt="" src="assets/images/phone.png" />
                 </div>
-                <input formControlName="email" type="phone" placeholder="+212 760 958 460" class="eg-casablanca-portma" />
+                <div class="eg-casablanca-portma"> {{user.phoneNumber}}</div>
               </div>
             </div>
 
@@ -221,9 +222,11 @@
                 <div class="icon">
                   <img class="vector-icon21" alt="" src="assets/images/briefcase.png" />
                 </div>
-                <input formControlName="companyName" type="text" placeholder="e.g. Acme" class="eg-casablanca-portma" />
+                <div class="eg-casablanca-portma"> {{user.companyName}}</div>
+
               </div>
             </div>
+            } @endif
           </div>
 
           <div class="by-submitting-this-container">
@@ -247,14 +250,14 @@
         <div class="detail">
           <div class="id">{{ "SEARCH_RESULT_TRIP.DEPARTURE" | translate }}</div>
           <div class="div5">
-                {{ comparisons?.portFromName }},
-                {{ comparisons?.countryFromNameAbbreviation }}</div>
+            {{ comparisons?.portFromName }},
+            {{ comparisons?.countryFromNameAbbreviation }}</div>
         </div>
         <div class="detail">
           <div class="id">{{ "SEARCH_RESULT_TRIP.ARRIVAL" | translate }}</div>
           <div class="div5">
-                {{ comparisons?.portToName}},
-                {{ comparisons?.countryToNameAbbreviation }}</div>
+            {{ comparisons?.portToName}},
+            {{ comparisons?.countryToNameAbbreviation }}</div>
         </div>
         <div class="detail">
           <div class="id">
@@ -295,7 +298,8 @@
         </div>
         <div class="detail">
           <div class="id">{{ "SEARCH_RESULT_TRIP.CARRIER" | translate }}</div>
-          <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comparisons?.companyLogo }}" />
+          <img class="shipping-partner-icon" alt=""
+            src="assets/flag_companies/{{ comparisons?.companyLogo }}" />{{comparisons?.companyName}}
         </div>
       </div>
 

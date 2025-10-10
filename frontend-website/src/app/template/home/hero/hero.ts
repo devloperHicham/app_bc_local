@@ -83,7 +83,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly translate: TranslateService
-  ) { }
+  ) {}
 
   initializeForm(): void {
     this.form = this.fb.group({
@@ -116,7 +116,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
   ngOnInit(): void {
     this.initializeForm();
     // Restore saved data
-    const savedData = this.heroService.getForm();
+    const savedData = this.heroService.getForm(1);
     if (savedData) {
       const activeForm =
         this.activeTab === "marine"
@@ -146,17 +146,21 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     const comparisonGroup = this.form.get("comparisonSearch") as FormGroup;
 
     if (isRange && input.includes("to")) {
-      const [start, end] = input.split("to").map(d => d.trim());
+      const [start, end] = input.split("to").map((d) => d.trim());
       comparisonGroup.patchValue({
         startDateComparison: this.formatDate(start),
         endDateComparison: this.formatDate(end),
-        isIntervalMode: true
+        isIntervalMode: true,
       });
     } else {
+      // Convert input to Date for calculations
+      const startDate = new Date(input);
+      const endDate = new Date(startDate);
+      endDate.setDate(startDate.getDate() + 30); // default 30 days later
       comparisonGroup.patchValue({
         startDateComparison: this.formatDate(input),
-        endDateComparison: null, // single date mode
-        isIntervalMode: false
+        endDateComparison: this.formatDate(endDate.toISOString()), // convert Date → string for your helper, // single date mode
+        isIntervalMode: false,
       });
     }
   }
@@ -179,14 +183,14 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     scheduleGroup.patchValue({
       startDateSchedule: this.formatDate(startDate.toISOString()), // convert Date → string for your helper
       endDateSchedule: this.formatDate(endDate.toISOString()),
-      isIntervalMode: true
+      isIntervalMode: true,
     });
   }
   // helper to normalize date format
   private formatDate(dateStr: string): string {
     const date = new Date(dateStr);
-    const d = date.getDate().toString().padStart(2, '0');
-    const m = (date.getMonth() + 1).toString().padStart(2, '0');
+    const d = date.getDate().toString().padStart(2, "0");
+    const m = (date.getMonth() + 1).toString().padStart(2, "0");
     const y = date.getFullYear();
     return `${d}/${m}/${y}`; // dd/MM/yyyy format
   }
@@ -303,8 +307,8 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     }
 
     // Save form data for restoration
-    this.heroService.saveForm(activeForm.value);
-    await new Promise(r => setTimeout(r, 100)); // petit délai de 100ms pour s’assurer de la persistance
+    this.heroService.saveForm(activeForm.value, 1);
+    await new Promise((r) => setTimeout(r, 100)); // petit délai de 100ms pour s’assurer de la persistance
 
     // Auth check
     const isAuth = await this.auth$.pipe(take(1)).toPromise();
@@ -319,7 +323,7 @@ export class Hero implements AfterViewInit, AfterViewChecked, OnInit {
     if (this.activeTab === "marine") {
       window.location.href = "/search-comp-results";
     } else {
-      this.router.navigateByUrl("/search-sched-results");
+      window.location.href = "/search-sched-results";
     }
   }
 

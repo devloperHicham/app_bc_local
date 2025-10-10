@@ -35,8 +35,8 @@ export const routes: Routes = [
       import(
         "./template/searchSchedule/search-sched-result/search-sched-result"
       ).then((c) => c.SearchSchedResult),
-   // canActivate: [AuthGuard],
-   // data: { role: "CLIENT" },
+    canActivate: [AuthGuard],
+    data: { role: "CLIENT" },
   },
   {
     path: "search-comp-results",
@@ -44,8 +44,8 @@ export const routes: Routes = [
       import(
         "./template/searchComparison/search-comp-result/search-comp-result"
       ).then((c) => c.SearchCompResult),
-    //canActivate: [AuthGuard],
-    //data: { role: "CLIENT" },
+      canActivate: [AuthGuard],
+      data: { role: "CLIENT" },
   },
   {
     path: "comming-soon",
@@ -69,8 +69,8 @@ export const routes: Routes = [
       import(
         "./template/searchComparison/cargo-comp-detail/cargo-comp-detail"
       ).then((c) => c.CargoCompDetail),
-    //canActivate: [AuthGuard],
-    //data: { role: "CLIENT" },
+    canActivate: [AuthGuard],
+    data: { role: "CLIENT" },
   },
   {
     path: "quote-lists",

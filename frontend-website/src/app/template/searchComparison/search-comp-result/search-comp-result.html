@@ -133,7 +133,7 @@
               </div>
             </div>
             <div class="text-field2">
-                <select [value]="filters?.selectedCompany" formControlName="selectedCompany" style="border: none; background-color: transparent"
+                <select [value]="filters?.selectedCompany" style="border: none; background-color: transparent"
                   class="eg-casablanca-portma">
                   <option value="" disabled selected> {{ 'PLACEHOLDERS.ALL_SEALINES' | translate }}</option>
                   <option *ngFor="let company of companies" [value]="company.ID">
@@ -223,7 +223,7 @@
             <div class="header10">
               <div class="quick-actions">
                 <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comp.companyLogo }}" />
-                <div class="marine-shipping">{{ 'SEARCH_COMPARISON.ID' | translate }} {{comp.codeTransation}}</div>
+                <div class="marine-shipping">{{ comp.companyName }} ID: {{comp.codeTransation}}</div>
               </div>
               <div class="shipping-info">
                 <div class="info">

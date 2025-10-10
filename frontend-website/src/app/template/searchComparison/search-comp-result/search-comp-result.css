@@ -856,7 +856,7 @@
 }
 
 .shipping-partner-icon {
-  width: 96px;
+  width: 22px;
   height: 22px;
   overflow: hidden;
   flex-shrink: 0;
@@ -1427,14 +1427,14 @@
 .page {
   width: 34px;
   border-radius: 4px;
-  background-color: #ff6600;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 8px 12px;
   box-sizing: border-box;
-  color: #fff8f2;
+  color: blue;
   cursor: pointer;
 }
 
@@ -2417,4 +2417,9 @@
   text-align: center;
   margin-top: 16px;
   color: #666;
+}
+
+.page.active {
+  background-color: #ff6600;
+  color: #fff8f2;
 }

@@ -1,18 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Comparison } from '../../home/modules/comparison';
-import { HeroService } from '../../home/services/hero-service';
-import { AuthService } from '../../../auth/services/auth.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { SharedModule } from '../../../share/share-module';
+import { CommonModule } from "@angular/common";
+import { ChangeDetectorRef, Component, inject, OnInit } from "@angular/core";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { Comparison } from "../../home/modules/comparison";
+import { HeroService } from "../../home/services/hero-service";
+import { AuthService } from "../../../auth/services/auth.service";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { SharedModule } from "../../../share/share-module";
+import { RouterLink } from "@angular/router";
+import { async, take } from "rxjs";
 
 @Component({
-  selector: 'app-trip-comp-detail',
+  selector: "app-trip-comp-detail",
   standalone: true,
-  imports: [SharedModule, CommonModule, TranslateModule],
-  templateUrl: './trip-comp-detail.html',
-  styleUrl: './trip-comp-detail.css',
+  imports: [SharedModule, CommonModule, TranslateModule, RouterLink],
+  templateUrl: "./trip-comp-detail.html",
+  styleUrl: "./trip-comp-detail.css",
 })
 export class TripCompDetail implements OnInit {
   private readonly heroService = inject(HeroService);
@@ -33,36 +35,34 @@ export class TripCompDetail implements OnInit {
     this.initializeForm;
   }
 
-  initializeForm(): void {
-    // 1. Create empty form once
-    this.form = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      companyName: [''],
-    });
-
-    // 2. Patch values when user data arrives
-    this.currentUser$.subscribe((user) => {
-      if (user) {
-        this.form.patchValue({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          companyName: user.companyName,
-        });
-      }
-    });
-  }
-  // Get current user observable
   get currentUser$() {
     return this.authService.currentUser$;
+  }
+  initializeForm(): void {
+    // 1️⃣ Create the empty form first
+    this.form = this.fb.group({
+      firstName: [""],
+      lastName: [""],
+      email: [""],
+      companyName: [""],
+    });
+    // 2️⃣ Subscribe to user data
+  this.currentUser$.pipe(take(1)).subscribe((user) => {
+    if (user) {
+      this.form.patchValue({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        companyName: user.companyName,
+      });
+    }
+  });
   }
 
   calculateDaysBetween(startDateStr: string, endDateStr: string): number {
     // Convert DD/MM/YYYY to Date objects
-    const startParts = startDateStr.split('/');
-    const endParts = endDateStr.split('/');
+    const startParts = startDateStr.split("/");
+    const endParts = endDateStr.split("/");
 
     const startDate = new Date(
       parseInt(startParts[2]), // year
@@ -86,16 +86,16 @@ export class TripCompDetail implements OnInit {
   /*************************************************************************** */
   /**************************this is for design ***************************** */
   /*************************************************************************** */
-  toggleSection(section: 'terms' | 'contacts') {
-    if (section === 'terms') {
+  toggleSection(section: "terms" | "contacts") {
+    if (section === "terms") {
       this.isTermsOpen = !this.isTermsOpen;
-    } else if (section === 'contacts') {
+    } else if (section === "contacts") {
       this.isContactsOpen = !this.isContactsOpen;
     }
   }
 
-  handleKeyDown(event: KeyboardEvent, section: 'terms' | 'contacts') {
-    if (event.key === 'Enter' || event.key === ' ') {
+  handleKeyDown(event: KeyboardEvent, section: "terms" | "contacts") {
+    if (event.key === "Enter" || event.key === " ") {
       this.toggleSection(section);
       event.preventDefault(); // prevent scrolling on space
     }

@@ -2,23 +2,14 @@
   <div class="header">
     <div class="ctasecondary" id="cTASecondaryContainer">
       <div class="icon">
-        <img
-          class="vector-icon"
-          alt=""
-          src="assets/images/arrow-right-blue.png"
-        />
+        <img class="vector-icon" alt="" src="assets/images/arrow-right-blue.png" />
       </div>
-      <a
-        style="
+      <a style="
           text-decoration: none;
           font-size: 15px;
           color: blue;
           cursor: pointer;
-        "
-        routerLink="/trip-comp-details"
-        routerLinkActive="active"
-        class="back-to-search"
-      >
+        " routerLink="/trip-comp-details" routerLinkActive="active" class="back-to-search">
         {{ "SEARCH_RESULT_CARGO.BACK_TO_RESULTS" | translate }}
       </a>
     </div>
@@ -26,344 +17,296 @@
       {{ "SEARCH_RESULT_CARGO.BOOK_CONTAINER" | translate }}
     </div>
   </div>
-
-  <div class="additional-services">
-    <div class="column">
-      <!-- Cargo details -->
-      <div class="cargo-details">
-        <div class="detail">
-          <div class="total-price">
-            {{ "SEARCH_RESULT_CARGO.CARGO_DETAILS" | translate }}
-          </div>
-          <div class="icon">
-            <img class="vector-icon1" alt="" src="Vector.svg" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field">
-            <div class="header2">
-              <div class="input-title">
-                <div class="text-placeholder-1">
-                  {{ "SEARCH_RESULT_CARGO.PRODUCT" | translate }}
-                </div>
-                <div class="text-placeholder-2">
-                  {{ "SEARCH_RESULT_CARGO.HS_CODES" | translate }}
-                </div>
-              </div>
+  <form class="row g-3 needs-validation" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="additional-services">
+      <div class="column">
+        <!-- Cargo details -->
+        <div class="cargo-details">
+          <div class="detail">
+            <div class="total-price">
+              {{ "SEARCH_RESULT_CARGO.CARGO_DETAILS" | translate }}
             </div>
-            <div class="text-field">
-              <div class="icon">
-                <img
-                  class="vector-icon2"
-                  alt=""
-                  src="assets/images/found.png"
-                />
-              </div>
-              <input
-                type="text"
-                placeholder="{{
-                  'SEARCH_RESULT_CARGO.ENTER_COMMODITY' | translate
-                }}"
-                class="eg-casablanca-portma"
-                formControlName="productName"
-              />
-            </div>
-          </div>
-
-          <div class="input-field1">
-            <div class="weight-per-container">
-              {{ "SEARCH_RESULT_CARGO.WEIGHT_PER_CONTAINER" | translate }}
-            </div>
-            <div class="inputsmall">
-              <input type="number" class="eg-1" placeholder="e.g. 1" formControlName="weight"/>
-              <div class="separator"></div>
-              <select class="type">
-                <option class="mt">MT</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="input-field2">
-            <div class="header3">
-              <div class="input-title1">
-                <div class="marine-shipping">
-                  {{ "SEARCH_RESULT_CARGO.ADDITIONAL_INFO" | translate }}
-                </div>
-              </div>
-            </div>
-            <div class="text-field1">
-              <textarea
-                formControlName="infoDetail"
-                class="eg-casablanca-portma"
-                style="height: 130px; resize: none"
-                placeholder="{{
-                  'SEARCH_RESULT_CARGO.EXPLAIN_PRODUCT' | translate
-                }}"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Additional services -->
-      <div class="cargo-details">
-        <div class="detail">
-          <div class="total-price">
-            {{ "SEARCH_RESULT_CARGO.ADDITIONAL_SERVICES" | translate }}
-          </div>
-          <div class="icon">
-            <img class="vector-icon1" alt="" src="Vector.svg" />
-          </div>
-        </div>
-
-        <div class="additional-service-parent">
-          <div class="additional-service">
-            <input type="checkbox" class="checkbox" 
-                formControlName="insurance"/>
-            <div class="icon5">
-              <img
-                class="vector-icon6"
-                alt=""
-                src="assets/images/inssurence.png"
-              />
-            </div>
-            <div class="insurance">
-              {{ "SEARCH_RESULT_CARGO.INSURANCE" | translate }}
-            </div>
-            <div
-              class="popup-container"
-              (click)="togglePopover($event, 0)"
-              (keydown)="onKeyMenuItem($event)"
-            >
-              <img class="icon4" src="assets/images/Popup-info.png" alt="" />
-              <div class="popover" *ngIf="popoversVisible[0]">
-                <div class="popover-content">
-                  {{ "SEARCH_RESULT_CARGO.INSURANCE_INFO" | translate }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="additional-service1">
-            <input type="checkbox" class="checkbox" 
-                formControlName="customsDlearance"/>
-            <div class="icon5">
-              <img
-                class="vector-icon9"
-                alt=""
-                src="assets/images/customs.png"
-              />
-            </div>
-            <div class="insurance">
-              {{ "SEARCH_RESULT_CARGO.CUSTOMS" | translate }}
-            </div>
-            <div
-              class="popup-container"
-              (click)="togglePopover($event, 1)"
-              (keydown)="onKeyMenuItem($event)"
-            >
-              <img class="icon4" src="assets/images/Popup-info.png" alt="" />
-              <div class="popover" *ngIf="popoversVisible[1]">
-                <div class="popover-content">
-                  {{ "SEARCH_RESULT_CARGO.CUSTOMS_INFO" | translate }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="additional-service2">
-            <input type="checkbox" class="checkbox" 
-                formControlName="certification"/>
-            <div class="icon5">
-              <img class="vector-icon6" alt="" src="assets/images/file.png" />
-            </div>
-            <div class="insurance">
-              {{ "SEARCH_RESULT_CARGO.CERTIFICATION" | translate }}
-            </div>
-            <div
-              class="popup-container"
-              (click)="togglePopover($event, 2)"
-              (keydown)="onKeyMenuItem($event)"
-            >
-              <img class="icon4" src="assets/images/Popup-info.png" alt="" />
-              <div class="popover" *ngIf="popoversVisible[2]">
-                <div class="popover-content">
-                  {{ "SEARCH_RESULT_CARGO.CERTIFICATION_INFO" | translate }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="additional-service3">
-            <input type="checkbox" class="checkbox" 
-                formControlName="inspectionService"/>
-            <div class="icon5">
-              <img
-                class="vector-icon2"
-                alt=""
-                src="assets/images/service.png"
-              />
-            </div>
-            <div class="insurance">
-              {{ "SEARCH_RESULT_CARGO.INSPECTION" | translate }}
-            </div>
-            <div
-              class="popup-container"
-              (click)="togglePopover($event, 3)"
-              (keydown)="onKeyMenuItem($event)"
-            >
-              <img class="icon4" src="assets/images/Popup-info.png" alt="" />
-              <div class="popover" *ngIf="popoversVisible[3]">
-                <div class="popover-content">
-                  {{ "SEARCH_RESULT_CARGO.INSPECTION_INFO" | translate }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Order Summary -->
-    <div class="filters">
-      <div class="order-summary">
-        {{ "SEARCH_RESULT_CARGO.ORDER_SUMMARY" | translate }}
-      </div>
-      <div class="content">
-        <div class="detail">
-          <div class="id">ID</div>
-          <div class="div">{{ comparisons?.codeTransation }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.DEPARTURE" | translate }}
-          </div><div class="div">
-                {{ comparisons?.portFromName }},
-                {{ comparisons?.countryFromNameAbbreviation }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">{{ "SEARCH_RESULT_CARGO.ARRIVAL" | translate }}</div>
-          <div class="div">
-                {{ comparisons?.portToName}},
-                {{ comparisons?.countryToNameAbbreviation }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.TRANSPORT_MODE" | translate }}
-          </div>
-          <div class="trip-category">
             <div class="icon">
-              <img class="vector-icon9" alt="" src="assets/images/ship.png" />
+              <img class="vector-icon1" alt="" src="Vector.svg" />
             </div>
-            <div class="marine-shipping">
+          </div>
+          <div class="row">
+            <div class="input-field">
+              <div class="header2">
+                <div class="input-title">
+                  <div class="text-placeholder-1">
+                    {{ "SEARCH_RESULT_CARGO.PRODUCT" | translate }}
+                  </div>
+                  <div class="text-placeholder-2">
+                    {{ "SEARCH_RESULT_CARGO.HS_CODES" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field">
+                <div class="icon">
+                  <img class="vector-icon2" alt="" src="assets/images/found.png" />
+                </div>
+                <ng-select style="border: none; background-color: transparent," class="eg-casablanca-portma"
+                  [items]="commodities" bindLabel="displayName" bindValue="CODE" placeholder="--- Sélectionner ---"
+                  formControlName="commodityCode" [clearable]="false" [searchable]="true" required></ng-select>
+              </div>
+            </div>
+
+            <div class="input-field1">
+              <div class="weight-per-container">
+                {{ "SEARCH_RESULT_CARGO.WEIGHT_PER_CONTAINER" | translate }}
+              </div>
+              <div class="inputsmall">
+                <input type="number" class="eg-1" placeholder="e.g. 1" formControlName="weight" />
+                <div class="separator"></div>
+                <select class="type"  formControlName="weightType">
+                  <option class="mt" value="LBS">LBS</option>
+                  <option class="mt" value="KG">KG</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-field2">
+              <div class="header3">
+                <div class="input-title1">
+                  <div class="marine-shipping">
+                    {{ "SEARCH_RESULT_CARGO.ADDITIONAL_INFO" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-field1">
+                <textarea formControlName="infoDetail" class="eg-casablanca-portma" style="height: 130px; resize: none"
+                  placeholder="{{
+                  'SEARCH_RESULT_CARGO.EXPLAIN_PRODUCT' | translate
+                }}"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional services -->
+        <div class="cargo-details">
+          <div class="detail">
+            <div class="total-price">
+              {{ "SEARCH_RESULT_CARGO.ADDITIONAL_SERVICES" | translate }}
+            </div>
+            <div class="icon">
+              <img class="vector-icon1" alt="" src="Vector.svg" />
+            </div>
+          </div>
+
+          <div class="additional-service-parent">
+            <div class="additional-service">
+              <input type="checkbox" class="checkbox" formControlName="insurance" />
+              <div class="icon5">
+                <img class="vector-icon6" alt="" src="assets/images/inssurence.png" />
+              </div>
+              <div class="insurance">
+                {{ "SEARCH_RESULT_CARGO.INSURANCE" | translate }}
+              </div>
+              <div class="popup-container" (click)="togglePopover($event, 0)" (keydown)="onKeyMenuItem($event)">
+                <img class="icon4" src="assets/images/Popup-info.png" alt="" />
+                <div class="popover" *ngIf="popoversVisible[0]">
+                  <div class="popover-content">
+                    {{ "SEARCH_RESULT_CARGO.INSURANCE_INFO" | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="additional-service1">
+              <input type="checkbox" class="checkbox" formControlName="customsClearance" />
+              <div class="icon5">
+                <img class="vector-icon9" alt="" src="assets/images/customs.png" />
+              </div>
+              <div class="insurance">
+                {{ "SEARCH_RESULT_CARGO.CUSTOMS" | translate }}
+              </div>
+              <div class="popup-container" (click)="togglePopover($event, 1)" (keydown)="onKeyMenuItem($event)">
+                <img class="icon4" src="assets/images/Popup-info.png" alt="" />
+                <div class="popover" *ngIf="popoversVisible[1]">
+                  <div class="popover-content">
+                    {{ "SEARCH_RESULT_CARGO.CUSTOMS_INFO" | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="additional-service2">
+              <input type="checkbox" class="checkbox" formControlName="certification" />
+              <div class="icon5">
+                <img class="vector-icon6" alt="" src="assets/images/file.png" />
+              </div>
+              <div class="insurance">
+                {{ "SEARCH_RESULT_CARGO.CERTIFICATION" | translate }}
+              </div>
+              <div class="popup-container" (click)="togglePopover($event, 2)" (keydown)="onKeyMenuItem($event)">
+                <img class="icon4" src="assets/images/Popup-info.png" alt="" />
+                <div class="popover" *ngIf="popoversVisible[2]">
+                  <div class="popover-content">
+                    {{ "SEARCH_RESULT_CARGO.CERTIFICATION_INFO" | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="additional-service3">
+              <input type="checkbox" class="checkbox" formControlName="inspectionService" />
+              <div class="icon5">
+                <img class="vector-icon2" alt="" src="assets/images/service.png" />
+              </div>
+              <div class="insurance">
+                {{ "SEARCH_RESULT_CARGO.INSPECTION" | translate }}
+              </div>
+              <div class="popup-container" (click)="togglePopover($event, 3)" (keydown)="onKeyMenuItem($event)">
+                <img class="icon4" src="assets/images/Popup-info.png" alt="" />
+                <div class="popover" *ngIf="popoversVisible[3]">
+                  <div class="popover-content">
+                    {{ "SEARCH_RESULT_CARGO.INSPECTION_INFO" | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="filters">
+        <div class="order-summary">
+          {{ "SEARCH_RESULT_CARGO.ORDER_SUMMARY" | translate }}
+        </div>
+        <div class="content">
+          <div class="detail">
+            <div class="id">ID</div>
+            <div class="div">{{ comparisons?.codeTransation }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.DEPARTURE" | translate }}
+            </div>
+            <div class="div">
+              {{ comparisons?.portFromName }},
+              {{ comparisons?.countryFromNameAbbreviation }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">{{ "SEARCH_RESULT_CARGO.ARRIVAL" | translate }}</div>
+            <div class="div">
+              {{ comparisons?.portToName}},
+              {{ comparisons?.countryToNameAbbreviation }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.TRANSPORT_MODE" | translate }}
+            </div>
+            <div class="trip-category">
+              <div class="icon">
+                <img class="vector-icon9" alt="" src="assets/images/ship.png" />
+              </div>
+              <div class="marine-shipping">
+                {{ "SEARCH_RESULT_CARGO.MARINE_SHIPPING" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.SHIPPING_TYPE" | translate }}
+            </div>
+            <div class="trip-category1">
+              {{ comparisons?.transportationName }}
+            </div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.CONTAINER" | translate }}
+            </div>
+            <div class="marine-shipping">{{ comparisons?.containerName }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.READY_TO_LOAD" | translate }}
+            </div>
+            <div class="div">{{ comparisons?.dateDepart }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">
+              {{ "SEARCH_RESULT_CARGO.ARRIVAL_DATE" | translate }}
+            </div>
+            <div class="div">{{ comparisons?.dateArrive }}</div>
+          </div>
+          <div class="detail">
+            <div class="id">{{ "SEARCH_RESULT_CARGO.CARRIER" | translate }}</div>
+            <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comparisons?.companyLogo }}" />
+          </div>
+        </div>
+
+        <div class="separator1"></div>
+        <div class="price-details">
+          <div class="total-price">
+            {{ "SEARCH_RESULT_CARGO.PRICE_DETAILS" | translate }}
+          </div>
+          <div class="detail9">
+            <div class="id">
               {{ "SEARCH_RESULT_CARGO.MARINE_SHIPPING" | translate }}
             </div>
+            <div class="div">$ {{ comparisons?.price }}</div>
           </div>
         </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.SHIPPING_TYPE" | translate }}
-          </div>
-           <div class="trip-category1">
-            {{ comparisons?.transportationName }}
-          </div>
-        </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.CONTAINER" | translate }}
-          </div>
-          <div class="marine-shipping">{{ comparisons?.containerName }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.READY_TO_LOAD" | translate }}
-          </div>
-          <div class="div">{{ comparisons?.dateDepart }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.ARRIVAL_DATE" | translate }}
-          </div>
-          <div class="div">{{ comparisons?.dateArrive }}</div>
-        </div>
-        <div class="detail">
-          <div class="id">{{ "SEARCH_RESULT_CARGO.CARRIER" | translate }}</div>
-          <img class="shipping-partner-icon" alt="" src="assets/flag_companies/{{ comparisons?.companyLogo }}" />
-        </div>
-      </div>
 
-      <div class="separator1"></div>
-      <div class="price-details">
-        <div class="total-price">
-          {{ "SEARCH_RESULT_CARGO.PRICE_DETAILS" | translate }}
-        </div>
-        <div class="detail9">
-          <div class="id">
-            {{ "SEARCH_RESULT_CARGO.MARINE_SHIPPING" | translate }}
+        <div class="separator2"></div>
+        <div class="text-field-parent">
+          <div class="text-field2">
+            <div class="eg-casablanca-portma">
+              {{ "SEARCH_RESULT_CARGO.PROMOCODE" | translate }}
+            </div>
           </div>
-          <div class="div">$ {{ comparisons?.price }}</div>
-        </div>
-      </div>
-
-      <div class="separator2"></div>
-      <div class="text-field-parent">
-        <div class="text-field2">
-          <div class="eg-casablanca-portma">
-            {{ "SEARCH_RESULT_CARGO.PROMOCODE" | translate }}
+          <div class="button">
+            <div class="marine-shipping">
+              {{ "SEARCH_RESULT_CARGO.APPLY" | translate }}
+            </div>
           </div>
         </div>
-        <div class="button">
-          <div class="marine-shipping">
-            {{ "SEARCH_RESULT_CARGO.APPLY" | translate }}
+
+        <div class="separator3"></div>
+        <div class="detail10">
+          <div class="total-price">
+            {{ "SEARCH_RESULT_CARGO.TOTAL_PRICE" | translate }}
           </div>
+          <div class="div2">$ {{ comparisons?.price }}</div>
         </div>
-      </div>
 
-      <div class="separator3"></div>
-      <div class="detail10">
-        <div class="total-price">
-          {{ "SEARCH_RESULT_CARGO.TOTAL_PRICE" | translate }}
-        </div>
-        <div class="div2">$ {{ comparisons?.price }}</div>
-      </div>
-
-      <div class="button-parent">
-        <div class="button1" id="buttonContainer">
-          <a
-            style="
+        <div class="button-parent">
+          <div class="button1" id="buttonContainer">
+            <a style="
               color: blue;
               cursor: pointer;
               text-decoration: none;
               font-size: 15px;
-            "
-            routerLink="/trip-comp-details"
-            class="marine-shipping"
-          >
-            {{ "SEARCH_RESULT_CARGO.PREVIOUS" | translate }}
-          </a>
-        </div>
-        <div class="button2">
-          <a
-            style="
+            " routerLink="/trip-comp-details" class="marine-shipping">
+              {{ "SEARCH_RESULT_CARGO.PREVIOUS" | translate }}
+            </a>
+          </div>
+          <div class="button2">
+            <button style="
+              background-color: transparent;
+              border: none;
               color: white;
               cursor: pointer;
               text-decoration: none;
               font-size: 15px;
-            "
-            routerLink="/whishlist-booking"
-            class="marine-shipping"
-          >
-            {{ "SEARCH_RESULT_CARGO.BOOK_NOW" | translate }}
-          </a>
+            " class="text-placeholder-1">
+              {{ "SEARCH_RESULT_CARGO.BOOK_NOW" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="by-submitting-this-container">
+          <span>{{ "SEARCH_RESULT_CARGO.AGREE_PREFIX" | translate }}</span>
+          <span class="terms-conditions">{{
+            "SEARCH_RESULT_CARGO.TERMS_CONDITIONS" | translate
+            }}</span>
         </div>
       </div>
-
-      <div class="by-submitting-this-container">
-        <span>{{ "SEARCH_RESULT_CARGO.AGREE_PREFIX" | translate }}</span>
-        <span class="terms-conditions">{{
-          "SEARCH_RESULT_CARGO.TERMS_CONDITIONS" | translate
-        }}</span>
-      </div>
     </div>
-  </div>
+  </form>
 </div>

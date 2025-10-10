@@ -50,7 +50,7 @@ export class SearchSchedResult implements AfterViewInit, OnDestroy, OnInit {
   ngOnInit(): void {
 
     this.spinner.show();
-    this.filters = this.heroService.getForm() ?? {};
+    this.filters = this.heroService.getForm(1) ?? {};
     this.loadPage(this.currentPage);
   }
 

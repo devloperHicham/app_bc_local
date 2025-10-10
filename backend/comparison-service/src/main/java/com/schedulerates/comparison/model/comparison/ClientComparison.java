@@ -1,17 +1,19 @@
-package com.schedulerates.comparison.model.comparison.dto.response;
+package com.schedulerates.comparison.model.comparison;
 
+import com.schedulerates.comparison.model.common.BaseDomainModel;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
- * Represents a response object containing schedule details as
- * {@link ComparisonResponse}.
+ * Represents a domain model for a Comparison as {@link Comparison}.
  */
 @Getter
 @Setter
-@Builder
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComparisonResponse {
+public class ClientComparison extends BaseDomainModel {
 
     private String id;
 
@@ -51,4 +53,13 @@ public class ComparisonResponse {
     private Integer price;
     private Long codeTransation;
 
+    // Additional fields from ClientComparisonCreateRequest
+    private String commodityCode;
+    private Double weight;
+    private String weightType;
+    private String infoDetail;
+    private String insurance;
+    private Boolean customsClearance;
+    private Boolean certification;
+    private Boolean inspectionService;
 }

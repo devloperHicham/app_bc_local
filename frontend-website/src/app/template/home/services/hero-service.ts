@@ -1,31 +1,35 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { catchError, map, Observable, of } from "rxjs";
 import {
+  Commodity,
   Company,
   Container,
   Port,
   Transportation,
-} from '../../../modules/data-json';
-import { ConfigService } from '../../../services/config/config';
-import { ApiResponses } from '../../../modules/api-responses';
-import { Comparison } from '../modules/comparison';
+} from "../../../modules/data-json";
+import { ConfigService } from "../../../services/config/config";
+import { ApiResponses } from "../../../modules/api-responses";
+import { Comparison } from "../modules/comparison";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class HeroService {
-  private readonly jsonUrlPorts = 'assets/json/db_ports.json';
-  private readonly jsonUrlContainers = 'assets/json/db_containers.json';
-  private readonly jsonUrlCompanies = 'assets/json/db_companies.json';
+  private readonly jsonUrlPorts = "assets/json/db_ports.json";
+  private readonly jsonUrlContainers = "assets/json/db_containers.json";
+  private readonly jsonUrlCompanies = "assets/json/db_companies.json";
   private readonly jsonUrlTransportations =
-    'assets/json/db_transportations.json';
-  private readonly jsonUrlSchedules = 'assets/json/db_schedule.json';
-  private readonly jsonUrlComparisons = 'assets/json/db_comparison.json';
+    "assets/json/db_transportations.json";
+  private readonly jsonUrlSchedules = "assets/json/db_schedule.json";
+  private readonly jsonUrlComparisons = "assets/json/db_comparison.json";
+  private readonly jsonUrlCommodities = "assets/json/db_commodities.json";
   private readonly url_sched: string;
   private readonly url_comp: string;
   private readonly url_client: string;
+  private readonly url_comp_create: string;
   private formData: any = null;
+  private cargoFormData: any = null;
   private comp: Comparison | null = null;
   constructor(
     private readonly http: HttpClient,
@@ -33,6 +37,7 @@ export class HeroService {
   ) {
     this.url_sched = `${this.configService.URL_API}${this.configService.ENDPOINTS.schedules}/clients`;
     this.url_comp = `${this.configService.URL_API}${this.configService.ENDPOINTS.comparisons}/clients`;
+    this.url_comp_create = `${this.configService.URL_API}${this.configService.ENDPOINTS.comparisons}/clients/create-comp-clients`;
     this.url_client = `${this.configService.URL_API}${this.configService.ENDPOINTS.clients}`;
   }
 
@@ -49,16 +54,49 @@ export class HeroService {
     return this.http.get<Company[]>(this.jsonUrlCompanies);
   }
 
-  saveForm(data: any) {
-    this.formData = data;
+  getCommodities(): Observable<Commodity[]> {
+    return this.http.get<Commodity[]>(this.jsonUrlCommodities);
   }
 
-  getForm(): any {
-    return this.formData;
+  saveForm(data: any, check: number) {
+    if (check == 1) {
+      this.formData = data;
+      localStorage.setItem("formData", JSON.stringify(data)); // save to localStorage
+    } else {
+      this.cargoFormData = data;
+      localStorage.setItem("cargoFormData", JSON.stringify(data)); // save to localStorage
+    }
   }
 
-  clearForm() {
-    this.formData = null;
+  getForm(check: number) {
+    if (check == 2) {
+      if (!this.cargoFormData) {
+        const saved = localStorage.getItem("cargoFormData");
+        if (saved) {
+          this.cargoFormData = JSON.parse(saved); // restore from localStorage
+        }
+      }
+      return this.cargoFormData;
+    }
+    if (check == 1) {
+      if (!this.formData) {
+        const saved = localStorage.getItem("formData");
+        if (saved) {
+          this.formData = JSON.parse(saved); // restore from localStorage
+        }
+      }
+      return this.formData;
+    }
+  }
+
+  clearForm(check: number) {
+    if (check == 1) {
+      this.formData = null;
+      localStorage.removeItem("formData"); // remove from localStorage
+    } else {
+      this.cargoFormData = null;
+      localStorage.removeItem("cargoFormData"); // remove from localStorage
+    }
   }
 
   setComparison(comp: Comparison) {
@@ -80,7 +118,29 @@ export class HeroService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to favorite data');
+            throw new Error("Failed to favorite data");
+          }
+          return response;
+        }),
+        catchError((error) => {
+          return of({
+            isSuccess: false,
+          } as ApiResponses<void>);
+        })
+      );
+  }
+
+  create(data: FormData): Observable<ApiResponses<void>> {
+    return this.http
+      .post<ApiResponses<void>>(
+        this.url_comp_create,
+        data,
+        this.configService.httpOptionOnlyTokens
+      )
+      .pipe(
+        map((response) => {
+          if (!response.isSuccess) {
+            throw new Error("Failed to create data");
           }
           return response;
         }),
@@ -104,7 +164,7 @@ export class HeroService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to past data');
+            throw new Error("Failed to past data");
           }
           return response;
         }),
@@ -120,26 +180,22 @@ export class HeroService {
   getPaginatedDataSchedule(dtParams: any, filters: any): Observable<any> {
     const requestBody = {
       pagination: {
-          pageNumber: dtParams.start / dtParams.length + 1,
-          pageSize: dtParams.length,
-        },
-        isCheapest: filters?.isCheapest ?? null,
-        isDirect: filters?.isDirect ?? false,
-        isFastest: filters?.isFastest ?? false,
-        selectedPortFromSchedule: filters?.selectedPortFromSchedule ?? null,
-        selectedPortToSchedule: filters?.selectedPortToSchedule ?? null,
-        selectedCompany: filters?.selectedCompany ?? null,
-        searchOn: filters?.searchOn ?? null,
-        startDateSchedule: filters?.startDateSchedule ?? null,
-        endDateSchedule: filters?.endDateSchedule ?? null,
-        weeksAhead: filters?.weeksAhead ?? null
-      };
+        pageNumber: dtParams.start / dtParams.length + 1,
+        pageSize: dtParams.length,
+      },
+      isCheapest: filters?.isCheapest ?? null,
+      isDirect: filters?.isDirect ?? false,
+      isFastest: filters?.isFastest ?? false,
+      selectedPortFromSchedule: filters?.selectedPortFromSchedule ?? null,
+      selectedPortToSchedule: filters?.selectedPortToSchedule ?? null,
+      selectedCompany: filters?.selectedCompany ?? null,
+      searchOn: filters?.searchOn ?? null,
+      startDateSchedule: filters?.startDateSchedule ?? null,
+      endDateSchedule: filters?.endDateSchedule ?? null,
+      weeksAhead: filters?.weeksAhead ?? null,
+    };
     return this.http
-      .post<any>(
-        this.url_sched,
-        requestBody,
-        this.configService.httpOptions
-      )
+      .post<any>(this.url_sched, requestBody, this.configService.httpOptions)
       .pipe(
         map((response) => ({
           draw: dtParams.draw,
@@ -170,7 +226,7 @@ export class HeroService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to favorite data');
+            throw new Error("Failed to favorite data");
           }
           return response;
         }),
@@ -194,7 +250,7 @@ export class HeroService {
       .pipe(
         map((response) => {
           if (!response.isSuccess) {
-            throw new Error('Failed to past data');
+            throw new Error("Failed to past data");
           }
           return response;
         }),
@@ -212,48 +268,49 @@ export class HeroService {
     // Remove pageNumber and pageSize from top level, only keep them in pagination object
     const requestBody = {
       pagination: {
-          pageNumber: dtParams.start / dtParams.length + 1,
-          pageSize: dtParams.length,
-        },
-        isCheapest: filters?.isCheapest ?? null,
-        isDirect: filters?.isDirect ?? false,
-        isFastest: filters?.isFastest ?? false,
-        isIntervalMode: filters?.isIntervalMode ?? null,
-        selectedContainer: filters?.selectedContainer ?? null,
-        startDateComparison: filters?.startDateComparison ?? null,
-        endDateComparison: filters?.endDateComparison ?? null,
-        selectedPortFromComparison: filters?.selectedPortFromComparison ?? null,
-        selectedPortToComparison: filters?.selectedPortToComparison ?? null,
-        selectedTransportation: filters?.selectedTransportation ?? null
-      };
-
-    return this.http.post<any>(this.url_comp, requestBody, this.configService.httpOptions)
+        pageNumber: dtParams.start / dtParams.length + 1,
+        pageSize: dtParams.length,
+      },
+      isCheapest: filters?.isCheapest ?? null,
+      isDirect: filters?.isDirect ?? false,
+      isFastest: filters?.isFastest ?? false,
+      isIntervalMode: filters?.isIntervalMode ?? null,
+      selectedContainer: filters?.selectedContainer ?? null,
+      startDateComparison: filters?.startDateComparison ?? null,
+      endDateComparison: filters?.endDateComparison ?? null,
+      selectedPortFromComparison: filters?.selectedPortFromComparison ?? null,
+      selectedPortToComparison: filters?.selectedPortToComparison ?? null,
+      selectedTransportation: filters?.selectedTransportation ?? null,
+    };
+    return this.http
+      .post<any>(this.url_comp, requestBody, this.configService.httpOptions)
       .pipe(
         map((response) => {
           // Adjust this mapping based on your actual response structure
           const customResponse = response;
-          
           return {
             draw: dtParams.draw,
             recordsTotal: customResponse.response.totalElementCount,
             recordsFiltered: customResponse.response.totalElementCount,
             data: customResponse.response.content,
-            totalPages: Math.ceil(customResponse.response.totalElementCount / dtParams.length),
-            currentPage: customResponse.response.pageNumber
+            totalPages: Math.ceil(
+              customResponse.response.totalElementCount / dtParams.length
+            ),
+            currentPage: customResponse.response.pageNumber,
           };
         }),
         catchError((error) => {
-          console.error('API Error:', error);
-          console.error('Error details:', error.error);
+          console.error("API Error:", error);
+          console.error("Error details:", error.error);
           return of({
             draw: dtParams.draw,
             recordsTotal: 0,
             recordsFiltered: 0,
             data: [],
             totalPages: 0,
-            currentPage: 1
+            currentPage: 1,
           });
         })
       );
   }
-  }
+}

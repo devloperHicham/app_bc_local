@@ -75,7 +75,7 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
     });
     // Listen for navigation events
     this.spinner.show();
-    this.filters = this.heroService.getForm() ?? {};
+    this.filters = this.heroService.getForm(1) ?? {};
     this.loadPage(this.currentPage);
   }
 
@@ -166,6 +166,7 @@ export class SearchCompResult implements OnInit, AfterViewInit, OnDestroy {
   }
   //this for book and pass date to detail page
   bookNow(comp: Comparison): void {
+    this.heroService.clearForm(2); // Clear cargo form data
     this.heroService.setComparison(comp);
     this.router.navigate(['/trip-comp-details']);
   }
